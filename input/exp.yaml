@@ -1,0 +1,134 @@
+expname: alpha
+parameters:
+    - paramObj: Interface
+      attributes:
+        - attrbname: '*'
+          attrbvalue: ""
+      param: delay
+      value: "1e-6"
+    - paramObj: Interface
+      attributes:
+        - attrbname: '*'
+          attrbvalue: ""
+      param: latency
+      value: "1e-5"
+    - paramObj: Network
+      attributes:
+        - attrbname: '*'
+          attrbvalue: ""
+      param: latency
+      value: "1e-4"
+    - paramObj: Network
+      attributes:
+        - attrbname: '*'
+          attrbvalue: ""
+      param: bandwidth
+      value: "1000"
+    - paramObj: Network
+      attributes:
+        - attrbname: '*'
+          attrbvalue: ""
+      param: bandwidth
+      value: "1000"
+    - paramObj: Interface
+      attributes:
+        - attrbname: '*'
+          attrbvalue: ""
+      param: bandwidth
+      value: "100"
+    - paramObj: Interface
+      attributes:
+        - attrbname: '*'
+          attrbvalue: ""
+      param: MTU
+      value: "1500"
+    - paramObj: Endpt
+      attributes:
+        - attrbname: '*'
+          attrbvalue: ""
+      param: CPU
+      value: i5
+    - paramObj: Endpt
+      attributes:
+        - attrbname: '*'
+          attrbvalue: ""
+      param: trace
+      value: "true"
+    - paramObj: Switch
+      attributes:
+        - attrbname: '*'
+          attrbvalue: ""
+      param: model
+      value: FS_S3900-48T6S-R
+    - paramObj: Switch
+      attributes:
+        - attrbname: '*'
+          attrbvalue: ""
+      param: trace
+      value: "true"
+    - paramObj: Router
+      attributes:
+        - attrbname: '*'
+          attrbvalue: ""
+      param: trace
+      value: "true"
+    - paramObj: Filter
+      attributes:
+        - attrbname: '*'
+          attrbvalue: ""
+      param: trace
+      value: "true"
+    - paramObj: Interface
+      attributes:
+        - attrbname: device
+          attrbvalue: pcktsrc
+      param: bandwidth
+      value: "0.01"
+    - paramObj: Interface
+      attributes:
+        - attrbname: device
+          attrbvalue: pcktsrc
+      param: bandwidth
+      value: "0.01"
+    - paramObj: Interface
+      attributes:
+        - attrbname: device
+          attrbvalue: pcktsrc
+      param: bandwidth
+      value: "0.01"
+    - paramObj: Interface
+      attributes:
+        - attrbname: device
+          attrbvalue: pcktsrc
+      param: bandwidth
+      value: "0.01"
+    - paramObj: Interface
+      attributes:
+        - attrbname: device
+          attrbvalue: pcktsrc
+      param: bandwidth
+      value: "0.01"
+    - paramObj: Interface
+      attributes:
+        - attrbname: device
+          attrbvalue: pcktsrc
+      param: bandwidth
+      value: "0.01"
+    - paramObj: Interface
+      attributes:
+        - attrbname: device
+          attrbvalue: pcktsrc
+      param: bandwidth
+      value: "0.01"
+    - paramObj: Router
+      attributes:
+        - attrbname: '*'
+          attrbvalue: ""
+      param: model
+      value: Juniper_MX_240
+    - paramObj: Switch
+      attributes:
+        - attrbname: '*'
+          attrbvalue: ""
+      param: model
+      value: FS_N8560-32C

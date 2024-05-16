@@ -1,0 +1,8 @@
+-outputLib ../input
+-cp cp.yaml
+-cpInit cpInit.yaml
+-funcExec funcExec.yaml
+-devExec devExec.yaml
+-map map.yaml
+-exp exp.yaml
+-topo topo.yaml

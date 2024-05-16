@@ -1,0 +1,275 @@
+inuse: true
+expname: experiment
+namebyid:
+    1:
+        name: pubRtr
+        type: router
+    2:
+        name: pvtRtr
+        type: router
+    3:
+        name: pubSwitch
+        type: switch
+    4:
+        name: pvtSwitch
+        type: switch
+    5:
+        name: eudDev
+        type: endpt
+    6:
+        name: pcktsrc
+        type: endpt
+    7:
+        name: ssl
+        type: filter
+    8:
+        name: public
+        type: network
+    9:
+        name: private
+        type: network
+    10:
+        name: intrfc@pubRtr[.6]
+        type: interface
+    11:
+        name: intrfc@pubRtr[.9]
+        type: interface
+    12:
+        name: intrfc@pvtRtr[.2]
+        type: interface
+    13:
+        name: intrfc@pvtRtr[.5]
+        type: interface
+    14:
+        name: intrfc@ssl[.4]
+        type: interface
+    15:
+        name: intrfc@ssl[.7]
+        type: interface
+    16:
+        name: intrfc@eudDev[.10]
+        type: interface
+    17:
+        name: intrfc@pcktsrc[.0]
+        type: interface
+    18:
+        name: intrfc@pubSwitch[.8]
+        type: interface
+    19:
+        name: intrfc@pubSwitch[.11]
+        type: interface
+    20:
+        name: intrfc@pvtSwitch[.1]
+        type: interface
+    21:
+        name: intrfc@pvtSwitch[.3]
+        type: interface
+    23:
+        name: encryptPerf:src
+        type: application
+    24:
+        name: encryptPerf:crypto
+        type: application
+    25:
+        name: encryptPerf:process
+        type: application
+traces:
+    1:
+        - time: 2.45793
+          ticks: 2457930
+          priority: 0
+          execid: 1
+          connectid: 0
+          objid: 23
+          op: enter
+          packet: true
+          rate: 0
+        - time: 2.47043
+          ticks: 2470430
+          priority: 0
+          execid: 1
+          connectid: 0
+          objid: 23
+          op: exit
+          packet: true
+          rate: 0
+        - time: 2.470562
+          ticks: 2470562
+          priority: 0
+          execid: 1
+          connectid: 1
+          objid: 4
+          op: enter
+          packet: true
+          rate: 100
+        - time: 2.470584
+          ticks: 2470584
+          priority: 0
+          execid: 1
+          connectid: 1
+          objid: 2
+          op: enter
+          packet: true
+          rate: 100
+        - time: 2.470596
+          ticks: 2470596
+          priority: 0
+          execid: 1
+          connectid: 1
+          objid: 7
+          op: enter
+          packet: true
+          rate: 100
+        - time: 2.470596
+          ticks: 2470596
+          priority: 0
+          execid: 1
+          connectid: 0
+          objid: 24
+          op: enter
+          packet: true
+          rate: 0
+        - time: 2.471156
+          ticks: 2471156
+          priority: 0
+          execid: 1
+          connectid: 0
+          objid: 24
+          op: exit
+          packet: true
+          rate: 0
+        - time: 2.471288
+          ticks: 2471288
+          priority: 0
+          execid: 1
+          connectid: 2
+          objid: 1
+          op: enter
+          packet: true
+          rate: 100
+        - time: 2.4713
+          ticks: 2471300
+          priority: 0
+          execid: 1
+          connectid: 2
+          objid: 3
+          op: enter
+          packet: true
+          rate: 100
+        - time: 2.471312
+          ticks: 2471312
+          priority: 0
+          execid: 1
+          connectid: 2
+          objid: 5
+          op: enter
+          packet: true
+          rate: 100
+        - time: 2.471312
+          ticks: 2471312
+          priority: 0
+          execid: 1
+          connectid: 0
+          objid: 25
+          op: enter
+          packet: true
+          rate: 0
+        - time: 2.526724
+          ticks: 2526724
+          priority: 0
+          execid: 1
+          connectid: 0
+          objid: 25
+          op: exit
+          packet: true
+          rate: 0
+        - time: 2.526856
+          ticks: 2526856
+          priority: 0
+          execid: 1
+          connectid: 3
+          objid: 3
+          op: enter
+          packet: true
+          rate: 100
+        - time: 2.526868
+          ticks: 2526868
+          priority: 0
+          execid: 1
+          connectid: 3
+          objid: 1
+          op: enter
+          packet: true
+          rate: 100
+        - time: 2.52688
+          ticks: 2526880
+          priority: 0
+          execid: 1
+          connectid: 3
+          objid: 7
+          op: enter
+          packet: true
+          rate: 100
+        - time: 2.52688
+          ticks: 2526880
+          priority: 0
+          execid: 1
+          connectid: 0
+          objid: 24
+          op: enter
+          packet: true
+          rate: 0
+        - time: 2.530201
+          ticks: 2530201
+          priority: 0
+          execid: 1
+          connectid: 0
+          objid: 24
+          op: exit
+          packet: true
+          rate: 0
+        - time: 2.530333
+          ticks: 2530333
+          priority: 0
+          execid: 1
+          connectid: 4
+          objid: 2
+          op: enter
+          packet: true
+          rate: 100
+        - time: 2.530345
+          ticks: 2530345
+          priority: 0
+          execid: 1
+          connectid: 4
+          objid: 4
+          op: enter
+          packet: true
+          rate: 100
+        - time: 2.530367
+          ticks: 2530367
+          priority: 0
+          execid: 1
+          connectid: 4
+          objid: 6
+          op: enter
+          packet: true
+          rate: 100
+        - time: 2.530367
+          ticks: 2530367
+          priority: 0
+          execid: 1
+          connectid: 0
+          objid: 23
+          op: enter
+          packet: true
+          rate: 0
+        - time: 2.530367
+          ticks: 2530367
+          priority: 0
+          execid: 1
+          connectid: 0
+          objid: 23
+          op: exit
+          packet: true
+          rate: 0

@@ -1,0 +1,13 @@
+dictname: Maps
+map:
+    encryptPerf:
+        patternname: encryptPerf
+        funcmap:
+            crypto: ssl
+            process: eudDev
+            src: pcktsrc
+    pubTraffic:
+        patternname: pubTraffic
+        funcmap:
+            flowSink: flowSinkDev
+            flowSrc: flowSrcDev

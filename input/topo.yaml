@@ -1,0 +1,175 @@
+name: Protected
+networks:
+    - name: public
+      groups: []
+      netscale: LAN
+      mediatype: wired
+      endpts:
+        - eudDev
+      routers:
+        - pubRtr
+      filters:
+        - ssl
+      switches:
+        - pubSwitch
+    - name: private
+      groups: []
+      netscale: LAN
+      mediatype: wired
+      endpts:
+        - pcktsrc
+      routers:
+        - pvtRtr
+      filters:
+        - ssl
+      switches:
+        - pvtSwitch
+routers:
+    - name: pubRtr
+      groups: []
+      model: cisco
+      interfaces:
+        - name: intrfc@pubRtr[.6]
+          groups: []
+          devtype: Router
+          mediatype: wired
+          device: pubRtr
+          cable: intrfc@ssl[.7]
+          carry: ""
+          wireless: []
+          faces: public
+        - name: intrfc@pubRtr[.9]
+          groups: []
+          devtype: Router
+          mediatype: wired
+          device: pubRtr
+          cable: intrfc@pubSwitch[.8]
+          carry: ""
+          wireless: []
+          faces: public
+    - name: pvtRtr
+      groups: []
+      model: cisco
+      interfaces:
+        - name: intrfc@pvtRtr[.2]
+          groups: []
+          devtype: Router
+          mediatype: wired
+          device: pvtRtr
+          cable: intrfc@pvtSwitch[.3]
+          carry: ""
+          wireless: []
+          faces: private
+        - name: intrfc@pvtRtr[.5]
+          groups: []
+          devtype: Router
+          mediatype: wired
+          device: pvtRtr
+          cable: intrfc@ssl[.4]
+          carry: ""
+          wireless: []
+          faces: private
+endpts:
+    - name: eudDev
+      groups: []
+      model: i3
+      cpu: ""
+      eud: true
+      cores: 1
+      interfaces:
+        - name: intrfc@eudDev[.10]
+          groups: []
+          devtype: Endpt
+          mediatype: wired
+          device: eudDev
+          cable: intrfc@pubSwitch[.11]
+          carry: ""
+          wireless: []
+          faces: public
+    - name: pcktsrc
+      groups: []
+      model: i3
+      cpu: ""
+      eud: true
+      cores: 1
+      interfaces:
+        - name: intrfc@pcktsrc[.0]
+          groups: []
+          devtype: Endpt
+          mediatype: wired
+          device: pcktsrc
+          cable: intrfc@pvtSwitch[.1]
+          carry: ""
+          wireless: []
+          faces: private
+switches:
+    - name: pubSwitch
+      groups: []
+      model: cisco
+      interfaces:
+        - name: intrfc@pubSwitch[.8]
+          groups: []
+          devtype: Switch
+          mediatype: wired
+          device: pubSwitch
+          cable: intrfc@pubRtr[.9]
+          carry: ""
+          wireless: []
+          faces: public
+        - name: intrfc@pubSwitch[.11]
+          groups: []
+          devtype: Switch
+          mediatype: wired
+          device: pubSwitch
+          cable: intrfc@eudDev[.10]
+          carry: ""
+          wireless: []
+          faces: public
+    - name: pvtSwitch
+      groups: []
+      model: cisco
+      interfaces:
+        - name: intrfc@pvtSwitch[.1]
+          groups: []
+          devtype: Switch
+          mediatype: wired
+          device: pvtSwitch
+          cable: intrfc@pcktsrc[.0]
+          carry: ""
+          wireless: []
+          faces: private
+        - name: intrfc@pvtSwitch[.3]
+          groups: []
+          devtype: Switch
+          mediatype: wired
+          device: pvtSwitch
+          cable: intrfc@pvtRtr[.2]
+          carry: ""
+          wireless: []
+          faces: private
+filters:
+    - name: ssl
+      groups: []
+      cpu: ""
+      model: ""
+      filtertype: Filter
+      network: ""
+      interfaces:
+        - name: intrfc@ssl[.4]
+          groups: []
+          devtype: Filter
+          mediatype: wired
+          device: ssl
+          cable: intrfc@pvtRtr[.5]
+          carry: ""
+          wireless: []
+          faces: private
+        - name: intrfc@ssl[.7]
+          groups: []
+          devtype: Filter
+          mediatype: wired
+          device: ssl
+          cable: intrfc@pubRtr[.6]
+          carry: ""
+          wireless: []
+          faces: public

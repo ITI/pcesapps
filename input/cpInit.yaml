@@ -1,0 +1,90 @@
+prebuilt: true
+dictname: alpha
+initlist:
+    encryptPerf:
+        name: encryptPerf
+        cptype: encryptPerf
+        useyaml: true
+        params:
+            crypto: |
+                patternname: encryptPerf
+                label: crypto
+                gblname: encryptPerf+crypto
+                state: |
+                    classname: CryptoSrvr
+                    capacity: 100
+                    algorithm: rsa-3072
+                    hardware: ""
+                response:
+                    - inedge:
+                        srclabel: src
+                        msgtype: plaintext_out
+                      outedge:
+                        msgtype: encrypted_out
+                        dstlabel: process
+                      methodcode: encrypt-op
+                      choice: process
+                    - inedge:
+                        srclabel: process
+                        msgtype: encrypted_rtn
+                      outedge:
+                        msgtype: plaintext_rtn
+                        dstlabel: src
+                      methodcode: decrypt-op
+                      choice: ""
+            process: |
+                patternname: encryptPerf
+                label: process
+                gblname: EncryptPerf+process
+                state: |
+                    classname: PcktProcess
+                    algorithm: rsa-3072
+                response:
+                    - inedge:
+                        srclabel: crypto
+                        msgtype: encrypted_out
+                      outedge:
+                        msgtype: encrypted_rtn
+                        dstlabel: crypto
+                      methodcode: process-op
+                      choice: ""
+            src: |
+                patternname: encryptPerf
+                label: src
+                gblname: encryptPerf+src
+                state: |
+                    classname: GenPckt
+                    interarrivaldist: exp
+                    interarrivalmean: 2
+                    initmsgtype: data
+                    initmsglen: 1500
+                    initpcktlen: 250
+                    initiationlimit: 1
+                    calls: 0
+                response:
+                    - inedge:
+                        srclabel: src
+                        msgtype: initiate
+                      outedge:
+                        msgtype: plaintext_out
+                        dstlabel: crypto
+                      methodcode: initiate-op
+                      choice: ""
+                    - inedge:
+                        srclabel: crypto
+                        msgtype: plaintext_rtn
+                      outedge:
+                        msgtype: ""
+                        dstlabel: ""
+                      methodcode: return-op
+                      choice: ""
+        state: {}
+        msgs:
+            - msgtype: initiate
+              ispckt: true
+              pcktlen: 256
+              msglen: 1500
+            - msgtype: data
+              ispckt: true
+              pcktlen: 256
+              msglen: 1500

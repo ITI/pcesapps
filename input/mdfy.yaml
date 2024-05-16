@@ -1,0 +1,86 @@
+expname: update
+parameters:
+    - paramObj: Endpt
+      attributes:
+        - attrbname: name
+          attrbvalue: pcktsrc
+      param: CPU
+      value: x86
+    - paramObj: Interface
+      attributes:
+        - attrbname: device
+          attrbvalue: pcktsrc
+      param: bandwidth
+      value: "1E+03"
+    - paramObj: Endpt
+      attributes:
+        - attrbname: name
+          attrbvalue: eudDev
+      param: CPU
+      value: x86
+    - paramObj: Interface
+      attributes:
+        - attrbname: device
+          attrbvalue: eudDev
+      param: bandwidth
+      value: "1E+02"
+    - paramObj: Filter
+      attributes:
+        - attrbname: name
+          attrbvalue: ssl
+      param: CPU
+      value: i7
+    - paramObj: Interface
+      attributes:
+        - attrbname: device
+          attrbvalue: ssl
+      param: bandwidth
+      value: "1E+04"
+    - paramObj: Switch
+      attributes:
+        - attrbname: name
+          attrbvalue: pvtSwitch
+      param: model
+      value: FS_S3900-48T6S-R
+    - paramObj: Interface
+      attributes:
+        - attrbname: device
+          attrbvalue: pvtSwitch
+      param: bandwidth
+      value: "1E+03"
+    - paramObj: Switch
+      attributes:
+        - attrbname: name
+          attrbvalue: pubSwitch
+      param: model
+      value: FS_N8560-32C
+    - paramObj: Interface
+      attributes:
+        - attrbname: device
+          attrbvalue: pubSwitch
+      param: bandwidth
+      value: "1E+02"
+    - paramObj: Router
+      attributes:
+        - attrbname: name
+          attrbvalue: pvtRtr
+      param: model
+      value: Cisco_Catalyst_8200
+    - paramObj: Interface
+      attributes:
+        - attrbname: device
+          attrbvalue: pvtRtr
+      param: bandwidth
+      value: "1E+02"
+    - paramObj: Router
+      attributes:
+        - attrbname: name
+          attrbvalue: pubRtr
+      param: model
+      value: Cisco_Catalyst_8200
+    - paramObj: Interface
+      attributes:
+        - attrbname: device
+          attrbvalue: pubRtr
+      param: bandwidth
+      value: "1E+02"
