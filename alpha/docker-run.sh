@@ -7,11 +7,12 @@
 #
 # Ussing grphics in Docker is somewhat fiddly. the following command works for me.
 
-TAG=ghcr.io/illinoisrobert/mrnesbitsapps-alpha
+TAG=ghcr.io/iti/mrnesbitsapps-alpha
 
 docker run -it --rm  \
 	--env DISPLAY=$DISPLAY \
-	-v /tmp/.X11-unix:/tmp/.X11-unix -v $HOME/.Xauthority:/root/.Xauthority:ro \
+	-v /tmp/.X11-unix:/tmp/.X11-unix \
+	-v ${XAUTHORITY:-$HOME/.Xauthority}:/root/.Xauthority:ro \
 	--net=host \
 	$TAG
 
