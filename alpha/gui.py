@@ -1,4 +1,4 @@
-#!/bin/python3
+#!/usr/bin/env python3
 
 # script that uses tkinter library to create a GUI for the MrNesbits
 # simulation running (only) on the alpha version demo architecture.

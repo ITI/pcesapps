@@ -1,4 +1,4 @@
-#!/bin/python
+#!/usr/bin/env python3
 
 # setup.py takes on the command line descriptions of variables in the 
 # alpha-case architecture for BITs.  From these arguments it creates
