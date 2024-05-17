@@ -7,7 +7,7 @@
 #
 # Ussing grphics in Docker is somewhat fiddly. the following command works for me.
 
-TAG=ghcr.io/illinoisrobert/mrnesbitsapps-alpha:v0.2
+TAG=ghcr.io/illinoisrobert/mrnesbitsapps-alpha
 
 docker run -it --rm  \
 	--env DISPLAY=$DISPLAY \
