@@ -1,0 +1,1 @@
+This repo holds applications (each in its own module 'main') that use repos related to the MrNesbits simulation project.  The idea is that one can clone this repo, descend into one of the application subdirectories, run programs that build the application's architecture and operating context, then build and run the application code.
