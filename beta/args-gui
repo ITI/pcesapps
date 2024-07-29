@@ -1,0 +1,6 @@
+-working working
+-db db
+-arch input
+-devDesc devDesc.yaml
+-cryptoDesc cryptoDesc.yaml
+-passthru xtra.txt

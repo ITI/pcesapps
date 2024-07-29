@@ -1,0 +1,5 @@
+device, operation, execution time (musec)
+ACME-Generic-Slow-Router,route,10
+ACME-Generic-Fast-Router,route,2.5
+ACME-Generic-Slow-Switch,switch,1
+ACME-Generic-Fast-Switch,switch,0.25

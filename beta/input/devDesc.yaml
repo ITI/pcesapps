@@ -1,0 +1,156 @@
+name: beta
+DescMap:
+    ACME-Generic-Fast-Router:
+        devtype:
+            - router
+        manufacturer: ACME
+        model: Generic-Fast-Router
+        cores: 1
+        freq: 4
+        cache: 128
+    ACME-Generic-Fast-Switch:
+        devtype:
+            - switch
+        manufacturer: ACME
+        model: Generic-Fast-Switch
+        cores: 1
+        freq: 4
+        cache: 128
+    ACME-Generic-Slow-Router:
+        devtype:
+            - router
+        manufacturer: ACME
+        model: Generic-Slow-Router
+        cores: 1
+        freq: 1
+        cache: 128
+    ACME-Generic-Slow-Switch:
+        devtype:
+            - switch
+        manufacturer: ACME
+        model: Generic-Slow-Switch
+        cores: 1
+        freq: 1
+        cache: 128
+    ARM-ARM-Cortex:
+        devtype:
+            - server
+            - host
+        manufacturer: ARM
+        model: ARM-Cortex
+        cores: 8
+        freq: 4
+        cache: 30
+    ARM-Denver-2:
+        devtype:
+            - server
+            - host
+        manufacturer: ARM
+        model: Denver-2
+        cores: 0
+        freq: 0
+        cache: 0
+    Intel-Xeon-w-1350P:
+        devtype:
+            - ssl
+        manufacturer: Intel
+        model: Xeon-w-1350P
+        cores: 12
+        freq: 4
+        cache: 12
+    Intel-Xeon-w-1370P:
+        devtype:
+            - ssl
+        manufacturer: Intel
+        model: Xeon-w-1370P
+        cores: 16
+        freq: 3.6
+        cache: 16
+    Intel-Xeon-w-1390P:
+        devtype:
+            - ssl
+        manufacturer: Intel
+        model: Xeon-w-1390P
+        cores: 16
+        freq: 5.2
+        cache: 16
+    Intel-i3-4130:
+        devtype:
+            - eud
+        manufacturer: Intel
+        model: i3-4130
+        cores: 2
+        freq: 3.4
+        cache: 3
+    Intel-i7-1185G7E:
+        devtype:
+            - server
+            - host
+        manufacturer: Intel
+        model: i7-1185G7E
+        cores: 4
+        freq: 4.4
+        cache: 12
+    Intel-i7-1360P:
+        devtype:
+            - server
+            - host
+        manufacturer: Intel
+        model: i7-1360P
+        cores: 12
+        freq: 5
+        cache: 18
+    Intel-i7-6700:
+        devtype:
+            - server
+            - host
+        manufacturer: Intel
+        model: i7-6700
+        cores: 4
+        freq: 4
+        cache: 8
+    Intel-i7-7600U:
+        devtype:
+            - server
+            - host
+        manufacturer: Intel
+        model: i7-7600U
+        cores: 2
+        freq: 3.9
+        cache: 8
+    Intel-i7-7700:
+        devtype:
+            - server
+            - host
+        manufacturer: Intel
+        model: i7-7700
+        cores: 4
+        freq: 4.2
+        cache: 8
+    Intel-i7-11850HE:
+        devtype:
+            - server
+            - host
+        manufacturer: Intel
+        model: i7-11850HE
+        cores: 8
+        freq: 4.7
+        cache: 24
+    Intel-i7-14650HX:
+        devtype:
+            - server
+            - host
+        manufacturer: Intel
+        model: i7-14650HX
+        cores: 16
+        freq: 5.2
+        cache: 30
+    Intel-i7-14700HX:
+        devtype:
+            - server
+            - host
+        manufacturer: Intel
+        model: i7-14700HX
+        cores: 20
+        freq: 5.5
+        cache: 33

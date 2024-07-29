@@ -1,0 +1,21 @@
+algs:
+    - name: 3des
+      keylen:
+        - 256
+        - 512
+        - 1024
+    - name: aes
+      keylen:
+        - 256
+        - 512
+        - 1024
+    - name: des
+      keylen:
+        - 256
+        - 512
+        - 1024
+    - name: rc6
+      keylen:
+        - 256
+        - 512
+        - 1024

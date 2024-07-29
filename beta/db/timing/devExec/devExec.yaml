@@ -1,0 +1,16 @@
+listname: devExec
+times:
+    route:
+        - devop: route
+          model: ACME-Generic-Slow-Router
+          exectime: 1e-05
+        - devop: route
+          model: ACME-Generic-Fast-Router
+          exectime: 2.5e-06
+    switch:
+        - devop: switch
+          model: ACME-Generic-Slow-Switch
+          exectime: 1e-06
+        - devop: switch
+          model: ACME-Generic-Fast-Switch
+          exectime: 2.5e-07

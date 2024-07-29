@@ -1,0 +1,20 @@
+﻿devType,manufacturer,model,cores,CPU Freq,cache,crypto,HP
+server:host,Intel,i7-14650HX,16,5.2,30,no,yes
+server:host,Intel,i7-14700HX,20,5.5,33,no,yes
+server:host,Intel,i7-1360P,12,5,18,no,yes
+server:host,Intel,i7-11850HE,8,4.7,24,no,yes
+server:host,Intel,i7-1185G7E,4,4.4,12,no,yes
+server:host,Intel,i7-7700,4,4.2,8,no,yes
+server:host,Intel,i7-7600U,2,3.9,8,no,yes
+server:host,Intel,i7-6700,4,4,8,no,yes
+server:host,ARM,Denver-2, 2, 4, 30, no, yes
+server:host,ARM,ARM-Cortex,6,4,30,no,yes
+server:host,ARM,ARM-Cortex,8,4,30,no,yes
+ssl,Intel,Xeon-w-1350P,12,4,12,yes,yes
+ssl,Intel,Xeon-w-1370P,16,3.6,16,yes,yes
+ssl,Intel,Xeon-w-1390P,16,5.2,16,yes,yes
+eud,Intel,i3-4130,2,3.4,3,no,no
+switch,ACME,Generic-Fast-Switch,1,4,128,no,no
+switch,ACME,Generic-Slow-Switch,1,1,128,no,no
+router,ACME,Generic-Fast-Router,1,4,128,no,no
+router,ACME,Generic-Slow-Router,1,1,128,no,no

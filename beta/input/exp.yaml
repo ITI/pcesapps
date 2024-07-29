@@ -1,0 +1,110 @@
+expname: beta
+parameters:
+    - paramObj: Interface
+      attributes:
+        - attrbname: '*'
+          attrbvalue: ""
+      param: delay
+      value: "1e-6"
+    - paramObj: Interface
+      attributes:
+        - attrbname: '*'
+          attrbvalue: ""
+      param: latency
+      value: "1e-6"
+    - paramObj: Network
+      attributes:
+        - attrbname: '*'
+          attrbvalue: ""
+      param: latency
+      value: "1e-4"
+    - paramObj: Network
+      attributes:
+        - attrbname: '*'
+          attrbvalue: ""
+      param: bandwidth
+      value: "10"
+    - paramObj: Interface
+      attributes:
+        - attrbname: '*'
+          attrbvalue: ""
+      param: bandwidth
+      value: "10"
+    - paramObj: Interface
+      attributes:
+        - attrbname: '*'
+          attrbvalue: ""
+      param: MTU
+      value: "1500"
+    - paramObj: Endpt
+      attributes:
+        - attrbname: '*'
+          attrbvalue: ""
+      param: trace
+      value: "true"
+    - paramObj: Switch
+      attributes:
+        - attrbname: '*'
+          attrbvalue: ""
+      param: trace
+      value: "false"
+    - paramObj: Router
+      attributes:
+        - attrbname: '*'
+          attrbvalue: ""
+      param: trace
+      value: "true"
+    - paramObj: Interface
+      attributes:
+        - attrbname: '*'
+          attrbvalue: ""
+      param: trace
+      value: "false"
+    - paramObj: Switch
+      attributes:
+        - attrbname: name
+          attrbvalue: pvtSwitch
+      param: trace
+      value: "true"
+    - paramObj: Switch
+      attributes:
+        - attrbname: name
+          attrbvalue: eudSwitch-0
+      param: trace
+      value: "true"
+    - paramObj: Interface
+      attributes:
+        - attrbname: device
+          attrbvalue: pcktsrc
+      param: bandwidth
+      value: "10"
+    - paramObj: Interface
+      attributes:
+        - attrbname: device
+          attrbvalue: pcktsrc
+      param: bandwidth
+      value: "10"
+    - paramObj: Interface
+      attributes:
+        - attrbname: device
+          attrbvalue: pcktsrc
+      param: bandwidth
+      value: "10"
+    - paramObj: Interface
+      attributes:
+        - attrbname: device
+          attrbvalue: pcktsrc
+      param: bandwidth
+      value: "10"
+    - paramObj: Interface
+      attributes:
+        - attrbname: device
+          attrbvalue: pcktsrc
+      param: bandwidth
+      value: "10"
+    - paramObj: Interface
+      attributes:
+        - attrbname: device
+          attrbvalue: pcktsrc
+      param: bandwidth
+      value: "10"

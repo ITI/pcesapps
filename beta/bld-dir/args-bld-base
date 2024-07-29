@@ -1,0 +1,12 @@
+-outputLib ../input
+-db ../db
+-cp cp.yaml
+-cpInit cpInit.yaml
+-funcExec funcExec.yaml
+-devExec devExec.yaml
+-devDesc devDesc.yaml
+-srdState srdState.yaml
+-map map.yaml
+-exp exp.yaml
+-topo topo.yaml
+-useJSON false

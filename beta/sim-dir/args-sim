@@ -1,0 +1,14 @@
+-inputLib ../input
+-exptLib ../exptLib
+-expt trial
+-cp cp.yaml
+-cpInit cpInit.yaml
+-funcExec funcExec.yaml
+-devExec devExec.yaml
+-srdState srdState.yaml
+-map map.yaml
+-exp exp.yaml
+-topo topo.yaml
+-trace trace.yaml
+-stop 100000.0
+#-qnetsim
