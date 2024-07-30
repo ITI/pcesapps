@@ -977,7 +977,7 @@ def executeExperiment():
         wf.write("start\n")
     
     snooze = 1.0 
-    cmd = 'python ./cntrl.py exp.yaml'
+    cmd = 'python3 ./cntrl.py exp.yaml'
     proc = subprocess.Popen(
         cmd,
         shell=True,
