@@ -1273,10 +1273,29 @@ InitMenus()
 
 root = Tk()
 root.title('MrNesbits beta demo')
+root.geometry("1250x800")
+
+main_frame = Frame(root)
+main_frame.pack(fill=BOTH, expand=1)
+
+my_canvas = Canvas(main_frame)
+my_canvas.pack(side=LEFT, fill=BOTH, expand=1)
+
+# scrollbar
+my_scrollbar = Scrollbar(main_frame, orient=VERTICAL, command=my_canvas.yview)
+my_scrollbar.pack(side=RIGHT, fill=Y)
+
+# configure the canvas
+my_canvas.configure(yscrollcommand=my_scrollbar.set)
+my_canvas.bind(
+    '<Configure>', lambda e: my_canvas.configure(scrollregion=my_canvas.bbox("all"))
+)
+
+second_frame = Frame(my_canvas, width=1250,height=800)
 
 # create the frames
 
-imageFrame = LabelFrame(root, text="Architecture")
+imageFrame = LabelFrame(second_frame, text="Architecture")
 imageDir = os.path.join('./','images')
 imageFile = os.path.join(imageDir, 'nocryptoSrvr.png')
 loadNoCrypto = Image.open(imageFile)
@@ -1286,24 +1305,24 @@ imageFile = os.path.join(imageDir, 'cryptoSrvr.png')
 loadCrypto = Image.open(imageFile)
 renderCrypto = ImageTk.PhotoImage(loadCrypto)
 
-img = Label(imageFrame, image=renderCrypto, width=500, height=500)
+img = Label(imageFrame, image=renderCrypto, width=400, height=400)
 img.image = renderCrypto
 img.pack(side="bottom", fill="both", expand="yes")
 imageFrame.pack(fill=BOTH, expand=True)
 
-paramFrame = LabelFrame(root, text="Experiment Params", bg='white', width=1200)
+paramFrame = LabelFrame(second_frame, text="Experiment Params", bg='white', width=1200)
 paramFrame.pack(fill=BOTH, expand=True)
 
-modifyFrame = LabelFrame(root, text="Modify Menus", bg='white', width=1200)
+modifyFrame = LabelFrame(second_frame, text="Modify Menus", bg='white', width=1200)
 modifyFrame.pack(fill=BOTH, expand=True)
 
-expFrame = LabelFrame(root, text="Experiment",bg='white', width=1200)
+expFrame = LabelFrame(second_frame, text="Experiment",bg='white', width=1200)
 expFrame.pack(fill=BOTH, expand=True)
 
-outputFrame = LabelFrame(root, text="Output", bg='white', width=1000)
+outputFrame = LabelFrame(second_frame, text="Output", bg='white', width=1000)
 outputFrame.pack(fill=BOTH, expand=True)
 
-controlFrame = LabelFrame(root, text="Control", bg='white', width=1200)
+controlFrame = LabelFrame(second_frame, text="Control", bg='white', width=1200)
 controlFrame.pack(fill=BOTH, expand=True)
 
 selectMenuText = Entry(modifyFrame, bg='black', fg='white', justify=CENTER)
@@ -1589,4 +1608,5 @@ outputText.grid(row=1,column=0)
 stopButton = Button(controlFrame, command=stopExp, padx=3, width=12, text="EXIT GUI", fg='red')
 stopButton.grid(row=0, column=0)
 
+my_canvas.create_window((0,0), window=second_frame, anchor="nw")
 root.mainloop()
