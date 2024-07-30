@@ -881,6 +881,11 @@ def executeExperiment():
 
     base, ext = os.path.splitext(pfile)
     plotdir = os.path.join(workingdir,'plots')
+
+    # if plotdir does not exist, create it
+    if not os.path.isdir(plotdir):
+        os.mkdir(plotdir)
+
     bldParams['plotFile'] = os.path.join(plotdir, base+'.png')
 
     # make sure that we don't give more than four variables for base or attrb lists
