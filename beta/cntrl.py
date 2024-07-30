@@ -319,17 +319,8 @@ def buildPlot(expDesc):
 
     # the plot will be 4.5 x 4.5 inches, sized to fit within the gui window (of 5 x 5 inches_
     fig, ax = plt.subplots(figsize=(4.5,4.5))
-    fig.canvas.manager.set_window_title('MrNesbits Model Performance')
+    #fig.canvas.manager.set_window_title('MrNesbits Model Performance')
     fig.subplots_adjust(left=0.075, right=0.95, top=0.9, bottom=0.25)
-
-    ax.set_xlim(0.0, len(tickAxis))
-    
-    ax.set_ylim(0.0, 1.05*gMaxV)
-
-    if orgAttrbKey != 'None' and orgBaseKey != 'None':
-        ax.set_xticklabels(attrbSet, rotation=270, fontsize=10)
-    else:
-        ax.set_xticklabels(attrbSet, rotation=0, fontsize=10)
 
     bx = len(expDesc['attrbParamList'])/2
     by = gMinV/2
@@ -428,6 +419,17 @@ def buildPlot(expDesc):
 
     # Set the axes ranges and axes labels
     # Add space on the right for base parameter labels
+
+    ax.set_xlim(0.0, len(tickAxis))
+    #ax.xaxis.set_ticks(plotTick)
+ 
+    ax.set_ylim(0.0, 1.05*gMaxV)
+
+    if orgAttrbKey != 'None' and orgBaseKey != 'None':
+        ax.set_xticklabels(attrbSet, rotation=270, fontsize=10)
+    else:
+        ax.set_xticklabels(attrbSet, rotation=0, fontsize=10)
+
 
     
     base, ext = os.path.splitext(expDesc['plotFile'])
