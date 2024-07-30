@@ -528,7 +528,10 @@ def main():
 
     print("creating plot ...", flush=True)
     buildPlot(expDesc)
-    
+    with open(expDesc['expCounter'],'w') as wf:
+        msg = 'Done\n'
+        wf.write(msg)
+ 
 if __name__ =="__main__":
     main()
 

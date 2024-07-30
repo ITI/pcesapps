@@ -973,18 +973,21 @@ def executeExperiment():
         wf.write(yaml.dump(bldParams))
 
     # bring up cntrl.py and await its completion
-    cmd = 'python ./cntrl.py exp.yaml'
-
+    with open(counterFile,'w') as wf:
+        wf.write("start\n")
+    
     snooze = 1.0 
-
+    cmd = 'python ./cntrl.py exp.yaml'
     proc = subprocess.Popen(
         cmd,
         shell=True,
         stdout=subprocess.PIPE,
         stderr=subprocess.STDOUT,
         )
-
+    
     lastReport = ''
+    finished = False
+    plotCreated = False
     while True:
         time.sleep(snooze)
 
@@ -997,21 +1000,29 @@ def executeExperiment():
             if msg != lastReport:
                 print(msg)
                 lastReport = msg
-
+                finished = msg.find('Done') > -1
+                plotCreated = True
+ 
         result = proc.poll()
-        if result is not None:
+        if finished and result is not None:
             # result is non-None when the subprocess completes
             break
+        if result is not None:
+            print("completion of cntrl w/o generation of plot")
+            break
 
-    outputFileName = bldParams['plotFile']
-    outputFileName = outputFileName.strip()
-    
-    expPlot = Image.open(outputFileName)
-    renderExpPlot = ImageTk.PhotoImage(expPlot)
+    if plotCreated:
+        outputFileName = bldParams['plotFile']
+        outputFileName = outputFileName.strip()
+        
+        expPlot = Image.open(outputFileName)
+        renderExpPlot = ImageTk.PhotoImage(expPlot)
 
-    img.configure(image=renderExpPlot)
-    img.image=renderExpPlot
-    setOutputText('rendered experiment plot in {}'.format(bldParams['plotFile']+'{.png,.pdf}'))
+        img.configure(image=renderExpPlot)
+        img.image=renderExpPlot
+        setOutputText('rendered experiment plot in {}'.format(bldParams['plotFile']+'{.png,.pdf}'))
+    else:
+        setOutputText('plot construction failure')
 
 
 read_menu = None
