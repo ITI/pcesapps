@@ -14,6 +14,7 @@ import argparse
 import os
 import time
 import copy
+import sys
 
 dbdir = ""
 archdir = ""
