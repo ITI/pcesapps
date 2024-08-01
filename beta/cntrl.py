@@ -319,7 +319,7 @@ def buildPlot(expDesc):
 
     # the plot will be 4.5 x 4.5 inches, sized to fit within the gui window (of 5 x 5 inches_
     fig, ax = plt.subplots(figsize=(4.5,4.5))
-    #fig.canvas.manager.set_window_title('MrNesbits Model Performance')
+    #fig.canvas.manager.set_window_title('pces Model Performance')
     fig.subplots_adjust(left=0.075, right=0.95, top=0.9, bottom=0.25)
 
     bx = len(expDesc['attrbParamList'])/2

@@ -1,6 +1,6 @@
 #!/bin/python3
 
-# script that uses tkinter library to create a GUI for the MrNesbits
+# script that uses tkinter library to create a GUI for the pces
 # simulation running (only) on the alpha version demo architecture.
 
 from tkinter import *
@@ -147,6 +147,7 @@ def processCmdArgs():
     needDesc = not os.path.isfile('./cryptoDesc.yaml') or not os.path.isfile('.devDesc.yaml')
     os.chdir(here) 
     os.chdir(dbdir)
+    
     if not os.path.isfile('./cnvrtExec'):
         os.system('go build cnvrtExec.go')
 
@@ -1289,7 +1290,7 @@ InitMenus()
 
 
 root = Tk()
-root.title('MrNesbits beta demo')
+root.title('pces beta demo')
 root.geometry("1250x800")
 
 main_frame = Frame(root)

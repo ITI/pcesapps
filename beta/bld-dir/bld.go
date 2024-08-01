@@ -1,13 +1,13 @@
 package main
 
-// code to build MrNesbits computational pattern (CmpPtn) structures and their initialization structs
+// code to build pces computational pattern (CmpPtn) structures and their initialization structs
 // for the beta architecture(s)
 
 import (
 	"fmt"
 	"github.com/iti/cmdline"
 	"github.com/iti/mrnes"
-	"github.com/iti/mrnesbits"
+	"github.com/iti/pces"
 	"math"
 	"path/filepath"
 	"strconv"
@@ -18,7 +18,7 @@ import (
 // on the command line
 func cmdlineParams() *cmdline.CmdParser {
 	// command line parameters are all about file and directory locations.
-	// Even though we don't need the flags for the other MrNesbits structures we
+	// Even though we don't need the flags for the other pces structures we
 	// keep them here so that all the programs that build templates can use the same arguments file
 	// create an argument parser
 
@@ -95,7 +95,7 @@ func main() {
 
 	// make sure these directories exist
 	dirs := []string{outputLib, dbLib, funcXDir, devXDir}
-	valid, err := mrnesbits.CheckDirectories(dirs)
+	valid, err := pces.CheckDirectories(dirs)
 	if !valid {
 		panic(err)
 	}
@@ -105,7 +105,7 @@ func main() {
 
 	// make sure that devDesc exists
 	devDescFile := filepath.Join(outputLib, devDescName)
-	_, errc := mrnesbits.CheckFiles([]string{devDescFile}, true)
+	_, errc := pces.CheckFiles([]string{devDescFile}, true)
 	if errc != nil {
 		panic(errc)
 	}
@@ -129,7 +129,7 @@ func main() {
 		fullpathmap[filename] = fullfile
 	}
 
-	valid, err = mrnesbits.CheckOutputFiles(fullpath)
+	valid, err = pces.CheckOutputFiles(fullpath)
 	if !valid {
 		panic(err)
 	}
@@ -233,7 +233,7 @@ func main() {
 	cmpPtnType := "encryptPerf-" + archType
 
 	// create a computational pattern data structure
-	encryptPerf := mrnesbits.CreateCompPattern(cmpPtnType)
+	encryptPerf := pces.CreateCompPattern(cmpPtnType)
 
 	// gather up performance parameters for the networks to be modeled
 	srcCPUType := cp.GetVar("srcCPU").(string)
@@ -265,16 +265,16 @@ func main() {
 
 	// eudCmpPtn will be a template that all the EUD CmpPtns will follow,
 	// and be lightly customized after being copied from the template
-	eudCmpPtn := mrnesbits.CreateCompPattern("eudCmpPtn")
+	eudCmpPtn := pces.CreateCompPattern("eudCmpPtn")
 
 	// create the EUD computation pattern functions
 	// The first parameter identifies the name of a Class the function belongs to,
 	// and the second a name for this instance of the function.   There are Class-specific
 	// methods in the simulator used to model the execution of these functions
-	decryptOutFunc := mrnesbits.CreateFunc("cryptoPckt", "decryptOut")
-	processFunc := mrnesbits.CreateFunc("processPckt", "eudProcess")
-	encryptRtnFunc := mrnesbits.CreateFunc("cryptoPckt", "encryptRtn")
-	chgCPRtnFunc := mrnesbits.CreateFunc("chgCP", "chgCPRtn")
+	decryptOutFunc := pces.CreateFunc("cryptoPckt", "decryptOut")
+	processFunc := pces.CreateFunc("processPckt", "eudProcess")
+	encryptRtnFunc := pces.CreateFunc("cryptoPckt", "encryptRtn")
+	chgCPRtnFunc := pces.CreateFunc("chgCP", "chgCPRtn")
 
 	// include the functions in the EUD CmpPtn template
 	eudCmpPtn.AddFunc(decryptOutFunc)
@@ -287,12 +287,12 @@ func main() {
 	//    burstSrc -> encryptOut -> chgCPOut,
 	// and also (separately) decryptRtn -> finish
 	//  'finish' calls out points where movement of message ends and performance measurements are taken
-	srcFunc := mrnesbits.CreateFunc("cycleDst", "cycleDst")
-	encryptOutFunc := mrnesbits.CreateFunc("cryptoPckt", "encryptOut")
-	chgCPOutFunc := mrnesbits.CreateFunc("chgCP", "chgCPOut")
-	decryptRtnFunc := mrnesbits.CreateFunc("cryptoPckt", "decryptRtn")
+	srcFunc := pces.CreateFunc("cycleDst", "cycleDst")
+	encryptOutFunc := pces.CreateFunc("cryptoPckt", "encryptOut")
+	chgCPOutFunc := pces.CreateFunc("chgCP", "chgCPOut")
+	decryptRtnFunc := pces.CreateFunc("cryptoPckt", "decryptRtn")
 
-	finishFunc := mrnesbits.CreateFunc("finish", "finish")
+	finishFunc := pces.CreateFunc("finish", "finish")
 
 	// add the functions to the packet generation CmpPtn
 	encryptPerf.AddFunc(srcFunc)
@@ -313,18 +313,18 @@ func main() {
 	// The first (here empty) argument is a name, the second a type.  The
 	// block we are defining here is a template, each instance will get its own
 	// name
-	epCPInit := mrnesbits.CreateCPInitList("", "eudCmpPtn", true)
+	epCPInit := pces.CreateCPInitList("", "eudCmpPtn", true)
 
 	// describe the types, packet sizes, and frame lengths of the messages
 	// that pass between functions in the EUD CmpPtn
-	epCPInit.AddMsg(mrnesbits.CreateCompPatternMsg("plaintext", pcktSize, msgLen))
-	epCPInit.AddMsg(mrnesbits.CreateCompPatternMsg("encryptext", pcktSize, msgLen))
+	epCPInit.AddMsg(pces.CreateCompPatternMsg("plaintext", pcktSize, msgLen))
+	epCPInit.AddMsg(pces.CreateCompPatternMsg("encryptext", pcktSize, msgLen))
 
 	// create the CP init data structure for the packet source CmpPtn and add the message types it sees
-	epCPSrcInit := mrnesbits.CreateCPInitList(encryptPerf.Name, cmpPtnType, true)
-	epCPSrcInit.AddMsg(mrnesbits.CreateCompPatternMsg("initiate", pcktSize, msgLen))
-	epCPSrcInit.AddMsg(mrnesbits.CreateCompPatternMsg("plaintext", pcktSize, msgLen))
-	epCPSrcInit.AddMsg(mrnesbits.CreateCompPatternMsg("encryptext", pcktSize, msgLen))
+	epCPSrcInit := pces.CreateCPInitList(encryptPerf.Name, cmpPtnType, true)
+	epCPSrcInit.AddMsg(pces.CreateCompPatternMsg("initiate", pcktSize, msgLen))
+	epCPSrcInit.AddMsg(pces.CreateCompPatternMsg("plaintext", pcktSize, msgLen))
+	epCPSrcInit.AddMsg(pces.CreateCompPatternMsg("encryptext", pcktSize, msgLen))
 
 	// data connections between functions are described as directed 'edges'
 	// Each call to AddEdge below is specific to a CmpPtn,
@@ -370,10 +370,10 @@ func main() {
 	// of the message as it makes the transition.  Four steps below
 
 	// first step, create a state dictionary for the chgCP function
-	chg := mrnesbits.CreateChgDesc(encryptPerf.Name, decryptRtnFunc.Label, "encryptext")
+	chg := pces.CreateChgDesc(encryptPerf.Name, decryptRtnFunc.Label, "encryptext")
 
 	// second step, create a map that will be put in the state dictionary
-	chgMap := map[string]mrnesbits.ChgDesc{encryptPerf.Name: chg}
+	chgMap := map[string]pces.ChgDesc{encryptPerf.Name: chg}
 
 	// third step, insert the map, serialize the dictionary, and return the
 	// string resulting from the serialization
@@ -389,8 +389,8 @@ func main() {
 	// modify slightly as needed to specialize for the specific EUD
 
 	// create dictionaries for all the CmpPtns and all their cpInit auxilary structures
-	cpDict := mrnesbits.CreateCompPatternDict("beta")
-	cpInitDict := mrnesbits.CreateCPInitListDict("beta")
+	cpDict := pces.CreateCompPatternDict("beta")
+	cpInitDict := pces.CreateCPInitListDict("beta")
 
 	// we'll glue on index strings to tailor a name for each EUD CmpPtn
 	eudCPBaseName := "eudCmpPtn"
@@ -398,7 +398,7 @@ func main() {
 	// the encryptPerf CmpPtn function for changing CmpPtn will have an entry
 	// for each of the eudCmpPtns.  We initialize it here and fill it in
 	// the per-EUD loop below
-	outbndChgMap := make(map[string]mrnesbits.ChgDesc)
+	outbndChgMap := make(map[string]pces.ChgDesc)
 
 	// make a unique CmpPtn instance for every eud
 	for idx := 0; idx < euds; idx++ {
@@ -420,13 +420,13 @@ func main() {
 			"encryptext", "cryptoOp", &epCPSrcInit.Msgs, &epCPInit.Msgs)
 
 		// include the outbound change of CmpPtn in the map to be put in chgCPOutFunc's state table
-		outbndChgMap[cpyCP.Name] = mrnesbits.CreateChgDesc(cpyCP.Name, "decryptOut", "encryptext")
+		outbndChgMap[cpyCP.Name] = pces.CreateChgDesc(cpyCP.Name, "decryptOut", "encryptext")
 
 		// save the EUD CmpPtn in the output dictionary
 		cpDict.AddCompPattern(cpyCP)
 
 		// create a copy of CPInit
-		//cpyCPInitList := new(mrnesbits.CPInitList)
+		//cpyCPInitList := new(pces.CPInitList)
 		cpyCPInitList := epCPInit.DeepCopy()
 
 		// give it a unique name
@@ -444,7 +444,7 @@ func main() {
 
 	// put in state parameters for srcFunc node.
 	// Function type is 'cycleDst', which is tailored for this source.
-	srcState := mrnesbits.ClassCreateCycleDst()
+	srcState := pces.ClassCreateCycleDst()
 
 	// build out the state dictionary for the srcFunc
 	srcState.Populate(euds, eudCPBaseName, 
@@ -675,10 +675,10 @@ func main() {
 	expCfg.WriteToFile(fullpathmap["exp"])
 
 	// create a dictionary to hold the mappings the set of CompPatterns to the architecture
-	cmpMapDict := mrnesbits.CreateCompPatternMapDict("Maps")
+	cmpMapDict := pces.CreateCompPatternMapDict("Maps")
 
 	// map the functions of encryptPerf
-	cmpMap := mrnesbits.CreateCompPatternMap(encryptPerf.Name)
+	cmpMap := pces.CreateCompPatternMap(encryptPerf.Name)
 
 	cmpMap.AddMapping(srcFunc.Label, "pcktsrc", false)
 	cmpMap.AddMapping(chgCPOutFunc.Label, "pcktsrc", false)
@@ -694,7 +694,7 @@ func main() {
 	cmpMapDict.AddCompPatternMap(cmpMap, false)
 
 	for ptnName := range cpDict.Patterns {
-		cmpMap := mrnesbits.CreateCompPatternMap(ptnName)
+		cmpMap := pces.CreateCompPatternMap(ptnName)
 		if strings.Contains(ptnName, "encryptPerf") {
 			continue
 		}
@@ -720,11 +720,11 @@ func main() {
 	funcXFiles, err := filepath.Glob(pattern)
 
 	// create a function execution list that will hold them all
-	fel := mrnesbits.CreateFuncExecList("beta")
+	fel := pces.CreateFuncExecList("beta")
 
 	for _, fXFile := range funcXFiles {
 		var emptyBytes []byte
-		felx, err := mrnesbits.ReadFuncExecList(fXFile,true,emptyBytes)
+		felx, err := pces.ReadFuncExecList(fXFile,true,emptyBytes)
 		if err != nil {
 			panic(err)
 		}
@@ -769,8 +769,8 @@ func main() {
 	del.WriteToFile(delFile)
 
 	// we don't have shared state in this model but need to create an empty file
-	ssgl := mrnesbits.CreateSharedStateGroupList(true) 
-	ssg := mrnesbits.CreateSharedStateGroup("empty","empty")
+	ssgl := pces.CreateSharedStateGroupList(true) 
+	ssg := pces.CreateSharedStateGroup("empty","empty")
 	ssgl.AddSharedStateGroup(ssg)
 
 	ssgl.WriteToFile(fullpathmap["srdState"])
@@ -779,11 +779,11 @@ func main() {
 
 // createChgCPState constructs an instance of a chgCP state
 // and returns a serialized representation of it
-func createChgCPState(csm map[string]mrnesbits.ChgDesc) string {
-	state := mrnesbits.ClassCreateChgCP()
+func createChgCPState(csm map[string]pces.ChgDesc) string {
+	state := pces.ClassCreateChgCP()
 	state.ClassName = "chgCP"
 
-	state.ChgMap = make(map[string]mrnesbits.ChgDesc)
+	state.ChgMap = make(map[string]pces.ChgDesc)
 	for k, v := range csm {
 		state.ChgMap[k] = v
 	}
@@ -796,9 +796,9 @@ func createChgCPState(csm map[string]mrnesbits.ChgDesc) string {
 	return serialState
 }
 
-func createProcessPcktState(cp *mrnesbits.CompPattern, node *mrnesbits.Func, opName string, rtn bool) string {
-	// params := mrnesbits.CreateFuncParameters(cp.CPType, node.Label)
-	state := mrnesbits.ClassCreateProcessPckt()
+func createProcessPcktState(cp *pces.CompPattern, node *pces.Func, opName string, rtn bool) string {
+	// params := pces.CreateFuncParameters(cp.CPType, node.Label)
+	state := pces.ClassCreateProcessPckt()
 	state.ClassName = node.Class
 	state.OpName = map[string]string{"processOp": opName}
 	state.Return = rtn
@@ -812,7 +812,7 @@ func createProcessPcktState(cp *mrnesbits.CompPattern, node *mrnesbits.Func, opN
 }
 
 func createCryptoPcktState(op, alg, keylength string, rtn bool) string {
-	state := mrnesbits.ClassCreateCryptoPckt()
+	state := pces.ClassCreateCryptoPckt()
 	state.ClassName = "cryptoPckt"
 	state.Populate(op, alg, keylength ) 
 	state.Return = rtn
@@ -826,7 +826,7 @@ func createCryptoPcktState(op, alg, keylength string, rtn bool) string {
 }
 
 func createFinishState() string {
-	state := mrnesbits.ClassCreateFinish()
+	state := pces.ClassCreateFinish()
 	state.ClassName = "finish"
 
 	// serialize the class-dependent state structure

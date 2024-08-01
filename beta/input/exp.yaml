@@ -23,7 +23,7 @@ parameters:
         - attrbname: '*'
           attrbvalue: ""
       param: bandwidth
-      value: "10"
+      value: "1000"
     - paramObj: Interface
       attributes:
         - attrbname: '*'
@@ -83,7 +83,19 @@ parameters:
         - attrbname: device
           attrbvalue: pcktsrc
       param: bandwidth
-      value: "10"
+      value: "1000"
+    - paramObj: Interface
+      attributes:
+        - attrbname: device
+          attrbvalue: pcktsrc
+      param: bandwidth
+      value: "1000"
+    - paramObj: Interface
+      attributes:
+        - attrbname: device
+          attrbvalue: pcktsrc
+      param: bandwidth
+      value: "1000"
     - paramObj: Interface
       attributes:
         - attrbname: device
@@ -95,13 +107,7 @@ parameters:
         - attrbname: device
           attrbvalue: pcktsrc
       param: bandwidth
-      value: "10"
-    - paramObj: Interface
-      attributes:
-        - attrbname: device
-          attrbvalue: pcktsrc
-      param: bandwidth
-      value: "10"
+      value: "1000"
     - paramObj: Interface
       attributes:
         - attrbname: device

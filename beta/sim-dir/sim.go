@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"github.com/iti/cmdline"
 	"github.com/iti/mrnes"
-	"github.com/iti/mrnesbits"
+	"github.com/iti/pces"
 	"github.com/iti/rngstream"
 	"golang.org/x/exp/slices"
 	"path/filepath"
@@ -14,7 +14,7 @@ import (
 // on the command line
 func cmdlineParams() *cmdline.CmdParser {
 	// command line parameters are all about file and directory locations.
-	// Even though we don't need the flags for the other MrNesbits structures we
+	// Even though we don't need the flags for the other pces structures we
 	// keep them here so that all the programs that build templates can use the same arguments file
 	// create an argument parser
 	cp := cmdline.NewCmdParser()
@@ -48,7 +48,7 @@ func main() {
 
 	// make sure these directories exist
 	dirs := []string{inputDir}
-	valid, err := mrnesbits.CheckDirectories(dirs)
+	valid, err := pces.CheckDirectories(dirs)
 	if !valid {
 		panic(err)
 	}
@@ -76,13 +76,13 @@ func main() {
 		syn[filename] = fullfile
 	}
 
-	err = mrnesbits.ReportErrs(errs)
+	err = pces.ReportErrs(errs)
 	if err != nil {
 		panic(err)
 	}
 
 	// validate that these are all readable
-	ok, err := mrnesbits.CheckReadableFiles(fullpath)
+	ok, err := pces.CheckReadableFiles(fullpath)
 	if !ok {
 		panic(err)
 	}
@@ -92,7 +92,7 @@ func main() {
 	useTrace := false
 	if cp.IsLoaded("trace") {
 		traceFile = cp.GetVar("trace").(string)
-		_, err := mrnesbits.CheckOutputFiles([]string{traceFile})
+		_, err := pces.CheckOutputFiles([]string{traceFile})
 		if err != nil {
 			panic(err)
 		}
@@ -117,7 +117,7 @@ func main() {
 	mrnes.BuildExperimentNet(syn, true, 0, traceMgr)
 
 	// now the computation patterns, where initial events were scheduled
-	evtMgr, err := mrnesbits.BuildExperimentCP(syn, true, mrnes.NumIDs, traceMgr)
+	evtMgr, err := pces.BuildExperimentCP(syn, true, mrnes.NumIDs, traceMgr)
 	if err != nil {
 		panic(err)
 	}
@@ -129,6 +129,6 @@ func main() {
 		traceMgr.WriteToFile(traceFile)
 	}
 
-	mrnesbits.ReportStatistics()
+	pces.ReportStatistics()
 	fmt.Println("Done")
 }

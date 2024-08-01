@@ -1,12 +1,12 @@
 package main
 
-// code to build template of MrNesbits CompPattern structures and their initialization structs.
+// code to build template of pces CompPattern structures and their initialization structs.
 // see adjacent README.md
 import (
 	"fmt"
 	"github.com/iti/cmdline"
 	"github.com/iti/mrnes"
-	"github.com/iti/mrnesbits"
+	"github.com/iti/pces"
 	"math"
 	"path/filepath"
 	"strconv"
@@ -17,7 +17,7 @@ import (
 // on the command line
 func cmdlineParams() *cmdline.CmdParser {
 	// command line parameters are all about file and directory locations.
-	// Even though we don't need the flags for the other MrNesbits structures we
+	// Even though we don't need the flags for the other pces structures we
 	// keep them here so that all the programs that build templates can use the same arguments file
 	// create an argument parser
 
@@ -93,7 +93,7 @@ func main() {
 
 	// make sure this directory exists
 	dirs := []string{dbLib, outputLib, funcXDir, devXDir}
-	valid, err := mrnesbits.CheckDirectories(dirs)
+	valid, err := pces.CheckDirectories(dirs)
 	if !valid {
 		panic(err)
 	}
@@ -103,7 +103,7 @@ func main() {
 
 	// make sure that devDesc exists
 	devDescFile := filepath.Join(outputLib, devDescName)
-	_, errc := mrnesbits.CheckFiles([]string{devDescFile}, true)
+	_, errc := pces.CheckFiles([]string{devDescFile}, true)
 	if errc != nil {
 		panic(errc)
 	}
@@ -127,7 +127,7 @@ func main() {
 		fullpathmap[filename] = fullfile
 	}
 
-	valid, err = mrnesbits.CheckOutputFiles(fullpath)
+	valid, err = pces.CheckOutputFiles(fullpath)
 	if !valid {
 		panic(err)
 	}
@@ -226,14 +226,14 @@ func main() {
 	eudCPUType := cp.GetVar("eudCPU").(string)
 	eudCPUBw := cp.GetVar("eudCPUBw").(string)
 	// create a computational pattern data structure
-	encryptPerf := mrnesbits.CreateCompPattern(cmpPtnType)
+	encryptPerf := pces.CreateCompPattern(cmpPtnType)
 	
-	srcFunc := mrnesbits.CreateFunc("connSrc", "src")
-	encryptOutFunc := mrnesbits.CreateFunc("processPckt", "encryptOut")
-	decryptOutFunc := mrnesbits.CreateFunc("processPckt", "decryptOut")
-	processFunc := mrnesbits.CreateFunc("processPckt", "process")
-	encryptRtnFunc := mrnesbits.CreateFunc("processPckt", "encryptRtn")
-	decryptRtnFunc := mrnesbits.CreateFunc("processPckt", "decryptRtn")
+	srcFunc := pces.CreateFunc("connSrc", "src")
+	encryptOutFunc := pces.CreateFunc("processPckt", "encryptOut")
+	decryptOutFunc := pces.CreateFunc("processPckt", "decryptOut")
+	processFunc := pces.CreateFunc("processPckt", "process")
+	encryptRtnFunc := pces.CreateFunc("processPckt", "encryptRtn")
+	decryptRtnFunc := pces.CreateFunc("processPckt", "decryptRtn")
 
 	// add these to the computational pattern
 	encryptPerf.AddFunc(srcFunc)
@@ -246,13 +246,13 @@ func main() {
 	// create a CPInit structure that will serve as the template for each
 	// individual CompPattern to be created.   We can leave the name of the CompPattern
 	// empty but state the type
-	epCPInit := mrnesbits.CreateCPInitList("", cmpPtnType, true)
+	epCPInit := pces.CreateCPInitList("", cmpPtnType, true)
 
 	// flesh out the messages.
 	msgLen := pcktSize + 36
-	epCPInit.AddMsg(mrnesbits.CreateCompPatternMsg("initiate", pcktSize, msgLen))
-	epCPInit.AddMsg(mrnesbits.CreateCompPatternMsg("plaintext", pcktSize, msgLen))
-	epCPInit.AddMsg(mrnesbits.CreateCompPatternMsg("encryptext", pcktSize, msgLen))
+	epCPInit.AddMsg(pces.CreateCompPatternMsg("initiate", pcktSize, msgLen))
+	epCPInit.AddMsg(pces.CreateCompPatternMsg("plaintext", pcktSize, msgLen))
+	epCPInit.AddMsg(pces.CreateCompPatternMsg("encryptext", pcktSize, msgLen))
 
 	// add edges
 	// self-initiation message has type 'initiate'
@@ -267,12 +267,12 @@ func main() {
 	encryptPerf.AddEdge(decryptRtnFunc.Label, srcFunc.Label, "plaintext", "completeOp", &epCPInit.Msgs)
 
 	// create edge variables, follow sequence from src back and save that sequence
-	nodes := []*mrnesbits.Func{srcFunc, encryptOutFunc, decryptOutFunc, processFunc,
+	nodes := []*pces.Func{srcFunc, encryptOutFunc, decryptOutFunc, processFunc,
 		encryptRtnFunc, decryptRtnFunc}
 
 	// put in parameters for srcFunc node (n0)
-	// srcParams := mrnesbits.CreateFuncParameters(encryptPerf.CPType, srcFunc.Label)
-	srcState := mrnesbits.ClassCreateConnSrc()
+	// srcParams := pces.CreateFuncParameters(encryptPerf.CPType, srcFunc.Label)
+	srcState := pces.ClassCreateConnSrc()
 
 	// each source has the same mean packet inter-arrival time, one round-trip packet,
 	// exponential distribution between packets, and a message lenght and packet size determined by input parameters
@@ -313,8 +313,8 @@ func main() {
 	n5StateStr := createCryptoPcktState("decrypt", cryptoAlg, keyLength, false)
 	epCPInit.AddState(encryptPerf, nodes[5], n5StateStr)
 
-	cpDict := mrnesbits.CreateCompPatternDict("beta")
-	cpInitDict := mrnesbits.CreateCPInitListDict("beta")
+	cpDict := pces.CreateCompPatternDict("beta")
+	cpInitDict := pces.CreateCPInitListDict("beta")
 
 	// make a unique comp pattern instance for every eud
 	for idx := 0; idx < euds; idx++ {
@@ -533,9 +533,9 @@ func main() {
 	expCfg.WriteToFile(fullpathmap["exp"])
 
 	// map the set of CompPatterns to the architecture
-	cmpMapDict := mrnesbits.CreateCompPatternMapDict("Maps")
+	cmpMapDict := pces.CreateCompPatternMapDict("Maps")
 	for ptnName := range cpDict.Patterns {
-		cmpMap := mrnesbits.CreateCompPatternMap(ptnName)
+		cmpMap := pces.CreateCompPatternMap(ptnName)
 		// the comp pattern name codes the idx of the EUD
 		splitName := strings.Split(ptnName, "-")
 		eudIdx := splitName[len(splitName)-1]
@@ -573,11 +573,11 @@ func main() {
 	funcXFiles, err := filepath.Glob(pattern)
 
 	// create a function execution list that will hold them all
-	fel := mrnesbits.CreateFuncExecList("beta")
+	fel := pces.CreateFuncExecList("beta")
 
 	for _, fXFile := range funcXFiles {
 		var emptyBytes []byte
-		felx, err := mrnesbits.ReadFuncExecList(fXFile,true,emptyBytes)
+		felx, err := pces.ReadFuncExecList(fXFile,true,emptyBytes)
 		if err != nil {
 			panic(err)
 		}
@@ -623,9 +623,9 @@ func main() {
 
 }
 
-func createProcessPcktState(cp *mrnesbits.CompPattern, node *mrnesbits.Func, opName string) string {
-	// params := mrnesbits.CreateFuncParameters(cp.CPType, node.Label)
-	state := mrnesbits.ClassCreateProcessPckt()
+func createProcessPcktState(cp *pces.CompPattern, node *pces.Func, opName string) string {
+	// params := pces.CreateFuncParameters(cp.CPType, node.Label)
+	state := pces.ClassCreateProcessPckt()
 	state.ClassName = node.Class
 	state.OpName = map[string]string{"processOp": opName}
 
@@ -638,7 +638,7 @@ func createProcessPcktState(cp *mrnesbits.CompPattern, node *mrnesbits.Func, opN
 }
 
 func createCryptoPcktState(op, alg, keylength string, rtn bool) string {
-	state := mrnesbits.ClassCreateCryptoPckt()
+	state := pces.ClassCreateCryptoPckt()
 	state.ClassName = "cryptoPckt"
 	state.Populate(op, alg, keylength ) 
 	state.Return = rtn

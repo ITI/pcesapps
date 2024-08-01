@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 	"github.com/iti/cmdline"
-	"github.com/iti/mrnesbits"
+	"github.com/iti/pces"
 	"github.com/iti/mrnes"
 	"bufio"
 	"path/filepath"
@@ -39,7 +39,7 @@ func main() {
 
 	// make sure these directories exist
 	dirs := []string{funcXDir, devXDir}
-	valid, err := mrnesbits.CheckDirectories(dirs)
+	valid, err := pces.CheckDirectories(dirs)
 	if !valid {
 		panic(err)
 	}
@@ -60,7 +60,7 @@ func main() {
 		fullBase := filepath.Base(fXFile)	
 		base := strings.TrimSuffix(fullBase, filepath.Ext(fullBase)) 
 		// create a timing list, give this list the base name of the csv file
-		fel := mrnesbits.CreateFuncExecList(base)
+		fel := pces.CreateFuncExecList(base)
 		
 		csvRdr, err := os.Open(fXFile)	
 		if err != nil {

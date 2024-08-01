@@ -4,7 +4,7 @@ algs:
         - 256
         - 512
         - 1024
-    - name: aes
+    - name: rc6
       keylen:
         - 256
         - 512
@@ -14,7 +14,7 @@ algs:
         - 256
         - 512
         - 1024
-    - name: rc6
+    - name: aes
       keylen:
         - 256
         - 512

@@ -4,7 +4,7 @@ import (
 	"os"
 	"encoding/csv"
 	"github.com/iti/cmdline"
-	"github.com/iti/mrnesbits"
+	"github.com/iti/pces"
 	"github.com/iti/mrnes"
     "golang.org/x/exp/slices"
 	"path/filepath"
@@ -46,7 +46,7 @@ func main() {
 
 	// make sure these directories exist
 	dirs := []string{devDescDir, funcXDir, outputDir}
-	valid, err := mrnesbits.CheckDirectories(dirs)
+	valid, err := pces.CheckDirectories(dirs)
 	if !valid {
 		panic(err)
 	}
@@ -67,7 +67,7 @@ func main() {
 
 	for _, fxFile := range funcXFiles {
 		var emptybytes []byte
-		fx, err := mrnesbits.ReadFuncExecList(fxFile, true, emptybytes)
+		fx, err := pces.ReadFuncExecList(fxFile, true, emptybytes)
 		if err != nil {
 			panic(err)
 		}
@@ -100,9 +100,9 @@ func main() {
 	}
 	
 	// create and write out the cryptoDesc
-	cryptoDesc := mrnesbits.CryptoDesc{Algs: []mrnesbits.AlgSpec{}}
+	cryptoDesc := pces.CryptoDesc{Algs: []pces.AlgSpec{}}
 	for alg := range algKeys {
-		algDesc := mrnesbits.AlgSpec{Name:alg, KeyLen: algKeys[alg]}
+		algDesc := pces.AlgSpec{Name:alg, KeyLen: algKeys[alg]}
 		sort.Ints(algDesc.KeyLen)
 		cryptoDesc.Algs = append(cryptoDesc.Algs, algDesc)
 	}	

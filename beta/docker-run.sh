@@ -12,7 +12,7 @@
 # N.b. Using grphics in Docker is somewhat fiddly.
 # the following command works for me (Rob Adams).
 
-TAG=ghcr.io/iti/mrnesbitsapps-beta
+TAG=ghcr.io/iti/pcesapps-beta
 
 docker run -it --rm  \
 	--env DISPLAY=$DISPLAY \
