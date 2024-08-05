@@ -18,6 +18,8 @@ jobs:
       IMAGE_TAG: $(test "$GITHUB_REF_TYPE" = "tag" && echo $GITHUB_REF_NAME)
 
     steps:
+    - name: env
+      run: env
     - name: Login to GitHub Container Registry
       uses: docker/login-action@v3
       with:
