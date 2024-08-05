@@ -13,6 +13,10 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    env:
+    - IMAGE_TYPE: $(test "$GITHUB_REF_TYPE" = "tag" && echo xbeta || echo dev)
+    - IMAGE_TAG: $(test "$GITHUB_REF_TYPE" = "tag" && echo $GITHUB_REF_NAME)
+
     steps:
     - name: Login to GitHub Container Registry
       uses: docker/login-action@v3
@@ -23,4 +27,4 @@ jobs:
 
     - uses: actions/checkout@v4
     - name: Build the Docker image
-      run: cd beta && ./docker-build.sh test $GITHUB_REF_NAME
+      run: cd beta && ./docker-build.sh $IMAGE_TYPE $IMAGE_TAG
