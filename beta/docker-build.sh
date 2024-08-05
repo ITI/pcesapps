@@ -24,7 +24,7 @@
 #  ./docker-build.shy beta $tag
 # This creates ghcr.io/iti/pcesapps-beta:$tag
 
-pfx="ghcr.io/illinoisadams/doc-test"
+#pfx="ghcr.io/illinoisadams/doc-test"
 pfx="ghcr.io/iti/pcesapps"
 
 now=$(date -u +%F-%H-%M-%S)
