@@ -14,8 +14,8 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-    - IMAGE_TYPE: $(test "$GITHUB_REF_TYPE" = "tag" && echo xbeta || echo dev)
-    - IMAGE_TAG: $(test "$GITHUB_REF_TYPE" = "tag" && echo $GITHUB_REF_NAME)
+      IMAGE_TYPE: $(test "$GITHUB_REF_TYPE" = "tag" && echo xbeta || echo dev)
+      IMAGE_TAG: $(test "$GITHUB_REF_TYPE" = "tag" && echo $GITHUB_REF_NAME)
 
     steps:
     - name: Login to GitHub Container Registry
