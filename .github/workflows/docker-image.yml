@@ -13,11 +13,21 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    env:
-      IMAGE_TYPE: $(test "$GITHUB_REF_TYPE" = "tag" && echo xbeta || echo dev)
-      IMAGE_TAG: $(test "$GITHUB_REF_TYPE" = "tag" && echo $GITHUB_REF_NAME)
+    #env:
+    #  IMAGE_TYPE: $(test "$GITHUB_REF_TYPE" = "tag" && echo xbeta || echo dev)
+    #  IMAGE_TAG: $(test "$GITHUB_REF_TYPE" = "tag" && echo $GITHUB_REF_NAME)
 
     steps:
+    - name: update image vars
+      run: |
+        if [ "$GITHUB_REF_TYPE" = "tag" ]
+        then
+          echo IMAGE_TYPE=xbeta
+          echo IMAGE_TAG=$GITHUB_REF_NAME
+        else
+          echo IMAGE_TYPE=dev
+          echo IMAGE_TAG=
+        fi >> $GITHUB_ENV
     - name: env
       run: env
     - name: Login to GitHub Container Registry
