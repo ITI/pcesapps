@@ -39,6 +39,7 @@ else
     latest=( "latest" "$@" )
 fi
 
+cp ../go.mod ../go.sum .
 docker build --no-cache -t "$image:$now" .
 docker push "$image:$now"
 for v in "${latest[@]}" ; do
