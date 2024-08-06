@@ -28,10 +28,11 @@
 pfx="ghcr.io/iti/pcesapps"
 
 now=$(date -u +%F-%H-%M-%S)
-if "$1" = ""
+
+if [ "$1" = "" ]
 then
     image="$pfx-test"
-    latest=
+    latest=( )
 else
     image="$pfx-$1"
     shift
