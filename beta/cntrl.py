@@ -11,7 +11,7 @@ import subprocess
 import copy
 import time
 
-# gui.py passes a single file, exp.yaml, on the command line to cntrl.py
+# gui.py passes a single file, cntrl.yaml, on the command line to cntrl.py
 # readExp reads the dictionary it contains and returns it to the caller
 def readExp(file):
     with open(file,'r') as rf:

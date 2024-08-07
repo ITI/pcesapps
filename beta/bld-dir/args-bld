@@ -5,7 +5,7 @@
 -funcExec funcExec.yaml
 -devExec devExec.yaml
 -devDesc devDesc.yaml
--srdState srdState.yaml
+-srdCfg srdCfg.yaml
 -map map.yaml
 -exp exp.yaml
 -topo topo.yaml
@@ -30,8 +30,8 @@
 -sslCPUBw 1000
 -pcktlen 128
 -pcktburst 10
--pcktMu 0
--euds 100
+-pcktMu 0.001
+-euds 4 
 -eudCPU Intel-i3-4130
 -eudCPUBw 10
 -cryptoalg 3des

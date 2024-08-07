@@ -971,7 +971,7 @@ def executeExperiment():
 
     # convert bldParams to a yaml format and write to file in the same directory.
     # Here we assume that gui.py and cntrl.py live in the same directory
-    with open('./exp.yaml', 'w') as wf:
+    with open('./cntrl.yaml', 'w') as wf:
         wf.write(yaml.dump(bldParams))
 
     # bring up cntrl.py and await its completion
@@ -979,7 +979,7 @@ def executeExperiment():
         wf.write("start\n")
     
     snooze = 1.0 
-    cmd = 'python3 ./cntrl.py exp.yaml'
+    cmd = 'python3 ./cntrl.py cntrl.yaml'
     proc = subprocess.Popen(
         cmd,
         shell=True,
