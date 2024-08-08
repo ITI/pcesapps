@@ -28,16 +28,18 @@
 pfx="ghcr.io/iti/pcesapps"
 
 now=$(date -u +%F-%H-%M-%S)
-if "$1" = ""
+
+if [ "$1" = "" ]
 then
     image="$pfx-test"
-    latest=
+    latest=( )
 else
     image="$pfx-$1"
     shift
     latest=( "latest" "$@" )
 fi
 
+cp ../go.mod ../go.sum .
 docker build --no-cache -t "$image:$now" .
 docker push "$image:$now"
 for v in "${latest[@]}" ; do

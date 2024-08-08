@@ -9,6 +9,7 @@
 
 # Build phase
 FROM golang:bookworm AS builder
+LABEL org.opencontainers.image.source = "https://github.com/ITI/pcesapps"
 # Next line is just for debug
 RUN ldd --version
 WORKDIR /build
