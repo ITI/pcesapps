@@ -5,7 +5,6 @@ networks:
       netscale: LAN
       mediatype: wired
       endpts:
-        - sslSrvr
         - eudDev-0
         - eudDev-1
         - eudDev-2
@@ -107,7 +106,7 @@ networks:
         - eudDev-98
         - eudDev-99
       routers:
-        - pubRtr
+        - pvtRtr
       switches:
         - eudSwitch-0
         - eudswitch-1
@@ -123,34 +122,11 @@ networks:
       mediatype: wired
       endpts:
         - pcktsrc
-        - sslSrvr
       routers:
         - pvtRtr
       switches:
         - pvtSwitch
 routers:
-    - name: pubRtr
-      groups: []
-      model: ACME-Generic-Slow-Router
-      interfaces:
-        - name: intrfc@pubRtr[.6]
-          groups: []
-          devtype: Router
-          mediatype: wired
-          device: pubRtr
-          cable: intrfc@sslSrvr[.7]
-          carry: ""
-          wireless: []
-          faces: public
-        - name: intrfc@pubRtr[.9]
-          groups: []
-          devtype: Router
-          mediatype: wired
-          device: pubRtr
-          cable: intrfc@eudSwitch-0[.8]
-          carry: ""
-          wireless: []
-          faces: public
     - name: pvtRtr
       groups: []
       model: ACME-Generic-Slow-Router
@@ -164,54 +140,28 @@ routers:
           carry: ""
           wireless: []
           faces: private
-        - name: intrfc@pvtRtr[.5]
+        - name: intrfc@pvtRtr[.4]
           groups: []
           devtype: Router
           mediatype: wired
           device: pvtRtr
-          cable: intrfc@sslSrvr[.4]
-          carry: ""
-          wireless: []
-          faces: private
-endpts:
-    - name: sslSrvr
-      groups:
-        - Server
-      model: Intel-Xeon-w-1350P
-      eud: false
-      cores: 8
-      interfaces:
-        - name: intrfc@sslSrvr[.4]
-          groups: []
-          devtype: Endpt
-          mediatype: wired
-          device: sslSrvr
-          cable: intrfc@pvtRtr[.5]
-          carry: ""
-          wireless: []
-          faces: private
-        - name: intrfc@sslSrvr[.7]
-          groups: []
-          devtype: Endpt
-          mediatype: wired
-          device: sslSrvr
-          cable: intrfc@pubRtr[.6]
+          cable: intrfc@eudSwitch-0[.5]
           carry: ""
           wireless: []
           faces: public
+endpts:
     - name: eudDev-0
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-0[.24]
+        - name: intrfc@eudDev-0[.20]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-0
-          cable: intrfc@eudswitch-7[.25]
+          cable: intrfc@eudswitch-7[.21]
           carry: ""
           wireless: []
           faces: public
@@ -219,15 +169,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-1[.26]
+        - name: intrfc@eudDev-1[.22]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-1
-          cable: intrfc@eudswitch-7[.27]
+          cable: intrfc@eudswitch-7[.23]
           carry: ""
           wireless: []
           faces: public
@@ -235,15 +184,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-2[.28]
+        - name: intrfc@eudDev-2[.24]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-2
-          cable: intrfc@eudswitch-7[.29]
+          cable: intrfc@eudswitch-7[.25]
           carry: ""
           wireless: []
           faces: public
@@ -251,15 +199,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-3[.30]
+        - name: intrfc@eudDev-3[.26]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-3
-          cable: intrfc@eudswitch-7[.31]
+          cable: intrfc@eudswitch-7[.27]
           carry: ""
           wireless: []
           faces: public
@@ -267,15 +214,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-4[.32]
+        - name: intrfc@eudDev-4[.28]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-4
-          cable: intrfc@eudswitch-7[.33]
+          cable: intrfc@eudswitch-7[.29]
           carry: ""
           wireless: []
           faces: public
@@ -283,15 +229,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-5[.34]
+        - name: intrfc@eudDev-5[.30]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-5
-          cable: intrfc@eudswitch-7[.35]
+          cable: intrfc@eudswitch-7[.31]
           carry: ""
           wireless: []
           faces: public
@@ -299,15 +244,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-6[.36]
+        - name: intrfc@eudDev-6[.32]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-6
-          cable: intrfc@eudswitch-7[.37]
+          cable: intrfc@eudswitch-7[.33]
           carry: ""
           wireless: []
           faces: public
@@ -315,15 +259,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-7[.38]
+        - name: intrfc@eudDev-7[.34]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-7
-          cable: intrfc@eudswitch-7[.39]
+          cable: intrfc@eudswitch-7[.35]
           carry: ""
           wireless: []
           faces: public
@@ -331,15 +274,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-8[.40]
+        - name: intrfc@eudDev-8[.36]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-8
-          cable: intrfc@eudswitch-7[.41]
+          cable: intrfc@eudswitch-7[.37]
           carry: ""
           wireless: []
           faces: public
@@ -347,15 +289,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-9[.42]
+        - name: intrfc@eudDev-9[.38]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-9
-          cable: intrfc@eudswitch-7[.43]
+          cable: intrfc@eudswitch-7[.39]
           carry: ""
           wireless: []
           faces: public
@@ -363,15 +304,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-10[.44]
+        - name: intrfc@eudDev-10[.40]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-10
-          cable: intrfc@eudswitch-7[.45]
+          cable: intrfc@eudswitch-7[.41]
           carry: ""
           wireless: []
           faces: public
@@ -379,15 +319,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-11[.46]
+        - name: intrfc@eudDev-11[.42]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-11
-          cable: intrfc@eudswitch-7[.47]
+          cable: intrfc@eudswitch-7[.43]
           carry: ""
           wireless: []
           faces: public
@@ -395,15 +334,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-12[.48]
+        - name: intrfc@eudDev-12[.44]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-12
-          cable: intrfc@eudswitch-7[.49]
+          cable: intrfc@eudswitch-7[.45]
           carry: ""
           wireless: []
           faces: public
@@ -411,15 +349,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-13[.50]
+        - name: intrfc@eudDev-13[.46]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-13
-          cable: intrfc@eudswitch-7[.51]
+          cable: intrfc@eudswitch-7[.47]
           carry: ""
           wireless: []
           faces: public
@@ -427,15 +364,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-14[.52]
+        - name: intrfc@eudDev-14[.48]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-14
-          cable: intrfc@eudswitch-7[.53]
+          cable: intrfc@eudswitch-7[.49]
           carry: ""
           wireless: []
           faces: public
@@ -443,15 +379,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-15[.54]
+        - name: intrfc@eudDev-15[.50]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-15
-          cable: intrfc@eudswitch-6[.55]
+          cable: intrfc@eudswitch-6[.51]
           carry: ""
           wireless: []
           faces: public
@@ -459,15 +394,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-16[.56]
+        - name: intrfc@eudDev-16[.52]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-16
-          cable: intrfc@eudswitch-6[.57]
+          cable: intrfc@eudswitch-6[.53]
           carry: ""
           wireless: []
           faces: public
@@ -475,15 +409,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-17[.58]
+        - name: intrfc@eudDev-17[.54]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-17
-          cable: intrfc@eudswitch-6[.59]
+          cable: intrfc@eudswitch-6[.55]
           carry: ""
           wireless: []
           faces: public
@@ -491,15 +424,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-18[.60]
+        - name: intrfc@eudDev-18[.56]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-18
-          cable: intrfc@eudswitch-6[.61]
+          cable: intrfc@eudswitch-6[.57]
           carry: ""
           wireless: []
           faces: public
@@ -507,15 +439,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-19[.62]
+        - name: intrfc@eudDev-19[.58]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-19
-          cable: intrfc@eudswitch-6[.63]
+          cable: intrfc@eudswitch-6[.59]
           carry: ""
           wireless: []
           faces: public
@@ -523,15 +454,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-20[.64]
+        - name: intrfc@eudDev-20[.60]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-20
-          cable: intrfc@eudswitch-6[.65]
+          cable: intrfc@eudswitch-6[.61]
           carry: ""
           wireless: []
           faces: public
@@ -539,15 +469,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-21[.66]
+        - name: intrfc@eudDev-21[.62]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-21
-          cable: intrfc@eudswitch-6[.67]
+          cable: intrfc@eudswitch-6[.63]
           carry: ""
           wireless: []
           faces: public
@@ -555,15 +484,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-22[.68]
+        - name: intrfc@eudDev-22[.64]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-22
-          cable: intrfc@eudswitch-6[.69]
+          cable: intrfc@eudswitch-6[.65]
           carry: ""
           wireless: []
           faces: public
@@ -571,15 +499,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-23[.70]
+        - name: intrfc@eudDev-23[.66]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-23
-          cable: intrfc@eudswitch-6[.71]
+          cable: intrfc@eudswitch-6[.67]
           carry: ""
           wireless: []
           faces: public
@@ -587,15 +514,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-24[.72]
+        - name: intrfc@eudDev-24[.68]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-24
-          cable: intrfc@eudswitch-6[.73]
+          cable: intrfc@eudswitch-6[.69]
           carry: ""
           wireless: []
           faces: public
@@ -603,15 +529,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-25[.74]
+        - name: intrfc@eudDev-25[.70]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-25
-          cable: intrfc@eudswitch-6[.75]
+          cable: intrfc@eudswitch-6[.71]
           carry: ""
           wireless: []
           faces: public
@@ -619,15 +544,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-26[.76]
+        - name: intrfc@eudDev-26[.72]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-26
-          cable: intrfc@eudswitch-6[.77]
+          cable: intrfc@eudswitch-6[.73]
           carry: ""
           wireless: []
           faces: public
@@ -635,15 +559,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-27[.78]
+        - name: intrfc@eudDev-27[.74]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-27
-          cable: intrfc@eudswitch-6[.79]
+          cable: intrfc@eudswitch-6[.75]
           carry: ""
           wireless: []
           faces: public
@@ -651,15 +574,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-28[.80]
+        - name: intrfc@eudDev-28[.76]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-28
-          cable: intrfc@eudswitch-6[.81]
+          cable: intrfc@eudswitch-6[.77]
           carry: ""
           wireless: []
           faces: public
@@ -667,15 +589,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-29[.82]
+        - name: intrfc@eudDev-29[.78]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-29
-          cable: intrfc@eudswitch-6[.83]
+          cable: intrfc@eudswitch-6[.79]
           carry: ""
           wireless: []
           faces: public
@@ -683,15 +604,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-30[.84]
+        - name: intrfc@eudDev-30[.80]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-30
-          cable: intrfc@eudswitch-5[.85]
+          cable: intrfc@eudswitch-5[.81]
           carry: ""
           wireless: []
           faces: public
@@ -699,15 +619,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-31[.86]
+        - name: intrfc@eudDev-31[.82]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-31
-          cable: intrfc@eudswitch-5[.87]
+          cable: intrfc@eudswitch-5[.83]
           carry: ""
           wireless: []
           faces: public
@@ -715,15 +634,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-32[.88]
+        - name: intrfc@eudDev-32[.84]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-32
-          cable: intrfc@eudswitch-5[.89]
+          cable: intrfc@eudswitch-5[.85]
           carry: ""
           wireless: []
           faces: public
@@ -731,15 +649,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-33[.90]
+        - name: intrfc@eudDev-33[.86]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-33
-          cable: intrfc@eudswitch-5[.91]
+          cable: intrfc@eudswitch-5[.87]
           carry: ""
           wireless: []
           faces: public
@@ -747,15 +664,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-34[.92]
+        - name: intrfc@eudDev-34[.88]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-34
-          cable: intrfc@eudswitch-5[.93]
+          cable: intrfc@eudswitch-5[.89]
           carry: ""
           wireless: []
           faces: public
@@ -763,15 +679,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-35[.94]
+        - name: intrfc@eudDev-35[.90]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-35
-          cable: intrfc@eudswitch-5[.95]
+          cable: intrfc@eudswitch-5[.91]
           carry: ""
           wireless: []
           faces: public
@@ -779,15 +694,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-36[.96]
+        - name: intrfc@eudDev-36[.92]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-36
-          cable: intrfc@eudswitch-5[.97]
+          cable: intrfc@eudswitch-5[.93]
           carry: ""
           wireless: []
           faces: public
@@ -795,15 +709,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-37[.98]
+        - name: intrfc@eudDev-37[.94]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-37
-          cable: intrfc@eudswitch-5[.99]
+          cable: intrfc@eudswitch-5[.95]
           carry: ""
           wireless: []
           faces: public
@@ -811,15 +724,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-38[.100]
+        - name: intrfc@eudDev-38[.96]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-38
-          cable: intrfc@eudswitch-5[.101]
+          cable: intrfc@eudswitch-5[.97]
           carry: ""
           wireless: []
           faces: public
@@ -827,15 +739,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-39[.102]
+        - name: intrfc@eudDev-39[.98]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-39
-          cable: intrfc@eudswitch-5[.103]
+          cable: intrfc@eudswitch-5[.99]
           carry: ""
           wireless: []
           faces: public
@@ -843,15 +754,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-40[.104]
+        - name: intrfc@eudDev-40[.100]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-40
-          cable: intrfc@eudswitch-5[.105]
+          cable: intrfc@eudswitch-5[.101]
           carry: ""
           wireless: []
           faces: public
@@ -859,15 +769,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-41[.106]
+        - name: intrfc@eudDev-41[.102]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-41
-          cable: intrfc@eudswitch-5[.107]
+          cable: intrfc@eudswitch-5[.103]
           carry: ""
           wireless: []
           faces: public
@@ -875,15 +784,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-42[.108]
+        - name: intrfc@eudDev-42[.104]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-42
-          cable: intrfc@eudswitch-5[.109]
+          cable: intrfc@eudswitch-5[.105]
           carry: ""
           wireless: []
           faces: public
@@ -891,15 +799,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-43[.110]
+        - name: intrfc@eudDev-43[.106]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-43
-          cable: intrfc@eudswitch-5[.111]
+          cable: intrfc@eudswitch-5[.107]
           carry: ""
           wireless: []
           faces: public
@@ -907,15 +814,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-44[.112]
+        - name: intrfc@eudDev-44[.108]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-44
-          cable: intrfc@eudswitch-5[.113]
+          cable: intrfc@eudswitch-5[.109]
           carry: ""
           wireless: []
           faces: public
@@ -923,15 +829,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-45[.114]
+        - name: intrfc@eudDev-45[.110]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-45
-          cable: intrfc@eudswitch-4[.115]
+          cable: intrfc@eudswitch-4[.111]
           carry: ""
           wireless: []
           faces: public
@@ -939,15 +844,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-46[.116]
+        - name: intrfc@eudDev-46[.112]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-46
-          cable: intrfc@eudswitch-4[.117]
+          cable: intrfc@eudswitch-4[.113]
           carry: ""
           wireless: []
           faces: public
@@ -955,15 +859,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-47[.118]
+        - name: intrfc@eudDev-47[.114]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-47
-          cable: intrfc@eudswitch-4[.119]
+          cable: intrfc@eudswitch-4[.115]
           carry: ""
           wireless: []
           faces: public
@@ -971,15 +874,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-48[.120]
+        - name: intrfc@eudDev-48[.116]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-48
-          cable: intrfc@eudswitch-4[.121]
+          cable: intrfc@eudswitch-4[.117]
           carry: ""
           wireless: []
           faces: public
@@ -987,15 +889,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-49[.122]
+        - name: intrfc@eudDev-49[.118]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-49
-          cable: intrfc@eudswitch-4[.123]
+          cable: intrfc@eudswitch-4[.119]
           carry: ""
           wireless: []
           faces: public
@@ -1003,15 +904,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-50[.124]
+        - name: intrfc@eudDev-50[.120]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-50
-          cable: intrfc@eudswitch-4[.125]
+          cable: intrfc@eudswitch-4[.121]
           carry: ""
           wireless: []
           faces: public
@@ -1019,15 +919,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-51[.126]
+        - name: intrfc@eudDev-51[.122]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-51
-          cable: intrfc@eudswitch-4[.127]
+          cable: intrfc@eudswitch-4[.123]
           carry: ""
           wireless: []
           faces: public
@@ -1035,15 +934,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-52[.128]
+        - name: intrfc@eudDev-52[.124]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-52
-          cable: intrfc@eudswitch-4[.129]
+          cable: intrfc@eudswitch-4[.125]
           carry: ""
           wireless: []
           faces: public
@@ -1051,15 +949,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-53[.130]
+        - name: intrfc@eudDev-53[.126]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-53
-          cable: intrfc@eudswitch-4[.131]
+          cable: intrfc@eudswitch-4[.127]
           carry: ""
           wireless: []
           faces: public
@@ -1067,15 +964,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-54[.132]
+        - name: intrfc@eudDev-54[.128]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-54
-          cable: intrfc@eudswitch-4[.133]
+          cable: intrfc@eudswitch-4[.129]
           carry: ""
           wireless: []
           faces: public
@@ -1083,15 +979,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-55[.134]
+        - name: intrfc@eudDev-55[.130]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-55
-          cable: intrfc@eudswitch-4[.135]
+          cable: intrfc@eudswitch-4[.131]
           carry: ""
           wireless: []
           faces: public
@@ -1099,15 +994,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-56[.136]
+        - name: intrfc@eudDev-56[.132]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-56
-          cable: intrfc@eudswitch-4[.137]
+          cable: intrfc@eudswitch-4[.133]
           carry: ""
           wireless: []
           faces: public
@@ -1115,15 +1009,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-57[.138]
+        - name: intrfc@eudDev-57[.134]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-57
-          cable: intrfc@eudswitch-4[.139]
+          cable: intrfc@eudswitch-4[.135]
           carry: ""
           wireless: []
           faces: public
@@ -1131,15 +1024,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-58[.140]
+        - name: intrfc@eudDev-58[.136]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-58
-          cable: intrfc@eudswitch-4[.141]
+          cable: intrfc@eudswitch-4[.137]
           carry: ""
           wireless: []
           faces: public
@@ -1147,15 +1039,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-59[.142]
+        - name: intrfc@eudDev-59[.138]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-59
-          cable: intrfc@eudswitch-4[.143]
+          cable: intrfc@eudswitch-4[.139]
           carry: ""
           wireless: []
           faces: public
@@ -1163,15 +1054,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-60[.144]
+        - name: intrfc@eudDev-60[.140]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-60
-          cable: intrfc@eudswitch-3[.145]
+          cable: intrfc@eudswitch-3[.141]
           carry: ""
           wireless: []
           faces: public
@@ -1179,15 +1069,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-61[.146]
+        - name: intrfc@eudDev-61[.142]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-61
-          cable: intrfc@eudswitch-3[.147]
+          cable: intrfc@eudswitch-3[.143]
           carry: ""
           wireless: []
           faces: public
@@ -1195,15 +1084,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-62[.148]
+        - name: intrfc@eudDev-62[.144]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-62
-          cable: intrfc@eudswitch-3[.149]
+          cable: intrfc@eudswitch-3[.145]
           carry: ""
           wireless: []
           faces: public
@@ -1211,15 +1099,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-63[.150]
+        - name: intrfc@eudDev-63[.146]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-63
-          cable: intrfc@eudswitch-3[.151]
+          cable: intrfc@eudswitch-3[.147]
           carry: ""
           wireless: []
           faces: public
@@ -1227,15 +1114,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-64[.152]
+        - name: intrfc@eudDev-64[.148]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-64
-          cable: intrfc@eudswitch-3[.153]
+          cable: intrfc@eudswitch-3[.149]
           carry: ""
           wireless: []
           faces: public
@@ -1243,15 +1129,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-65[.154]
+        - name: intrfc@eudDev-65[.150]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-65
-          cable: intrfc@eudswitch-3[.155]
+          cable: intrfc@eudswitch-3[.151]
           carry: ""
           wireless: []
           faces: public
@@ -1259,15 +1144,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-66[.156]
+        - name: intrfc@eudDev-66[.152]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-66
-          cable: intrfc@eudswitch-3[.157]
+          cable: intrfc@eudswitch-3[.153]
           carry: ""
           wireless: []
           faces: public
@@ -1275,15 +1159,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-67[.158]
+        - name: intrfc@eudDev-67[.154]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-67
-          cable: intrfc@eudswitch-3[.159]
+          cable: intrfc@eudswitch-3[.155]
           carry: ""
           wireless: []
           faces: public
@@ -1291,15 +1174,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-68[.160]
+        - name: intrfc@eudDev-68[.156]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-68
-          cable: intrfc@eudswitch-3[.161]
+          cable: intrfc@eudswitch-3[.157]
           carry: ""
           wireless: []
           faces: public
@@ -1307,15 +1189,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-69[.162]
+        - name: intrfc@eudDev-69[.158]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-69
-          cable: intrfc@eudswitch-3[.163]
+          cable: intrfc@eudswitch-3[.159]
           carry: ""
           wireless: []
           faces: public
@@ -1323,15 +1204,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-70[.164]
+        - name: intrfc@eudDev-70[.160]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-70
-          cable: intrfc@eudswitch-3[.165]
+          cable: intrfc@eudswitch-3[.161]
           carry: ""
           wireless: []
           faces: public
@@ -1339,15 +1219,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-71[.166]
+        - name: intrfc@eudDev-71[.162]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-71
-          cable: intrfc@eudswitch-3[.167]
+          cable: intrfc@eudswitch-3[.163]
           carry: ""
           wireless: []
           faces: public
@@ -1355,15 +1234,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-72[.168]
+        - name: intrfc@eudDev-72[.164]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-72
-          cable: intrfc@eudswitch-3[.169]
+          cable: intrfc@eudswitch-3[.165]
           carry: ""
           wireless: []
           faces: public
@@ -1371,15 +1249,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-73[.170]
+        - name: intrfc@eudDev-73[.166]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-73
-          cable: intrfc@eudswitch-3[.171]
+          cable: intrfc@eudswitch-3[.167]
           carry: ""
           wireless: []
           faces: public
@@ -1387,15 +1264,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-74[.172]
+        - name: intrfc@eudDev-74[.168]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-74
-          cable: intrfc@eudswitch-3[.173]
+          cable: intrfc@eudswitch-3[.169]
           carry: ""
           wireless: []
           faces: public
@@ -1403,15 +1279,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-75[.174]
+        - name: intrfc@eudDev-75[.170]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-75
-          cable: intrfc@eudswitch-2[.175]
+          cable: intrfc@eudswitch-2[.171]
           carry: ""
           wireless: []
           faces: public
@@ -1419,15 +1294,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-76[.176]
+        - name: intrfc@eudDev-76[.172]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-76
-          cable: intrfc@eudswitch-2[.177]
+          cable: intrfc@eudswitch-2[.173]
           carry: ""
           wireless: []
           faces: public
@@ -1435,15 +1309,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-77[.178]
+        - name: intrfc@eudDev-77[.174]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-77
-          cable: intrfc@eudswitch-2[.179]
+          cable: intrfc@eudswitch-2[.175]
           carry: ""
           wireless: []
           faces: public
@@ -1451,15 +1324,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-78[.180]
+        - name: intrfc@eudDev-78[.176]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-78
-          cable: intrfc@eudswitch-2[.181]
+          cable: intrfc@eudswitch-2[.177]
           carry: ""
           wireless: []
           faces: public
@@ -1467,15 +1339,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-79[.182]
+        - name: intrfc@eudDev-79[.178]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-79
-          cable: intrfc@eudswitch-2[.183]
+          cable: intrfc@eudswitch-2[.179]
           carry: ""
           wireless: []
           faces: public
@@ -1483,15 +1354,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-80[.184]
+        - name: intrfc@eudDev-80[.180]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-80
-          cable: intrfc@eudswitch-2[.185]
+          cable: intrfc@eudswitch-2[.181]
           carry: ""
           wireless: []
           faces: public
@@ -1499,15 +1369,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-81[.186]
+        - name: intrfc@eudDev-81[.182]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-81
-          cable: intrfc@eudswitch-2[.187]
+          cable: intrfc@eudswitch-2[.183]
           carry: ""
           wireless: []
           faces: public
@@ -1515,15 +1384,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-82[.188]
+        - name: intrfc@eudDev-82[.184]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-82
-          cable: intrfc@eudswitch-2[.189]
+          cable: intrfc@eudswitch-2[.185]
           carry: ""
           wireless: []
           faces: public
@@ -1531,15 +1399,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-83[.190]
+        - name: intrfc@eudDev-83[.186]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-83
-          cable: intrfc@eudswitch-2[.191]
+          cable: intrfc@eudswitch-2[.187]
           carry: ""
           wireless: []
           faces: public
@@ -1547,15 +1414,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-84[.192]
+        - name: intrfc@eudDev-84[.188]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-84
-          cable: intrfc@eudswitch-2[.193]
+          cable: intrfc@eudswitch-2[.189]
           carry: ""
           wireless: []
           faces: public
@@ -1563,15 +1429,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-85[.194]
+        - name: intrfc@eudDev-85[.190]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-85
-          cable: intrfc@eudswitch-2[.195]
+          cable: intrfc@eudswitch-2[.191]
           carry: ""
           wireless: []
           faces: public
@@ -1579,15 +1444,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-86[.196]
+        - name: intrfc@eudDev-86[.192]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-86
-          cable: intrfc@eudswitch-2[.197]
+          cable: intrfc@eudswitch-2[.193]
           carry: ""
           wireless: []
           faces: public
@@ -1595,15 +1459,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-87[.198]
+        - name: intrfc@eudDev-87[.194]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-87
-          cable: intrfc@eudswitch-2[.199]
+          cable: intrfc@eudswitch-2[.195]
           carry: ""
           wireless: []
           faces: public
@@ -1611,15 +1474,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-88[.200]
+        - name: intrfc@eudDev-88[.196]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-88
-          cable: intrfc@eudswitch-2[.201]
+          cable: intrfc@eudswitch-2[.197]
           carry: ""
           wireless: []
           faces: public
@@ -1627,15 +1489,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-89[.202]
+        - name: intrfc@eudDev-89[.198]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-89
-          cable: intrfc@eudswitch-2[.203]
+          cable: intrfc@eudswitch-2[.199]
           carry: ""
           wireless: []
           faces: public
@@ -1643,15 +1504,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-90[.204]
+        - name: intrfc@eudDev-90[.200]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-90
-          cable: intrfc@eudswitch-1[.205]
+          cable: intrfc@eudswitch-1[.201]
           carry: ""
           wireless: []
           faces: public
@@ -1659,15 +1519,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-91[.206]
+        - name: intrfc@eudDev-91[.202]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-91
-          cable: intrfc@eudswitch-1[.207]
+          cable: intrfc@eudswitch-1[.203]
           carry: ""
           wireless: []
           faces: public
@@ -1675,15 +1534,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-92[.208]
+        - name: intrfc@eudDev-92[.204]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-92
-          cable: intrfc@eudswitch-1[.209]
+          cable: intrfc@eudswitch-1[.205]
           carry: ""
           wireless: []
           faces: public
@@ -1691,15 +1549,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-93[.210]
+        - name: intrfc@eudDev-93[.206]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-93
-          cable: intrfc@eudswitch-1[.211]
+          cable: intrfc@eudswitch-1[.207]
           carry: ""
           wireless: []
           faces: public
@@ -1707,15 +1564,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-94[.212]
+        - name: intrfc@eudDev-94[.208]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-94
-          cable: intrfc@eudswitch-1[.213]
+          cable: intrfc@eudswitch-1[.209]
           carry: ""
           wireless: []
           faces: public
@@ -1723,15 +1579,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-95[.214]
+        - name: intrfc@eudDev-95[.210]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-95
-          cable: intrfc@eudswitch-1[.215]
+          cable: intrfc@eudswitch-1[.211]
           carry: ""
           wireless: []
           faces: public
@@ -1739,15 +1594,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-96[.216]
+        - name: intrfc@eudDev-96[.212]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-96
-          cable: intrfc@eudswitch-1[.217]
+          cable: intrfc@eudswitch-1[.213]
           carry: ""
           wireless: []
           faces: public
@@ -1755,15 +1609,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-97[.218]
+        - name: intrfc@eudDev-97[.214]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-97
-          cable: intrfc@eudswitch-1[.219]
+          cable: intrfc@eudswitch-1[.215]
           carry: ""
           wireless: []
           faces: public
@@ -1771,15 +1624,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-98[.220]
+        - name: intrfc@eudDev-98[.216]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-98
-          cable: intrfc@eudswitch-1[.221]
+          cable: intrfc@eudswitch-1[.217]
           carry: ""
           wireless: []
           faces: public
@@ -1787,15 +1639,14 @@ endpts:
       groups:
         - EUD
       model: Intel-i3-4130
-      eud: true
       cores: 2
       interfaces:
-        - name: intrfc@eudDev-99[.222]
+        - name: intrfc@eudDev-99[.218]
           groups: []
           devtype: Endpt
           mediatype: wired
           device: eudDev-99
-          cable: intrfc@eudswitch-1[.223]
+          cable: intrfc@eudswitch-1[.219]
           carry: ""
           wireless: []
           faces: public
@@ -1803,7 +1654,6 @@ endpts:
       groups:
         - Host
       model: Intel-i7-1185G7E
-      eud: false
       cores: 8
       interfaces:
         - name: intrfc@pcktsrc[.0]
@@ -1820,12 +1670,30 @@ switches:
       groups: []
       model: ACME-Generic-Fast-Switch
       interfaces:
-        - name: intrfc@eudSwitch-0[.8]
+        - name: intrfc@eudSwitch-0[.5]
           groups: []
           devtype: Switch
           mediatype: wired
           device: eudSwitch-0
-          cable: intrfc@pubRtr[.9]
+          cable: intrfc@pvtRtr[.4]
+          carry: ""
+          wireless: []
+          faces: public
+        - name: intrfc@eudSwitch-0[.7]
+          groups: []
+          devtype: Switch
+          mediatype: wired
+          device: eudSwitch-0
+          cable: intrfc@eudswitch-1[.6]
+          carry: ""
+          wireless: []
+          faces: public
+        - name: intrfc@eudSwitch-0[.9]
+          groups: []
+          devtype: Switch
+          mediatype: wired
+          device: eudSwitch-0
+          cable: intrfc@eudswitch-2[.8]
           carry: ""
           wireless: []
           faces: public
@@ -1834,7 +1702,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudSwitch-0
-          cable: intrfc@eudswitch-1[.10]
+          cable: intrfc@eudswitch-3[.10]
           carry: ""
           wireless: []
           faces: public
@@ -1843,7 +1711,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudSwitch-0
-          cable: intrfc@eudswitch-2[.12]
+          cable: intrfc@eudswitch-4[.12]
           carry: ""
           wireless: []
           faces: public
@@ -1852,7 +1720,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudSwitch-0
-          cable: intrfc@eudswitch-3[.14]
+          cable: intrfc@eudswitch-5[.14]
           carry: ""
           wireless: []
           faces: public
@@ -1861,7 +1729,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudSwitch-0
-          cable: intrfc@eudswitch-4[.16]
+          cable: intrfc@eudswitch-6[.16]
           carry: ""
           wireless: []
           faces: public
@@ -1870,25 +1738,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudSwitch-0
-          cable: intrfc@eudswitch-5[.18]
-          carry: ""
-          wireless: []
-          faces: public
-        - name: intrfc@eudSwitch-0[.21]
-          groups: []
-          devtype: Switch
-          mediatype: wired
-          device: eudSwitch-0
-          cable: intrfc@eudswitch-6[.20]
-          carry: ""
-          wireless: []
-          faces: public
-        - name: intrfc@eudSwitch-0[.23]
-          groups: []
-          devtype: Switch
-          mediatype: wired
-          device: eudSwitch-0
-          cable: intrfc@eudswitch-7[.22]
+          cable: intrfc@eudswitch-7[.18]
           carry: ""
           wireless: []
           faces: public
@@ -1896,12 +1746,30 @@ switches:
       groups: []
       model: ACME-Generic-Fast-Switch
       interfaces:
-        - name: intrfc@eudswitch-1[.10]
+        - name: intrfc@eudswitch-1[.6]
           groups: []
           devtype: Switch
           mediatype: wired
           device: eudswitch-1
-          cable: intrfc@eudSwitch-0[.11]
+          cable: intrfc@eudSwitch-0[.7]
+          carry: ""
+          wireless: []
+          faces: public
+        - name: intrfc@eudswitch-1[.201]
+          groups: []
+          devtype: Switch
+          mediatype: wired
+          device: eudswitch-1
+          cable: intrfc@eudDev-90[.200]
+          carry: ""
+          wireless: []
+          faces: public
+        - name: intrfc@eudswitch-1[.203]
+          groups: []
+          devtype: Switch
+          mediatype: wired
+          device: eudswitch-1
+          cable: intrfc@eudDev-91[.202]
           carry: ""
           wireless: []
           faces: public
@@ -1910,7 +1778,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-1
-          cable: intrfc@eudDev-90[.204]
+          cable: intrfc@eudDev-92[.204]
           carry: ""
           wireless: []
           faces: public
@@ -1919,7 +1787,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-1
-          cable: intrfc@eudDev-91[.206]
+          cable: intrfc@eudDev-93[.206]
           carry: ""
           wireless: []
           faces: public
@@ -1928,7 +1796,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-1
-          cable: intrfc@eudDev-92[.208]
+          cable: intrfc@eudDev-94[.208]
           carry: ""
           wireless: []
           faces: public
@@ -1937,7 +1805,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-1
-          cable: intrfc@eudDev-93[.210]
+          cable: intrfc@eudDev-95[.210]
           carry: ""
           wireless: []
           faces: public
@@ -1946,7 +1814,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-1
-          cable: intrfc@eudDev-94[.212]
+          cable: intrfc@eudDev-96[.212]
           carry: ""
           wireless: []
           faces: public
@@ -1955,7 +1823,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-1
-          cable: intrfc@eudDev-95[.214]
+          cable: intrfc@eudDev-97[.214]
           carry: ""
           wireless: []
           faces: public
@@ -1964,7 +1832,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-1
-          cable: intrfc@eudDev-96[.216]
+          cable: intrfc@eudDev-98[.216]
           carry: ""
           wireless: []
           faces: public
@@ -1973,25 +1841,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-1
-          cable: intrfc@eudDev-97[.218]
-          carry: ""
-          wireless: []
-          faces: public
-        - name: intrfc@eudswitch-1[.221]
-          groups: []
-          devtype: Switch
-          mediatype: wired
-          device: eudswitch-1
-          cable: intrfc@eudDev-98[.220]
-          carry: ""
-          wireless: []
-          faces: public
-        - name: intrfc@eudswitch-1[.223]
-          groups: []
-          devtype: Switch
-          mediatype: wired
-          device: eudswitch-1
-          cable: intrfc@eudDev-99[.222]
+          cable: intrfc@eudDev-99[.218]
           carry: ""
           wireless: []
           faces: public
@@ -1999,12 +1849,30 @@ switches:
       groups: []
       model: ACME-Generic-Fast-Switch
       interfaces:
-        - name: intrfc@eudswitch-2[.12]
+        - name: intrfc@eudswitch-2[.8]
           groups: []
           devtype: Switch
           mediatype: wired
           device: eudswitch-2
-          cable: intrfc@eudSwitch-0[.13]
+          cable: intrfc@eudSwitch-0[.9]
+          carry: ""
+          wireless: []
+          faces: public
+        - name: intrfc@eudswitch-2[.171]
+          groups: []
+          devtype: Switch
+          mediatype: wired
+          device: eudswitch-2
+          cable: intrfc@eudDev-75[.170]
+          carry: ""
+          wireless: []
+          faces: public
+        - name: intrfc@eudswitch-2[.173]
+          groups: []
+          devtype: Switch
+          mediatype: wired
+          device: eudswitch-2
+          cable: intrfc@eudDev-76[.172]
           carry: ""
           wireless: []
           faces: public
@@ -2013,7 +1881,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-2
-          cable: intrfc@eudDev-75[.174]
+          cable: intrfc@eudDev-77[.174]
           carry: ""
           wireless: []
           faces: public
@@ -2022,7 +1890,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-2
-          cable: intrfc@eudDev-76[.176]
+          cable: intrfc@eudDev-78[.176]
           carry: ""
           wireless: []
           faces: public
@@ -2031,7 +1899,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-2
-          cable: intrfc@eudDev-77[.178]
+          cable: intrfc@eudDev-79[.178]
           carry: ""
           wireless: []
           faces: public
@@ -2040,7 +1908,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-2
-          cable: intrfc@eudDev-78[.180]
+          cable: intrfc@eudDev-80[.180]
           carry: ""
           wireless: []
           faces: public
@@ -2049,7 +1917,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-2
-          cable: intrfc@eudDev-79[.182]
+          cable: intrfc@eudDev-81[.182]
           carry: ""
           wireless: []
           faces: public
@@ -2058,7 +1926,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-2
-          cable: intrfc@eudDev-80[.184]
+          cable: intrfc@eudDev-82[.184]
           carry: ""
           wireless: []
           faces: public
@@ -2067,7 +1935,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-2
-          cable: intrfc@eudDev-81[.186]
+          cable: intrfc@eudDev-83[.186]
           carry: ""
           wireless: []
           faces: public
@@ -2076,7 +1944,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-2
-          cable: intrfc@eudDev-82[.188]
+          cable: intrfc@eudDev-84[.188]
           carry: ""
           wireless: []
           faces: public
@@ -2085,7 +1953,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-2
-          cable: intrfc@eudDev-83[.190]
+          cable: intrfc@eudDev-85[.190]
           carry: ""
           wireless: []
           faces: public
@@ -2094,7 +1962,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-2
-          cable: intrfc@eudDev-84[.192]
+          cable: intrfc@eudDev-86[.192]
           carry: ""
           wireless: []
           faces: public
@@ -2103,7 +1971,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-2
-          cable: intrfc@eudDev-85[.194]
+          cable: intrfc@eudDev-87[.194]
           carry: ""
           wireless: []
           faces: public
@@ -2112,7 +1980,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-2
-          cable: intrfc@eudDev-86[.196]
+          cable: intrfc@eudDev-88[.196]
           carry: ""
           wireless: []
           faces: public
@@ -2121,25 +1989,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-2
-          cable: intrfc@eudDev-87[.198]
-          carry: ""
-          wireless: []
-          faces: public
-        - name: intrfc@eudswitch-2[.201]
-          groups: []
-          devtype: Switch
-          mediatype: wired
-          device: eudswitch-2
-          cable: intrfc@eudDev-88[.200]
-          carry: ""
-          wireless: []
-          faces: public
-        - name: intrfc@eudswitch-2[.203]
-          groups: []
-          devtype: Switch
-          mediatype: wired
-          device: eudswitch-2
-          cable: intrfc@eudDev-89[.202]
+          cable: intrfc@eudDev-89[.198]
           carry: ""
           wireless: []
           faces: public
@@ -2147,12 +1997,30 @@ switches:
       groups: []
       model: ACME-Generic-Fast-Switch
       interfaces:
-        - name: intrfc@eudswitch-3[.14]
+        - name: intrfc@eudswitch-3[.10]
           groups: []
           devtype: Switch
           mediatype: wired
           device: eudswitch-3
-          cable: intrfc@eudSwitch-0[.15]
+          cable: intrfc@eudSwitch-0[.11]
+          carry: ""
+          wireless: []
+          faces: public
+        - name: intrfc@eudswitch-3[.141]
+          groups: []
+          devtype: Switch
+          mediatype: wired
+          device: eudswitch-3
+          cable: intrfc@eudDev-60[.140]
+          carry: ""
+          wireless: []
+          faces: public
+        - name: intrfc@eudswitch-3[.143]
+          groups: []
+          devtype: Switch
+          mediatype: wired
+          device: eudswitch-3
+          cable: intrfc@eudDev-61[.142]
           carry: ""
           wireless: []
           faces: public
@@ -2161,7 +2029,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-3
-          cable: intrfc@eudDev-60[.144]
+          cable: intrfc@eudDev-62[.144]
           carry: ""
           wireless: []
           faces: public
@@ -2170,7 +2038,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-3
-          cable: intrfc@eudDev-61[.146]
+          cable: intrfc@eudDev-63[.146]
           carry: ""
           wireless: []
           faces: public
@@ -2179,7 +2047,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-3
-          cable: intrfc@eudDev-62[.148]
+          cable: intrfc@eudDev-64[.148]
           carry: ""
           wireless: []
           faces: public
@@ -2188,7 +2056,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-3
-          cable: intrfc@eudDev-63[.150]
+          cable: intrfc@eudDev-65[.150]
           carry: ""
           wireless: []
           faces: public
@@ -2197,7 +2065,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-3
-          cable: intrfc@eudDev-64[.152]
+          cable: intrfc@eudDev-66[.152]
           carry: ""
           wireless: []
           faces: public
@@ -2206,7 +2074,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-3
-          cable: intrfc@eudDev-65[.154]
+          cable: intrfc@eudDev-67[.154]
           carry: ""
           wireless: []
           faces: public
@@ -2215,7 +2083,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-3
-          cable: intrfc@eudDev-66[.156]
+          cable: intrfc@eudDev-68[.156]
           carry: ""
           wireless: []
           faces: public
@@ -2224,7 +2092,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-3
-          cable: intrfc@eudDev-67[.158]
+          cable: intrfc@eudDev-69[.158]
           carry: ""
           wireless: []
           faces: public
@@ -2233,7 +2101,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-3
-          cable: intrfc@eudDev-68[.160]
+          cable: intrfc@eudDev-70[.160]
           carry: ""
           wireless: []
           faces: public
@@ -2242,7 +2110,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-3
-          cable: intrfc@eudDev-69[.162]
+          cable: intrfc@eudDev-71[.162]
           carry: ""
           wireless: []
           faces: public
@@ -2251,7 +2119,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-3
-          cable: intrfc@eudDev-70[.164]
+          cable: intrfc@eudDev-72[.164]
           carry: ""
           wireless: []
           faces: public
@@ -2260,7 +2128,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-3
-          cable: intrfc@eudDev-71[.166]
+          cable: intrfc@eudDev-73[.166]
           carry: ""
           wireless: []
           faces: public
@@ -2269,25 +2137,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-3
-          cable: intrfc@eudDev-72[.168]
-          carry: ""
-          wireless: []
-          faces: public
-        - name: intrfc@eudswitch-3[.171]
-          groups: []
-          devtype: Switch
-          mediatype: wired
-          device: eudswitch-3
-          cable: intrfc@eudDev-73[.170]
-          carry: ""
-          wireless: []
-          faces: public
-        - name: intrfc@eudswitch-3[.173]
-          groups: []
-          devtype: Switch
-          mediatype: wired
-          device: eudswitch-3
-          cable: intrfc@eudDev-74[.172]
+          cable: intrfc@eudDev-74[.168]
           carry: ""
           wireless: []
           faces: public
@@ -2295,12 +2145,30 @@ switches:
       groups: []
       model: ACME-Generic-Fast-Switch
       interfaces:
-        - name: intrfc@eudswitch-4[.16]
+        - name: intrfc@eudswitch-4[.12]
           groups: []
           devtype: Switch
           mediatype: wired
           device: eudswitch-4
-          cable: intrfc@eudSwitch-0[.17]
+          cable: intrfc@eudSwitch-0[.13]
+          carry: ""
+          wireless: []
+          faces: public
+        - name: intrfc@eudswitch-4[.111]
+          groups: []
+          devtype: Switch
+          mediatype: wired
+          device: eudswitch-4
+          cable: intrfc@eudDev-45[.110]
+          carry: ""
+          wireless: []
+          faces: public
+        - name: intrfc@eudswitch-4[.113]
+          groups: []
+          devtype: Switch
+          mediatype: wired
+          device: eudswitch-4
+          cable: intrfc@eudDev-46[.112]
           carry: ""
           wireless: []
           faces: public
@@ -2309,7 +2177,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-4
-          cable: intrfc@eudDev-45[.114]
+          cable: intrfc@eudDev-47[.114]
           carry: ""
           wireless: []
           faces: public
@@ -2318,7 +2186,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-4
-          cable: intrfc@eudDev-46[.116]
+          cable: intrfc@eudDev-48[.116]
           carry: ""
           wireless: []
           faces: public
@@ -2327,7 +2195,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-4
-          cable: intrfc@eudDev-47[.118]
+          cable: intrfc@eudDev-49[.118]
           carry: ""
           wireless: []
           faces: public
@@ -2336,7 +2204,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-4
-          cable: intrfc@eudDev-48[.120]
+          cable: intrfc@eudDev-50[.120]
           carry: ""
           wireless: []
           faces: public
@@ -2345,7 +2213,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-4
-          cable: intrfc@eudDev-49[.122]
+          cable: intrfc@eudDev-51[.122]
           carry: ""
           wireless: []
           faces: public
@@ -2354,7 +2222,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-4
-          cable: intrfc@eudDev-50[.124]
+          cable: intrfc@eudDev-52[.124]
           carry: ""
           wireless: []
           faces: public
@@ -2363,7 +2231,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-4
-          cable: intrfc@eudDev-51[.126]
+          cable: intrfc@eudDev-53[.126]
           carry: ""
           wireless: []
           faces: public
@@ -2372,7 +2240,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-4
-          cable: intrfc@eudDev-52[.128]
+          cable: intrfc@eudDev-54[.128]
           carry: ""
           wireless: []
           faces: public
@@ -2381,7 +2249,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-4
-          cable: intrfc@eudDev-53[.130]
+          cable: intrfc@eudDev-55[.130]
           carry: ""
           wireless: []
           faces: public
@@ -2390,7 +2258,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-4
-          cable: intrfc@eudDev-54[.132]
+          cable: intrfc@eudDev-56[.132]
           carry: ""
           wireless: []
           faces: public
@@ -2399,7 +2267,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-4
-          cable: intrfc@eudDev-55[.134]
+          cable: intrfc@eudDev-57[.134]
           carry: ""
           wireless: []
           faces: public
@@ -2408,7 +2276,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-4
-          cable: intrfc@eudDev-56[.136]
+          cable: intrfc@eudDev-58[.136]
           carry: ""
           wireless: []
           faces: public
@@ -2417,25 +2285,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-4
-          cable: intrfc@eudDev-57[.138]
-          carry: ""
-          wireless: []
-          faces: public
-        - name: intrfc@eudswitch-4[.141]
-          groups: []
-          devtype: Switch
-          mediatype: wired
-          device: eudswitch-4
-          cable: intrfc@eudDev-58[.140]
-          carry: ""
-          wireless: []
-          faces: public
-        - name: intrfc@eudswitch-4[.143]
-          groups: []
-          devtype: Switch
-          mediatype: wired
-          device: eudswitch-4
-          cable: intrfc@eudDev-59[.142]
+          cable: intrfc@eudDev-59[.138]
           carry: ""
           wireless: []
           faces: public
@@ -2443,12 +2293,30 @@ switches:
       groups: []
       model: ACME-Generic-Fast-Switch
       interfaces:
-        - name: intrfc@eudswitch-5[.18]
+        - name: intrfc@eudswitch-5[.14]
           groups: []
           devtype: Switch
           mediatype: wired
           device: eudswitch-5
-          cable: intrfc@eudSwitch-0[.19]
+          cable: intrfc@eudSwitch-0[.15]
+          carry: ""
+          wireless: []
+          faces: public
+        - name: intrfc@eudswitch-5[.81]
+          groups: []
+          devtype: Switch
+          mediatype: wired
+          device: eudswitch-5
+          cable: intrfc@eudDev-30[.80]
+          carry: ""
+          wireless: []
+          faces: public
+        - name: intrfc@eudswitch-5[.83]
+          groups: []
+          devtype: Switch
+          mediatype: wired
+          device: eudswitch-5
+          cable: intrfc@eudDev-31[.82]
           carry: ""
           wireless: []
           faces: public
@@ -2457,7 +2325,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-5
-          cable: intrfc@eudDev-30[.84]
+          cable: intrfc@eudDev-32[.84]
           carry: ""
           wireless: []
           faces: public
@@ -2466,7 +2334,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-5
-          cable: intrfc@eudDev-31[.86]
+          cable: intrfc@eudDev-33[.86]
           carry: ""
           wireless: []
           faces: public
@@ -2475,7 +2343,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-5
-          cable: intrfc@eudDev-32[.88]
+          cable: intrfc@eudDev-34[.88]
           carry: ""
           wireless: []
           faces: public
@@ -2484,7 +2352,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-5
-          cable: intrfc@eudDev-33[.90]
+          cable: intrfc@eudDev-35[.90]
           carry: ""
           wireless: []
           faces: public
@@ -2493,7 +2361,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-5
-          cable: intrfc@eudDev-34[.92]
+          cable: intrfc@eudDev-36[.92]
           carry: ""
           wireless: []
           faces: public
@@ -2502,7 +2370,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-5
-          cable: intrfc@eudDev-35[.94]
+          cable: intrfc@eudDev-37[.94]
           carry: ""
           wireless: []
           faces: public
@@ -2511,7 +2379,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-5
-          cable: intrfc@eudDev-36[.96]
+          cable: intrfc@eudDev-38[.96]
           carry: ""
           wireless: []
           faces: public
@@ -2520,7 +2388,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-5
-          cable: intrfc@eudDev-37[.98]
+          cable: intrfc@eudDev-39[.98]
           carry: ""
           wireless: []
           faces: public
@@ -2529,7 +2397,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-5
-          cable: intrfc@eudDev-38[.100]
+          cable: intrfc@eudDev-40[.100]
           carry: ""
           wireless: []
           faces: public
@@ -2538,7 +2406,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-5
-          cable: intrfc@eudDev-39[.102]
+          cable: intrfc@eudDev-41[.102]
           carry: ""
           wireless: []
           faces: public
@@ -2547,7 +2415,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-5
-          cable: intrfc@eudDev-40[.104]
+          cable: intrfc@eudDev-42[.104]
           carry: ""
           wireless: []
           faces: public
@@ -2556,7 +2424,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-5
-          cable: intrfc@eudDev-41[.106]
+          cable: intrfc@eudDev-43[.106]
           carry: ""
           wireless: []
           faces: public
@@ -2565,25 +2433,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-5
-          cable: intrfc@eudDev-42[.108]
-          carry: ""
-          wireless: []
-          faces: public
-        - name: intrfc@eudswitch-5[.111]
-          groups: []
-          devtype: Switch
-          mediatype: wired
-          device: eudswitch-5
-          cable: intrfc@eudDev-43[.110]
-          carry: ""
-          wireless: []
-          faces: public
-        - name: intrfc@eudswitch-5[.113]
-          groups: []
-          devtype: Switch
-          mediatype: wired
-          device: eudswitch-5
-          cable: intrfc@eudDev-44[.112]
+          cable: intrfc@eudDev-44[.108]
           carry: ""
           wireless: []
           faces: public
@@ -2591,12 +2441,30 @@ switches:
       groups: []
       model: ACME-Generic-Fast-Switch
       interfaces:
-        - name: intrfc@eudswitch-6[.20]
+        - name: intrfc@eudswitch-6[.16]
           groups: []
           devtype: Switch
           mediatype: wired
           device: eudswitch-6
-          cable: intrfc@eudSwitch-0[.21]
+          cable: intrfc@eudSwitch-0[.17]
+          carry: ""
+          wireless: []
+          faces: public
+        - name: intrfc@eudswitch-6[.51]
+          groups: []
+          devtype: Switch
+          mediatype: wired
+          device: eudswitch-6
+          cable: intrfc@eudDev-15[.50]
+          carry: ""
+          wireless: []
+          faces: public
+        - name: intrfc@eudswitch-6[.53]
+          groups: []
+          devtype: Switch
+          mediatype: wired
+          device: eudswitch-6
+          cable: intrfc@eudDev-16[.52]
           carry: ""
           wireless: []
           faces: public
@@ -2605,7 +2473,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-6
-          cable: intrfc@eudDev-15[.54]
+          cable: intrfc@eudDev-17[.54]
           carry: ""
           wireless: []
           faces: public
@@ -2614,7 +2482,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-6
-          cable: intrfc@eudDev-16[.56]
+          cable: intrfc@eudDev-18[.56]
           carry: ""
           wireless: []
           faces: public
@@ -2623,7 +2491,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-6
-          cable: intrfc@eudDev-17[.58]
+          cable: intrfc@eudDev-19[.58]
           carry: ""
           wireless: []
           faces: public
@@ -2632,7 +2500,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-6
-          cable: intrfc@eudDev-18[.60]
+          cable: intrfc@eudDev-20[.60]
           carry: ""
           wireless: []
           faces: public
@@ -2641,7 +2509,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-6
-          cable: intrfc@eudDev-19[.62]
+          cable: intrfc@eudDev-21[.62]
           carry: ""
           wireless: []
           faces: public
@@ -2650,7 +2518,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-6
-          cable: intrfc@eudDev-20[.64]
+          cable: intrfc@eudDev-22[.64]
           carry: ""
           wireless: []
           faces: public
@@ -2659,7 +2527,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-6
-          cable: intrfc@eudDev-21[.66]
+          cable: intrfc@eudDev-23[.66]
           carry: ""
           wireless: []
           faces: public
@@ -2668,7 +2536,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-6
-          cable: intrfc@eudDev-22[.68]
+          cable: intrfc@eudDev-24[.68]
           carry: ""
           wireless: []
           faces: public
@@ -2677,7 +2545,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-6
-          cable: intrfc@eudDev-23[.70]
+          cable: intrfc@eudDev-25[.70]
           carry: ""
           wireless: []
           faces: public
@@ -2686,7 +2554,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-6
-          cable: intrfc@eudDev-24[.72]
+          cable: intrfc@eudDev-26[.72]
           carry: ""
           wireless: []
           faces: public
@@ -2695,7 +2563,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-6
-          cable: intrfc@eudDev-25[.74]
+          cable: intrfc@eudDev-27[.74]
           carry: ""
           wireless: []
           faces: public
@@ -2704,7 +2572,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-6
-          cable: intrfc@eudDev-26[.76]
+          cable: intrfc@eudDev-28[.76]
           carry: ""
           wireless: []
           faces: public
@@ -2713,25 +2581,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-6
-          cable: intrfc@eudDev-27[.78]
-          carry: ""
-          wireless: []
-          faces: public
-        - name: intrfc@eudswitch-6[.81]
-          groups: []
-          devtype: Switch
-          mediatype: wired
-          device: eudswitch-6
-          cable: intrfc@eudDev-28[.80]
-          carry: ""
-          wireless: []
-          faces: public
-        - name: intrfc@eudswitch-6[.83]
-          groups: []
-          devtype: Switch
-          mediatype: wired
-          device: eudswitch-6
-          cable: intrfc@eudDev-29[.82]
+          cable: intrfc@eudDev-29[.78]
           carry: ""
           wireless: []
           faces: public
@@ -2739,12 +2589,30 @@ switches:
       groups: []
       model: ACME-Generic-Fast-Switch
       interfaces:
-        - name: intrfc@eudswitch-7[.22]
+        - name: intrfc@eudswitch-7[.18]
           groups: []
           devtype: Switch
           mediatype: wired
           device: eudswitch-7
-          cable: intrfc@eudSwitch-0[.23]
+          cable: intrfc@eudSwitch-0[.19]
+          carry: ""
+          wireless: []
+          faces: public
+        - name: intrfc@eudswitch-7[.21]
+          groups: []
+          devtype: Switch
+          mediatype: wired
+          device: eudswitch-7
+          cable: intrfc@eudDev-0[.20]
+          carry: ""
+          wireless: []
+          faces: public
+        - name: intrfc@eudswitch-7[.23]
+          groups: []
+          devtype: Switch
+          mediatype: wired
+          device: eudswitch-7
+          cable: intrfc@eudDev-1[.22]
           carry: ""
           wireless: []
           faces: public
@@ -2753,7 +2621,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-7
-          cable: intrfc@eudDev-0[.24]
+          cable: intrfc@eudDev-2[.24]
           carry: ""
           wireless: []
           faces: public
@@ -2762,7 +2630,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-7
-          cable: intrfc@eudDev-1[.26]
+          cable: intrfc@eudDev-3[.26]
           carry: ""
           wireless: []
           faces: public
@@ -2771,7 +2639,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-7
-          cable: intrfc@eudDev-2[.28]
+          cable: intrfc@eudDev-4[.28]
           carry: ""
           wireless: []
           faces: public
@@ -2780,7 +2648,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-7
-          cable: intrfc@eudDev-3[.30]
+          cable: intrfc@eudDev-5[.30]
           carry: ""
           wireless: []
           faces: public
@@ -2789,7 +2657,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-7
-          cable: intrfc@eudDev-4[.32]
+          cable: intrfc@eudDev-6[.32]
           carry: ""
           wireless: []
           faces: public
@@ -2798,7 +2666,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-7
-          cable: intrfc@eudDev-5[.34]
+          cable: intrfc@eudDev-7[.34]
           carry: ""
           wireless: []
           faces: public
@@ -2807,7 +2675,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-7
-          cable: intrfc@eudDev-6[.36]
+          cable: intrfc@eudDev-8[.36]
           carry: ""
           wireless: []
           faces: public
@@ -2816,7 +2684,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-7
-          cable: intrfc@eudDev-7[.38]
+          cable: intrfc@eudDev-9[.38]
           carry: ""
           wireless: []
           faces: public
@@ -2825,7 +2693,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-7
-          cable: intrfc@eudDev-8[.40]
+          cable: intrfc@eudDev-10[.40]
           carry: ""
           wireless: []
           faces: public
@@ -2834,7 +2702,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-7
-          cable: intrfc@eudDev-9[.42]
+          cable: intrfc@eudDev-11[.42]
           carry: ""
           wireless: []
           faces: public
@@ -2843,7 +2711,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-7
-          cable: intrfc@eudDev-10[.44]
+          cable: intrfc@eudDev-12[.44]
           carry: ""
           wireless: []
           faces: public
@@ -2852,7 +2720,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-7
-          cable: intrfc@eudDev-11[.46]
+          cable: intrfc@eudDev-13[.46]
           carry: ""
           wireless: []
           faces: public
@@ -2861,25 +2729,7 @@ switches:
           devtype: Switch
           mediatype: wired
           device: eudswitch-7
-          cable: intrfc@eudDev-12[.48]
-          carry: ""
-          wireless: []
-          faces: public
-        - name: intrfc@eudswitch-7[.51]
-          groups: []
-          devtype: Switch
-          mediatype: wired
-          device: eudswitch-7
-          cable: intrfc@eudDev-13[.50]
-          carry: ""
-          wireless: []
-          faces: public
-        - name: intrfc@eudswitch-7[.53]
-          groups: []
-          devtype: Switch
-          mediatype: wired
-          device: eudswitch-7
-          cable: intrfc@eudDev-14[.52]
+          cable: intrfc@eudDev-14[.48]
           carry: ""
           wireless: []
           faces: public

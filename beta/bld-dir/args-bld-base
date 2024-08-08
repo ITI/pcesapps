@@ -5,7 +5,7 @@
 -funcExec funcExec.yaml
 -devExec devExec.yaml
 -devDesc devDesc.yaml
--srdState srdState.yaml
+-srdCfg srdCfg.yaml
 -map map.yaml
 -exp exp.yaml
 -topo topo.yaml

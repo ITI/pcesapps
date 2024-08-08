@@ -3,1924 +3,1924 @@ times:
     completeOp:
         - identifier: completeOp
           param: ""
-          processortype: Intel-Xeon-w-1350P
+          CPUModel: Intel-Xeon-w-1350P
           pcktlen: 128
           exectime: 4.450000000000001e-08
         - identifier: completeOp
           param: ""
-          processortype: Intel-Xeon-w-1350P
+          CPUModel: Intel-Xeon-w-1350P
           pcktlen: 256
           exectime: 7.65e-08
         - identifier: completeOp
           param: ""
-          processortype: Intel-Xeon-w-1350P
+          CPUModel: Intel-Xeon-w-1350P
           pcktlen: 512
           exectime: 1.4050000000000002e-07
         - identifier: completeOp
           param: ""
-          processortype: Intel-Xeon-w-1350P
+          CPUModel: Intel-Xeon-w-1350P
           pcktlen: 1024
           exectime: 2.685e-07
         - identifier: completeOp
           param: ""
-          processortype: Intel-i7-11850HE
+          CPUModel: Intel-i7-11850HE
           pcktlen: 128
           exectime: 3.7872340425531915e-08
         - identifier: completeOp
           param: ""
-          processortype: Intel-i7-11850HE
+          CPUModel: Intel-i7-11850HE
           pcktlen: 256
           exectime: 6.51063829787234e-08
         - identifier: completeOp
           param: ""
-          processortype: Intel-i7-11850HE
+          CPUModel: Intel-i7-11850HE
           pcktlen: 512
           exectime: 1.195744680851064e-07
         - identifier: completeOp
           param: ""
-          processortype: Intel-i7-11850HE
+          CPUModel: Intel-i7-11850HE
           pcktlen: 1024
           exectime: 2.2851063829787233e-07
         - identifier: completeOp
           param: ""
-          processortype: Intel-i7-11850HE
+          CPUModel: Intel-i7-11850HE
           pcktlen: 128
           exectime: 3.7872340425531915e-08
         - identifier: completeOp
           param: ""
-          processortype: Intel-i7-11850HE
+          CPUModel: Intel-i7-11850HE
           pcktlen: 256
           exectime: 6.51063829787234e-08
         - identifier: completeOp
           param: ""
-          processortype: Intel-i7-11850HE
+          CPUModel: Intel-i7-11850HE
           pcktlen: 512
           exectime: 1.195744680851064e-07
         - identifier: completeOp
           param: ""
-          processortype: Intel-i7-11850HE
+          CPUModel: Intel-i7-11850HE
           pcktlen: 1024
           exectime: 2.2851063829787233e-07
         - identifier: completeOp
           param: ""
-          processortype: Intel-i7-7600U
+          CPUModel: Intel-i7-7600U
           pcktlen: 128
           exectime: 4.5641025641025644e-08
         - identifier: completeOp
           param: ""
-          processortype: Intel-i7-7600U
+          CPUModel: Intel-i7-7600U
           pcktlen: 256
           exectime: 7.846153846153847e-08
         - identifier: completeOp
           param: ""
-          processortype: Intel-i7-7600U
+          CPUModel: Intel-i7-7600U
           pcktlen: 512
           exectime: 1.4410256410256413e-07
         - identifier: completeOp
           param: ""
-          processortype: Intel-i7-7600U
+          CPUModel: Intel-i7-7600U
           pcktlen: 1024
           exectime: 2.753846153846154e-07
         - identifier: completeOp
           param: ""
-          processortype: Intel-i7-7600U
+          CPUModel: Intel-i7-7600U
           pcktlen: 128
           exectime: 4.5641025641025644e-08
         - identifier: completeOp
           param: ""
-          processortype: Intel-i7-7600U
+          CPUModel: Intel-i7-7600U
           pcktlen: 256
           exectime: 7.846153846153847e-08
         - identifier: completeOp
           param: ""
-          processortype: Intel-i7-7600U
+          CPUModel: Intel-i7-7600U
           pcktlen: 512
           exectime: 1.4410256410256413e-07
         - identifier: completeOp
           param: ""
-          processortype: Intel-i7-7600U
+          CPUModel: Intel-i7-7600U
           pcktlen: 1024
           exectime: 2.753846153846154e-07
         - identifier: completeOp
           param: ""
-          processortype: Intel-Xeon-w-1390P
+          CPUModel: Intel-Xeon-w-1390P
           pcktlen: 128
           exectime: 3.423076923076923e-08
         - identifier: completeOp
           param: ""
-          processortype: Intel-Xeon-w-1390P
+          CPUModel: Intel-Xeon-w-1390P
           pcktlen: 256
           exectime: 5.884615384615385e-08
         - identifier: completeOp
           param: ""
-          processortype: Intel-Xeon-w-1390P
+          CPUModel: Intel-Xeon-w-1390P
           pcktlen: 512
           exectime: 1.0807692307692309e-07
         - identifier: completeOp
           param: ""
-          processortype: Intel-Xeon-w-1390P
+          CPUModel: Intel-Xeon-w-1390P
           pcktlen: 1024
           exectime: 2.0653846153846154e-07
         - identifier: completeOp
           param: ""
-          processortype: Intel-i7-1360P
+          CPUModel: Intel-i7-1360P
           pcktlen: 128
           exectime: 3.56e-08
         - identifier: completeOp
           param: ""
-          processortype: Intel-i7-1360P
+          CPUModel: Intel-i7-1360P
           pcktlen: 256
           exectime: 6.12e-08
         - identifier: completeOp
           param: ""
-          processortype: Intel-i7-1360P
+          CPUModel: Intel-i7-1360P
           pcktlen: 512
           exectime: 1.1240000000000001e-07
         - identifier: completeOp
           param: ""
-          processortype: Intel-i7-1360P
+          CPUModel: Intel-i7-1360P
           pcktlen: 1024
           exectime: 2.148e-07
         - identifier: completeOp
           param: ""
-          processortype: Intel-i7-1360P
+          CPUModel: Intel-i7-1360P
           pcktlen: 128
           exectime: 3.56e-08
         - identifier: completeOp
           param: ""
-          processortype: Intel-i7-1360P
+          CPUModel: Intel-i7-1360P
           pcktlen: 256
           exectime: 6.12e-08
         - identifier: completeOp
           param: ""
-          processortype: Intel-i7-1360P
+          CPUModel: Intel-i7-1360P
           pcktlen: 512
           exectime: 1.1240000000000001e-07
         - identifier: completeOp
           param: ""
-          processortype: Intel-i7-1360P
+          CPUModel: Intel-i7-1360P
           pcktlen: 1024
           exectime: 2.148e-07
         - identifier: completeOp
           param: ""
-          processortype: Intel-i7-1185G7E
+          CPUModel: Intel-i7-1185G7E
           pcktlen: 128
           exectime: 4.045454545454545e-08
         - identifier: completeOp
           param: ""
-          processortype: Intel-i7-1185G7E
+          CPUModel: Intel-i7-1185G7E
           pcktlen: 256
           exectime: 6.954545454545454e-08
         - identifier: completeOp
           param: ""
-          processortype: Intel-i7-1185G7E
+          CPUModel: Intel-i7-1185G7E
           pcktlen: 512
           exectime: 1.2772727272727273e-07
         - identifier: completeOp
           param: ""
-          processortype: Intel-i7-1185G7E
+          CPUModel: Intel-i7-1185G7E
           pcktlen: 1024
           exectime: 2.4409090909090905e-07
         - identifier: completeOp
           param: ""
-          processortype: Intel-i7-1185G7E
+          CPUModel: Intel-i7-1185G7E
           pcktlen: 128
           exectime: 4.045454545454545e-08
         - identifier: completeOp
           param: ""
-          processortype: Intel-i7-1185G7E
+          CPUModel: Intel-i7-1185G7E
           pcktlen: 256
           exectime: 6.954545454545454e-08
         - identifier: completeOp
           param: ""
-          processortype: Intel-i7-1185G7E
+          CPUModel: Intel-i7-1185G7E
           pcktlen: 512
           exectime: 1.2772727272727273e-07
         - identifier: completeOp
           param: ""
-          processortype: Intel-i7-1185G7E
+          CPUModel: Intel-i7-1185G7E
           pcktlen: 1024
           exectime: 2.4409090909090905e-07
         - identifier: completeOp
           param: ""
-          processortype: Intel-i7-7700
+          CPUModel: Intel-i7-7700
           pcktlen: 128
           exectime: 4.238095238095238e-08
         - identifier: completeOp
           param: ""
-          processortype: Intel-i7-7700
+          CPUModel: Intel-i7-7700
           pcktlen: 256
           exectime: 7.285714285714286e-08
         - identifier: completeOp
           param: ""
-          processortype: Intel-i7-7700
+          CPUModel: Intel-i7-7700
           pcktlen: 512
           exectime: 1.3380952380952384e-07
         - identifier: completeOp
           param: ""
-          processortype: Intel-i7-7700
+          CPUModel: Intel-i7-7700
           pcktlen: 1024
           exectime: 2.557142857142857e-07
         - identifier: completeOp
           param: ""
-          processortype: Intel-i7-7700
+          CPUModel: Intel-i7-7700
           pcktlen: 128
           exectime: 4.238095238095238e-08
         - identifier: completeOp
           param: ""
-          processortype: Intel-i7-7700
+          CPUModel: Intel-i7-7700
           pcktlen: 256
           exectime: 7.285714285714286e-08
         - identifier: completeOp
           param: ""
-          processortype: Intel-i7-7700
+          CPUModel: Intel-i7-7700
           pcktlen: 512
           exectime: 1.3380952380952384e-07
         - identifier: completeOp
           param: ""
-          processortype: Intel-i7-7700
+          CPUModel: Intel-i7-7700
           pcktlen: 1024
           exectime: 2.557142857142857e-07
         - identifier: completeOp
           param: ""
-          processortype: Intel-i7-6700
+          CPUModel: Intel-i7-6700
           pcktlen: 128
           exectime: 4.450000000000001e-08
         - identifier: completeOp
           param: ""
-          processortype: Intel-i7-6700
+          CPUModel: Intel-i7-6700
           pcktlen: 256
           exectime: 7.65e-08
         - identifier: completeOp
           param: ""
-          processortype: Intel-i7-6700
+          CPUModel: Intel-i7-6700
           pcktlen: 512
           exectime: 1.4050000000000002e-07
         - identifier: completeOp
           param: ""
-          processortype: Intel-i7-6700
+          CPUModel: Intel-i7-6700
           pcktlen: 1024
           exectime: 2.685e-07
         - identifier: completeOp
           param: ""
-          processortype: Intel-i7-6700
+          CPUModel: Intel-i7-6700
           pcktlen: 128
           exectime: 4.450000000000001e-08
         - identifier: completeOp
           param: ""
-          processortype: Intel-i7-6700
+          CPUModel: Intel-i7-6700
           pcktlen: 256
           exectime: 7.65e-08
         - identifier: completeOp
           param: ""
-          processortype: Intel-i7-6700
+          CPUModel: Intel-i7-6700
           pcktlen: 512
           exectime: 1.4050000000000002e-07
         - identifier: completeOp
           param: ""
-          processortype: Intel-i7-6700
+          CPUModel: Intel-i7-6700
           pcktlen: 1024
           exectime: 2.685e-07
         - identifier: completeOp
           param: ""
-          processortype: ARM-_Denver_2
+          CPUModel: ARM-Denver-2
           pcktlen: 128
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: completeOp
           param: ""
-          processortype: ARM-_Denver_2
+          CPUModel: ARM-Denver-2
           pcktlen: 256
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: completeOp
           param: ""
-          processortype: ARM-_Denver_2
+          CPUModel: ARM-Denver-2
           pcktlen: 512
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: completeOp
           param: ""
-          processortype: ARM-_Denver_2
+          CPUModel: ARM-Denver-2
           pcktlen: 1024
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: completeOp
           param: ""
-          processortype: ARM-_Denver_2
+          CPUModel: ARM-Denver-2
           pcktlen: 128
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: completeOp
           param: ""
-          processortype: ARM-_Denver_2
+          CPUModel: ARM-Denver-2
           pcktlen: 256
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: completeOp
           param: ""
-          processortype: ARM-_Denver_2
+          CPUModel: ARM-Denver-2
           pcktlen: 512
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: completeOp
           param: ""
-          processortype: ARM-_Denver_2
+          CPUModel: ARM-Denver-2
           pcktlen: 1024
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: completeOp
           param: ""
-          processortype: ARM-_ARM_Cortex
+          CPUModel: ARM-ARM-Cortex
           pcktlen: 128
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: completeOp
           param: ""
-          processortype: ARM-_ARM_Cortex
+          CPUModel: ARM-ARM-Cortex
           pcktlen: 256
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: completeOp
           param: ""
-          processortype: ARM-_ARM_Cortex
+          CPUModel: ARM-ARM-Cortex
           pcktlen: 512
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: completeOp
           param: ""
-          processortype: ARM-_ARM_Cortex
+          CPUModel: ARM-ARM-Cortex
           pcktlen: 1024
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: completeOp
           param: ""
-          processortype: ARM-_ARM_Cortex
+          CPUModel: ARM-ARM-Cortex
           pcktlen: 128
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: completeOp
           param: ""
-          processortype: ARM-_ARM_Cortex
+          CPUModel: ARM-ARM-Cortex
           pcktlen: 256
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: completeOp
           param: ""
-          processortype: ARM-_ARM_Cortex
+          CPUModel: ARM-ARM-Cortex
           pcktlen: 512
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: completeOp
           param: ""
-          processortype: ARM-_ARM_Cortex
+          CPUModel: ARM-ARM-Cortex
           pcktlen: 1024
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: completeOp
           param: ""
-          processortype: Intel-Xeon-w-1370P
+          CPUModel: Intel-Xeon-w-1370P
           pcktlen: 128
           exectime: 4.9444444444444446e-08
         - identifier: completeOp
           param: ""
-          processortype: Intel-Xeon-w-1370P
+          CPUModel: Intel-Xeon-w-1370P
           pcktlen: 256
           exectime: 8.500000000000001e-08
         - identifier: completeOp
           param: ""
-          processortype: Intel-Xeon-w-1370P
+          CPUModel: Intel-Xeon-w-1370P
           pcktlen: 512
           exectime: 1.5611111111111113e-07
         - identifier: completeOp
           param: ""
-          processortype: Intel-Xeon-w-1370P
+          CPUModel: Intel-Xeon-w-1370P
           pcktlen: 1024
           exectime: 2.983333333333333e-07
         - identifier: completeOp
           param: ""
-          processortype: Intel-i7-14650HX
+          CPUModel: Intel-i7-14650HX
           pcktlen: 128
           exectime: 3.423076923076923e-08
         - identifier: completeOp
           param: ""
-          processortype: Intel-i7-14650HX
+          CPUModel: Intel-i7-14650HX
           pcktlen: 256
           exectime: 5.884615384615385e-08
         - identifier: completeOp
           param: ""
-          processortype: Intel-i7-14650HX
+          CPUModel: Intel-i7-14650HX
           pcktlen: 512
           exectime: 1.0807692307692309e-07
         - identifier: completeOp
           param: ""
-          processortype: Intel-i7-14650HX
+          CPUModel: Intel-i7-14650HX
           pcktlen: 1024
           exectime: 2.0653846153846154e-07
         - identifier: completeOp
           param: ""
-          processortype: Intel-i7-14650HX
+          CPUModel: Intel-i7-14650HX
           pcktlen: 128
           exectime: 3.423076923076923e-08
         - identifier: completeOp
           param: ""
-          processortype: Intel-i7-14650HX
+          CPUModel: Intel-i7-14650HX
           pcktlen: 256
           exectime: 5.884615384615385e-08
         - identifier: completeOp
           param: ""
-          processortype: Intel-i7-14650HX
+          CPUModel: Intel-i7-14650HX
           pcktlen: 512
           exectime: 1.0807692307692309e-07
         - identifier: completeOp
           param: ""
-          processortype: Intel-i7-14650HX
+          CPUModel: Intel-i7-14650HX
           pcktlen: 1024
           exectime: 2.0653846153846154e-07
         - identifier: completeOp
           param: ""
-          processortype: Intel-i3-4130
+          CPUModel: Intel-i3-4130
           pcktlen: 128
           exectime: 5.235294117647059e-08
         - identifier: completeOp
           param: ""
-          processortype: Intel-i3-4130
+          CPUModel: Intel-i3-4130
           pcktlen: 256
           exectime: 9.000000000000001e-08
         - identifier: completeOp
           param: ""
-          processortype: Intel-i3-4130
+          CPUModel: Intel-i3-4130
           pcktlen: 512
           exectime: 1.6529411764705884e-07
         - identifier: completeOp
           param: ""
-          processortype: Intel-i3-4130
+          CPUModel: Intel-i3-4130
           pcktlen: 1024
           exectime: 3.158823529411765e-07
         - identifier: completeOp
           param: ""
-          processortype: Intel-i7-14700HX
+          CPUModel: Intel-i7-14700HX
           pcktlen: 128
           exectime: 3.236363636363637e-08
         - identifier: completeOp
           param: ""
-          processortype: Intel-i7-14700HX
+          CPUModel: Intel-i7-14700HX
           pcktlen: 256
           exectime: 5.5636363636363647e-08
         - identifier: completeOp
           param: ""
-          processortype: Intel-i7-14700HX
+          CPUModel: Intel-i7-14700HX
           pcktlen: 512
           exectime: 1.021818181818182e-07
         - identifier: completeOp
           param: ""
-          processortype: Intel-i7-14700HX
+          CPUModel: Intel-i7-14700HX
           pcktlen: 1024
           exectime: 1.9527272727272726e-07
         - identifier: completeOp
           param: ""
-          processortype: Intel-i7-14700HX
+          CPUModel: Intel-i7-14700HX
           pcktlen: 128
           exectime: 3.236363636363637e-08
         - identifier: completeOp
           param: ""
-          processortype: Intel-i7-14700HX
+          CPUModel: Intel-i7-14700HX
           pcktlen: 256
           exectime: 5.5636363636363647e-08
         - identifier: completeOp
           param: ""
-          processortype: Intel-i7-14700HX
+          CPUModel: Intel-i7-14700HX
           pcktlen: 512
           exectime: 1.021818181818182e-07
         - identifier: completeOp
           param: ""
-          processortype: Intel-i7-14700HX
+          CPUModel: Intel-i7-14700HX
           pcktlen: 1024
           exectime: 1.9527272727272726e-07
     finishOp:
         - identifier: finishOp
           param: ""
-          processortype: Intel-Xeon-w-1350P
+          CPUModel: Intel-Xeon-w-1350P
           pcktlen: 128
           exectime: 2.5e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-Xeon-w-1350P
+          CPUModel: Intel-Xeon-w-1350P
           pcktlen: 256
           exectime: 2.5e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-Xeon-w-1350P
+          CPUModel: Intel-Xeon-w-1350P
           pcktlen: 512
           exectime: 2.5e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-Xeon-w-1350P
+          CPUModel: Intel-Xeon-w-1350P
           pcktlen: 1024
           exectime: 2.5e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-i7-11850HE
+          CPUModel: Intel-i7-11850HE
           pcktlen: 128
           exectime: 2.127659574468085e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-i7-11850HE
+          CPUModel: Intel-i7-11850HE
           pcktlen: 256
           exectime: 2.127659574468085e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-i7-11850HE
+          CPUModel: Intel-i7-11850HE
           pcktlen: 512
           exectime: 2.127659574468085e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-i7-11850HE
+          CPUModel: Intel-i7-11850HE
           pcktlen: 1024
           exectime: 2.127659574468085e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-i7-11850HE
+          CPUModel: Intel-i7-11850HE
           pcktlen: 128
           exectime: 2.127659574468085e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-i7-11850HE
+          CPUModel: Intel-i7-11850HE
           pcktlen: 256
           exectime: 2.127659574468085e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-i7-11850HE
+          CPUModel: Intel-i7-11850HE
           pcktlen: 512
           exectime: 2.127659574468085e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-i7-11850HE
+          CPUModel: Intel-i7-11850HE
           pcktlen: 1024
           exectime: 2.127659574468085e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-i7-7600U
+          CPUModel: Intel-i7-7600U
           pcktlen: 128
           exectime: 2.564102564102564e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-i7-7600U
+          CPUModel: Intel-i7-7600U
           pcktlen: 256
           exectime: 2.564102564102564e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-i7-7600U
+          CPUModel: Intel-i7-7600U
           pcktlen: 512
           exectime: 2.564102564102564e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-i7-7600U
+          CPUModel: Intel-i7-7600U
           pcktlen: 1024
           exectime: 2.564102564102564e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-i7-7600U
+          CPUModel: Intel-i7-7600U
           pcktlen: 128
           exectime: 2.564102564102564e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-i7-7600U
+          CPUModel: Intel-i7-7600U
           pcktlen: 256
           exectime: 2.564102564102564e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-i7-7600U
+          CPUModel: Intel-i7-7600U
           pcktlen: 512
           exectime: 2.564102564102564e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-i7-7600U
+          CPUModel: Intel-i7-7600U
           pcktlen: 1024
           exectime: 2.564102564102564e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-Xeon-w-1390P
+          CPUModel: Intel-Xeon-w-1390P
           pcktlen: 128
           exectime: 1.923076923076923e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-Xeon-w-1390P
+          CPUModel: Intel-Xeon-w-1390P
           pcktlen: 256
           exectime: 1.923076923076923e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-Xeon-w-1390P
+          CPUModel: Intel-Xeon-w-1390P
           pcktlen: 512
           exectime: 1.923076923076923e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-Xeon-w-1390P
+          CPUModel: Intel-Xeon-w-1390P
           pcktlen: 1024
           exectime: 1.923076923076923e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-i7-1360P
+          CPUModel: Intel-i7-1360P
           pcktlen: 128
           exectime: 2e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-i7-1360P
+          CPUModel: Intel-i7-1360P
           pcktlen: 256
           exectime: 2e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-i7-1360P
+          CPUModel: Intel-i7-1360P
           pcktlen: 512
           exectime: 2e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-i7-1360P
+          CPUModel: Intel-i7-1360P
           pcktlen: 1024
           exectime: 2e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-i7-1360P
+          CPUModel: Intel-i7-1360P
           pcktlen: 128
           exectime: 2e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-i7-1360P
+          CPUModel: Intel-i7-1360P
           pcktlen: 256
           exectime: 2e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-i7-1360P
+          CPUModel: Intel-i7-1360P
           pcktlen: 512
           exectime: 2e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-i7-1360P
+          CPUModel: Intel-i7-1360P
           pcktlen: 1024
           exectime: 2e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-i7-1185G7E
+          CPUModel: Intel-i7-1185G7E
           pcktlen: 128
           exectime: 2.2727272727272723e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-i7-1185G7E
+          CPUModel: Intel-i7-1185G7E
           pcktlen: 256
           exectime: 2.2727272727272723e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-i7-1185G7E
+          CPUModel: Intel-i7-1185G7E
           pcktlen: 512
           exectime: 2.2727272727272723e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-i7-1185G7E
+          CPUModel: Intel-i7-1185G7E
           pcktlen: 1024
           exectime: 2.2727272727272723e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-i7-1185G7E
+          CPUModel: Intel-i7-1185G7E
           pcktlen: 128
           exectime: 2.2727272727272723e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-i7-1185G7E
+          CPUModel: Intel-i7-1185G7E
           pcktlen: 256
           exectime: 2.2727272727272723e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-i7-1185G7E
+          CPUModel: Intel-i7-1185G7E
           pcktlen: 512
           exectime: 2.2727272727272723e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-i7-1185G7E
+          CPUModel: Intel-i7-1185G7E
           pcktlen: 1024
           exectime: 2.2727272727272723e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-i7-7700
+          CPUModel: Intel-i7-7700
           pcktlen: 128
           exectime: 2.380952380952381e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-i7-7700
+          CPUModel: Intel-i7-7700
           pcktlen: 256
           exectime: 2.380952380952381e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-i7-7700
+          CPUModel: Intel-i7-7700
           pcktlen: 512
           exectime: 2.380952380952381e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-i7-7700
+          CPUModel: Intel-i7-7700
           pcktlen: 1024
           exectime: 2.380952380952381e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-i7-7700
+          CPUModel: Intel-i7-7700
           pcktlen: 128
           exectime: 2.380952380952381e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-i7-7700
+          CPUModel: Intel-i7-7700
           pcktlen: 256
           exectime: 2.380952380952381e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-i7-7700
+          CPUModel: Intel-i7-7700
           pcktlen: 512
           exectime: 2.380952380952381e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-i7-7700
+          CPUModel: Intel-i7-7700
           pcktlen: 1024
           exectime: 2.380952380952381e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-i7-6700
+          CPUModel: Intel-i7-6700
           pcktlen: 128
           exectime: 2.5e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-i7-6700
+          CPUModel: Intel-i7-6700
           pcktlen: 256
           exectime: 2.5e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-i7-6700
+          CPUModel: Intel-i7-6700
           pcktlen: 512
           exectime: 2.5e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-i7-6700
+          CPUModel: Intel-i7-6700
           pcktlen: 1024
           exectime: 2.5e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-i7-6700
+          CPUModel: Intel-i7-6700
           pcktlen: 128
           exectime: 2.5e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-i7-6700
+          CPUModel: Intel-i7-6700
           pcktlen: 256
           exectime: 2.5e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-i7-6700
+          CPUModel: Intel-i7-6700
           pcktlen: 512
           exectime: 2.5e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-i7-6700
+          CPUModel: Intel-i7-6700
           pcktlen: 1024
           exectime: 2.5e-07
         - identifier: finishOp
           param: ""
-          processortype: ARM-_Denver_2
+          CPUModel: ARM-Denver-2
           pcktlen: 128
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: finishOp
           param: ""
-          processortype: ARM-_Denver_2
+          CPUModel: ARM-Denver-2
           pcktlen: 256
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: finishOp
           param: ""
-          processortype: ARM-_Denver_2
+          CPUModel: ARM-Denver-2
           pcktlen: 512
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: finishOp
           param: ""
-          processortype: ARM-_Denver_2
+          CPUModel: ARM-Denver-2
           pcktlen: 1024
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: finishOp
           param: ""
-          processortype: ARM-_Denver_2
+          CPUModel: ARM-Denver-2
           pcktlen: 128
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: finishOp
           param: ""
-          processortype: ARM-_Denver_2
+          CPUModel: ARM-Denver-2
           pcktlen: 256
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: finishOp
           param: ""
-          processortype: ARM-_Denver_2
+          CPUModel: ARM-Denver-2
           pcktlen: 512
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: finishOp
           param: ""
-          processortype: ARM-_Denver_2
+          CPUModel: ARM-Denver-2
           pcktlen: 1024
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: finishOp
           param: ""
-          processortype: ARM-_ARM_Cortex
+          CPUModel: ARM-ARM-Cortex
           pcktlen: 128
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: finishOp
           param: ""
-          processortype: ARM-_ARM_Cortex
+          CPUModel: ARM-ARM-Cortex
           pcktlen: 256
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: finishOp
           param: ""
-          processortype: ARM-_ARM_Cortex
+          CPUModel: ARM-ARM-Cortex
           pcktlen: 512
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: finishOp
           param: ""
-          processortype: ARM-_ARM_Cortex
+          CPUModel: ARM-ARM-Cortex
           pcktlen: 1024
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: finishOp
           param: ""
-          processortype: ARM-_ARM_Cortex
+          CPUModel: ARM-ARM-Cortex
           pcktlen: 128
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: finishOp
           param: ""
-          processortype: ARM-_ARM_Cortex
+          CPUModel: ARM-ARM-Cortex
           pcktlen: 256
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: finishOp
           param: ""
-          processortype: ARM-_ARM_Cortex
+          CPUModel: ARM-ARM-Cortex
           pcktlen: 512
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: finishOp
           param: ""
-          processortype: ARM-_ARM_Cortex
+          CPUModel: ARM-ARM-Cortex
           pcktlen: 1024
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-Xeon-w-1370P
+          CPUModel: Intel-Xeon-w-1370P
           pcktlen: 128
           exectime: 2.7777777777777776e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-Xeon-w-1370P
+          CPUModel: Intel-Xeon-w-1370P
           pcktlen: 256
           exectime: 2.7777777777777776e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-Xeon-w-1370P
+          CPUModel: Intel-Xeon-w-1370P
           pcktlen: 512
           exectime: 2.7777777777777776e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-Xeon-w-1370P
+          CPUModel: Intel-Xeon-w-1370P
           pcktlen: 1024
           exectime: 2.7777777777777776e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-i7-14650HX
+          CPUModel: Intel-i7-14650HX
           pcktlen: 128
           exectime: 1.923076923076923e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-i7-14650HX
+          CPUModel: Intel-i7-14650HX
           pcktlen: 256
           exectime: 1.923076923076923e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-i7-14650HX
+          CPUModel: Intel-i7-14650HX
           pcktlen: 512
           exectime: 1.923076923076923e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-i7-14650HX
+          CPUModel: Intel-i7-14650HX
           pcktlen: 1024
           exectime: 1.923076923076923e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-i7-14650HX
+          CPUModel: Intel-i7-14650HX
           pcktlen: 128
           exectime: 1.923076923076923e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-i7-14650HX
+          CPUModel: Intel-i7-14650HX
           pcktlen: 256
           exectime: 1.923076923076923e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-i7-14650HX
+          CPUModel: Intel-i7-14650HX
           pcktlen: 512
           exectime: 1.923076923076923e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-i7-14650HX
+          CPUModel: Intel-i7-14650HX
           pcktlen: 1024
           exectime: 1.923076923076923e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-i3-4130
+          CPUModel: Intel-i3-4130
           pcktlen: 128
           exectime: 2.941176470588235e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-i3-4130
+          CPUModel: Intel-i3-4130
           pcktlen: 256
           exectime: 2.941176470588235e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-i3-4130
+          CPUModel: Intel-i3-4130
           pcktlen: 512
           exectime: 2.941176470588235e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-i3-4130
+          CPUModel: Intel-i3-4130
           pcktlen: 1024
           exectime: 2.941176470588235e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-i7-14700HX
+          CPUModel: Intel-i7-14700HX
           pcktlen: 128
           exectime: 1.818181818181818e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-i7-14700HX
+          CPUModel: Intel-i7-14700HX
           pcktlen: 256
           exectime: 1.818181818181818e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-i7-14700HX
+          CPUModel: Intel-i7-14700HX
           pcktlen: 512
           exectime: 1.818181818181818e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-i7-14700HX
+          CPUModel: Intel-i7-14700HX
           pcktlen: 1024
           exectime: 1.818181818181818e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-i7-14700HX
+          CPUModel: Intel-i7-14700HX
           pcktlen: 128
           exectime: 1.818181818181818e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-i7-14700HX
+          CPUModel: Intel-i7-14700HX
           pcktlen: 256
           exectime: 1.818181818181818e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-i7-14700HX
+          CPUModel: Intel-i7-14700HX
           pcktlen: 512
           exectime: 1.818181818181818e-07
         - identifier: finishOp
           param: ""
-          processortype: Intel-i7-14700HX
+          CPUModel: Intel-i7-14700HX
           pcktlen: 1024
           exectime: 1.818181818181818e-07
     generateOp:
         - identifier: generateOp
           param: ""
-          processortype: Intel-Xeon-w-1350P
+          CPUModel: Intel-Xeon-w-1350P
           pcktlen: 128
           exectime: 1.57e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-Xeon-w-1350P
+          CPUModel: Intel-Xeon-w-1350P
           pcktlen: 256
           exectime: 1.89e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-Xeon-w-1350P
+          CPUModel: Intel-Xeon-w-1350P
           pcktlen: 512
           exectime: 2.53e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-Xeon-w-1350P
+          CPUModel: Intel-Xeon-w-1350P
           pcktlen: 1024
           exectime: 3.8100000000000004e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-i7-11850HE
+          CPUModel: Intel-i7-11850HE
           pcktlen: 128
           exectime: 1.3361702127659572e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-i7-11850HE
+          CPUModel: Intel-i7-11850HE
           pcktlen: 256
           exectime: 1.6085106382978723e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-i7-11850HE
+          CPUModel: Intel-i7-11850HE
           pcktlen: 512
           exectime: 2.153191489361702e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-i7-11850HE
+          CPUModel: Intel-i7-11850HE
           pcktlen: 1024
           exectime: 3.2425531914893617e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-i7-11850HE
+          CPUModel: Intel-i7-11850HE
           pcktlen: 128
           exectime: 1.3361702127659572e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-i7-11850HE
+          CPUModel: Intel-i7-11850HE
           pcktlen: 256
           exectime: 1.6085106382978723e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-i7-11850HE
+          CPUModel: Intel-i7-11850HE
           pcktlen: 512
           exectime: 2.153191489361702e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-i7-11850HE
+          CPUModel: Intel-i7-11850HE
           pcktlen: 1024
           exectime: 3.2425531914893617e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-i7-7600U
+          CPUModel: Intel-i7-7600U
           pcktlen: 128
           exectime: 1.61025641025641e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-i7-7600U
+          CPUModel: Intel-i7-7600U
           pcktlen: 256
           exectime: 1.9384615384615386e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-i7-7600U
+          CPUModel: Intel-i7-7600U
           pcktlen: 512
           exectime: 2.594871794871795e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-i7-7600U
+          CPUModel: Intel-i7-7600U
           pcktlen: 1024
           exectime: 3.907692307692308e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-i7-7600U
+          CPUModel: Intel-i7-7600U
           pcktlen: 128
           exectime: 1.61025641025641e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-i7-7600U
+          CPUModel: Intel-i7-7600U
           pcktlen: 256
           exectime: 1.9384615384615386e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-i7-7600U
+          CPUModel: Intel-i7-7600U
           pcktlen: 512
           exectime: 2.594871794871795e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-i7-7600U
+          CPUModel: Intel-i7-7600U
           pcktlen: 1024
           exectime: 3.907692307692308e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-Xeon-w-1390P
+          CPUModel: Intel-Xeon-w-1390P
           pcktlen: 128
           exectime: 1.2076923076923075e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-Xeon-w-1390P
+          CPUModel: Intel-Xeon-w-1390P
           pcktlen: 256
           exectime: 1.4538461538461538e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-Xeon-w-1390P
+          CPUModel: Intel-Xeon-w-1390P
           pcktlen: 512
           exectime: 1.9461538461538462e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-Xeon-w-1390P
+          CPUModel: Intel-Xeon-w-1390P
           pcktlen: 1024
           exectime: 2.930769230769231e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-i7-1360P
+          CPUModel: Intel-i7-1360P
           pcktlen: 128
           exectime: 1.2559999999999999e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-i7-1360P
+          CPUModel: Intel-i7-1360P
           pcktlen: 256
           exectime: 1.512e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-i7-1360P
+          CPUModel: Intel-i7-1360P
           pcktlen: 512
           exectime: 2.024e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-i7-1360P
+          CPUModel: Intel-i7-1360P
           pcktlen: 1024
           exectime: 3.0480000000000003e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-i7-1360P
+          CPUModel: Intel-i7-1360P
           pcktlen: 128
           exectime: 1.2559999999999999e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-i7-1360P
+          CPUModel: Intel-i7-1360P
           pcktlen: 256
           exectime: 1.512e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-i7-1360P
+          CPUModel: Intel-i7-1360P
           pcktlen: 512
           exectime: 2.024e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-i7-1360P
+          CPUModel: Intel-i7-1360P
           pcktlen: 1024
           exectime: 3.0480000000000003e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-i7-1185G7E
+          CPUModel: Intel-i7-1185G7E
           pcktlen: 128
           exectime: 1.4272727272727272e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-i7-1185G7E
+          CPUModel: Intel-i7-1185G7E
           pcktlen: 256
           exectime: 1.7181818181818182e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-i7-1185G7E
+          CPUModel: Intel-i7-1185G7E
           pcktlen: 512
           exectime: 2.3e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-i7-1185G7E
+          CPUModel: Intel-i7-1185G7E
           pcktlen: 1024
           exectime: 3.4636363636363637e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-i7-1185G7E
+          CPUModel: Intel-i7-1185G7E
           pcktlen: 128
           exectime: 1.4272727272727272e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-i7-1185G7E
+          CPUModel: Intel-i7-1185G7E
           pcktlen: 256
           exectime: 1.7181818181818182e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-i7-1185G7E
+          CPUModel: Intel-i7-1185G7E
           pcktlen: 512
           exectime: 2.3e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-i7-1185G7E
+          CPUModel: Intel-i7-1185G7E
           pcktlen: 1024
           exectime: 3.4636363636363637e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-i7-7700
+          CPUModel: Intel-i7-7700
           pcktlen: 128
           exectime: 1.4952380952380952e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-i7-7700
+          CPUModel: Intel-i7-7700
           pcktlen: 256
           exectime: 1.8e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-i7-7700
+          CPUModel: Intel-i7-7700
           pcktlen: 512
           exectime: 2.409523809523809e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-i7-7700
+          CPUModel: Intel-i7-7700
           pcktlen: 1024
           exectime: 3.628571428571429e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-i7-7700
+          CPUModel: Intel-i7-7700
           pcktlen: 128
           exectime: 1.4952380952380952e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-i7-7700
+          CPUModel: Intel-i7-7700
           pcktlen: 256
           exectime: 1.8e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-i7-7700
+          CPUModel: Intel-i7-7700
           pcktlen: 512
           exectime: 2.409523809523809e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-i7-7700
+          CPUModel: Intel-i7-7700
           pcktlen: 1024
           exectime: 3.628571428571429e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-i7-6700
+          CPUModel: Intel-i7-6700
           pcktlen: 128
           exectime: 1.57e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-i7-6700
+          CPUModel: Intel-i7-6700
           pcktlen: 256
           exectime: 1.89e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-i7-6700
+          CPUModel: Intel-i7-6700
           pcktlen: 512
           exectime: 2.53e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-i7-6700
+          CPUModel: Intel-i7-6700
           pcktlen: 1024
           exectime: 3.8100000000000004e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-i7-6700
+          CPUModel: Intel-i7-6700
           pcktlen: 128
           exectime: 1.57e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-i7-6700
+          CPUModel: Intel-i7-6700
           pcktlen: 256
           exectime: 1.89e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-i7-6700
+          CPUModel: Intel-i7-6700
           pcktlen: 512
           exectime: 2.53e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-i7-6700
+          CPUModel: Intel-i7-6700
           pcktlen: 1024
           exectime: 3.8100000000000004e-07
         - identifier: generateOp
           param: ""
-          processortype: ARM-_Denver_2
+          CPUModel: ARM-Denver-2
           pcktlen: 128
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: generateOp
           param: ""
-          processortype: ARM-_Denver_2
+          CPUModel: ARM-Denver-2
           pcktlen: 256
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: generateOp
           param: ""
-          processortype: ARM-_Denver_2
+          CPUModel: ARM-Denver-2
           pcktlen: 512
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: generateOp
           param: ""
-          processortype: ARM-_Denver_2
+          CPUModel: ARM-Denver-2
           pcktlen: 1024
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: generateOp
           param: ""
-          processortype: ARM-_Denver_2
+          CPUModel: ARM-Denver-2
           pcktlen: 128
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: generateOp
           param: ""
-          processortype: ARM-_Denver_2
+          CPUModel: ARM-Denver-2
           pcktlen: 256
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: generateOp
           param: ""
-          processortype: ARM-_Denver_2
+          CPUModel: ARM-Denver-2
           pcktlen: 512
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: generateOp
           param: ""
-          processortype: ARM-_Denver_2
+          CPUModel: ARM-Denver-2
           pcktlen: 1024
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: generateOp
           param: ""
-          processortype: ARM-_ARM_Cortex
+          CPUModel: ARM-ARM-Cortex
           pcktlen: 128
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: generateOp
           param: ""
-          processortype: ARM-_ARM_Cortex
+          CPUModel: ARM-ARM-Cortex
           pcktlen: 256
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: generateOp
           param: ""
-          processortype: ARM-_ARM_Cortex
+          CPUModel: ARM-ARM-Cortex
           pcktlen: 512
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: generateOp
           param: ""
-          processortype: ARM-_ARM_Cortex
+          CPUModel: ARM-ARM-Cortex
           pcktlen: 1024
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: generateOp
           param: ""
-          processortype: ARM-_ARM_Cortex
+          CPUModel: ARM-ARM-Cortex
           pcktlen: 128
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: generateOp
           param: ""
-          processortype: ARM-_ARM_Cortex
+          CPUModel: ARM-ARM-Cortex
           pcktlen: 256
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: generateOp
           param: ""
-          processortype: ARM-_ARM_Cortex
+          CPUModel: ARM-ARM-Cortex
           pcktlen: 512
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: generateOp
           param: ""
-          processortype: ARM-_ARM_Cortex
+          CPUModel: ARM-ARM-Cortex
           pcktlen: 1024
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-Xeon-w-1370P
+          CPUModel: Intel-Xeon-w-1370P
           pcktlen: 128
           exectime: 1.7444444444444443e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-Xeon-w-1370P
+          CPUModel: Intel-Xeon-w-1370P
           pcktlen: 256
           exectime: 2.1e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-Xeon-w-1370P
+          CPUModel: Intel-Xeon-w-1370P
           pcktlen: 512
           exectime: 2.811111111111111e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-Xeon-w-1370P
+          CPUModel: Intel-Xeon-w-1370P
           pcktlen: 1024
           exectime: 4.2333333333333334e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-i7-14650HX
+          CPUModel: Intel-i7-14650HX
           pcktlen: 128
           exectime: 1.2076923076923075e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-i7-14650HX
+          CPUModel: Intel-i7-14650HX
           pcktlen: 256
           exectime: 1.4538461538461538e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-i7-14650HX
+          CPUModel: Intel-i7-14650HX
           pcktlen: 512
           exectime: 1.9461538461538462e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-i7-14650HX
+          CPUModel: Intel-i7-14650HX
           pcktlen: 1024
           exectime: 2.930769230769231e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-i7-14650HX
+          CPUModel: Intel-i7-14650HX
           pcktlen: 128
           exectime: 1.2076923076923075e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-i7-14650HX
+          CPUModel: Intel-i7-14650HX
           pcktlen: 256
           exectime: 1.4538461538461538e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-i7-14650HX
+          CPUModel: Intel-i7-14650HX
           pcktlen: 512
           exectime: 1.9461538461538462e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-i7-14650HX
+          CPUModel: Intel-i7-14650HX
           pcktlen: 1024
           exectime: 2.930769230769231e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-i3-4130
+          CPUModel: Intel-i3-4130
           pcktlen: 128
           exectime: 1.8470588235294117e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-i3-4130
+          CPUModel: Intel-i3-4130
           pcktlen: 256
           exectime: 2.223529411764706e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-i3-4130
+          CPUModel: Intel-i3-4130
           pcktlen: 512
           exectime: 2.976470588235294e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-i3-4130
+          CPUModel: Intel-i3-4130
           pcktlen: 1024
           exectime: 4.4823529411764713e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-i7-14700HX
+          CPUModel: Intel-i7-14700HX
           pcktlen: 128
           exectime: 1.1418181818181817e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-i7-14700HX
+          CPUModel: Intel-i7-14700HX
           pcktlen: 256
           exectime: 1.3745454545454546e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-i7-14700HX
+          CPUModel: Intel-i7-14700HX
           pcktlen: 512
           exectime: 1.84e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-i7-14700HX
+          CPUModel: Intel-i7-14700HX
           pcktlen: 1024
           exectime: 2.770909090909091e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-i7-14700HX
+          CPUModel: Intel-i7-14700HX
           pcktlen: 128
           exectime: 1.1418181818181817e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-i7-14700HX
+          CPUModel: Intel-i7-14700HX
           pcktlen: 256
           exectime: 1.3745454545454546e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-i7-14700HX
+          CPUModel: Intel-i7-14700HX
           pcktlen: 512
           exectime: 1.84e-07
         - identifier: generateOp
           param: ""
-          processortype: Intel-i7-14700HX
+          CPUModel: Intel-i7-14700HX
           pcktlen: 1024
           exectime: 2.770909090909091e-07
-    processOp:
-        - identifier: processOp
+    processEUD:
+        - identifier: processEUD
           param: ""
-          processortype: Intel-Xeon-w-1350P
+          CPUModel: Intel-Xeon-w-1350P
           pcktlen: 128
           exectime: 2.82e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-Xeon-w-1350P
+          CPUModel: Intel-Xeon-w-1350P
           pcktlen: 256
           exectime: 3.14e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-Xeon-w-1350P
+          CPUModel: Intel-Xeon-w-1350P
           pcktlen: 512
           exectime: 3.78e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-Xeon-w-1350P
+          CPUModel: Intel-Xeon-w-1350P
           pcktlen: 1024
           exectime: 5.06e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-i7-11850HE
+          CPUModel: Intel-i7-11850HE
           pcktlen: 128
           exectime: 2.4e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-i7-11850HE
+          CPUModel: Intel-i7-11850HE
           pcktlen: 256
           exectime: 2.6723404255319144e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-i7-11850HE
+          CPUModel: Intel-i7-11850HE
           pcktlen: 512
           exectime: 3.2170212765957446e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-i7-11850HE
+          CPUModel: Intel-i7-11850HE
           pcktlen: 1024
           exectime: 4.306382978723404e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-i7-11850HE
+          CPUModel: Intel-i7-11850HE
           pcktlen: 128
           exectime: 2.4e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-i7-11850HE
+          CPUModel: Intel-i7-11850HE
           pcktlen: 256
           exectime: 2.6723404255319144e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-i7-11850HE
+          CPUModel: Intel-i7-11850HE
           pcktlen: 512
           exectime: 3.2170212765957446e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-i7-11850HE
+          CPUModel: Intel-i7-11850HE
           pcktlen: 1024
           exectime: 4.306382978723404e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-i7-7600U
+          CPUModel: Intel-i7-7600U
           pcktlen: 128
           exectime: 2.8923076923076924e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-i7-7600U
+          CPUModel: Intel-i7-7600U
           pcktlen: 256
           exectime: 3.22051282051282e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-i7-7600U
+          CPUModel: Intel-i7-7600U
           pcktlen: 512
           exectime: 3.876923076923077e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-i7-7600U
+          CPUModel: Intel-i7-7600U
           pcktlen: 1024
           exectime: 5.18974358974359e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-i7-7600U
+          CPUModel: Intel-i7-7600U
           pcktlen: 128
           exectime: 2.8923076923076924e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-i7-7600U
+          CPUModel: Intel-i7-7600U
           pcktlen: 256
           exectime: 3.22051282051282e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-i7-7600U
+          CPUModel: Intel-i7-7600U
           pcktlen: 512
           exectime: 3.876923076923077e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-i7-7600U
+          CPUModel: Intel-i7-7600U
           pcktlen: 1024
           exectime: 5.18974358974359e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-Xeon-w-1390P
+          CPUModel: Intel-Xeon-w-1390P
           pcktlen: 128
           exectime: 2.1692307692307692e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-Xeon-w-1390P
+          CPUModel: Intel-Xeon-w-1390P
           pcktlen: 256
           exectime: 2.415384615384615e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-Xeon-w-1390P
+          CPUModel: Intel-Xeon-w-1390P
           pcktlen: 512
           exectime: 2.9076923076923076e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-Xeon-w-1390P
+          CPUModel: Intel-Xeon-w-1390P
           pcktlen: 1024
           exectime: 3.8923076923076924e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-i7-1360P
+          CPUModel: Intel-i7-1360P
           pcktlen: 128
           exectime: 2.2559999999999998e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-i7-1360P
+          CPUModel: Intel-i7-1360P
           pcktlen: 256
           exectime: 2.5119999999999997e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-i7-1360P
+          CPUModel: Intel-i7-1360P
           pcktlen: 512
           exectime: 3.024e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-i7-1360P
+          CPUModel: Intel-i7-1360P
           pcktlen: 1024
           exectime: 4.048e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-i7-1360P
+          CPUModel: Intel-i7-1360P
           pcktlen: 128
           exectime: 2.2559999999999998e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-i7-1360P
+          CPUModel: Intel-i7-1360P
           pcktlen: 256
           exectime: 2.5119999999999997e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-i7-1360P
+          CPUModel: Intel-i7-1360P
           pcktlen: 512
           exectime: 3.024e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-i7-1360P
+          CPUModel: Intel-i7-1360P
           pcktlen: 1024
           exectime: 4.048e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-i7-1185G7E
+          CPUModel: Intel-i7-1185G7E
           pcktlen: 128
           exectime: 2.5636363636363633e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-i7-1185G7E
+          CPUModel: Intel-i7-1185G7E
           pcktlen: 256
           exectime: 2.8545454545454544e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-i7-1185G7E
+          CPUModel: Intel-i7-1185G7E
           pcktlen: 512
           exectime: 3.4363636363636364e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-i7-1185G7E
+          CPUModel: Intel-i7-1185G7E
           pcktlen: 1024
           exectime: 4.6e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-i7-1185G7E
+          CPUModel: Intel-i7-1185G7E
           pcktlen: 128
           exectime: 2.5636363636363633e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-i7-1185G7E
+          CPUModel: Intel-i7-1185G7E
           pcktlen: 256
           exectime: 2.8545454545454544e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-i7-1185G7E
+          CPUModel: Intel-i7-1185G7E
           pcktlen: 512
           exectime: 3.4363636363636364e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-i7-1185G7E
+          CPUModel: Intel-i7-1185G7E
           pcktlen: 1024
           exectime: 4.6e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-i7-7700
+          CPUModel: Intel-i7-7700
           pcktlen: 128
           exectime: 2.6857142857142856e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-i7-7700
+          CPUModel: Intel-i7-7700
           pcktlen: 256
           exectime: 2.9904761904761904e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-i7-7700
+          CPUModel: Intel-i7-7700
           pcktlen: 512
           exectime: 3.6e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-i7-7700
+          CPUModel: Intel-i7-7700
           pcktlen: 1024
           exectime: 4.819047619047618e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-i7-7700
+          CPUModel: Intel-i7-7700
           pcktlen: 128
           exectime: 2.6857142857142856e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-i7-7700
+          CPUModel: Intel-i7-7700
           pcktlen: 256
           exectime: 2.9904761904761904e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-i7-7700
+          CPUModel: Intel-i7-7700
           pcktlen: 512
           exectime: 3.6e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-i7-7700
+          CPUModel: Intel-i7-7700
           pcktlen: 1024
           exectime: 4.819047619047618e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-i7-6700
+          CPUModel: Intel-i7-6700
           pcktlen: 128
           exectime: 2.82e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-i7-6700
+          CPUModel: Intel-i7-6700
           pcktlen: 256
           exectime: 3.14e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-i7-6700
+          CPUModel: Intel-i7-6700
           pcktlen: 512
           exectime: 3.78e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-i7-6700
+          CPUModel: Intel-i7-6700
           pcktlen: 1024
           exectime: 5.06e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-i7-6700
+          CPUModel: Intel-i7-6700
           pcktlen: 128
           exectime: 2.82e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-i7-6700
+          CPUModel: Intel-i7-6700
           pcktlen: 256
           exectime: 3.14e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-i7-6700
+          CPUModel: Intel-i7-6700
           pcktlen: 512
           exectime: 3.78e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-i7-6700
+          CPUModel: Intel-i7-6700
           pcktlen: 1024
           exectime: 5.06e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: ARM-_Denver_2
+          CPUModel: ARM-Denver-2
           pcktlen: 128
-          exectime: .inf
-        - identifier: processOp
+          exectime: 2.5e-07
+        - identifier: processEUD
           param: ""
-          processortype: ARM-_Denver_2
+          CPUModel: ARM-Denver-2
           pcktlen: 256
-          exectime: .inf
-        - identifier: processOp
+          exectime: 2.5e-07
+        - identifier: processEUD
           param: ""
-          processortype: ARM-_Denver_2
+          CPUModel: ARM-Denver-2
           pcktlen: 512
-          exectime: .inf
-        - identifier: processOp
+          exectime: 2.5e-07
+        - identifier: processEUD
           param: ""
-          processortype: ARM-_Denver_2
+          CPUModel: ARM-Denver-2
           pcktlen: 1024
-          exectime: .inf
-        - identifier: processOp
+          exectime: 2.5e-07
+        - identifier: processEUD
           param: ""
-          processortype: ARM-_Denver_2
+          CPUModel: ARM-Denver-2
           pcktlen: 128
-          exectime: .inf
-        - identifier: processOp
+          exectime: 2.5e-07
+        - identifier: processEUD
           param: ""
-          processortype: ARM-_Denver_2
+          CPUModel: ARM-Denver-2
           pcktlen: 256
-          exectime: .inf
-        - identifier: processOp
+          exectime: 2.5e-07
+        - identifier: processEUD
           param: ""
-          processortype: ARM-_Denver_2
+          CPUModel: ARM-Denver-2
           pcktlen: 512
-          exectime: .inf
-        - identifier: processOp
+          exectime: 2.5e-07
+        - identifier: processEUD
           param: ""
-          processortype: ARM-_Denver_2
+          CPUModel: ARM-Denver-2
           pcktlen: 1024
-          exectime: .inf
-        - identifier: processOp
+          exectime: 2.5e-07
+        - identifier: processEUD
           param: ""
-          processortype: ARM-_ARM_Cortex
+          CPUModel: ARM-ARM-Cortex
           pcktlen: 128
-          exectime: .inf
-        - identifier: processOp
+          exectime: 2.5e-07
+        - identifier: processEUD
           param: ""
-          processortype: ARM-_ARM_Cortex
+          CPUModel: ARM-ARM-Cortex
           pcktlen: 256
-          exectime: .inf
-        - identifier: processOp
+          exectime: 2.5e-07
+        - identifier: processEUD
           param: ""
-          processortype: ARM-_ARM_Cortex
+          CPUModel: ARM-ARM-Cortex
           pcktlen: 512
-          exectime: .inf
-        - identifier: processOp
+          exectime: 2.5e-07
+        - identifier: processEUD
           param: ""
-          processortype: ARM-_ARM_Cortex
+          CPUModel: ARM-ARM-Cortex
           pcktlen: 1024
-          exectime: .inf
-        - identifier: processOp
+          exectime: 2.5e-07
+        - identifier: processEUD
           param: ""
-          processortype: ARM-_ARM_Cortex
+          CPUModel: ARM-ARM-Cortex
           pcktlen: 128
-          exectime: .inf
-        - identifier: processOp
+          exectime: 2.5e-07
+        - identifier: processEUD
           param: ""
-          processortype: ARM-_ARM_Cortex
+          CPUModel: ARM-ARM-Cortex
           pcktlen: 256
-          exectime: .inf
-        - identifier: processOp
+          exectime: 2.5e-07
+        - identifier: processEUD
           param: ""
-          processortype: ARM-_ARM_Cortex
+          CPUModel: ARM-ARM-Cortex
           pcktlen: 512
-          exectime: .inf
-        - identifier: processOp
+          exectime: 2.5e-07
+        - identifier: processEUD
           param: ""
-          processortype: ARM-_ARM_Cortex
+          CPUModel: ARM-ARM-Cortex
           pcktlen: 1024
-          exectime: .inf
-        - identifier: processOp
+          exectime: 2.5e-07
+        - identifier: processEUD
           param: ""
-          processortype: Intel-Xeon-w-1370P
+          CPUModel: Intel-Xeon-w-1370P
           pcktlen: 128
           exectime: 3.1333333333333333e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-Xeon-w-1370P
+          CPUModel: Intel-Xeon-w-1370P
           pcktlen: 256
           exectime: 3.4888888888888885e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-Xeon-w-1370P
+          CPUModel: Intel-Xeon-w-1370P
           pcktlen: 512
           exectime: 4.2e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-Xeon-w-1370P
+          CPUModel: Intel-Xeon-w-1370P
           pcktlen: 1024
           exectime: 5.622222222222222e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-i7-14650HX
+          CPUModel: Intel-i7-14650HX
           pcktlen: 128
           exectime: 2.1692307692307692e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-i7-14650HX
+          CPUModel: Intel-i7-14650HX
           pcktlen: 256
           exectime: 2.415384615384615e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-i7-14650HX
+          CPUModel: Intel-i7-14650HX
           pcktlen: 512
           exectime: 2.9076923076923076e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-i7-14650HX
+          CPUModel: Intel-i7-14650HX
           pcktlen: 1024
           exectime: 3.8923076923076924e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-i7-14650HX
+          CPUModel: Intel-i7-14650HX
           pcktlen: 128
           exectime: 2.1692307692307692e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-i7-14650HX
+          CPUModel: Intel-i7-14650HX
           pcktlen: 256
           exectime: 2.415384615384615e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-i7-14650HX
+          CPUModel: Intel-i7-14650HX
           pcktlen: 512
           exectime: 2.9076923076923076e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-i7-14650HX
+          CPUModel: Intel-i7-14650HX
           pcktlen: 1024
           exectime: 3.8923076923076924e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-i3-4130
+          CPUModel: Intel-i3-4130
           pcktlen: 128
           exectime: 3.3176470588235297e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-i3-4130
+          CPUModel: Intel-i3-4130
           pcktlen: 256
           exectime: 3.6941176470588233e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-i3-4130
+          CPUModel: Intel-i3-4130
           pcktlen: 512
           exectime: 4.447058823529412e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-i3-4130
+          CPUModel: Intel-i3-4130
           pcktlen: 1024
           exectime: 5.952941176470588e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-i7-14700HX
+          CPUModel: Intel-i7-14700HX
           pcktlen: 128
           exectime: 2.050909090909091e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-i7-14700HX
+          CPUModel: Intel-i7-14700HX
           pcktlen: 256
           exectime: 2.2836363636363635e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-i7-14700HX
+          CPUModel: Intel-i7-14700HX
           pcktlen: 512
           exectime: 2.749090909090909e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-i7-14700HX
+          CPUModel: Intel-i7-14700HX
           pcktlen: 1024
           exectime: 3.68e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-i7-14700HX
+          CPUModel: Intel-i7-14700HX
           pcktlen: 128
           exectime: 2.050909090909091e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-i7-14700HX
+          CPUModel: Intel-i7-14700HX
           pcktlen: 256
           exectime: 2.2836363636363635e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-i7-14700HX
+          CPUModel: Intel-i7-14700HX
           pcktlen: 512
           exectime: 2.749090909090909e-07
-        - identifier: processOp
+        - identifier: processEUD
           param: ""
-          processortype: Intel-i7-14700HX
+          CPUModel: Intel-i7-14700HX
           pcktlen: 1024
           exectime: 3.68e-07

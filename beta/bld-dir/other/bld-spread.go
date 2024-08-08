@@ -29,7 +29,7 @@ func cmdlineParams() *cmdline.CmdParser {
 	cp.AddFlag(cmdline.StringFlag, "funcExec", true)  // name of output file used for function timings
 	cp.AddFlag(cmdline.StringFlag, "devExec", true)   // name of output file used for device operations timings
 	cp.AddFlag(cmdline.StringFlag, "devDesc", true)   // name of input file
-	cp.AddFlag(cmdline.StringFlag, "srdState", false) // name of output file holding shared state description
+	cp.AddFlag(cmdline.StringFlag, "srdCfg", false) // name of output file holding shared state description
 	cp.AddFlag(cmdline.StringFlag, "map", true)       // file with mapping of comp pattern functions to devices
 	cp.AddFlag(cmdline.StringFlag, "exp", true)       // name of output file used for run-time experiment parameters
 	cp.AddFlag(cmdline.StringFlag, "topo", false)     // name of output file used for topo templates
@@ -118,7 +118,7 @@ func main() {
 
 	// check for access to the files the application will write
 	fullpathmap := make(map[string]string)
-	outFiles := []string{"cp", "cpInit", "devExec", "funcExec", "exp", "topo", "map", "srdState"}
+	outFiles := []string{"cp", "cpInit", "devExec", "funcExec", "exp", "topo", "map", "srdCfg"}
 	fullpath := []string{}
 	for _, filename := range outFiles {
 		basefile := cp.GetVar(filename).(string)
@@ -226,122 +226,154 @@ func main() {
 	eudCPUType := cp.GetVar("eudCPU").(string)
 	eudCPUBw := cp.GetVar("eudCPUBw").(string)
 	// create a computational pattern data structure
-	encryptPerf := pces.CreateCompPattern(cmpPtnType)
-	
-	srcFunc := pces.CreateFunc("connSrc", "src")
-	encryptOutFunc := pces.CreateFunc("processPckt", "encryptOut")
-	decryptOutFunc := pces.CreateFunc("processPckt", "decryptOut")
-	processFunc := pces.CreateFunc("processPckt", "process")
-	encryptRtnFunc := pces.CreateFunc("processPckt", "encryptRtn")
-	decryptRtnFunc := pces.CreateFunc("processPckt", "decryptRtn")
-
-	// add these to the computational pattern
-	encryptPerf.AddFunc(srcFunc)
-	encryptPerf.AddFunc(encryptOutFunc)
-	encryptPerf.AddFunc(decryptOutFunc)
-	encryptPerf.AddFunc(processFunc)
-	encryptPerf.AddFunc(encryptRtnFunc)
-	encryptPerf.AddFunc(decryptRtnFunc)
-
-	// create a CPInit structure that will serve as the template for each
-	// individual CompPattern to be created.   We can leave the name of the CompPattern
-	// empty but state the type
-	epCPInit := pces.CreateCPInitList("", cmpPtnType, true)
-
-	// flesh out the messages.
-	msgLen := pcktSize + 36
-	epCPInit.AddMsg(pces.CreateCompPatternMsg("initiate", pcktSize, msgLen))
-	epCPInit.AddMsg(pces.CreateCompPatternMsg("plaintext", pcktSize, msgLen))
-	epCPInit.AddMsg(pces.CreateCompPatternMsg("encryptext", pcktSize, msgLen))
-
-	// add edges
-	// self-initiation message has type 'initiate'
-	encryptPerf.AddEdge(srcFunc.Label, srcFunc.Label, "initiate", "generateOp", &epCPInit.Msgs)
-
-	// chain out and back
-	encryptPerf.AddEdge(srcFunc.Label, encryptOutFunc.Label, "plaintext", "processOp", &epCPInit.Msgs)
-	encryptPerf.AddEdge(encryptOutFunc.Label, decryptOutFunc.Label, "encryptext", "processOp", &epCPInit.Msgs)
-	encryptPerf.AddEdge(decryptOutFunc.Label, processFunc.Label, "plaintext", "processOp", &epCPInit.Msgs)
-	encryptPerf.AddEdge(processFunc.Label, encryptRtnFunc.Label, "plaintext", "processOp", &epCPInit.Msgs)
-	encryptPerf.AddEdge(encryptRtnFunc.Label, decryptRtnFunc.Label, "encryptext", "processOp", &epCPInit.Msgs)
-	encryptPerf.AddEdge(decryptRtnFunc.Label, srcFunc.Label, "plaintext", "completeOp", &epCPInit.Msgs)
-
-	// create edge variables, follow sequence from src back and save that sequence
-	nodes := []*pces.Func{srcFunc, encryptOutFunc, decryptOutFunc, processFunc,
-		encryptRtnFunc, decryptRtnFunc}
-
-	// put in parameters for srcFunc node (n0)
-	// srcParams := pces.CreateFuncParameters(encryptPerf.CPType, srcFunc.Label)
-	srcState := pces.ClassCreateConnSrc()
-
-	// each source has the same mean packet inter-arrival time, one round-trip packet,
-	// exponential distribution between packets, and a message lenght and packet size determined by input parameters
-
-	if pcktMu > 0.0 {
-		srcState.Populate(1.0/pcktMu, pcktBurst, "exp", "plaintext", msgLen, pcktSize, 0, false)
-	} else {
-		srcState.Populate(0.0, pcktBurst, "const", "plaintext", msgLen, pcktSize, 0, false)
-	}
-
-	srcState.AddOpName("generateOp", "generateOp")
-	srcState.AddOpName("completeOp", "completeOp")
-
-	// serialize the class-dependent state structure
-	serialSrcState, err0 := srcState.Serialize(useYAML)
-	if err0 != nil {
-		panic(err0)
-	}
-	epCPInit.AddState(encryptPerf, srcFunc, serialSrcState)
-
-	// put in parameters for encryptOutFunc (n1)
-	n1StateStr := createCryptoPcktState("encrypt", cryptoAlg, keyLength, false)
-	epCPInit.AddState(encryptPerf, nodes[1], n1StateStr)
-
-	// put in parameters for decryptOutFunc (n2)
-	n2StateStr := createCryptoPcktState("decrypt", cryptoAlg, keyLength, false)
-	epCPInit.AddState(encryptPerf, nodes[2], n2StateStr)
-
-	// put in parameters for processFunc (n3)
-	n3StateStr := createProcessPcktState(encryptPerf, nodes[3], "processOp")
-	epCPInit.AddState(encryptPerf, nodes[3], n3StateStr)
-
-	// put in parameters for encryptRtnFunc (n4)
-	n4StateStr := createCryptoPcktState("encrypt", cryptoAlg, keyLength, false)
-	epCPInit.AddState(encryptPerf, nodes[4], n4StateStr)
-
-	// put in parameters for decryptRtnFunc (n5)
-	n5StateStr := createCryptoPcktState("decrypt", cryptoAlg, keyLength, false)
-	epCPInit.AddState(encryptPerf, nodes[5], n5StateStr)
 
 	cpDict := pces.CreateCompPatternDict("beta")
 	cpInitDict := pces.CreateCPInitListDict("beta")
+	cmpMapDict := pces.CreateCompPatternMapDict("Maps")
 
-	// make a unique comp pattern instance for every eud
 	for idx := 0; idx < euds; idx++ {
 
 		eudIdx := strconv.Itoa(idx)
 		// create a copy from the template
-		cpyCP := encryptPerf.DeepCopy()
+		cpName := cmpPtnType + "-" + eudIdx
+		encryptPerf := pces.CreateCompPattern(cmpPtnType)
+		encryptPerf.Name = cpName
 
-		// give it a unique name
-		cpyCP.Name = cpyCP.CPType + "-" + eudIdx
+		srcFunc := pces.CreateFunc("connSrc", "src")
+		encryptOutFunc := pces.CreateFunc("processPckt", "encryptOut")
+		decryptOutFunc := pces.CreateFunc("processPckt", "decryptOut")
+		processFunc := pces.CreateFunc("processPckt", "process")
+		encryptRtnFunc := pces.CreateFunc("processPckt", "encryptRtn")
+		decryptRtnFunc := pces.CreateFunc("processPckt", "decryptRtn")
+		finishFunc     := pces.CreateFunc("finish", "finish")
 
-		// save it in the dictionary
-		cpDict.AddCompPattern(cpyCP)
+		// add these to the computational pattern
+		encryptPerf.AddFunc(srcFunc)
+		encryptPerf.AddFunc(encryptOutFunc)
+		encryptPerf.AddFunc(decryptOutFunc)
+		encryptPerf.AddFunc(processFunc)
+		encryptPerf.AddFunc(encryptRtnFunc)
+		encryptPerf.AddFunc(decryptRtnFunc)
+		encryptPerf.AddFunc(finishFunc)
 
-		// create a copy of CPInit
-		cpyCPInitList := epCPInit.DeepCopy()
+		// create a CPInit structure that will serve as the template for each
+		// individual CompPattern to be created.   We can leave the name of the CompPattern
+		// empty but state the type
+		epCPInit := pces.CreateCPInitList(cpName, cmpPtnType, true)
 
-		// give it a unique name
-		cpyCPInitList.Name = cpyCPInitList.CPType + "-" + eudIdx
+		// flesh out the messages.
+		msgLen := pcktSize + 36
+		epCPInit.AddMsg(pces.CreateCompPatternMsg("initiate", true))
+		epCPInit.AddMsg(pces.CreateCompPatternMsg("plaintext", true))
+		epCPInit.AddMsg(pces.CreateCompPatternMsg("finishtext", true))
+		epCPInit.AddMsg(pces.CreateCompPatternMsg("encryptext", true))
 
-		// save it in the dictionary
-		cpInitDict.AddCPInitList(cpyCPInitList)
+		// add edges
+		// self-initiation message has type 'initiate'
+		encryptPerf.AddEdge(srcFunc.Label, srcFunc.Label, "initiate", "generateOp", &epCPInit.Msgs)
+
+		// chain out and back
+		encryptPerf.AddEdge(srcFunc.Label, encryptOutFunc.Label, "plaintext", "processOp", &epCPInit.Msgs)
+		encryptPerf.AddEdge(encryptOutFunc.Label, decryptOutFunc.Label, "encryptext", "processOp", &epCPInit.Msgs)
+		encryptPerf.AddEdge(decryptOutFunc.Label, processFunc.Label, "plaintext", "processOp", &epCPInit.Msgs)
+		encryptPerf.AddEdge(processFunc.Label, encryptRtnFunc.Label, "plaintext", "processOp", &epCPInit.Msgs)
+		encryptPerf.AddEdge(encryptRtnFunc.Label, decryptRtnFunc.Label, "encryptext", "processOp", &epCPInit.Msgs)
+		encryptPerf.AddEdge(decryptRtnFunc.Label, srcFunc.Label, "plaintext", "completeOp", &epCPInit.Msgs)
+		encryptPerf.AddEdge(srcFunc.Label, finishFunc.Label, "finishtext", "finishOp", &epCPInit.Msgs)
+
+		// create edge variables, follow sequence from src back and save that sequence
+		nodes := []*pces.Func{srcFunc, encryptOutFunc, decryptOutFunc, processFunc,
+			encryptRtnFunc, decryptRtnFunc}
+
+		// put in parameters for srcFunc node (n0)
+		// srcParams := pces.CreateFuncParameters(encryptPerf.CPType, srcFunc.Label)
+		srcCfg := pces.ClassCreateConnSrcCfg()
+		rtd := map[string]string{"generateOp":"plaintext", "completeOp":"finishtext"}
+		tcd := map[string]string{"generateOp":"generateOp", "completeOp": "completeOp"}
+
+		// each source has the same mean packet inter-arrival time, one round-trip packet,
+		// exponential distribution between packets, and a message lenght and packet size determined by input parameters
+
+		if pcktMu > 0.0 {
+			srcCfg.Populate(pcktMu, pcktBurst, "exp", "plaintext", msgLen, pcktSize, rtd, tcd, false)
+		} else {
+			srcCfg.Populate(0.0, pcktBurst, "const", "plaintext", msgLen, pcktSize, rtd, tcd, false)
+		}
+
+		// serialize the class-dependent state structure
+		serialSrcCfg, err0 := srcCfg.Serialize(useYAML)
+		if err0 != nil {
+			panic(err0)
+		}
+		epCPInit.AddCfg(encryptPerf, srcFunc, serialSrcCfg)
+
+		// put in parameters for encryptOutFunc (n1)
+		n1StateStr := createCryptoPcktCfg("encrypt", cryptoAlg, keyLength, "encryptext")
+		epCPInit.AddCfg(encryptPerf, nodes[1], n1StateStr)
+
+		// put in parameters for decryptOutFunc (n2)
+		n2StateStr := createCryptoPcktCfg("decrypt", cryptoAlg, keyLength, "plaintext")
+		epCPInit.AddCfg(encryptPerf, nodes[2], n2StateStr)
+
+		// put in parameters for processFunc (n3)
+
+		rtd = map[string]string{"processOp":"plaintext"}
+		tcd = map[string]string{"processOp":"processEUD"}
+		tlb := map[string]string{"processOp":"finish"}
+		tcp := map[string]string{"processOp": encryptPerf.Name}
+
+		n3StateStr := createProcessPcktCfg(rtd, tcd, tcp, tlb)
+		epCPInit.AddCfg(encryptPerf, nodes[3], n3StateStr)
+
+		// put in parameters for encryptRtnFunc (n4)
+		n4StateStr := createCryptoPcktCfg("encrypt", cryptoAlg, keyLength, "encryptext")
+		epCPInit.AddCfg(encryptPerf, nodes[4], n4StateStr)
+
+		// put in parameters for decryptRtnFunc (n5)
+		n5StateStr := createCryptoPcktCfg("decrypt", cryptoAlg, keyLength, "plaintext")
+		epCPInit.AddCfg(encryptPerf, nodes[5], n5StateStr)
+
+		cpDict.AddCompPattern(encryptPerf)
+		cpInitDict.AddCPInitList(epCPInit)
+
+		ptnName := encryptPerf.Name
+		cmpMap := pces.CreateCompPatternMap(ptnName)
+
+		// the comp pattern name codes the idx of the EUD
+		splitName := strings.Split(ptnName, "-")
+		eudIdx = splitName[len(splitName)-1]
+
+		cmpMap.AddMapping(nodes[0].Label, "pcktsrc", false)
+		if archType != "SSL" {
+			cmpMap.AddMapping(nodes[1].Label, "pcktsrc", false)
+		} else {
+			cmpMap.AddMapping(nodes[1].Label, "sslSrvr", false)
+		}
+		eudDevName := "eudDev-" + eudIdx
+
+		// decrypt happens on the EUD
+		cmpMap.AddMapping(nodes[2].Label, eudDevName, false)
+
+		// processing happens on the EUD
+		cmpMap.AddMapping(nodes[3].Label, eudDevName, false)
+
+		// re-encryption happens on the EUD
+		cmpMap.AddMapping(nodes[4].Label, eudDevName, false)
+
+		// location of decryption depends on the architecture type
+		if archType == "SSL" {
+			cmpMap.AddMapping(nodes[5].Label, "sslSrvr", false)
+		} else {
+			cmpMap.AddMapping(nodes[5].Label, "pcktsrc", false)
+		}
+		cmpMap.AddMapping("finish","pcktsrc", false)
+
+		cmpMapDict.AddCompPatternMap(cmpMap, false)
 	}
-
 	// write the comp pattern stuff out
 	cpDict.WriteToFile(fullpathmap["cp"])
 	cpInitDict.WriteToFile(fullpathmap["cpInit"])
+	cmpMapDict.WriteToFile(fullpathmap["map"])
 
 	// build a topology named with two networks
 	tcf := mrnes.CreateTopoCfgFrame("EvaluateCrypto")
@@ -532,42 +564,6 @@ func main() {
 
 	expCfg.WriteToFile(fullpathmap["exp"])
 
-	// map the set of CompPatterns to the architecture
-	cmpMapDict := pces.CreateCompPatternMapDict("Maps")
-	for ptnName := range cpDict.Patterns {
-		cmpMap := pces.CreateCompPatternMap(ptnName)
-		// the comp pattern name codes the idx of the EUD
-		splitName := strings.Split(ptnName, "-")
-		eudIdx := splitName[len(splitName)-1]
-
-		cmpMap.AddMapping(nodes[0].Label, "pcktsrc", false)
-		if archType != "SSL" {
-			cmpMap.AddMapping(nodes[1].Label, "pcktsrc", false)
-		} else {
-			cmpMap.AddMapping(nodes[1].Label, "sslSrvr", false)
-		}
-		eudDevName := "eudDev-" + eudIdx
-
-		// decrypt happens on the EUD
-		cmpMap.AddMapping(nodes[2].Label, eudDevName, false)
-
-		// processing happens on the EUD
-		cmpMap.AddMapping(nodes[3].Label, eudDevName, false)
-
-		// re-encryption happens on the EUD
-		cmpMap.AddMapping(nodes[4].Label, eudDevName, false)
-
-		// location of decryption depends on the architecture type
-		if archType == "SSL" {
-			cmpMap.AddMapping(nodes[5].Label, "sslSrvr", false)
-		} else {
-			cmpMap.AddMapping(nodes[5].Label, "pcktsrc", false)
-		}
-		cmpMapDict.AddCompPatternMap(cmpMap, false)
-	}
-
-	cmpMapDict.WriteToFile(fullpathmap["map"])
-
 	// bundle up all the function timing models and write them to funcExec.yaml
 	pattern := filepath.Join(funcXDir,"*.yaml")
 	funcXFiles, err := filepath.Glob(pattern)
@@ -623,31 +619,39 @@ func main() {
 
 }
 
-func createProcessPcktState(cp *pces.CompPattern, node *pces.Func, opName string) string {
-	// params := pces.CreateFuncParameters(cp.CPType, node.Label)
-	state := pces.ClassCreateProcessPckt()
-	state.ClassName = node.Class
-	state.OpName = map[string]string{"processOp": opName}
+func createProcessPcktCfg(rt, tc, tcp, tlb map[string]string) string {
+	cfg := pces.ClassCreateProcessPcktCfg()
 
-	// serialize the class-dependent state structure
-	serialState, err0 := state.Serialize(useYAML)
+	for key, value := range rt {
+		cfg.Route[key] = value
+	}	
+
+	for key, value := range tc {
+		cfg.TimingCode[key] = value
+	}	
+
+	for key, value := range tcp {
+		cfg.TgtCP[key] = value
+	}	
+
+	for key, value := range tlb {
+		cfg.TgtLabel[key] = value
+	}	
+
+	// serialize the class-dependent cfg structure
+	serialCfg, err0 := cfg.Serialize(useYAML)
 	if err0 != nil {
 		panic(err0)
 	}
-	return serialState
+	return serialCfg
 }
 
-func createCryptoPcktState(op, alg, keylength string, rtn bool) string {
-	state := pces.ClassCreateCryptoPckt()
-	state.ClassName = "cryptoPckt"
-	state.Populate(op, alg, keylength ) 
-	state.Return = rtn
-
-	// serialize the class-dependent state structure
-	serialState, err0 := state.Serialize(useYAML)
-	if err0 != nil {
-		panic(err0)
-	}
-	return serialState
+func createCryptoPcktCfg(cryptoOp, cryptoAlg, keyLength, msgType string) string {
+	cryptoVec := []string{cryptoOp, cryptoAlg, keyLength}
+	opCode := strings.Join(cryptoVec,"-")
+	rtd := map[string]string{"processOp": msgType }
+	tcd := map[string]string{"processOp":opCode}
+	empty := make(map[string]string)
+	return createProcessPcktCfg(rtd, tcd, empty, empty)
 }
 

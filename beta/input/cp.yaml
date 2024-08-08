@@ -1,16 +1,14 @@
 dictname: beta
 patterns:
-    encryptPerf-SSL:
-        cptype: encryptPerf-SSL
-        name: encryptPerf-SSL
+    encryptPerf-NoSSL:
+        cptype: encryptPerf-NoSSL
+        name: encryptPerf-NoSSL
         funcs:
             - class: cycleDst
               label: cycleDst
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptOut
-            - class: chgCP
-              label: chgCPOut
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptRtn
             - class: finish
               label: finish
@@ -22,828 +20,726 @@ patterns:
             - srclabel: cycleDst
               msgtype: plaintext
               dstlabel: encryptOut
-              methodcode: cryptoOp
-            - srclabel: encryptOut
-              msgtype: encryptext
-              dstlabel: chgCPOut
-              methodcode: chgCP
+              methodcode: processOp
             - srclabel: decryptRtn
-              msgtype: plaintext
+              msgtype: finishtext
+              dstlabel: cycleDst
+              methodcode: completeOp
+            - srclabel: cycleDst
+              msgtype: finishtext
               dstlabel: finish
               methodcode: finishOp
         extedges:
             eudCmpPtn-0:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-0
-                  nxtcp: eudCmpPtn-0
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-0
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-1:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-1
-                  nxtcp: eudCmpPtn-1
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-1
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-2:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-2
-                  nxtcp: eudCmpPtn-2
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-2
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-3:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-3
-                  nxtcp: eudCmpPtn-3
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-3
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-4:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-4
-                  nxtcp: eudCmpPtn-4
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-4
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-5:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-5
-                  nxtcp: eudCmpPtn-5
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-5
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-6:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-6
-                  nxtcp: eudCmpPtn-6
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-6
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-7:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-7
-                  nxtcp: eudCmpPtn-7
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-7
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-8:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-8
-                  nxtcp: eudCmpPtn-8
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-8
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-9:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-9
-                  nxtcp: eudCmpPtn-9
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-9
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-10:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-10
-                  nxtcp: eudCmpPtn-10
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-10
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-11:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-11
-                  nxtcp: eudCmpPtn-11
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-11
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-12:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-12
-                  nxtcp: eudCmpPtn-12
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-12
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-13:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-13
-                  nxtcp: eudCmpPtn-13
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-13
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-14:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-14
-                  nxtcp: eudCmpPtn-14
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-14
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-15:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-15
-                  nxtcp: eudCmpPtn-15
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-15
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-16:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-16
-                  nxtcp: eudCmpPtn-16
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-16
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-17:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-17
-                  nxtcp: eudCmpPtn-17
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-17
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-18:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-18
-                  nxtcp: eudCmpPtn-18
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-18
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-19:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-19
-                  nxtcp: eudCmpPtn-19
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-19
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-20:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-20
-                  nxtcp: eudCmpPtn-20
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-20
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-21:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-21
-                  nxtcp: eudCmpPtn-21
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-21
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-22:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-22
-                  nxtcp: eudCmpPtn-22
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-22
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-23:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-23
-                  nxtcp: eudCmpPtn-23
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-23
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-24:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-24
-                  nxtcp: eudCmpPtn-24
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-24
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-25:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-25
-                  nxtcp: eudCmpPtn-25
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-25
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-26:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-26
-                  nxtcp: eudCmpPtn-26
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-26
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-27:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-27
-                  nxtcp: eudCmpPtn-27
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-27
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-28:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-28
-                  nxtcp: eudCmpPtn-28
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-28
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-29:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-29
-                  nxtcp: eudCmpPtn-29
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-29
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-30:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-30
-                  nxtcp: eudCmpPtn-30
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-30
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-31:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-31
-                  nxtcp: eudCmpPtn-31
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-31
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-32:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-32
-                  nxtcp: eudCmpPtn-32
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-32
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-33:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-33
-                  nxtcp: eudCmpPtn-33
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-33
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-34:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-34
-                  nxtcp: eudCmpPtn-34
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-34
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-35:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-35
-                  nxtcp: eudCmpPtn-35
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-35
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-36:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-36
-                  nxtcp: eudCmpPtn-36
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-36
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-37:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-37
-                  nxtcp: eudCmpPtn-37
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-37
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-38:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-38
-                  nxtcp: eudCmpPtn-38
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-38
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-39:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-39
-                  nxtcp: eudCmpPtn-39
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-39
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-40:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-40
-                  nxtcp: eudCmpPtn-40
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-40
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-41:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-41
-                  nxtcp: eudCmpPtn-41
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-41
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-42:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-42
-                  nxtcp: eudCmpPtn-42
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-42
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-43:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-43
-                  nxtcp: eudCmpPtn-43
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-43
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-44:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-44
-                  nxtcp: eudCmpPtn-44
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-44
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-45:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-45
-                  nxtcp: eudCmpPtn-45
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-45
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-46:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-46
-                  nxtcp: eudCmpPtn-46
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-46
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-47:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-47
-                  nxtcp: eudCmpPtn-47
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-47
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-48:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-48
-                  nxtcp: eudCmpPtn-48
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-48
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-49:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-49
-                  nxtcp: eudCmpPtn-49
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-49
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-50:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-50
-                  nxtcp: eudCmpPtn-50
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-50
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-51:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-51
-                  nxtcp: eudCmpPtn-51
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-51
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-52:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-52
-                  nxtcp: eudCmpPtn-52
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-52
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-53:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-53
-                  nxtcp: eudCmpPtn-53
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-53
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-54:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-54
-                  nxtcp: eudCmpPtn-54
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-54
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-55:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-55
-                  nxtcp: eudCmpPtn-55
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-55
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-56:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-56
-                  nxtcp: eudCmpPtn-56
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-56
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-57:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-57
-                  nxtcp: eudCmpPtn-57
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-57
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-58:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-58
-                  nxtcp: eudCmpPtn-58
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-58
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-59:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-59
-                  nxtcp: eudCmpPtn-59
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-59
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-60:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-60
-                  nxtcp: eudCmpPtn-60
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-60
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-61:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-61
-                  nxtcp: eudCmpPtn-61
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-61
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-62:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-62
-                  nxtcp: eudCmpPtn-62
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-62
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-63:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-63
-                  nxtcp: eudCmpPtn-63
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-63
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-64:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-64
-                  nxtcp: eudCmpPtn-64
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-64
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-65:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-65
-                  nxtcp: eudCmpPtn-65
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-65
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-66:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-66
-                  nxtcp: eudCmpPtn-66
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-66
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-67:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-67
-                  nxtcp: eudCmpPtn-67
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-67
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-68:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-68
-                  nxtcp: eudCmpPtn-68
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-68
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-69:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-69
-                  nxtcp: eudCmpPtn-69
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-69
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-70:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-70
-                  nxtcp: eudCmpPtn-70
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-70
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-71:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-71
-                  nxtcp: eudCmpPtn-71
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-71
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-72:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-72
-                  nxtcp: eudCmpPtn-72
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-72
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-73:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-73
-                  nxtcp: eudCmpPtn-73
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-73
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-74:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-74
-                  nxtcp: eudCmpPtn-74
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-74
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-75:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-75
-                  nxtcp: eudCmpPtn-75
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-75
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-76:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-76
-                  nxtcp: eudCmpPtn-76
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-76
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-77:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-77
-                  nxtcp: eudCmpPtn-77
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-77
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-78:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-78
-                  nxtcp: eudCmpPtn-78
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-78
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-79:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-79
-                  nxtcp: eudCmpPtn-79
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-79
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-80:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-80
-                  nxtcp: eudCmpPtn-80
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-80
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-81:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-81
-                  nxtcp: eudCmpPtn-81
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-81
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-82:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-82
-                  nxtcp: eudCmpPtn-82
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-82
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-83:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-83
-                  nxtcp: eudCmpPtn-83
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-83
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-84:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-84
-                  nxtcp: eudCmpPtn-84
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-84
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-85:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-85
-                  nxtcp: eudCmpPtn-85
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-85
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-86:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-86
-                  nxtcp: eudCmpPtn-86
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-86
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-87:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-87
-                  nxtcp: eudCmpPtn-87
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-87
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-88:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-88
-                  nxtcp: eudCmpPtn-88
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-88
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-89:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-89
-                  nxtcp: eudCmpPtn-89
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-89
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-90:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-90
-                  nxtcp: eudCmpPtn-90
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-90
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-91:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-91
-                  nxtcp: eudCmpPtn-91
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-91
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-92:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-92
-                  nxtcp: eudCmpPtn-92
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-92
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-93:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-93
-                  nxtcp: eudCmpPtn-93
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-93
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-94:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-94
-                  nxtcp: eudCmpPtn-94
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-94
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-95:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-95
-                  nxtcp: eudCmpPtn-95
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-95
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-96:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-96
-                  nxtcp: eudCmpPtn-96
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-96
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-97:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-97
-                  nxtcp: eudCmpPtn-97
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-97
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-98:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-98
-                  nxtcp: eudCmpPtn-98
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-98
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
             eudCmpPtn-99:
-                - srccp: encryptPerf-SSL
-                  endcp: eudCmpPtn-99
-                  nxtcp: eudCmpPtn-99
-                  srclabel: chgCPOut
+                - srccp: encryptPerf-NoSSL
+                  dstcp: eudCmpPtn-99
+                  srclabel: encryptOut
                   dstlabel: decryptOut
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-0:
         cptype: eudCmpPtn
         name: eudCmpPtn-0
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -852,32 +748,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-0
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-1:
         cptype: eudCmpPtn
         name: eudCmpPtn-1
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -886,32 +775,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-1
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-2:
         cptype: eudCmpPtn
         name: eudCmpPtn-2
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -920,32 +802,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-2
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-3:
         cptype: eudCmpPtn
         name: eudCmpPtn-3
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -954,32 +829,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-3
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-4:
         cptype: eudCmpPtn
         name: eudCmpPtn-4
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -988,32 +856,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-4
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-5:
         cptype: eudCmpPtn
         name: eudCmpPtn-5
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -1022,32 +883,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-5
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-6:
         cptype: eudCmpPtn
         name: eudCmpPtn-6
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -1056,32 +910,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-6
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-7:
         cptype: eudCmpPtn
         name: eudCmpPtn-7
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -1090,32 +937,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-7
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-8:
         cptype: eudCmpPtn
         name: eudCmpPtn-8
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -1124,32 +964,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-8
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-9:
         cptype: eudCmpPtn
         name: eudCmpPtn-9
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -1158,32 +991,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-9
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-10:
         cptype: eudCmpPtn
         name: eudCmpPtn-10
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -1192,32 +1018,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-10
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-11:
         cptype: eudCmpPtn
         name: eudCmpPtn-11
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -1226,32 +1045,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-11
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-12:
         cptype: eudCmpPtn
         name: eudCmpPtn-12
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -1260,32 +1072,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-12
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-13:
         cptype: eudCmpPtn
         name: eudCmpPtn-13
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -1294,32 +1099,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-13
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-14:
         cptype: eudCmpPtn
         name: eudCmpPtn-14
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -1328,32 +1126,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-14
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-15:
         cptype: eudCmpPtn
         name: eudCmpPtn-15
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -1362,32 +1153,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-15
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-16:
         cptype: eudCmpPtn
         name: eudCmpPtn-16
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -1396,32 +1180,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-16
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-17:
         cptype: eudCmpPtn
         name: eudCmpPtn-17
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -1430,32 +1207,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-17
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-18:
         cptype: eudCmpPtn
         name: eudCmpPtn-18
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -1464,32 +1234,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-18
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-19:
         cptype: eudCmpPtn
         name: eudCmpPtn-19
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -1498,32 +1261,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-19
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-20:
         cptype: eudCmpPtn
         name: eudCmpPtn-20
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -1532,32 +1288,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-20
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-21:
         cptype: eudCmpPtn
         name: eudCmpPtn-21
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -1566,32 +1315,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-21
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-22:
         cptype: eudCmpPtn
         name: eudCmpPtn-22
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -1600,32 +1342,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-22
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-23:
         cptype: eudCmpPtn
         name: eudCmpPtn-23
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -1634,32 +1369,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-23
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-24:
         cptype: eudCmpPtn
         name: eudCmpPtn-24
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -1668,32 +1396,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-24
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-25:
         cptype: eudCmpPtn
         name: eudCmpPtn-25
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -1702,32 +1423,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-25
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-26:
         cptype: eudCmpPtn
         name: eudCmpPtn-26
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -1736,32 +1450,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-26
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-27:
         cptype: eudCmpPtn
         name: eudCmpPtn-27
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -1770,32 +1477,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-27
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-28:
         cptype: eudCmpPtn
         name: eudCmpPtn-28
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -1804,32 +1504,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-28
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-29:
         cptype: eudCmpPtn
         name: eudCmpPtn-29
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -1838,32 +1531,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-29
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-30:
         cptype: eudCmpPtn
         name: eudCmpPtn-30
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -1872,32 +1558,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-30
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-31:
         cptype: eudCmpPtn
         name: eudCmpPtn-31
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -1906,32 +1585,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-31
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-32:
         cptype: eudCmpPtn
         name: eudCmpPtn-32
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -1940,32 +1612,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-32
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-33:
         cptype: eudCmpPtn
         name: eudCmpPtn-33
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -1974,32 +1639,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-33
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-34:
         cptype: eudCmpPtn
         name: eudCmpPtn-34
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -2008,32 +1666,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-34
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-35:
         cptype: eudCmpPtn
         name: eudCmpPtn-35
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -2042,32 +1693,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-35
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-36:
         cptype: eudCmpPtn
         name: eudCmpPtn-36
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -2076,32 +1720,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-36
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-37:
         cptype: eudCmpPtn
         name: eudCmpPtn-37
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -2110,32 +1747,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-37
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-38:
         cptype: eudCmpPtn
         name: eudCmpPtn-38
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -2144,32 +1774,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-38
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-39:
         cptype: eudCmpPtn
         name: eudCmpPtn-39
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -2178,32 +1801,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-39
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-40:
         cptype: eudCmpPtn
         name: eudCmpPtn-40
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -2212,32 +1828,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-40
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-41:
         cptype: eudCmpPtn
         name: eudCmpPtn-41
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -2246,32 +1855,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-41
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-42:
         cptype: eudCmpPtn
         name: eudCmpPtn-42
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -2280,32 +1882,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-42
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-43:
         cptype: eudCmpPtn
         name: eudCmpPtn-43
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -2314,32 +1909,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-43
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-44:
         cptype: eudCmpPtn
         name: eudCmpPtn-44
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -2348,32 +1936,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-44
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-45:
         cptype: eudCmpPtn
         name: eudCmpPtn-45
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -2382,32 +1963,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-45
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-46:
         cptype: eudCmpPtn
         name: eudCmpPtn-46
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -2416,32 +1990,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-46
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-47:
         cptype: eudCmpPtn
         name: eudCmpPtn-47
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -2450,32 +2017,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-47
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-48:
         cptype: eudCmpPtn
         name: eudCmpPtn-48
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -2484,32 +2044,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-48
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-49:
         cptype: eudCmpPtn
         name: eudCmpPtn-49
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -2518,32 +2071,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-49
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-50:
         cptype: eudCmpPtn
         name: eudCmpPtn-50
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -2552,32 +2098,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-50
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-51:
         cptype: eudCmpPtn
         name: eudCmpPtn-51
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -2586,32 +2125,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-51
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-52:
         cptype: eudCmpPtn
         name: eudCmpPtn-52
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -2620,32 +2152,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-52
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-53:
         cptype: eudCmpPtn
         name: eudCmpPtn-53
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -2654,32 +2179,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-53
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-54:
         cptype: eudCmpPtn
         name: eudCmpPtn-54
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -2688,32 +2206,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-54
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-55:
         cptype: eudCmpPtn
         name: eudCmpPtn-55
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -2722,32 +2233,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-55
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-56:
         cptype: eudCmpPtn
         name: eudCmpPtn-56
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -2756,32 +2260,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-56
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-57:
         cptype: eudCmpPtn
         name: eudCmpPtn-57
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -2790,32 +2287,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-57
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-58:
         cptype: eudCmpPtn
         name: eudCmpPtn-58
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -2824,32 +2314,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-58
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-59:
         cptype: eudCmpPtn
         name: eudCmpPtn-59
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -2858,32 +2341,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-59
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-60:
         cptype: eudCmpPtn
         name: eudCmpPtn-60
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -2892,32 +2368,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-60
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-61:
         cptype: eudCmpPtn
         name: eudCmpPtn-61
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -2926,32 +2395,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-61
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-62:
         cptype: eudCmpPtn
         name: eudCmpPtn-62
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -2960,32 +2422,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-62
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-63:
         cptype: eudCmpPtn
         name: eudCmpPtn-63
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -2994,32 +2449,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-63
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-64:
         cptype: eudCmpPtn
         name: eudCmpPtn-64
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -3028,32 +2476,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-64
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-65:
         cptype: eudCmpPtn
         name: eudCmpPtn-65
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -3062,32 +2503,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-65
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-66:
         cptype: eudCmpPtn
         name: eudCmpPtn-66
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -3096,32 +2530,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-66
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-67:
         cptype: eudCmpPtn
         name: eudCmpPtn-67
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -3130,32 +2557,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-67
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-68:
         cptype: eudCmpPtn
         name: eudCmpPtn-68
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -3164,32 +2584,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-68
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-69:
         cptype: eudCmpPtn
         name: eudCmpPtn-69
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -3198,32 +2611,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-69
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-70:
         cptype: eudCmpPtn
         name: eudCmpPtn-70
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -3232,32 +2638,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-70
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-71:
         cptype: eudCmpPtn
         name: eudCmpPtn-71
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -3266,32 +2665,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-71
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-72:
         cptype: eudCmpPtn
         name: eudCmpPtn-72
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -3300,32 +2692,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-72
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-73:
         cptype: eudCmpPtn
         name: eudCmpPtn-73
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -3334,32 +2719,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-73
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-74:
         cptype: eudCmpPtn
         name: eudCmpPtn-74
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -3368,32 +2746,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-74
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-75:
         cptype: eudCmpPtn
         name: eudCmpPtn-75
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -3402,32 +2773,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-75
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-76:
         cptype: eudCmpPtn
         name: eudCmpPtn-76
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -3436,32 +2800,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-76
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-77:
         cptype: eudCmpPtn
         name: eudCmpPtn-77
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -3470,32 +2827,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-77
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-78:
         cptype: eudCmpPtn
         name: eudCmpPtn-78
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -3504,32 +2854,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-78
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-79:
         cptype: eudCmpPtn
         name: eudCmpPtn-79
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -3538,32 +2881,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-79
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-80:
         cptype: eudCmpPtn
         name: eudCmpPtn-80
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -3572,32 +2908,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-80
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-81:
         cptype: eudCmpPtn
         name: eudCmpPtn-81
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -3606,32 +2935,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-81
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-82:
         cptype: eudCmpPtn
         name: eudCmpPtn-82
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -3640,32 +2962,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-82
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-83:
         cptype: eudCmpPtn
         name: eudCmpPtn-83
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -3674,32 +2989,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-83
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-84:
         cptype: eudCmpPtn
         name: eudCmpPtn-84
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -3708,32 +3016,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-84
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-85:
         cptype: eudCmpPtn
         name: eudCmpPtn-85
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -3742,32 +3043,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-85
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-86:
         cptype: eudCmpPtn
         name: eudCmpPtn-86
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -3776,32 +3070,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-86
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-87:
         cptype: eudCmpPtn
         name: eudCmpPtn-87
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -3810,32 +3097,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-87
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-88:
         cptype: eudCmpPtn
         name: eudCmpPtn-88
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -3844,32 +3124,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-88
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-89:
         cptype: eudCmpPtn
         name: eudCmpPtn-89
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -3878,32 +3151,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-89
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-90:
         cptype: eudCmpPtn
         name: eudCmpPtn-90
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -3912,32 +3178,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-90
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-91:
         cptype: eudCmpPtn
         name: eudCmpPtn-91
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -3946,32 +3205,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-91
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-92:
         cptype: eudCmpPtn
         name: eudCmpPtn-92
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -3980,32 +3232,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-92
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-93:
         cptype: eudCmpPtn
         name: eudCmpPtn-93
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -4014,32 +3259,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-93
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-94:
         cptype: eudCmpPtn
         name: eudCmpPtn-94
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -4048,32 +3286,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-94
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-95:
         cptype: eudCmpPtn
         name: eudCmpPtn-95
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -4082,32 +3313,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-95
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-96:
         cptype: eudCmpPtn
         name: eudCmpPtn-96
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -4116,32 +3340,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-96
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-97:
         cptype: eudCmpPtn
         name: eudCmpPtn-97
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -4150,32 +3367,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-97
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-98:
         cptype: eudCmpPtn
         name: eudCmpPtn-98
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -4184,32 +3394,25 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-98
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp
     eudCmpPtn-99:
         cptype: eudCmpPtn
         name: eudCmpPtn-99
         funcs:
-            - class: cryptoPckt
+            - class: processPckt
               label: decryptOut
             - class: processPckt
               label: eudProcess
-            - class: cryptoPckt
+            - class: processPckt
               label: encryptRtn
-            - class: chgCP
-              label: chgCPRtn
         edges:
             - srclabel: decryptOut
               msgtype: plaintext
@@ -4218,17 +3421,12 @@ patterns:
             - srclabel: eudProcess
               msgtype: plaintext
               dstlabel: encryptRtn
-              methodcode: cryptoOp
-            - srclabel: encryptRtn
-              msgtype: encryptext
-              dstlabel: chgCPRtn
-              methodcode: chgCP
+              methodcode: processOp
         extedges:
-            encryptPerf-SSL:
+            encryptPerf-NoSSL:
                 - srccp: eudCmpPtn-99
-                  endcp: encryptPerf-SSL
-                  nxtcp: encryptPerf-SSL
-                  srclabel: chgCPRtn
+                  dstcp: encryptPerf-NoSSL
+                  srclabel: encryptRtn
                   dstlabel: decryptRtn
                   msgtype: encryptext
-                  methodcode: cryptoOp
+                  methodcode: processOp

@@ -4,8 +4,8 @@ go 1.20
 
 require (
 	github.com/iti/cmdline v0.1.1
-	github.com/iti/mrnes v0.0.3
-	github.com/iti/pces v0.0.4
+	github.com/iti/mrnes v0.0.4
+	github.com/iti/pces v0.0.5
 	github.com/iti/rngstream v0.2.2
 	golang.org/x/exp v0.0.0-20240719175910-8a7402abbf56
 )

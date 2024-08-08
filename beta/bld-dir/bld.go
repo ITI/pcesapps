@@ -30,7 +30,7 @@ func cmdlineParams() *cmdline.CmdParser {
 	cp.AddFlag(cmdline.StringFlag, "funcExec", true)  // name of output file used for function timings
 	cp.AddFlag(cmdline.StringFlag, "devExec", true)   // name of output file used for device operations timings
 	cp.AddFlag(cmdline.StringFlag, "devDesc", true)   // name of input file
-	cp.AddFlag(cmdline.StringFlag, "srdState", false) // name of output file holding shared state description
+	cp.AddFlag(cmdline.StringFlag, "srdCfg", false) // name of output file holding shared cfg description
 	cp.AddFlag(cmdline.StringFlag, "map", true)       // file with mapping of CmpPtn functions to devices
 	cp.AddFlag(cmdline.StringFlag, "exp", true)       // name of output file used for run-time experiment parameters
 	cp.AddFlag(cmdline.StringFlag, "topo", false)     // name of output file used for topo templates
@@ -120,7 +120,7 @@ func main() {
 
 	// check for access to the files the application will write
 	fullpathmap := make(map[string]string)
-	outFiles := []string{"cp", "cpInit", "funcExec", "devExec", "exp", "topo", "map", "srdState"}
+	outFiles := []string{"cp", "cpInit", "funcExec", "devExec", "exp", "topo", "map", "srdCfg"}
 	fullpath := []string{}
 	for _, filename := range outFiles {
 		basefile := cp.GetVar(filename).(string)
@@ -258,7 +258,7 @@ func main() {
 	msgLen := pcktSize + 36
 
 	// each EUD will have its own instance of a computational pattern,
-	// a chain from "decryptOut" -> "eudProcess" -> "encryptRtn" -> "chgCPRtn"
+	// a chain from "decryptOut" -> "eudProcess" -> "encryptRtn" 
 	// The last function in the chain exists to highlight that the outboound message
 	// changes the computational pattern from the EUD's to another, in this case
 	// that holding the packet generating server
@@ -271,33 +271,29 @@ func main() {
 	// The first parameter identifies the name of a Class the function belongs to,
 	// and the second a name for this instance of the function.   There are Class-specific
 	// methods in the simulator used to model the execution of these functions
-	decryptOutFunc := pces.CreateFunc("cryptoPckt", "decryptOut")
+	decryptOutFunc := pces.CreateFunc("processPckt", "decryptOut")
 	processFunc := pces.CreateFunc("processPckt", "eudProcess")
-	encryptRtnFunc := pces.CreateFunc("cryptoPckt", "encryptRtn")
-	chgCPRtnFunc := pces.CreateFunc("chgCP", "chgCPRtn")
+	encryptRtnFunc := pces.CreateFunc("processPckt", "encryptRtn")
 
 	// include the functions in the EUD CmpPtn template
 	eudCmpPtn.AddFunc(decryptOutFunc)
 	eudCmpPtn.AddFunc(processFunc)
 	eudCmpPtn.AddFunc(encryptRtnFunc)
-	eudCmpPtn.AddFunc(chgCPRtnFunc)
 
 	// create a CmpPtn that models a single process which cycles through target EUDs, shooting
 	// a burst of packets at each.  The pattern is comprised of the chain
-	//    burstSrc -> encryptOut -> chgCPOut,
+	//    burstSrc -> encryptOut 
 	// and also (separately) decryptRtn -> finish
 	//  'finish' calls out points where movement of message ends and performance measurements are taken
 	srcFunc := pces.CreateFunc("cycleDst", "cycleDst")
-	encryptOutFunc := pces.CreateFunc("cryptoPckt", "encryptOut")
-	chgCPOutFunc := pces.CreateFunc("chgCP", "chgCPOut")
-	decryptRtnFunc := pces.CreateFunc("cryptoPckt", "decryptRtn")
+	encryptOutFunc := pces.CreateFunc("processPckt", "encryptOut")
+	decryptRtnFunc := pces.CreateFunc("processPckt", "decryptRtn")
 
 	finishFunc := pces.CreateFunc("finish", "finish")
 
 	// add the functions to the packet generation CmpPtn
 	encryptPerf.AddFunc(srcFunc)
 	encryptPerf.AddFunc(encryptOutFunc)
-	encryptPerf.AddFunc(chgCPOutFunc)
 	encryptPerf.AddFunc(decryptRtnFunc)
 	encryptPerf.AddFunc(finishFunc)
 
@@ -317,14 +313,15 @@ func main() {
 
 	// describe the types, packet sizes, and frame lengths of the messages
 	// that pass between functions in the EUD CmpPtn
-	epCPInit.AddMsg(pces.CreateCompPatternMsg("plaintext", pcktSize, msgLen))
-	epCPInit.AddMsg(pces.CreateCompPatternMsg("encryptext", pcktSize, msgLen))
+	epCPInit.AddMsg(pces.CreateCompPatternMsg("plaintext", true))
+	epCPInit.AddMsg(pces.CreateCompPatternMsg("encryptext", true))
 
 	// create the CP init data structure for the packet source CmpPtn and add the message types it sees
 	epCPSrcInit := pces.CreateCPInitList(encryptPerf.Name, cmpPtnType, true)
-	epCPSrcInit.AddMsg(pces.CreateCompPatternMsg("initiate", pcktSize, msgLen))
-	epCPSrcInit.AddMsg(pces.CreateCompPatternMsg("plaintext", pcktSize, msgLen))
-	epCPSrcInit.AddMsg(pces.CreateCompPatternMsg("encryptext", pcktSize, msgLen))
+	epCPSrcInit.AddMsg(pces.CreateCompPatternMsg("initiate", true))
+	epCPSrcInit.AddMsg(pces.CreateCompPatternMsg("plaintext", true))
+	epCPSrcInit.AddMsg(pces.CreateCompPatternMsg("finishtext", true))
+	epCPSrcInit.AddMsg(pces.CreateCompPatternMsg("encryptext", true))
 
 	// data connections between functions are described as directed 'edges'
 	// Each call to AddEdge below is specific to a CmpPtn,
@@ -334,53 +331,40 @@ func main() {
 	// The method code must be defined for the class of the destination function, and
 	// indicates particular methods to be invoked in the processing of this message
 	eudCmpPtn.AddEdge(decryptOutFunc.Label, processFunc.Label, "plaintext", "processOp", &epCPInit.Msgs)
-	eudCmpPtn.AddEdge(processFunc.Label, encryptRtnFunc.Label, "plaintext", "cryptoOp", &epCPInit.Msgs)
-	eudCmpPtn.AddEdge(encryptRtnFunc.Label, chgCPRtnFunc.Label, "encryptext", "chgCP", &epCPInit.Msgs)
+	eudCmpPtn.AddEdge(processFunc.Label, encryptRtnFunc.Label, "plaintext", "processOp", &epCPInit.Msgs)
 
-	// each of the CmpPtn's functions gets a state dictionary whose structure is defined
+	// each of the CmpPtn's functions gets a cfg dictionary whose structure is defined
 	// by the function's class. Here we create and populate those structures, which
 	// are serialized for storage to file
 
-	// createProcessPcktState is a function defined in this file that creates a 'processPckt' class
-	// state dictionary given required parameters.  It returns a string that results from serialization
-	// The function whose state is created here models the decryption of a packet as it arrives
-	// at the EUD.  The state of a processPckt class function includes a code for the particular
+	// createProcessPcktCfg is a function defined in this file that creates a 'processPckt' class
+	// cfg dictionary given required parameters.  It returns a string that results from serialization
+	// The function whose cfg is created here models the decryption of a packet as it arrives
+	// at the EUD.  The cfg of a processPckt class function includes a code for the particular
 	// operation it models, here, a code like 'decrypt-aes' that indicates the operation and encryption
 	// algorithm.   There is no particular grammer or limitations on what these codes are,
 	// but the simulator will assume that certain table entries exist that match them.
 	// We will later check this validity as it depends also on the mapping of functions to processors
 	// that has not yet been specified.
-	decryptOutStr := createCryptoPcktState("decrypt", cryptoAlg, keyLength, false)
-	epCPInit.AddState(eudCmpPtn, decryptOutFunc, decryptOutStr)
+
+	decryptOutStr := createCryptoPcktCfg("decrypt", cryptoAlg, keyLength, "plaintext")
+	epCPInit.AddCfg(eudCmpPtn, decryptOutFunc, decryptOutStr)
 
 	// the 'processFunc' function in an EUD CmpPtn models the computational delay of doing something
 	// with the decrypted packet, before encrypting a response
-	processStr := createProcessPcktState(eudCmpPtn, processFunc, "processOp", true)
-	epCPInit.AddState(eudCmpPtn, processFunc, processStr)
+	rtd := map[string]string{"processOp":"plaintext"}
+	tcd := map[string]string{"processOp":"processEUD"}
+	tlb := map[string]string{"processOp":"finish"}
+	tcp := map[string]string{"processOp": encryptPerf.Name}
+
+	processStr := createProcessPcktCfg(rtd, tcd, tcp, tlb)
+
+	epCPInit.AddCfg(eudCmpPtn, processFunc, processStr)
 
 	// the 'encryptRtn' function in an EUD CmpPtn models the delay of encrypting
 	// a response to the message sent to the EUD
-	encryptRtnStr := createCryptoPcktState("encrypt", cryptoAlg, keyLength, false)
-	epCPInit.AddState(eudCmpPtn, encryptRtnFunc, encryptRtnStr)
-
-	// the 'chgDesc' function moves a message from one CmpPtn into another.
-	// The state is a map whose index is name of the CmpPtn in the destination field
-	// of the message, whose attribute is a record that give the name of the new CmpPtn,
-	// the label of the function in that CmpPtn to receive the message, and the message type
-	// of the message as it makes the transition.  Four steps below
-
-	// first step, create a state dictionary for the chgCP function
-	chg := pces.CreateChgDesc(encryptPerf.Name, decryptRtnFunc.Label, "encryptext")
-
-	// second step, create a map that will be put in the state dictionary
-	chgMap := map[string]pces.ChgDesc{encryptPerf.Name: chg}
-
-	// third step, insert the map, serialize the dictionary, and return the
-	// string resulting from the serialization
-	chgCPRtnStr := createChgCPState(chgMap)
-
-	// fourth state, insert the func's serialized state dictionary into the cpInit structure
-	epCPInit.AddState(eudCmpPtn, chgCPRtnFunc, chgCPRtnStr)
+	encryptRtnStr := createCryptoPcktCfg("encrypt", cryptoAlg, keyLength, "encryptext")
+	epCPInit.AddCfg(eudCmpPtn, encryptRtnFunc, encryptRtnStr)
 
 	// The overall model creates a CmpPtn for each EUD, named
 	// "eudCmpPtn-x" for x between 0 and the number of EUDs specified (minus one).
@@ -395,11 +379,7 @@ func main() {
 	// we'll glue on index strings to tailor a name for each EUD CmpPtn
 	eudCPBaseName := "eudCmpPtn"
 
-	// the encryptPerf CmpPtn function for changing CmpPtn will have an entry
-	// for each of the eudCmpPtns.  We initialize it here and fill it in
-	// the per-EUD loop below
-	outbndChgMap := make(map[string]pces.ChgDesc)
-
+	dstList := make([]string, euds)
 	// make a unique CmpPtn instance for every eud
 	for idx := 0; idx < euds; idx++ {
 
@@ -410,17 +390,15 @@ func main() {
 
 		// give it a unique name
 		cpyCP.SetName(eudCPBaseName + "-" + strconv.Itoa(idx))
+		dstList[idx] = eudCPBaseName + "-" + strconv.Itoa(idx)
 
 		// put in the external edge back to the encryptPerf CmpPtn, and
 		// an external edge from encryptOut to the EUD.  Note that a different method (AddExtEdge)
 		// is used to specify the cross-CmpPtn connections
-		cpyCP.AddExtEdge(cpyCP.Name, encryptPerf.Name, encryptPerf.Name, chgCPRtnFunc.Label, decryptRtnFunc.Label,
-			"encryptext", "cryptoOp", &epCPInit.Msgs, &epCPSrcInit.Msgs)
-		encryptPerf.AddExtEdge(encryptPerf.Name, cpyCP.Name, cpyCP.Name, chgCPOutFunc.Label, decryptOutFunc.Label,
-			"encryptext", "cryptoOp", &epCPSrcInit.Msgs, &epCPInit.Msgs)
-
-		// include the outbound change of CmpPtn in the map to be put in chgCPOutFunc's state table
-		outbndChgMap[cpyCP.Name] = pces.CreateChgDesc(cpyCP.Name, "decryptOut", "encryptext")
+		cpyCP.AddExtEdge(cpyCP.Name, encryptPerf.Name, encryptRtnFunc.Label, decryptRtnFunc.Label,
+			"encryptext", "processOp", &epCPInit.Msgs, &epCPSrcInit.Msgs)
+		encryptPerf.AddExtEdge(encryptPerf.Name, cpyCP.Name, encryptOutFunc.Label, decryptOutFunc.Label,
+			"encryptext", "processOp", &epCPSrcInit.Msgs, &epCPInit.Msgs)
 
 		// save the EUD CmpPtn in the output dictionary
 		cpDict.AddCompPattern(cpyCP)
@@ -438,46 +416,41 @@ func main() {
 
 	// add edges to the packet source CmpPtn
 	encryptPerf.AddEdge(srcFunc.Label, srcFunc.Label, "initiate", "generateOp", &epCPSrcInit.Msgs)
-	encryptPerf.AddEdge(srcFunc.Label, encryptOutFunc.Label, "plaintext", "cryptoOp", &epCPSrcInit.Msgs)
-	encryptPerf.AddEdge(encryptOutFunc.Label, chgCPOutFunc.Label, "encryptext", "chgCP", &epCPSrcInit.Msgs)
-	encryptPerf.AddEdge(decryptRtnFunc.Label, finishFunc.Label, "plaintext", "finishOp", &epCPSrcInit.Msgs)
+	encryptPerf.AddEdge(srcFunc.Label, encryptOutFunc.Label, "plaintext", "processOp", &epCPSrcInit.Msgs)
+	encryptPerf.AddEdge(decryptRtnFunc.Label, srcFunc.Label, "finishtext", "completeOp", &epCPSrcInit.Msgs)
+	encryptPerf.AddEdge(srcFunc.Label, finishFunc.Label, "finishtext", "finishOp", &epCPSrcInit.Msgs)
 
-	// put in state parameters for srcFunc node.
+	// put in cfg parameters for srcFunc node.
 	// Function type is 'cycleDst', which is tailored for this source.
-	srcState := pces.ClassCreateCycleDst()
+	srcCfg := pces.ClassCreateCycleDstCfg()
 
-	// build out the state dictionary for the srcFunc
-	srcState.Populate(euds, eudCPBaseName, 
-		pcktMuDist, pcktMu, burstMuDist, burstMu, pcktBurst, 
+	// create the routing and timing code maps
+	rtd = map[string]string{"generateOp":"plaintext", "completeOp":"finishtext"}
+	tcd = map[string]string{"generateOp":"generateOp", "completeOp": "completeOp"}
+
+	// build out the cfg dictionary for the srcFunc
+	srcCfg.Populate(dstList, pcktMuDist, pcktMu, burstMuDist, burstMu, pcktBurst, 
 		cycleMuDist, cycleMu, eudCycles, 
-		msgLen, pcktSize, false) 
+		msgLen, pcktSize, rtd, tcd, false) 
 
-	// add a couple of operation descriptions
-	srcState.AddOpName("generateOp", "generateOp")
-	srcState.AddOpName("completeOp", "completeOp")
-
-	// serialize srcFunc's state and add it to cpCPSrcInit
-	serialSrcState, err0 := srcState.Serialize(useYAML)
+	// serialize srcFunc's cfg and add it to cpCPSrcInit
+	serialSrcCfg, err0 := srcCfg.Serialize(useYAML)
 	if err0 != nil {
 		panic(err0)
 	}
-	epCPSrcInit.AddState(encryptPerf, srcFunc, serialSrcState)
+	epCPSrcInit.AddCfg(encryptPerf, srcFunc, serialSrcCfg)
 
 	// put in parameters for encryptOutFunc
-	encryptOutStr := createCryptoPcktState("encrypt", cryptoAlg, keyLength, false)
-	epCPSrcInit.AddState(encryptPerf, encryptOutFunc, encryptOutStr)
+	encryptOutStr := createCryptoPcktCfg("encrypt", cryptoAlg, keyLength, "encryptext")
+	epCPSrcInit.AddCfg(encryptPerf, encryptOutFunc, encryptOutStr)
 
 	// put in parameters for decryptRtnFunc
-	decryptOutStr = createCryptoPcktState("decrypt", cryptoAlg, keyLength, false)
-	epCPSrcInit.AddState(encryptPerf, decryptRtnFunc, decryptOutStr)
+	decryptRtnStr := createCryptoPcktCfg("decrypt", cryptoAlg, keyLength, "finishtext")
+	epCPSrcInit.AddCfg(encryptPerf, decryptRtnFunc, decryptRtnStr)
 
-	// make a minimalistic state for finish
-	finishStr := createFinishState()
-	epCPSrcInit.AddState(encryptPerf, finishFunc, finishStr)
-
-	// create state for changing CmpPtn at function chgCPOutFunc
-	chgCPOutStr := createChgCPState(outbndChgMap)
-	epCPSrcInit.AddState(encryptPerf, chgCPOutFunc, chgCPOutStr)
+	// make a minimalistic cfg for finish
+	finishStr := createFinishCfg()
+	epCPSrcInit.AddCfg(encryptPerf, finishFunc, finishStr)
 
 	cpDict.AddCompPattern(encryptPerf)
 	cpInitDict.AddCPInitList(epCPSrcInit)
@@ -681,7 +654,6 @@ func main() {
 	cmpMap := pces.CreateCompPatternMap(encryptPerf.Name)
 
 	cmpMap.AddMapping(srcFunc.Label, "pcktsrc", false)
-	cmpMap.AddMapping(chgCPOutFunc.Label, "pcktsrc", false)
 	cmpMap.AddMapping(finishFunc.Label, "pcktsrc", false)
 
 	if archType != "SSL" {
@@ -708,7 +680,6 @@ func main() {
 		cmpMap.AddMapping(decryptOutFunc.Label, eudDevName, false)
 		cmpMap.AddMapping(processFunc.Label, eudDevName, false)
 		cmpMap.AddMapping(encryptRtnFunc.Label, eudDevName, false)
-		cmpMap.AddMapping(chgCPRtnFunc.Label, eudDevName, false)
 
 		cmpMapDict.AddCompPatternMap(cmpMap, false)
 	}
@@ -768,72 +739,57 @@ func main() {
 	delFile := filepath.Join(outputLib,"devExec.yaml")
 	del.WriteToFile(delFile)
 
-	// we don't have shared state in this model but need to create an empty file
-	ssgl := pces.CreateSharedStateGroupList(true) 
-	ssg := pces.CreateSharedStateGroup("empty","empty")
-	ssgl.AddSharedStateGroup(ssg)
-
-	ssgl.WriteToFile(fullpathmap["srdState"])
+	// we don't have shared cfg in this model but need to create an empty file
+	scgl := pces.CreateSharedCfgGroupList(true) 
+	scgl.WriteToFile(fullpathmap["srdCfg"])
 
 }
 
-// createChgCPState constructs an instance of a chgCP state
-// and returns a serialized representation of it
-func createChgCPState(csm map[string]pces.ChgDesc) string {
-	state := pces.ClassCreateChgCP()
-	state.ClassName = "chgCP"
+func createProcessPcktCfg(rt, tc, tcp, tlb map[string]string) string {
+	cfg := pces.ClassCreateProcessPcktCfg()
 
-	state.ChgMap = make(map[string]pces.ChgDesc)
-	for k, v := range csm {
-		state.ChgMap[k] = v
-	}
+	for key, value := range rt {
+		cfg.Route[key] = value
+	}	
 
-	// serialize the class-dependent state structure
-	serialState, err0 := state.Serialize(useYAML)
+	for key, value := range tc {
+		cfg.TimingCode[key] = value
+	}	
+
+	for key, value := range tcp {
+		cfg.TgtCP[key] = value
+	}	
+
+	for key, value := range tlb {
+		cfg.TgtLabel[key] = value
+	}	
+
+	// serialize the class-dependent cfg structure
+	serialCfg, err0 := cfg.Serialize(useYAML)
 	if err0 != nil {
 		panic(err0)
 	}
-	return serialState
+	return serialCfg
 }
 
-func createProcessPcktState(cp *pces.CompPattern, node *pces.Func, opName string, rtn bool) string {
-	// params := pces.CreateFuncParameters(cp.CPType, node.Label)
-	state := pces.ClassCreateProcessPckt()
-	state.ClassName = node.Class
-	state.OpName = map[string]string{"processOp": opName}
-	state.Return = rtn
-
-	// serialize the class-dependent state structure
-	serialState, err0 := state.Serialize(useYAML)
-	if err0 != nil {
-		panic(err0)
-	}
-	return serialState
+// def createCryptoPckt("decrypt", cryptoAlg, keyLength, false)
+func createCryptoPcktCfg(cryptoOp, cryptoAlg, keyLength, msgType string) string {
+	cryptoVec := []string{cryptoOp, cryptoAlg, keyLength}
+	opCode := strings.Join(cryptoVec,"-")
+	rtd := map[string]string{"processOp": msgType }
+	tcd := map[string]string{"processOp":opCode}
+	empty := make(map[string]string)
+	return createProcessPcktCfg(rtd, tcd, empty, empty)
 }
 
-func createCryptoPcktState(op, alg, keylength string, rtn bool) string {
-	state := pces.ClassCreateCryptoPckt()
-	state.ClassName = "cryptoPckt"
-	state.Populate(op, alg, keylength ) 
-	state.Return = rtn
+func createFinishCfg() string {
+	cfg := pces.ClassCreateFinishCfg()
 
-	// serialize the class-dependent state structure
-	serialState, err0 := state.Serialize(useYAML)
+	// serialize the class-dependent cfg structure
+	serialCfg, err0 := cfg.Serialize(useYAML)
 	if err0 != nil {
 		panic(err0)
 	}
-	return serialState
-}
-
-func createFinishState() string {
-	state := pces.ClassCreateFinish()
-	state.ClassName = "finish"
-
-	// serialize the class-dependent state structure
-	serialState, err0 := state.Serialize(useYAML)
-	if err0 != nil {
-		panic(err0)
-	}
-	return serialState
+	return serialCfg
 }
 

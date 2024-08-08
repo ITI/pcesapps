@@ -14,20 +14,20 @@ LABEL org.opencontainers.image.source = "https://github.com/ITI/pcesapps"
 RUN ldd --version
 WORKDIR /build
 COPY . .
-RUN cd bld-dir && CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build ./bld.go
-RUN cd bld-dir && ./bld -is args-bld
-RUN cd db && CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build cnvrtExec.go
-RUN cd db && CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build cnvrtDesc.go
-RUN cd sim-dir && CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build ./sim.go
+# RUN cd bld-dir && CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build ./bld.go
+# RUN cd bld-dir && ./bld -is args-bld
+# RUN cd db && CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build cnvrtExec.go
+# RUN cd db && CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build cnvrtDesc.go
+# RUN cd sim-dir && CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build ./sim.go
 
 # Production phase
 FROM debian:bookworm
-RUN apt update && apt upgrade -y && apt install -y \
-	python3 \
-	python3-tk \
-	python3-pil \
-	python3-pil.imagetk vim-nox \
-	python3-yaml \
-	python3-matplotlib
+#RUN apt update && apt upgrade -y && apt install -y \
+#	python3 \
+#	python3-tk \
+#	python3-pil \
+#	python3-pil.imagetk vim-nox \
+#	python3-yaml \
+#	python3-matplotlib
 WORKDIR /app
 COPY --from=builder /build/. .

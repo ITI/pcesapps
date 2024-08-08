@@ -1,5 +1,5 @@
 algs:
-    - name: 3des
+    - name: des
       keylen:
         - 256
         - 512
@@ -9,12 +9,12 @@ algs:
         - 256
         - 512
         - 1024
-    - name: des
+    - name: aes
       keylen:
         - 256
         - 512
         - 1024
-    - name: aes
+    - name: 3des
       keylen:
         - 256
         - 512

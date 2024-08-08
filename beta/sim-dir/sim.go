@@ -23,7 +23,7 @@ func cmdlineParams() *cmdline.CmdParser {
 	cp.AddFlag(cmdline.StringFlag, "cpInit", true)   //
 	cp.AddFlag(cmdline.StringFlag, "funcExec", true) // name of input file holding descriptions of functional timings
 	cp.AddFlag(cmdline.StringFlag, "devExec", true)  // name of input file holding descriptions of device timings
-	cp.AddFlag(cmdline.StringFlag, "srdState", true) // name of input file holding descriptions of functions that share state
+	cp.AddFlag(cmdline.StringFlag, "srdCfg", true)   // name of input file holding descriptions of functions that share configuration
 	cp.AddFlag(cmdline.StringFlag, "map", true)      // file with mapping of comp pattern functions to hosts
 	cp.AddFlag(cmdline.StringFlag, "exp", true)      // name of file used for run-time experiment parameters
 	cp.AddFlag(cmdline.StringFlag, "mdfy", false)    // name of file used to modify exp experiment parameters
@@ -55,8 +55,8 @@ func main() {
 
 	// check for access to input files
 	fullpathmap := make(map[string]string)
-	inFiles := []string{"cp", "cpInit", "funcExec", "devExec", "srdState", "exp", "mdfy", "topo", "map"}
-	optionalFiles := []string{"mdfy", "srdState"}
+	inFiles := []string{"cp", "cpInit", "funcExec", "devExec", "srdCfg", "exp", "mdfy", "topo", "map"}
+	optionalFiles := []string{"mdfy", "srdCfg"}
 
 	fullpath := []string{}
 	syn := make(map[string]string)
