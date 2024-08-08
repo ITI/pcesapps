@@ -283,84 +283,84 @@ times:
           exectime: 2.685e-07
         - identifier: completeOp
           param: ""
-          CPUModel: ARM-_Denver_2
+          CPUModel: ARM-Denver-2
           pcktlen: 128
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: completeOp
           param: ""
-          CPUModel: ARM-_Denver_2
+          CPUModel: ARM-Denver-2
           pcktlen: 256
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: completeOp
           param: ""
-          CPUModel: ARM-_Denver_2
+          CPUModel: ARM-Denver-2
           pcktlen: 512
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: completeOp
           param: ""
-          CPUModel: ARM-_Denver_2
+          CPUModel: ARM-Denver-2
           pcktlen: 1024
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: completeOp
           param: ""
-          CPUModel: ARM-_Denver_2
+          CPUModel: ARM-Denver-2
           pcktlen: 128
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: completeOp
           param: ""
-          CPUModel: ARM-_Denver_2
+          CPUModel: ARM-Denver-2
           pcktlen: 256
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: completeOp
           param: ""
-          CPUModel: ARM-_Denver_2
+          CPUModel: ARM-Denver-2
           pcktlen: 512
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: completeOp
           param: ""
-          CPUModel: ARM-_Denver_2
+          CPUModel: ARM-Denver-2
           pcktlen: 1024
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: completeOp
           param: ""
-          CPUModel: ARM-_ARM_Cortex
+          CPUModel: ARM-ARM-Cortex
           pcktlen: 128
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: completeOp
           param: ""
-          CPUModel: ARM-_ARM_Cortex
+          CPUModel: ARM-ARM-Cortex
           pcktlen: 256
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: completeOp
           param: ""
-          CPUModel: ARM-_ARM_Cortex
+          CPUModel: ARM-ARM-Cortex
           pcktlen: 512
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: completeOp
           param: ""
-          CPUModel: ARM-_ARM_Cortex
+          CPUModel: ARM-ARM-Cortex
           pcktlen: 1024
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: completeOp
           param: ""
-          CPUModel: ARM-_ARM_Cortex
+          CPUModel: ARM-ARM-Cortex
           pcktlen: 128
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: completeOp
           param: ""
-          CPUModel: ARM-_ARM_Cortex
+          CPUModel: ARM-ARM-Cortex
           pcktlen: 256
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: completeOp
           param: ""
-          CPUModel: ARM-_ARM_Cortex
+          CPUModel: ARM-ARM-Cortex
           pcktlen: 512
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: completeOp
           param: ""
-          CPUModel: ARM-_ARM_Cortex
+          CPUModel: ARM-ARM-Cortex
           pcktlen: 1024
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: completeOp
           param: ""
           CPUModel: Intel-Xeon-w-1370P
@@ -12308,84 +12308,84 @@ times:
           exectime: 2.5e-07
         - identifier: finishOp
           param: ""
-          CPUModel: ARM-_Denver_2
+          CPUModel: ARM-Denver-2
           pcktlen: 128
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: finishOp
           param: ""
-          CPUModel: ARM-_Denver_2
+          CPUModel: ARM-Denver-2
           pcktlen: 256
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: finishOp
           param: ""
-          CPUModel: ARM-_Denver_2
+          CPUModel: ARM-Denver-2
           pcktlen: 512
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: finishOp
           param: ""
-          CPUModel: ARM-_Denver_2
+          CPUModel: ARM-Denver-2
           pcktlen: 1024
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: finishOp
           param: ""
-          CPUModel: ARM-_Denver_2
+          CPUModel: ARM-Denver-2
           pcktlen: 128
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: finishOp
           param: ""
-          CPUModel: ARM-_Denver_2
+          CPUModel: ARM-Denver-2
           pcktlen: 256
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: finishOp
           param: ""
-          CPUModel: ARM-_Denver_2
+          CPUModel: ARM-Denver-2
           pcktlen: 512
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: finishOp
           param: ""
-          CPUModel: ARM-_Denver_2
+          CPUModel: ARM-Denver-2
           pcktlen: 1024
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: finishOp
           param: ""
-          CPUModel: ARM-_ARM_Cortex
+          CPUModel: ARM-ARM-Cortex
           pcktlen: 128
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: finishOp
           param: ""
-          CPUModel: ARM-_ARM_Cortex
+          CPUModel: ARM-ARM-Cortex
           pcktlen: 256
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: finishOp
           param: ""
-          CPUModel: ARM-_ARM_Cortex
+          CPUModel: ARM-ARM-Cortex
           pcktlen: 512
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: finishOp
           param: ""
-          CPUModel: ARM-_ARM_Cortex
+          CPUModel: ARM-ARM-Cortex
           pcktlen: 1024
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: finishOp
           param: ""
-          CPUModel: ARM-_ARM_Cortex
+          CPUModel: ARM-ARM-Cortex
           pcktlen: 128
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: finishOp
           param: ""
-          CPUModel: ARM-_ARM_Cortex
+          CPUModel: ARM-ARM-Cortex
           pcktlen: 256
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: finishOp
           param: ""
-          CPUModel: ARM-_ARM_Cortex
+          CPUModel: ARM-ARM-Cortex
           pcktlen: 512
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: finishOp
           param: ""
-          CPUModel: ARM-_ARM_Cortex
+          CPUModel: ARM-ARM-Cortex
           pcktlen: 1024
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: finishOp
           param: ""
           CPUModel: Intel-Xeon-w-1370P
@@ -12789,84 +12789,84 @@ times:
           exectime: 3.8100000000000004e-07
         - identifier: generateOp
           param: ""
-          CPUModel: ARM-_Denver_2
+          CPUModel: ARM-Denver-2
           pcktlen: 128
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: generateOp
           param: ""
-          CPUModel: ARM-_Denver_2
+          CPUModel: ARM-Denver-2
           pcktlen: 256
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: generateOp
           param: ""
-          CPUModel: ARM-_Denver_2
+          CPUModel: ARM-Denver-2
           pcktlen: 512
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: generateOp
           param: ""
-          CPUModel: ARM-_Denver_2
+          CPUModel: ARM-Denver-2
           pcktlen: 1024
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: generateOp
           param: ""
-          CPUModel: ARM-_Denver_2
+          CPUModel: ARM-Denver-2
           pcktlen: 128
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: generateOp
           param: ""
-          CPUModel: ARM-_Denver_2
+          CPUModel: ARM-Denver-2
           pcktlen: 256
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: generateOp
           param: ""
-          CPUModel: ARM-_Denver_2
+          CPUModel: ARM-Denver-2
           pcktlen: 512
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: generateOp
           param: ""
-          CPUModel: ARM-_Denver_2
+          CPUModel: ARM-Denver-2
           pcktlen: 1024
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: generateOp
           param: ""
-          CPUModel: ARM-_ARM_Cortex
+          CPUModel: ARM-ARM-Cortex
           pcktlen: 128
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: generateOp
           param: ""
-          CPUModel: ARM-_ARM_Cortex
+          CPUModel: ARM-ARM-Cortex
           pcktlen: 256
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: generateOp
           param: ""
-          CPUModel: ARM-_ARM_Cortex
+          CPUModel: ARM-ARM-Cortex
           pcktlen: 512
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: generateOp
           param: ""
-          CPUModel: ARM-_ARM_Cortex
+          CPUModel: ARM-ARM-Cortex
           pcktlen: 1024
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: generateOp
           param: ""
-          CPUModel: ARM-_ARM_Cortex
+          CPUModel: ARM-ARM-Cortex
           pcktlen: 128
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: generateOp
           param: ""
-          CPUModel: ARM-_ARM_Cortex
+          CPUModel: ARM-ARM-Cortex
           pcktlen: 256
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: generateOp
           param: ""
-          CPUModel: ARM-_ARM_Cortex
+          CPUModel: ARM-ARM-Cortex
           pcktlen: 512
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: generateOp
           param: ""
-          CPUModel: ARM-_ARM_Cortex
+          CPUModel: ARM-ARM-Cortex
           pcktlen: 1024
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: generateOp
           param: ""
           CPUModel: Intel-Xeon-w-1370P
@@ -13270,84 +13270,84 @@ times:
           exectime: 5.06e-07
         - identifier: processEUD
           param: ""
-          CPUModel: ARM-_Denver_2
+          CPUModel: ARM-Denver-2
           pcktlen: 128
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: processEUD
           param: ""
-          CPUModel: ARM-_Denver_2
+          CPUModel: ARM-Denver-2
           pcktlen: 256
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: processEUD
           param: ""
-          CPUModel: ARM-_Denver_2
+          CPUModel: ARM-Denver-2
           pcktlen: 512
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: processEUD
           param: ""
-          CPUModel: ARM-_Denver_2
+          CPUModel: ARM-Denver-2
           pcktlen: 1024
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: processEUD
           param: ""
-          CPUModel: ARM-_Denver_2
+          CPUModel: ARM-Denver-2
           pcktlen: 128
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: processEUD
           param: ""
-          CPUModel: ARM-_Denver_2
+          CPUModel: ARM-Denver-2
           pcktlen: 256
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: processEUD
           param: ""
-          CPUModel: ARM-_Denver_2
+          CPUModel: ARM-Denver-2
           pcktlen: 512
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: processEUD
           param: ""
-          CPUModel: ARM-_Denver_2
+          CPUModel: ARM-Denver-2
           pcktlen: 1024
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: processEUD
           param: ""
-          CPUModel: ARM-_ARM_Cortex
+          CPUModel: ARM-ARM-Cortex
           pcktlen: 128
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: processEUD
           param: ""
-          CPUModel: ARM-_ARM_Cortex
+          CPUModel: ARM-ARM-Cortex
           pcktlen: 256
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: processEUD
           param: ""
-          CPUModel: ARM-_ARM_Cortex
+          CPUModel: ARM-ARM-Cortex
           pcktlen: 512
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: processEUD
           param: ""
-          CPUModel: ARM-_ARM_Cortex
+          CPUModel: ARM-ARM-Cortex
           pcktlen: 1024
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: processEUD
           param: ""
-          CPUModel: ARM-_ARM_Cortex
+          CPUModel: ARM-ARM-Cortex
           pcktlen: 128
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: processEUD
           param: ""
-          CPUModel: ARM-_ARM_Cortex
+          CPUModel: ARM-ARM-Cortex
           pcktlen: 256
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: processEUD
           param: ""
-          CPUModel: ARM-_ARM_Cortex
+          CPUModel: ARM-ARM-Cortex
           pcktlen: 512
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: processEUD
           param: ""
-          CPUModel: ARM-_ARM_Cortex
+          CPUModel: ARM-ARM-Cortex
           pcktlen: 1024
-          exectime: .inf
+          exectime: 2.5e-07
         - identifier: processEUD
           param: ""
           CPUModel: Intel-Xeon-w-1370P

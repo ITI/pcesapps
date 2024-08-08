@@ -1,42 +1,609 @@
 dictname: Maps
 map:
-    encryptPerf-SSL-0:
-        patternname: encryptPerf-SSL-0
+    encryptPerf-NoSSL:
+        patternname: encryptPerf-NoSSL
+        funcmap:
+            cycleDst: pcktsrc
+            decryptRtn: pcktsrc
+            encryptOut: pcktsrc
+            finish: pcktsrc
+    eudCmpPtn-0:
+        patternname: eudCmpPtn-0
         funcmap:
             decryptOut: eudDev-0
-            decryptRtn: sslSrvr
-            encryptOut: sslSrvr
             encryptRtn: eudDev-0
-            finish: pcktsrc
-            process: eudDev-0
-            src: pcktsrc
-    encryptPerf-SSL-1:
-        patternname: encryptPerf-SSL-1
+            eudProcess: eudDev-0
+    eudCmpPtn-1:
+        patternname: eudCmpPtn-1
         funcmap:
             decryptOut: eudDev-1
-            decryptRtn: sslSrvr
-            encryptOut: sslSrvr
             encryptRtn: eudDev-1
-            finish: pcktsrc
-            process: eudDev-1
-            src: pcktsrc
-    encryptPerf-SSL-2:
-        patternname: encryptPerf-SSL-2
+            eudProcess: eudDev-1
+    eudCmpPtn-2:
+        patternname: eudCmpPtn-2
         funcmap:
             decryptOut: eudDev-2
-            decryptRtn: sslSrvr
-            encryptOut: sslSrvr
             encryptRtn: eudDev-2
-            finish: pcktsrc
-            process: eudDev-2
-            src: pcktsrc
-    encryptPerf-SSL-3:
-        patternname: encryptPerf-SSL-3
+            eudProcess: eudDev-2
+    eudCmpPtn-3:
+        patternname: eudCmpPtn-3
         funcmap:
             decryptOut: eudDev-3
-            decryptRtn: sslSrvr
-            encryptOut: sslSrvr
             encryptRtn: eudDev-3
-            finish: pcktsrc
-            process: eudDev-3
-            src: pcktsrc
+            eudProcess: eudDev-3
+    eudCmpPtn-4:
+        patternname: eudCmpPtn-4
+        funcmap:
+            decryptOut: eudDev-4
+            encryptRtn: eudDev-4
+            eudProcess: eudDev-4
+    eudCmpPtn-5:
+        patternname: eudCmpPtn-5
+        funcmap:
+            decryptOut: eudDev-5
+            encryptRtn: eudDev-5
+            eudProcess: eudDev-5
+    eudCmpPtn-6:
+        patternname: eudCmpPtn-6
+        funcmap:
+            decryptOut: eudDev-6
+            encryptRtn: eudDev-6
+            eudProcess: eudDev-6
+    eudCmpPtn-7:
+        patternname: eudCmpPtn-7
+        funcmap:
+            decryptOut: eudDev-7
+            encryptRtn: eudDev-7
+            eudProcess: eudDev-7
+    eudCmpPtn-8:
+        patternname: eudCmpPtn-8
+        funcmap:
+            decryptOut: eudDev-8
+            encryptRtn: eudDev-8
+            eudProcess: eudDev-8
+    eudCmpPtn-9:
+        patternname: eudCmpPtn-9
+        funcmap:
+            decryptOut: eudDev-9
+            encryptRtn: eudDev-9
+            eudProcess: eudDev-9
+    eudCmpPtn-10:
+        patternname: eudCmpPtn-10
+        funcmap:
+            decryptOut: eudDev-10
+            encryptRtn: eudDev-10
+            eudProcess: eudDev-10
+    eudCmpPtn-11:
+        patternname: eudCmpPtn-11
+        funcmap:
+            decryptOut: eudDev-11
+            encryptRtn: eudDev-11
+            eudProcess: eudDev-11
+    eudCmpPtn-12:
+        patternname: eudCmpPtn-12
+        funcmap:
+            decryptOut: eudDev-12
+            encryptRtn: eudDev-12
+            eudProcess: eudDev-12
+    eudCmpPtn-13:
+        patternname: eudCmpPtn-13
+        funcmap:
+            decryptOut: eudDev-13
+            encryptRtn: eudDev-13
+            eudProcess: eudDev-13
+    eudCmpPtn-14:
+        patternname: eudCmpPtn-14
+        funcmap:
+            decryptOut: eudDev-14
+            encryptRtn: eudDev-14
+            eudProcess: eudDev-14
+    eudCmpPtn-15:
+        patternname: eudCmpPtn-15
+        funcmap:
+            decryptOut: eudDev-15
+            encryptRtn: eudDev-15
+            eudProcess: eudDev-15
+    eudCmpPtn-16:
+        patternname: eudCmpPtn-16
+        funcmap:
+            decryptOut: eudDev-16
+            encryptRtn: eudDev-16
+            eudProcess: eudDev-16
+    eudCmpPtn-17:
+        patternname: eudCmpPtn-17
+        funcmap:
+            decryptOut: eudDev-17
+            encryptRtn: eudDev-17
+            eudProcess: eudDev-17
+    eudCmpPtn-18:
+        patternname: eudCmpPtn-18
+        funcmap:
+            decryptOut: eudDev-18
+            encryptRtn: eudDev-18
+            eudProcess: eudDev-18
+    eudCmpPtn-19:
+        patternname: eudCmpPtn-19
+        funcmap:
+            decryptOut: eudDev-19
+            encryptRtn: eudDev-19
+            eudProcess: eudDev-19
+    eudCmpPtn-20:
+        patternname: eudCmpPtn-20
+        funcmap:
+            decryptOut: eudDev-20
+            encryptRtn: eudDev-20
+            eudProcess: eudDev-20
+    eudCmpPtn-21:
+        patternname: eudCmpPtn-21
+        funcmap:
+            decryptOut: eudDev-21
+            encryptRtn: eudDev-21
+            eudProcess: eudDev-21
+    eudCmpPtn-22:
+        patternname: eudCmpPtn-22
+        funcmap:
+            decryptOut: eudDev-22
+            encryptRtn: eudDev-22
+            eudProcess: eudDev-22
+    eudCmpPtn-23:
+        patternname: eudCmpPtn-23
+        funcmap:
+            decryptOut: eudDev-23
+            encryptRtn: eudDev-23
+            eudProcess: eudDev-23
+    eudCmpPtn-24:
+        patternname: eudCmpPtn-24
+        funcmap:
+            decryptOut: eudDev-24
+            encryptRtn: eudDev-24
+            eudProcess: eudDev-24
+    eudCmpPtn-25:
+        patternname: eudCmpPtn-25
+        funcmap:
+            decryptOut: eudDev-25
+            encryptRtn: eudDev-25
+            eudProcess: eudDev-25
+    eudCmpPtn-26:
+        patternname: eudCmpPtn-26
+        funcmap:
+            decryptOut: eudDev-26
+            encryptRtn: eudDev-26
+            eudProcess: eudDev-26
+    eudCmpPtn-27:
+        patternname: eudCmpPtn-27
+        funcmap:
+            decryptOut: eudDev-27
+            encryptRtn: eudDev-27
+            eudProcess: eudDev-27
+    eudCmpPtn-28:
+        patternname: eudCmpPtn-28
+        funcmap:
+            decryptOut: eudDev-28
+            encryptRtn: eudDev-28
+            eudProcess: eudDev-28
+    eudCmpPtn-29:
+        patternname: eudCmpPtn-29
+        funcmap:
+            decryptOut: eudDev-29
+            encryptRtn: eudDev-29
+            eudProcess: eudDev-29
+    eudCmpPtn-30:
+        patternname: eudCmpPtn-30
+        funcmap:
+            decryptOut: eudDev-30
+            encryptRtn: eudDev-30
+            eudProcess: eudDev-30
+    eudCmpPtn-31:
+        patternname: eudCmpPtn-31
+        funcmap:
+            decryptOut: eudDev-31
+            encryptRtn: eudDev-31
+            eudProcess: eudDev-31
+    eudCmpPtn-32:
+        patternname: eudCmpPtn-32
+        funcmap:
+            decryptOut: eudDev-32
+            encryptRtn: eudDev-32
+            eudProcess: eudDev-32
+    eudCmpPtn-33:
+        patternname: eudCmpPtn-33
+        funcmap:
+            decryptOut: eudDev-33
+            encryptRtn: eudDev-33
+            eudProcess: eudDev-33
+    eudCmpPtn-34:
+        patternname: eudCmpPtn-34
+        funcmap:
+            decryptOut: eudDev-34
+            encryptRtn: eudDev-34
+            eudProcess: eudDev-34
+    eudCmpPtn-35:
+        patternname: eudCmpPtn-35
+        funcmap:
+            decryptOut: eudDev-35
+            encryptRtn: eudDev-35
+            eudProcess: eudDev-35
+    eudCmpPtn-36:
+        patternname: eudCmpPtn-36
+        funcmap:
+            decryptOut: eudDev-36
+            encryptRtn: eudDev-36
+            eudProcess: eudDev-36
+    eudCmpPtn-37:
+        patternname: eudCmpPtn-37
+        funcmap:
+            decryptOut: eudDev-37
+            encryptRtn: eudDev-37
+            eudProcess: eudDev-37
+    eudCmpPtn-38:
+        patternname: eudCmpPtn-38
+        funcmap:
+            decryptOut: eudDev-38
+            encryptRtn: eudDev-38
+            eudProcess: eudDev-38
+    eudCmpPtn-39:
+        patternname: eudCmpPtn-39
+        funcmap:
+            decryptOut: eudDev-39
+            encryptRtn: eudDev-39
+            eudProcess: eudDev-39
+    eudCmpPtn-40:
+        patternname: eudCmpPtn-40
+        funcmap:
+            decryptOut: eudDev-40
+            encryptRtn: eudDev-40
+            eudProcess: eudDev-40
+    eudCmpPtn-41:
+        patternname: eudCmpPtn-41
+        funcmap:
+            decryptOut: eudDev-41
+            encryptRtn: eudDev-41
+            eudProcess: eudDev-41
+    eudCmpPtn-42:
+        patternname: eudCmpPtn-42
+        funcmap:
+            decryptOut: eudDev-42
+            encryptRtn: eudDev-42
+            eudProcess: eudDev-42
+    eudCmpPtn-43:
+        patternname: eudCmpPtn-43
+        funcmap:
+            decryptOut: eudDev-43
+            encryptRtn: eudDev-43
+            eudProcess: eudDev-43
+    eudCmpPtn-44:
+        patternname: eudCmpPtn-44
+        funcmap:
+            decryptOut: eudDev-44
+            encryptRtn: eudDev-44
+            eudProcess: eudDev-44
+    eudCmpPtn-45:
+        patternname: eudCmpPtn-45
+        funcmap:
+            decryptOut: eudDev-45
+            encryptRtn: eudDev-45
+            eudProcess: eudDev-45
+    eudCmpPtn-46:
+        patternname: eudCmpPtn-46
+        funcmap:
+            decryptOut: eudDev-46
+            encryptRtn: eudDev-46
+            eudProcess: eudDev-46
+    eudCmpPtn-47:
+        patternname: eudCmpPtn-47
+        funcmap:
+            decryptOut: eudDev-47
+            encryptRtn: eudDev-47
+            eudProcess: eudDev-47
+    eudCmpPtn-48:
+        patternname: eudCmpPtn-48
+        funcmap:
+            decryptOut: eudDev-48
+            encryptRtn: eudDev-48
+            eudProcess: eudDev-48
+    eudCmpPtn-49:
+        patternname: eudCmpPtn-49
+        funcmap:
+            decryptOut: eudDev-49
+            encryptRtn: eudDev-49
+            eudProcess: eudDev-49
+    eudCmpPtn-50:
+        patternname: eudCmpPtn-50
+        funcmap:
+            decryptOut: eudDev-50
+            encryptRtn: eudDev-50
+            eudProcess: eudDev-50
+    eudCmpPtn-51:
+        patternname: eudCmpPtn-51
+        funcmap:
+            decryptOut: eudDev-51
+            encryptRtn: eudDev-51
+            eudProcess: eudDev-51
+    eudCmpPtn-52:
+        patternname: eudCmpPtn-52
+        funcmap:
+            decryptOut: eudDev-52
+            encryptRtn: eudDev-52
+            eudProcess: eudDev-52
+    eudCmpPtn-53:
+        patternname: eudCmpPtn-53
+        funcmap:
+            decryptOut: eudDev-53
+            encryptRtn: eudDev-53
+            eudProcess: eudDev-53
+    eudCmpPtn-54:
+        patternname: eudCmpPtn-54
+        funcmap:
+            decryptOut: eudDev-54
+            encryptRtn: eudDev-54
+            eudProcess: eudDev-54
+    eudCmpPtn-55:
+        patternname: eudCmpPtn-55
+        funcmap:
+            decryptOut: eudDev-55
+            encryptRtn: eudDev-55
+            eudProcess: eudDev-55
+    eudCmpPtn-56:
+        patternname: eudCmpPtn-56
+        funcmap:
+            decryptOut: eudDev-56
+            encryptRtn: eudDev-56
+            eudProcess: eudDev-56
+    eudCmpPtn-57:
+        patternname: eudCmpPtn-57
+        funcmap:
+            decryptOut: eudDev-57
+            encryptRtn: eudDev-57
+            eudProcess: eudDev-57
+    eudCmpPtn-58:
+        patternname: eudCmpPtn-58
+        funcmap:
+            decryptOut: eudDev-58
+            encryptRtn: eudDev-58
+            eudProcess: eudDev-58
+    eudCmpPtn-59:
+        patternname: eudCmpPtn-59
+        funcmap:
+            decryptOut: eudDev-59
+            encryptRtn: eudDev-59
+            eudProcess: eudDev-59
+    eudCmpPtn-60:
+        patternname: eudCmpPtn-60
+        funcmap:
+            decryptOut: eudDev-60
+            encryptRtn: eudDev-60
+            eudProcess: eudDev-60
+    eudCmpPtn-61:
+        patternname: eudCmpPtn-61
+        funcmap:
+            decryptOut: eudDev-61
+            encryptRtn: eudDev-61
+            eudProcess: eudDev-61
+    eudCmpPtn-62:
+        patternname: eudCmpPtn-62
+        funcmap:
+            decryptOut: eudDev-62
+            encryptRtn: eudDev-62
+            eudProcess: eudDev-62
+    eudCmpPtn-63:
+        patternname: eudCmpPtn-63
+        funcmap:
+            decryptOut: eudDev-63
+            encryptRtn: eudDev-63
+            eudProcess: eudDev-63
+    eudCmpPtn-64:
+        patternname: eudCmpPtn-64
+        funcmap:
+            decryptOut: eudDev-64
+            encryptRtn: eudDev-64
+            eudProcess: eudDev-64
+    eudCmpPtn-65:
+        patternname: eudCmpPtn-65
+        funcmap:
+            decryptOut: eudDev-65
+            encryptRtn: eudDev-65
+            eudProcess: eudDev-65
+    eudCmpPtn-66:
+        patternname: eudCmpPtn-66
+        funcmap:
+            decryptOut: eudDev-66
+            encryptRtn: eudDev-66
+            eudProcess: eudDev-66
+    eudCmpPtn-67:
+        patternname: eudCmpPtn-67
+        funcmap:
+            decryptOut: eudDev-67
+            encryptRtn: eudDev-67
+            eudProcess: eudDev-67
+    eudCmpPtn-68:
+        patternname: eudCmpPtn-68
+        funcmap:
+            decryptOut: eudDev-68
+            encryptRtn: eudDev-68
+            eudProcess: eudDev-68
+    eudCmpPtn-69:
+        patternname: eudCmpPtn-69
+        funcmap:
+            decryptOut: eudDev-69
+            encryptRtn: eudDev-69
+            eudProcess: eudDev-69
+    eudCmpPtn-70:
+        patternname: eudCmpPtn-70
+        funcmap:
+            decryptOut: eudDev-70
+            encryptRtn: eudDev-70
+            eudProcess: eudDev-70
+    eudCmpPtn-71:
+        patternname: eudCmpPtn-71
+        funcmap:
+            decryptOut: eudDev-71
+            encryptRtn: eudDev-71
+            eudProcess: eudDev-71
+    eudCmpPtn-72:
+        patternname: eudCmpPtn-72
+        funcmap:
+            decryptOut: eudDev-72
+            encryptRtn: eudDev-72
+            eudProcess: eudDev-72
+    eudCmpPtn-73:
+        patternname: eudCmpPtn-73
+        funcmap:
+            decryptOut: eudDev-73
+            encryptRtn: eudDev-73
+            eudProcess: eudDev-73
+    eudCmpPtn-74:
+        patternname: eudCmpPtn-74
+        funcmap:
+            decryptOut: eudDev-74
+            encryptRtn: eudDev-74
+            eudProcess: eudDev-74
+    eudCmpPtn-75:
+        patternname: eudCmpPtn-75
+        funcmap:
+            decryptOut: eudDev-75
+            encryptRtn: eudDev-75
+            eudProcess: eudDev-75
+    eudCmpPtn-76:
+        patternname: eudCmpPtn-76
+        funcmap:
+            decryptOut: eudDev-76
+            encryptRtn: eudDev-76
+            eudProcess: eudDev-76
+    eudCmpPtn-77:
+        patternname: eudCmpPtn-77
+        funcmap:
+            decryptOut: eudDev-77
+            encryptRtn: eudDev-77
+            eudProcess: eudDev-77
+    eudCmpPtn-78:
+        patternname: eudCmpPtn-78
+        funcmap:
+            decryptOut: eudDev-78
+            encryptRtn: eudDev-78
+            eudProcess: eudDev-78
+    eudCmpPtn-79:
+        patternname: eudCmpPtn-79
+        funcmap:
+            decryptOut: eudDev-79
+            encryptRtn: eudDev-79
+            eudProcess: eudDev-79
+    eudCmpPtn-80:
+        patternname: eudCmpPtn-80
+        funcmap:
+            decryptOut: eudDev-80
+            encryptRtn: eudDev-80
+            eudProcess: eudDev-80
+    eudCmpPtn-81:
+        patternname: eudCmpPtn-81
+        funcmap:
+            decryptOut: eudDev-81
+            encryptRtn: eudDev-81
+            eudProcess: eudDev-81
+    eudCmpPtn-82:
+        patternname: eudCmpPtn-82
+        funcmap:
+            decryptOut: eudDev-82
+            encryptRtn: eudDev-82
+            eudProcess: eudDev-82
+    eudCmpPtn-83:
+        patternname: eudCmpPtn-83
+        funcmap:
+            decryptOut: eudDev-83
+            encryptRtn: eudDev-83
+            eudProcess: eudDev-83
+    eudCmpPtn-84:
+        patternname: eudCmpPtn-84
+        funcmap:
+            decryptOut: eudDev-84
+            encryptRtn: eudDev-84
+            eudProcess: eudDev-84
+    eudCmpPtn-85:
+        patternname: eudCmpPtn-85
+        funcmap:
+            decryptOut: eudDev-85
+            encryptRtn: eudDev-85
+            eudProcess: eudDev-85
+    eudCmpPtn-86:
+        patternname: eudCmpPtn-86
+        funcmap:
+            decryptOut: eudDev-86
+            encryptRtn: eudDev-86
+            eudProcess: eudDev-86
+    eudCmpPtn-87:
+        patternname: eudCmpPtn-87
+        funcmap:
+            decryptOut: eudDev-87
+            encryptRtn: eudDev-87
+            eudProcess: eudDev-87
+    eudCmpPtn-88:
+        patternname: eudCmpPtn-88
+        funcmap:
+            decryptOut: eudDev-88
+            encryptRtn: eudDev-88
+            eudProcess: eudDev-88
+    eudCmpPtn-89:
+        patternname: eudCmpPtn-89
+        funcmap:
+            decryptOut: eudDev-89
+            encryptRtn: eudDev-89
+            eudProcess: eudDev-89
+    eudCmpPtn-90:
+        patternname: eudCmpPtn-90
+        funcmap:
+            decryptOut: eudDev-90
+            encryptRtn: eudDev-90
+            eudProcess: eudDev-90
+    eudCmpPtn-91:
+        patternname: eudCmpPtn-91
+        funcmap:
+            decryptOut: eudDev-91
+            encryptRtn: eudDev-91
+            eudProcess: eudDev-91
+    eudCmpPtn-92:
+        patternname: eudCmpPtn-92
+        funcmap:
+            decryptOut: eudDev-92
+            encryptRtn: eudDev-92
+            eudProcess: eudDev-92
+    eudCmpPtn-93:
+        patternname: eudCmpPtn-93
+        funcmap:
+            decryptOut: eudDev-93
+            encryptRtn: eudDev-93
+            eudProcess: eudDev-93
+    eudCmpPtn-94:
+        patternname: eudCmpPtn-94
+        funcmap:
+            decryptOut: eudDev-94
+            encryptRtn: eudDev-94
+            eudProcess: eudDev-94
+    eudCmpPtn-95:
+        patternname: eudCmpPtn-95
+        funcmap:
+            decryptOut: eudDev-95
+            encryptRtn: eudDev-95
+            eudProcess: eudDev-95
+    eudCmpPtn-96:
+        patternname: eudCmpPtn-96
+        funcmap:
+            decryptOut: eudDev-96
+            encryptRtn: eudDev-96
+            eudProcess: eudDev-96
+    eudCmpPtn-97:
+        patternname: eudCmpPtn-97
+        funcmap:
+            decryptOut: eudDev-97
+            encryptRtn: eudDev-97
+            eudProcess: eudDev-97
+    eudCmpPtn-98:
+        patternname: eudCmpPtn-98
+        funcmap:
+            decryptOut: eudDev-98
+            encryptRtn: eudDev-98
+            eudProcess: eudDev-98
+    eudCmpPtn-99:
+        patternname: eudCmpPtn-99
+        funcmap:
+            decryptOut: eudDev-99
+            encryptRtn: eudDev-99
+            eudProcess: eudDev-99

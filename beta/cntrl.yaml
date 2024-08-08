@@ -1,0 +1,43 @@
+arch: SSL
+archdir: /Users/nicol/Dropbox/github-repos/pcesapps/beta/input
+attrbParam: euds
+attrbParamList:
+- '1'
+- '10'
+- '100'
+baseParam: arch
+baseParamList:
+- SSL
+- NoSSL
+crypto: des
+eudCPU: Intel-i3-4130
+euds: '1'
+expCounter: /Users/nicol/Dropbox/github-repos/pcesapps/beta/working/expCounter.txt
+invKeyConv:
+  None: None
+  arch: Architecture
+  crypto: CryptoAlg
+  euds: EUDs
+  keylength: Key Lengths
+  pcktBurst: PcktBurst
+  pcktLen: PcktLen
+  pcktMu: PcktMu
+  pubNetBw: PubNet Mbps
+  pubSwitch: PubNet Switch
+  pvtNetBw: PvtNet Mbps
+  pvtSwitch: PvtNet Switch
+  rtr: Router
+keylength: '256'
+passthru: /Users/nicol/Dropbox/github-repos/pcesapps/beta/xtra.txt
+pcktBurst: '10'
+pcktLen: '128'
+pcktMu: '0.001'
+plotFile: /Users/nicol/Dropbox/github-repos/pcesapps/beta/working/plots/plot.png
+pubNetBw: '10'
+pubSwitch: ACME-Generic-Fast-Switch
+pvtNetBw: '10'
+pvtSwitch: ACME-Generic-Slow-Switch
+rtr: ACME-Generic-Slow-Router
+srcCPU: Intel-i7-1185G7E
+sslCPU: Intel-Xeon-w-1350P
+workingdir: /Users/nicol/Dropbox/github-repos/pcesapps/beta/working
