@@ -27,11 +27,11 @@
 -pvtRtrBw 10
 -pubRtrBw 10
 -pcktlen 128
--pcktburst 10
+-pcktburst 1
 -pcktMu 0.001
--euds 100
+-euds 10
 -eudCPU Intel-i3-4130
 -eudCPUBw 10
--cryptoalg des
+-cryptoalg rc6
 -keylength 256
 -sslsrvr False

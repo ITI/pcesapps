@@ -614,7 +614,7 @@ func main() {
 
 	// parameters for individual devices.
 	// interface for pcktsrc
-	asv := mrnes.AttrbStruct{AttrbName: "device", AttrbValue: "pcktsrc"}
+	asv := mrnes.AttrbStruct{AttrbName: "devname", AttrbValue: "pcktsrc"}
 	as := []mrnes.AttrbStruct{asv}
 	expCfg.AddParameter("Interface", as, "bandwidth", srcCPUBw)
 

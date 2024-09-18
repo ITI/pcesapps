@@ -5,8 +5,7 @@ import (
 	"github.com/iti/cmdline"
 	"github.com/iti/mrnes"
 	"github.com/iti/pces"
-	"github.com/iti/rngstream"
-	"golang.org/x/exp/slices"
+	"github.com/iti/rngstream" 
 	"path/filepath"
 )
 
@@ -63,7 +62,7 @@ func main() {
 	errs := []error{}
 	for _, filename := range inFiles {
 		if !cp.IsLoaded(filename) {
-			if !slices.Contains(optionalFiles, filename) {
+			if !Contains(optionalFiles, filename) {
 				errs = append(errs, fmt.Errorf("command flag %s not included on the command line", filename))
 			}
 			continue
@@ -131,4 +130,13 @@ func main() {
 
 	pces.ReportStatistics()
 	fmt.Println("Done")
+}
+
+func Contains(strList []string, str string) bool {
+	for _, obj := range strList {
+		if obj==str {
+			return true
+		}
+	}
+	return false
 }

@@ -74,37 +74,37 @@ parameters:
       value: "true"
     - paramObj: Interface
       attributes:
-        - attrbname: device
+        - attrbname: devname
           attrbvalue: pcktsrc
       param: bandwidth
       value: "10"
     - paramObj: Interface
       attributes:
-        - attrbname: device
+        - attrbname: devname
           attrbvalue: pcktsrc
       param: bandwidth
       value: "10"
     - paramObj: Interface
       attributes:
-        - attrbname: device
+        - attrbname: devname
           attrbvalue: pcktsrc
       param: bandwidth
       value: "10"
     - paramObj: Interface
       attributes:
-        - attrbname: device
+        - attrbname: devname
           attrbvalue: pcktsrc
       param: bandwidth
       value: "10"
     - paramObj: Interface
       attributes:
-        - attrbname: device
+        - attrbname: devname
           attrbvalue: pcktsrc
       param: bandwidth
       value: "10"
     - paramObj: Interface
       attributes:
-        - attrbname: device
+        - attrbname: devname
           attrbvalue: pcktsrc
       param: bandwidth
       value: "10"
