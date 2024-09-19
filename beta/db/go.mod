@@ -1,6 +1,8 @@
 module main
 
-go 1.20
+go 1.22.0
+
+toolchain go1.23.1
 
 require (
 	github.com/iti/cmdline v0.1.1
@@ -17,4 +19,3 @@ require (
 	gonum.org/v1/gonum v0.15.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
-
