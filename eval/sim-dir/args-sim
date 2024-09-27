@@ -1,0 +1,15 @@
+-inputLib ../input
+-cp cp.yaml
+-cpInit cpInit.yaml
+-funcExec funcExec.yaml
+-devExec devExec.yaml
+-srdCfg srdCfg.yaml
+-map map.yaml
+-exp exp.yaml
+-topo topo.yaml
+-trace trace.yaml
+-stop 100000.0
+-msr msr.yaml
+-rngseed 123456
+-probes pairs.yaml
+#-qnetsim

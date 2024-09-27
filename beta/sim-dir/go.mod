@@ -2,8 +2,6 @@ module main
 
 go 1.21
 
-toolchain go1.23.1
-
 require (
 	github.com/iti/cmdline v0.1.1
 	github.com/iti/mrnes v0.0.12
