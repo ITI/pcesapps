@@ -18,6 +18,7 @@ def readExp(file):
         expDesc = yaml.safe_load(rf)
     return expDesc
 
+dataFile = ""
 
 # buildExpDesc transforms the description of a particular experiment
 # in variables expressed by the gui to variables understood by the simulator.
@@ -26,6 +27,7 @@ def readExp(file):
 # router, as these devices stradle pvtNet and pubNet (and the gui expresses bandwidth
 # for interfaces in terms of the networks on which they are resident 
 def buildExpDesc(expDesc):
+    global dataFile
     maxLS = str(max(int(expDesc['pvtNetBw']), int(expDesc['pubNetBw'])))
     codePairs = {'srcCPU':'srcCPU',
         'srcCPUBw':'pvtNetBw',
@@ -65,8 +67,12 @@ def buildExpDesc(expDesc):
         baseExp["sslsrvr"] = "False"
 
     baseExp['pvtRtrBw'] = maxLS
-    return baseExp
 
+    dataFile = expDesc['dataFile']
+    with open(dataFile,'w') as wf:
+        csvHeading = 'base parameter, attribute parameter, minimum, 25% percentile, mean, median, 75% percentile, maximum, samples\n'
+        wf.write(csvHeading)
+    return baseExp
 
 numExp = 1
 
@@ -183,16 +189,21 @@ def createBldArgs(cld, passthru):
 #
 def extractBoxData(raw):
     # raw looks like
-    # 'Comp Pattern class  has spread 0.000658, 0.000658, 0.00690, 0.000788, 0.000788, 0.000788'
+    # 'With 10 samples Comp Pattern class has spread 0.000658, 0.000658, 0.00690, 0.000788, 0.000788, 0.000788'
 
     # extract the sequence of numbers
     raw = raw.replace(',','')
     words = raw.split()
     m = []
+    samples = -1 
     for word in words:
         test = word.replace('.','')
         if test.isnumeric():
-            m.append(float(word))
+            if samples == -1:
+                samples = int(word)
+                continue
+            else:
+                m.append(float(word))
 
     # m[0] - least value
     # m[1] - 25 percentile
@@ -202,7 +213,7 @@ def extractBoxData(raw):
     # m[5] - max
 
     # transform into data set whose box plot gives these same quartiles
-    d = [0.0]*6
+    d = [0.0]*7
     d[0] = m[0]
     d[5] = m[5]
     d[1] = m[1]
@@ -217,11 +228,11 @@ def extractBoxData(raw):
         d[2] = m[3]
 
     # turn into milliseconds
-    for idx in range(len(d)):
+    for idx in range(len(d)-1):
         d[idx] = 1000*d[idx]
 
+    d[6] = samples
     return d 
-
 
 # return the min and max values of the input list L
 def extrema(L):
@@ -231,6 +242,7 @@ def extrema(L):
         minV = min(minV,L[i])
         maxV = max(maxV,L[i])
     return minV, maxV
+
 
 
 # buildPlot is called after all the experiments have completed,
@@ -504,8 +516,10 @@ def main():
         )
         results = result.stdout
 
-        dataSet = extractBoxData(results)
-
+        saveData = extractBoxData(results)
+        dataSet = copy.copy(saveData)
+        dataSet.pop()
+ 
         baseCode  = cld['baseParam']
         attrbCode = cld['attrbParam']
 
@@ -524,6 +538,14 @@ def main():
         if baseValue not in boxPlot:
             boxPlot[baseValue] = {}
         boxPlot[baseValue][attrbValue] = dataSet
+
+        
+        dataline = '{},{},{},{},{},{},{},{},{}\n'.format(baseValue, attrbValue, saveData[0], saveData[1],
+            saveData[2], saveData[3], saveData[4], saveData[5], saveData[6])
+
+        with open(dataFile,"a") as wf:
+            wf.write(dataline)
+        
         os.chdir('../')
 
     print("creating plot ...", flush=True)

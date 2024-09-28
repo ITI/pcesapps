@@ -20,15 +20,19 @@ dbdir = ""
 archdir = ""
 
 def buildParser():
-    global args, workingdir, archdir, imagedir, plotdir, passthruFile, dbdir
+    global args, workingdir, externdir, archdir, imagedir, plotdir, passthruFile, dbdir
 
     ap = argparse.ArgumentParser()
-    # script uses a 'working directory' for all the files it writes,
+    # script uses a 'working directory' for all the 'while processing' files it writes,
     #   and through which it communicates with cntrl.py
     #   - saved menus
     #   - expCounter.txt (communicating progress with an executing set of experiments)
-    #   - plot files 
+    #
+    # it uses an 'external directory' to place plot and data files created
+    #   for external consumption.  N.B. if the -extern argument is a mount point
+    # (i.e., '/extern') do not merge it into a path
     ap.add_argument("-working", type=str, required=True, dest="working")
+    ap.add_argument("-extern", type=str, required=True, dest="extern")
 
     ap.add_argument("-db", type=str, required=True, dest="db")
 
@@ -79,12 +83,18 @@ def buildParser():
     workingdir = args.working.replace('./','')
     workingdir = os.path.join(cwd, workingdir) 
 
- 
+    externdir = args.extern
+    dockermnt = externdir.startswith('/')
+    if not dockermnt:
+        externdir = os.path.join(cwd, externdir) 
+    
+    if not dockermnt and not os.path.isdir(externdir):
+        os.mkdir(externdir)
+
     # check that working points to a working directory
     if not os.path.isdir(workingdir):
-        print("declared working directory {} does not exist".format(workingdir))
-        exit(1)
-
+        os.mkdir(workingdir)
+    
     dbdir = args.db
     # check that db points to a working directory
     if not os.path.isdir(dbdir):
@@ -847,6 +857,7 @@ def executeExperiment():
     bldParams['pcktMu'] = pcktMuName.get()
     bldParams['keylength'] = keyLengthsName.get()
     bldParams['workingdir'] = workingdir
+    bldParams['externdir'] = externdir
     bldParams['archdir'] = archdir
     bldParams['passthru'] = passthruFile
     
@@ -882,13 +893,18 @@ def executeExperiment():
     plotFileName.delete(1.0,END)
 
     base, ext = os.path.splitext(pfile)
-    plotdir = os.path.join(workingdir,'plots')
+    plotdir = os.path.join(externdir,'plots')
 
     # if plotdir does not exist, create it
     if not os.path.isdir(plotdir):
         os.mkdir(plotdir)
 
+    datadir = os.path.join(externdir,'data')
+    if not os.path.isdir(datadir):
+        os.mkdir(datadir)
+
     bldParams['plotFile'] = os.path.join(plotdir, base+'.png')
+    bldParams['dataFile'] = os.path.join(datadir, base+'.csv')
 
     # make sure that we don't give more than four variables for base or attrb lists
     baseParam = baseName.get()
@@ -1034,6 +1050,7 @@ allCrypto = None
 
 args = None
 workingdir = ''
+externdir = ''
 archdir = ''
 imagedir = ''
 plotdir = ''
