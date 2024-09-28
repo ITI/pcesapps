@@ -1,5 +1,5 @@
 -working working
--extern extern
+-extern /tmp/extern
 -db db
 -arch input
 -devDesc devDesc.yaml

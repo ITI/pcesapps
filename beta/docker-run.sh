@@ -12,12 +12,14 @@
 # N.b. Using grphics in Docker is somewhat fiddly.
 # the following command works for me (Rob Adams).
 
+DATA=extern
 TAG=ghcr.io/iti/pcesapps-beta
 
 docker run -it --rm  \
 	--env DISPLAY=$DISPLAY \
 	-v /tmp/.X11-unix:/tmp/.X11-unix \
 	-v ${XAUTHORITY:-$HOME/.Xauthority}:/root/.Xauthority:ro \
+	-v $(pwd)/$DATA:/tmp/extern \
 	--net=host \
 	$TAG
 
