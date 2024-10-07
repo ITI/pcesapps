@@ -21,6 +21,7 @@ func cmdlineParams() *cmdline.CmdParser {
 	// command line parameters are all about file and directory locations.
 	cp := cmdline.NewCmdParser()
 	cp.AddFlag(cmdline.StringFlag, "db", true)		  // directory where 'database' of csv models reside
+	cp.AddFlag(cmdline.FloatFlag, "ssl", false)		  
 	cp.AddFlag(cmdline.StringFlag, "outputDir", true) // directory where 'database' of csv models reside
 	return cp
 }

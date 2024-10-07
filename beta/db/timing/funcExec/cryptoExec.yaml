@@ -5,22 +5,22 @@ times:
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 128
-          exectime: 0.0001516
+          exectime: 1.516e-06
         - identifier: decrypt-3des-256
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 256
-          exectime: 0.00015319999999999998
+          exectime: 1.532e-06
         - identifier: decrypt-3des-256
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 512
-          exectime: 0.00015639999999999998
+          exectime: 1.5639999999999998e-06
         - identifier: decrypt-3des-256
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 1024
-          exectime: 0.0001628
+          exectime: 1.628e-06
         - identifier: decrypt-3des-256
           param: ""
           CPUModel: Intel-i7-11850HE
@@ -105,22 +105,22 @@ times:
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 128
-          exectime: 0.00011661538461538459
+          exectime: 1.166153846153846e-06
         - identifier: decrypt-3des-256
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 256
-          exectime: 0.00011784615384615383
+          exectime: 1.1784615384615384e-06
         - identifier: decrypt-3des-256
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 512
-          exectime: 0.00012030769230769229
+          exectime: 1.2030769230769229e-06
         - identifier: decrypt-3des-256
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 1024
-          exectime: 0.00012523076923076922
+          exectime: 1.2523076923076921e-06
         - identifier: decrypt-3des-256
           param: ""
           CPUModel: Intel-i7-1360P
@@ -365,22 +365,22 @@ times:
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 128
-          exectime: 0.00016844444444444445
+          exectime: 1.6844444444444445e-06
         - identifier: decrypt-3des-256
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 256
-          exectime: 0.0001702222222222222
+          exectime: 1.702222222222222e-06
         - identifier: decrypt-3des-256
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 512
-          exectime: 0.00017377777777777774
+          exectime: 1.7377777777777775e-06
         - identifier: decrypt-3des-256
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 1024
-          exectime: 0.00018088888888888888
+          exectime: 1.8088888888888887e-06
         - identifier: decrypt-3des-256
           param: ""
           CPUModel: Intel-i7-14650HX
@@ -486,22 +486,22 @@ times:
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 128
-          exectime: 0.0001516
+          exectime: 1.516e-06
         - identifier: decrypt-3des-512
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 256
-          exectime: 0.00015319999999999998
+          exectime: 1.532e-06
         - identifier: decrypt-3des-512
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 512
-          exectime: 0.00015639999999999998
+          exectime: 1.5639999999999998e-06
         - identifier: decrypt-3des-512
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 1024
-          exectime: 0.0001628
+          exectime: 1.628e-06
         - identifier: decrypt-3des-512
           param: ""
           CPUModel: Intel-i7-11850HE
@@ -586,22 +586,22 @@ times:
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 128
-          exectime: 0.00011661538461538459
+          exectime: 1.166153846153846e-06
         - identifier: decrypt-3des-512
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 256
-          exectime: 0.00011784615384615383
+          exectime: 1.1784615384615384e-06
         - identifier: decrypt-3des-512
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 512
-          exectime: 0.00012030769230769229
+          exectime: 1.2030769230769229e-06
         - identifier: decrypt-3des-512
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 1024
-          exectime: 0.00012523076923076922
+          exectime: 1.2523076923076921e-06
         - identifier: decrypt-3des-512
           param: ""
           CPUModel: Intel-i7-1360P
@@ -846,22 +846,22 @@ times:
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 128
-          exectime: 0.00016844444444444445
+          exectime: 1.6844444444444445e-06
         - identifier: decrypt-3des-512
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 256
-          exectime: 0.0001702222222222222
+          exectime: 1.702222222222222e-06
         - identifier: decrypt-3des-512
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 512
-          exectime: 0.00017377777777777774
+          exectime: 1.7377777777777775e-06
         - identifier: decrypt-3des-512
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 1024
-          exectime: 0.00018088888888888888
+          exectime: 1.8088888888888887e-06
         - identifier: decrypt-3des-512
           param: ""
           CPUModel: Intel-i7-14650HX
@@ -967,22 +967,22 @@ times:
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 128
-          exectime: 0.0001516
+          exectime: 1.516e-06
         - identifier: decrypt-3des-1024
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 256
-          exectime: 0.00015319999999999998
+          exectime: 1.532e-06
         - identifier: decrypt-3des-1024
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 512
-          exectime: 0.00015639999999999998
+          exectime: 1.5639999999999998e-06
         - identifier: decrypt-3des-1024
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 1024
-          exectime: 0.0001628
+          exectime: 1.628e-06
         - identifier: decrypt-3des-1024
           param: ""
           CPUModel: Intel-i7-11850HE
@@ -1067,22 +1067,22 @@ times:
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 128
-          exectime: 0.00011661538461538459
+          exectime: 1.166153846153846e-06
         - identifier: decrypt-3des-1024
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 256
-          exectime: 0.00011784615384615383
+          exectime: 1.1784615384615384e-06
         - identifier: decrypt-3des-1024
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 512
-          exectime: 0.00012030769230769229
+          exectime: 1.2030769230769229e-06
         - identifier: decrypt-3des-1024
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 1024
-          exectime: 0.00012523076923076922
+          exectime: 1.2523076923076921e-06
         - identifier: decrypt-3des-1024
           param: ""
           CPUModel: Intel-i7-1360P
@@ -1327,22 +1327,22 @@ times:
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 128
-          exectime: 0.00016844444444444445
+          exectime: 1.6844444444444445e-06
         - identifier: decrypt-3des-1024
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 256
-          exectime: 0.0001702222222222222
+          exectime: 1.702222222222222e-06
         - identifier: decrypt-3des-1024
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 512
-          exectime: 0.00017377777777777774
+          exectime: 1.7377777777777775e-06
         - identifier: decrypt-3des-1024
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 1024
-          exectime: 0.00018088888888888888
+          exectime: 1.8088888888888887e-06
         - identifier: decrypt-3des-1024
           param: ""
           CPUModel: Intel-i7-14650HX
@@ -1448,22 +1448,22 @@ times:
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 128
-          exectime: 2.5032e-05
+          exectime: 2.5032e-07
         - identifier: decrypt-aes-256
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 256
-          exectime: 2.5064000000000003e-05
+          exectime: 2.5064e-07
         - identifier: decrypt-aes-256
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 512
-          exectime: 2.5128e-05
+          exectime: 2.5128e-07
         - identifier: decrypt-aes-256
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 1024
-          exectime: 2.5256e-05
+          exectime: 2.5256e-07
         - identifier: decrypt-aes-256
           param: ""
           CPUModel: Intel-i7-11850HE
@@ -1548,22 +1548,22 @@ times:
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 128
-          exectime: 1.9255384615384613e-05
+          exectime: 1.9255384615384613e-07
         - identifier: decrypt-aes-256
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 256
-          exectime: 1.9280000000000002e-05
+          exectime: 1.928e-07
         - identifier: decrypt-aes-256
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 512
-          exectime: 1.932923076923077e-05
+          exectime: 1.932923076923077e-07
         - identifier: decrypt-aes-256
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 1024
-          exectime: 1.9427692307692306e-05
+          exectime: 1.9427692307692306e-07
         - identifier: decrypt-aes-256
           param: ""
           CPUModel: Intel-i7-1360P
@@ -1808,22 +1808,22 @@ times:
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 128
-          exectime: 2.7813333333333334e-05
+          exectime: 2.7813333333333334e-07
         - identifier: decrypt-aes-256
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 256
-          exectime: 2.784888888888889e-05
+          exectime: 2.784888888888889e-07
         - identifier: decrypt-aes-256
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 512
-          exectime: 2.792e-05
+          exectime: 2.792e-07
         - identifier: decrypt-aes-256
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 1024
-          exectime: 2.806222222222222e-05
+          exectime: 2.806222222222222e-07
         - identifier: decrypt-aes-256
           param: ""
           CPUModel: Intel-i7-14650HX
@@ -1929,22 +1929,22 @@ times:
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 128
-          exectime: 2.5032e-05
+          exectime: 2.5032e-07
         - identifier: decrypt-aes-512
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 256
-          exectime: 2.5064000000000003e-05
+          exectime: 2.5064e-07
         - identifier: decrypt-aes-512
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 512
-          exectime: 2.5128e-05
+          exectime: 2.5128e-07
         - identifier: decrypt-aes-512
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 1024
-          exectime: 2.5256e-05
+          exectime: 2.5256e-07
         - identifier: decrypt-aes-512
           param: ""
           CPUModel: Intel-i7-11850HE
@@ -2029,22 +2029,22 @@ times:
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 128
-          exectime: 1.9255384615384613e-05
+          exectime: 1.9255384615384613e-07
         - identifier: decrypt-aes-512
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 256
-          exectime: 1.9280000000000002e-05
+          exectime: 1.928e-07
         - identifier: decrypt-aes-512
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 512
-          exectime: 1.932923076923077e-05
+          exectime: 1.932923076923077e-07
         - identifier: decrypt-aes-512
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 1024
-          exectime: 1.9427692307692306e-05
+          exectime: 1.9427692307692306e-07
         - identifier: decrypt-aes-512
           param: ""
           CPUModel: Intel-i7-1360P
@@ -2289,22 +2289,22 @@ times:
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 128
-          exectime: 2.7813333333333334e-05
+          exectime: 2.7813333333333334e-07
         - identifier: decrypt-aes-512
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 256
-          exectime: 2.784888888888889e-05
+          exectime: 2.784888888888889e-07
         - identifier: decrypt-aes-512
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 512
-          exectime: 2.792e-05
+          exectime: 2.792e-07
         - identifier: decrypt-aes-512
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 1024
-          exectime: 2.806222222222222e-05
+          exectime: 2.806222222222222e-07
         - identifier: decrypt-aes-512
           param: ""
           CPUModel: Intel-i7-14650HX
@@ -2410,22 +2410,22 @@ times:
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 128
-          exectime: 2.5032e-05
+          exectime: 2.5032e-07
         - identifier: decrypt-aes-1024
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 256
-          exectime: 2.5064000000000003e-05
+          exectime: 2.5064e-07
         - identifier: decrypt-aes-1024
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 512
-          exectime: 2.5128e-05
+          exectime: 2.5128e-07
         - identifier: decrypt-aes-1024
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 1024
-          exectime: 2.5256e-05
+          exectime: 2.5256e-07
         - identifier: decrypt-aes-1024
           param: ""
           CPUModel: Intel-i7-11850HE
@@ -2510,22 +2510,22 @@ times:
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 128
-          exectime: 1.9255384615384613e-05
+          exectime: 1.9255384615384613e-07
         - identifier: decrypt-aes-1024
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 256
-          exectime: 1.9280000000000002e-05
+          exectime: 1.928e-07
         - identifier: decrypt-aes-1024
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 512
-          exectime: 1.932923076923077e-05
+          exectime: 1.932923076923077e-07
         - identifier: decrypt-aes-1024
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 1024
-          exectime: 1.9427692307692306e-05
+          exectime: 1.9427692307692306e-07
         - identifier: decrypt-aes-1024
           param: ""
           CPUModel: Intel-i7-1360P
@@ -2770,22 +2770,22 @@ times:
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 128
-          exectime: 2.7813333333333334e-05
+          exectime: 2.7813333333333334e-07
         - identifier: decrypt-aes-1024
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 256
-          exectime: 2.784888888888889e-05
+          exectime: 2.784888888888889e-07
         - identifier: decrypt-aes-1024
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 512
-          exectime: 2.792e-05
+          exectime: 2.792e-07
         - identifier: decrypt-aes-1024
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 1024
-          exectime: 2.806222222222222e-05
+          exectime: 2.806222222222222e-07
         - identifier: decrypt-aes-1024
           param: ""
           CPUModel: Intel-i7-14650HX
@@ -2891,22 +2891,22 @@ times:
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 128
-          exectime: 0.00010032
+          exectime: 1.0032e-06
         - identifier: decrypt-des-256
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 256
-          exectime: 0.00010064
+          exectime: 1.0064e-06
         - identifier: decrypt-des-256
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 512
-          exectime: 0.00010128
+          exectime: 1.0128e-06
         - identifier: decrypt-des-256
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 1024
-          exectime: 0.00010256000000000001
+          exectime: 1.0256e-06
         - identifier: decrypt-des-256
           param: ""
           CPUModel: Intel-i7-11850HE
@@ -2991,22 +2991,22 @@ times:
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 128
-          exectime: 7.716923076923077e-05
+          exectime: 7.716923076923077e-07
         - identifier: decrypt-des-256
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 256
-          exectime: 7.741538461538462e-05
+          exectime: 7.741538461538462e-07
         - identifier: decrypt-des-256
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 512
-          exectime: 7.79076923076923e-05
+          exectime: 7.79076923076923e-07
         - identifier: decrypt-des-256
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 1024
-          exectime: 7.88923076923077e-05
+          exectime: 7.88923076923077e-07
         - identifier: decrypt-des-256
           param: ""
           CPUModel: Intel-i7-1360P
@@ -3251,22 +3251,22 @@ times:
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 128
-          exectime: 0.00011146666666666666
+          exectime: 1.1146666666666667e-06
         - identifier: decrypt-des-256
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 256
-          exectime: 0.00011182222222222222
+          exectime: 1.1182222222222221e-06
         - identifier: decrypt-des-256
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 512
-          exectime: 0.00011253333333333334
+          exectime: 1.1253333333333335e-06
         - identifier: decrypt-des-256
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 1024
-          exectime: 0.00011395555555555555
+          exectime: 1.1395555555555555e-06
         - identifier: decrypt-des-256
           param: ""
           CPUModel: Intel-i7-14650HX
@@ -3372,22 +3372,22 @@ times:
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 128
-          exectime: 0.00010032
+          exectime: 1.0032e-06
         - identifier: decrypt-des-512
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 256
-          exectime: 0.00010064
+          exectime: 1.0064e-06
         - identifier: decrypt-des-512
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 512
-          exectime: 0.00010128
+          exectime: 1.0128e-06
         - identifier: decrypt-des-512
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 1024
-          exectime: 0.00010256000000000001
+          exectime: 1.0256e-06
         - identifier: decrypt-des-512
           param: ""
           CPUModel: Intel-i7-11850HE
@@ -3472,22 +3472,22 @@ times:
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 128
-          exectime: 7.716923076923077e-05
+          exectime: 7.716923076923077e-07
         - identifier: decrypt-des-512
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 256
-          exectime: 7.741538461538462e-05
+          exectime: 7.741538461538462e-07
         - identifier: decrypt-des-512
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 512
-          exectime: 7.79076923076923e-05
+          exectime: 7.79076923076923e-07
         - identifier: decrypt-des-512
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 1024
-          exectime: 7.88923076923077e-05
+          exectime: 7.88923076923077e-07
         - identifier: decrypt-des-512
           param: ""
           CPUModel: Intel-i7-1360P
@@ -3732,22 +3732,22 @@ times:
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 128
-          exectime: 0.00011146666666666666
+          exectime: 1.1146666666666667e-06
         - identifier: decrypt-des-512
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 256
-          exectime: 0.00011182222222222222
+          exectime: 1.1182222222222221e-06
         - identifier: decrypt-des-512
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 512
-          exectime: 0.00011253333333333334
+          exectime: 1.1253333333333335e-06
         - identifier: decrypt-des-512
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 1024
-          exectime: 0.00011395555555555555
+          exectime: 1.1395555555555555e-06
         - identifier: decrypt-des-512
           param: ""
           CPUModel: Intel-i7-14650HX
@@ -3853,22 +3853,22 @@ times:
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 128
-          exectime: 0.00010032
+          exectime: 1.0032e-06
         - identifier: decrypt-des-1024
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 256
-          exectime: 0.00010064
+          exectime: 1.0064e-06
         - identifier: decrypt-des-1024
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 512
-          exectime: 0.00010128
+          exectime: 1.0128e-06
         - identifier: decrypt-des-1024
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 1024
-          exectime: 0.00010256000000000001
+          exectime: 1.0256e-06
         - identifier: decrypt-des-1024
           param: ""
           CPUModel: Intel-i7-11850HE
@@ -3953,22 +3953,22 @@ times:
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 128
-          exectime: 7.716923076923077e-05
+          exectime: 7.716923076923077e-07
         - identifier: decrypt-des-1024
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 256
-          exectime: 7.741538461538462e-05
+          exectime: 7.741538461538462e-07
         - identifier: decrypt-des-1024
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 512
-          exectime: 7.79076923076923e-05
+          exectime: 7.79076923076923e-07
         - identifier: decrypt-des-1024
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 1024
-          exectime: 7.88923076923077e-05
+          exectime: 7.88923076923077e-07
         - identifier: decrypt-des-1024
           param: ""
           CPUModel: Intel-i7-1360P
@@ -4213,22 +4213,22 @@ times:
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 128
-          exectime: 0.00011146666666666666
+          exectime: 1.1146666666666667e-06
         - identifier: decrypt-des-1024
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 256
-          exectime: 0.00011182222222222222
+          exectime: 1.1182222222222221e-06
         - identifier: decrypt-des-1024
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 512
-          exectime: 0.00011253333333333334
+          exectime: 1.1253333333333335e-06
         - identifier: decrypt-des-1024
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 1024
-          exectime: 0.00011395555555555555
+          exectime: 1.1395555555555555e-06
         - identifier: decrypt-des-1024
           param: ""
           CPUModel: Intel-i7-14650HX
@@ -4334,22 +4334,22 @@ times:
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 128
-          exectime: 0.00025320000000000003
+          exectime: 2.5320000000000005e-06
         - identifier: decrypt-rc6-256
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 256
-          exectime: 0.0002564
+          exectime: 2.564e-06
         - identifier: decrypt-rc6-256
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 512
-          exectime: 0.0002628
+          exectime: 2.628e-06
         - identifier: decrypt-rc6-256
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 1024
-          exectime: 0.0002756
+          exectime: 2.756e-06
         - identifier: decrypt-rc6-256
           param: ""
           CPUModel: Intel-i7-11850HE
@@ -4434,22 +4434,22 @@ times:
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 128
-          exectime: 0.00019476923076923078
+          exectime: 1.9476923076923077e-06
         - identifier: decrypt-rc6-256
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 256
-          exectime: 0.00019723076923076923
+          exectime: 1.9723076923076924e-06
         - identifier: decrypt-rc6-256
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 512
-          exectime: 0.00020215384615384613
+          exectime: 2.021538461538461e-06
         - identifier: decrypt-rc6-256
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 1024
-          exectime: 0.00021199999999999998
+          exectime: 2.1199999999999996e-06
         - identifier: decrypt-rc6-256
           param: ""
           CPUModel: Intel-i7-1360P
@@ -4694,22 +4694,22 @@ times:
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 128
-          exectime: 0.00028133333333333336
+          exectime: 2.8133333333333336e-06
         - identifier: decrypt-rc6-256
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 256
-          exectime: 0.00028488888888888894
+          exectime: 2.8488888888888894e-06
         - identifier: decrypt-rc6-256
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 512
-          exectime: 0.000292
+          exectime: 2.92e-06
         - identifier: decrypt-rc6-256
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 1024
-          exectime: 0.0003062222222222222
+          exectime: 3.062222222222222e-06
         - identifier: decrypt-rc6-256
           param: ""
           CPUModel: Intel-i7-14650HX
@@ -4815,22 +4815,22 @@ times:
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 128
-          exectime: 0.00025320000000000003
+          exectime: 2.5320000000000005e-06
         - identifier: decrypt-rc6-512
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 256
-          exectime: 0.0002564
+          exectime: 2.564e-06
         - identifier: decrypt-rc6-512
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 512
-          exectime: 0.0002628
+          exectime: 2.628e-06
         - identifier: decrypt-rc6-512
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 1024
-          exectime: 0.0002756
+          exectime: 2.756e-06
         - identifier: decrypt-rc6-512
           param: ""
           CPUModel: Intel-i7-11850HE
@@ -4915,22 +4915,22 @@ times:
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 128
-          exectime: 0.00019476923076923078
+          exectime: 1.9476923076923077e-06
         - identifier: decrypt-rc6-512
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 256
-          exectime: 0.00019723076923076923
+          exectime: 1.9723076923076924e-06
         - identifier: decrypt-rc6-512
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 512
-          exectime: 0.00020215384615384613
+          exectime: 2.021538461538461e-06
         - identifier: decrypt-rc6-512
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 1024
-          exectime: 0.00021199999999999998
+          exectime: 2.1199999999999996e-06
         - identifier: decrypt-rc6-512
           param: ""
           CPUModel: Intel-i7-1360P
@@ -5175,22 +5175,22 @@ times:
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 128
-          exectime: 0.00028133333333333336
+          exectime: 2.8133333333333336e-06
         - identifier: decrypt-rc6-512
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 256
-          exectime: 0.00028488888888888894
+          exectime: 2.8488888888888894e-06
         - identifier: decrypt-rc6-512
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 512
-          exectime: 0.000292
+          exectime: 2.92e-06
         - identifier: decrypt-rc6-512
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 1024
-          exectime: 0.0003062222222222222
+          exectime: 3.062222222222222e-06
         - identifier: decrypt-rc6-512
           param: ""
           CPUModel: Intel-i7-14650HX
@@ -5296,22 +5296,22 @@ times:
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 128
-          exectime: 0.00025320000000000003
+          exectime: 2.5320000000000005e-06
         - identifier: decrypt-rc6-1024
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 256
-          exectime: 0.0002564
+          exectime: 2.564e-06
         - identifier: decrypt-rc6-1024
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 512
-          exectime: 0.0002628
+          exectime: 2.628e-06
         - identifier: decrypt-rc6-1024
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 1024
-          exectime: 0.0002756
+          exectime: 2.756e-06
         - identifier: decrypt-rc6-1024
           param: ""
           CPUModel: Intel-i7-11850HE
@@ -5396,22 +5396,22 @@ times:
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 128
-          exectime: 0.00019476923076923078
+          exectime: 1.9476923076923077e-06
         - identifier: decrypt-rc6-1024
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 256
-          exectime: 0.00019723076923076923
+          exectime: 1.9723076923076924e-06
         - identifier: decrypt-rc6-1024
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 512
-          exectime: 0.00020215384615384613
+          exectime: 2.021538461538461e-06
         - identifier: decrypt-rc6-1024
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 1024
-          exectime: 0.00021199999999999998
+          exectime: 2.1199999999999996e-06
         - identifier: decrypt-rc6-1024
           param: ""
           CPUModel: Intel-i7-1360P
@@ -5656,22 +5656,22 @@ times:
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 128
-          exectime: 0.00028133333333333336
+          exectime: 2.8133333333333336e-06
         - identifier: decrypt-rc6-1024
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 256
-          exectime: 0.00028488888888888894
+          exectime: 2.8488888888888894e-06
         - identifier: decrypt-rc6-1024
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 512
-          exectime: 0.000292
+          exectime: 2.92e-06
         - identifier: decrypt-rc6-1024
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 1024
-          exectime: 0.0003062222222222222
+          exectime: 3.062222222222222e-06
         - identifier: decrypt-rc6-1024
           param: ""
           CPUModel: Intel-i7-14650HX
@@ -5777,22 +5777,22 @@ times:
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 128
-          exectime: 0.0001516
+          exectime: 1.516e-06
         - identifier: encrypt-3des-256
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 256
-          exectime: 0.00015319999999999998
+          exectime: 1.532e-06
         - identifier: encrypt-3des-256
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 512
-          exectime: 0.00015639999999999998
+          exectime: 1.5639999999999998e-06
         - identifier: encrypt-3des-256
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 1024
-          exectime: 0.0001628
+          exectime: 1.628e-06
         - identifier: encrypt-3des-256
           param: ""
           CPUModel: Intel-i7-11850HE
@@ -5877,22 +5877,22 @@ times:
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 128
-          exectime: 0.00011661538461538459
+          exectime: 1.166153846153846e-06
         - identifier: encrypt-3des-256
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 256
-          exectime: 0.00011784615384615383
+          exectime: 1.1784615384615384e-06
         - identifier: encrypt-3des-256
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 512
-          exectime: 0.00012030769230769229
+          exectime: 1.2030769230769229e-06
         - identifier: encrypt-3des-256
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 1024
-          exectime: 0.00012523076923076922
+          exectime: 1.2523076923076921e-06
         - identifier: encrypt-3des-256
           param: ""
           CPUModel: Intel-i7-1360P
@@ -6137,22 +6137,22 @@ times:
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 128
-          exectime: 0.00016844444444444445
+          exectime: 1.6844444444444445e-06
         - identifier: encrypt-3des-256
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 256
-          exectime: 0.0001702222222222222
+          exectime: 1.702222222222222e-06
         - identifier: encrypt-3des-256
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 512
-          exectime: 0.00017377777777777774
+          exectime: 1.7377777777777775e-06
         - identifier: encrypt-3des-256
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 1024
-          exectime: 0.00018088888888888888
+          exectime: 1.8088888888888887e-06
         - identifier: encrypt-3des-256
           param: ""
           CPUModel: Intel-i7-14650HX
@@ -6258,22 +6258,22 @@ times:
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 128
-          exectime: 0.0001516
+          exectime: 1.516e-06
         - identifier: encrypt-3des-512
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 256
-          exectime: 0.00015319999999999998
+          exectime: 1.532e-06
         - identifier: encrypt-3des-512
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 512
-          exectime: 0.00015639999999999998
+          exectime: 1.5639999999999998e-06
         - identifier: encrypt-3des-512
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 1024
-          exectime: 0.0001628
+          exectime: 1.628e-06
         - identifier: encrypt-3des-512
           param: ""
           CPUModel: Intel-i7-11850HE
@@ -6358,22 +6358,22 @@ times:
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 128
-          exectime: 0.00011661538461538459
+          exectime: 1.166153846153846e-06
         - identifier: encrypt-3des-512
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 256
-          exectime: 0.00011784615384615383
+          exectime: 1.1784615384615384e-06
         - identifier: encrypt-3des-512
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 512
-          exectime: 0.00012030769230769229
+          exectime: 1.2030769230769229e-06
         - identifier: encrypt-3des-512
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 1024
-          exectime: 0.00012523076923076922
+          exectime: 1.2523076923076921e-06
         - identifier: encrypt-3des-512
           param: ""
           CPUModel: Intel-i7-1360P
@@ -6618,22 +6618,22 @@ times:
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 128
-          exectime: 0.00016844444444444445
+          exectime: 1.6844444444444445e-06
         - identifier: encrypt-3des-512
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 256
-          exectime: 0.0001702222222222222
+          exectime: 1.702222222222222e-06
         - identifier: encrypt-3des-512
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 512
-          exectime: 0.00017377777777777774
+          exectime: 1.7377777777777775e-06
         - identifier: encrypt-3des-512
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 1024
-          exectime: 0.00018088888888888888
+          exectime: 1.8088888888888887e-06
         - identifier: encrypt-3des-512
           param: ""
           CPUModel: Intel-i7-14650HX
@@ -6739,22 +6739,22 @@ times:
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 128
-          exectime: 0.0001516
+          exectime: 1.516e-06
         - identifier: encrypt-3des-1024
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 256
-          exectime: 0.00015319999999999998
+          exectime: 1.532e-06
         - identifier: encrypt-3des-1024
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 512
-          exectime: 0.00015639999999999998
+          exectime: 1.5639999999999998e-06
         - identifier: encrypt-3des-1024
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 1024
-          exectime: 0.0001628
+          exectime: 1.628e-06
         - identifier: encrypt-3des-1024
           param: ""
           CPUModel: Intel-i7-11850HE
@@ -6839,22 +6839,22 @@ times:
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 128
-          exectime: 0.00011661538461538459
+          exectime: 1.166153846153846e-06
         - identifier: encrypt-3des-1024
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 256
-          exectime: 0.00011784615384615383
+          exectime: 1.1784615384615384e-06
         - identifier: encrypt-3des-1024
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 512
-          exectime: 0.00012030769230769229
+          exectime: 1.2030769230769229e-06
         - identifier: encrypt-3des-1024
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 1024
-          exectime: 0.00012523076923076922
+          exectime: 1.2523076923076921e-06
         - identifier: encrypt-3des-1024
           param: ""
           CPUModel: Intel-i7-1360P
@@ -7099,22 +7099,22 @@ times:
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 128
-          exectime: 0.00016844444444444445
+          exectime: 1.6844444444444445e-06
         - identifier: encrypt-3des-1024
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 256
-          exectime: 0.0001702222222222222
+          exectime: 1.702222222222222e-06
         - identifier: encrypt-3des-1024
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 512
-          exectime: 0.00017377777777777774
+          exectime: 1.7377777777777775e-06
         - identifier: encrypt-3des-1024
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 1024
-          exectime: 0.00018088888888888888
+          exectime: 1.8088888888888887e-06
         - identifier: encrypt-3des-1024
           param: ""
           CPUModel: Intel-i7-14650HX
@@ -7220,22 +7220,22 @@ times:
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 128
-          exectime: 2.5032e-05
+          exectime: 2.5032e-07
         - identifier: encrypt-aes-256
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 256
-          exectime: 2.5064000000000003e-05
+          exectime: 2.5064e-07
         - identifier: encrypt-aes-256
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 512
-          exectime: 2.5128e-05
+          exectime: 2.5128e-07
         - identifier: encrypt-aes-256
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 1024
-          exectime: 2.5256e-05
+          exectime: 2.5256e-07
         - identifier: encrypt-aes-256
           param: ""
           CPUModel: Intel-i7-11850HE
@@ -7320,22 +7320,22 @@ times:
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 128
-          exectime: 1.9255384615384613e-05
+          exectime: 1.9255384615384613e-07
         - identifier: encrypt-aes-256
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 256
-          exectime: 1.9280000000000002e-05
+          exectime: 1.928e-07
         - identifier: encrypt-aes-256
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 512
-          exectime: 1.932923076923077e-05
+          exectime: 1.932923076923077e-07
         - identifier: encrypt-aes-256
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 1024
-          exectime: 1.9427692307692306e-05
+          exectime: 1.9427692307692306e-07
         - identifier: encrypt-aes-256
           param: ""
           CPUModel: Intel-i7-1360P
@@ -7580,22 +7580,22 @@ times:
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 128
-          exectime: 2.7813333333333334e-05
+          exectime: 2.7813333333333334e-07
         - identifier: encrypt-aes-256
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 256
-          exectime: 2.784888888888889e-05
+          exectime: 2.784888888888889e-07
         - identifier: encrypt-aes-256
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 512
-          exectime: 2.792e-05
+          exectime: 2.792e-07
         - identifier: encrypt-aes-256
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 1024
-          exectime: 2.806222222222222e-05
+          exectime: 2.806222222222222e-07
         - identifier: encrypt-aes-256
           param: ""
           CPUModel: Intel-i7-14650HX
@@ -7701,22 +7701,22 @@ times:
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 128
-          exectime: 2.5032e-05
+          exectime: 2.5032e-07
         - identifier: encrypt-aes-512
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 256
-          exectime: 2.5064000000000003e-05
+          exectime: 2.5064e-07
         - identifier: encrypt-aes-512
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 512
-          exectime: 2.5128e-05
+          exectime: 2.5128e-07
         - identifier: encrypt-aes-512
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 1024
-          exectime: 2.5256e-05
+          exectime: 2.5256e-07
         - identifier: encrypt-aes-512
           param: ""
           CPUModel: Intel-i7-11850HE
@@ -7801,22 +7801,22 @@ times:
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 128
-          exectime: 1.9255384615384613e-05
+          exectime: 1.9255384615384613e-07
         - identifier: encrypt-aes-512
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 256
-          exectime: 1.9280000000000002e-05
+          exectime: 1.928e-07
         - identifier: encrypt-aes-512
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 512
-          exectime: 1.932923076923077e-05
+          exectime: 1.932923076923077e-07
         - identifier: encrypt-aes-512
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 1024
-          exectime: 1.9427692307692306e-05
+          exectime: 1.9427692307692306e-07
         - identifier: encrypt-aes-512
           param: ""
           CPUModel: Intel-i7-1360P
@@ -8061,22 +8061,22 @@ times:
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 128
-          exectime: 2.7813333333333334e-05
+          exectime: 2.7813333333333334e-07
         - identifier: encrypt-aes-512
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 256
-          exectime: 2.784888888888889e-05
+          exectime: 2.784888888888889e-07
         - identifier: encrypt-aes-512
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 512
-          exectime: 2.792e-05
+          exectime: 2.792e-07
         - identifier: encrypt-aes-512
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 1024
-          exectime: 2.806222222222222e-05
+          exectime: 2.806222222222222e-07
         - identifier: encrypt-aes-512
           param: ""
           CPUModel: Intel-i7-14650HX
@@ -8182,22 +8182,22 @@ times:
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 128
-          exectime: 2.5032e-05
+          exectime: 2.5032e-07
         - identifier: encrypt-aes-1024
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 256
-          exectime: 2.5064000000000003e-05
+          exectime: 2.5064e-07
         - identifier: encrypt-aes-1024
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 512
-          exectime: 2.5128e-05
+          exectime: 2.5128e-07
         - identifier: encrypt-aes-1024
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 1024
-          exectime: 2.5256e-05
+          exectime: 2.5256e-07
         - identifier: encrypt-aes-1024
           param: ""
           CPUModel: Intel-i7-11850HE
@@ -8282,22 +8282,22 @@ times:
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 128
-          exectime: 1.9255384615384613e-05
+          exectime: 1.9255384615384613e-07
         - identifier: encrypt-aes-1024
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 256
-          exectime: 1.9280000000000002e-05
+          exectime: 1.928e-07
         - identifier: encrypt-aes-1024
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 512
-          exectime: 1.932923076923077e-05
+          exectime: 1.932923076923077e-07
         - identifier: encrypt-aes-1024
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 1024
-          exectime: 1.9427692307692306e-05
+          exectime: 1.9427692307692306e-07
         - identifier: encrypt-aes-1024
           param: ""
           CPUModel: Intel-i7-1360P
@@ -8542,22 +8542,22 @@ times:
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 128
-          exectime: 2.7813333333333334e-05
+          exectime: 2.7813333333333334e-07
         - identifier: encrypt-aes-1024
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 256
-          exectime: 2.784888888888889e-05
+          exectime: 2.784888888888889e-07
         - identifier: encrypt-aes-1024
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 512
-          exectime: 2.792e-05
+          exectime: 2.792e-07
         - identifier: encrypt-aes-1024
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 1024
-          exectime: 2.806222222222222e-05
+          exectime: 2.806222222222222e-07
         - identifier: encrypt-aes-1024
           param: ""
           CPUModel: Intel-i7-14650HX
@@ -8663,22 +8663,22 @@ times:
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 128
-          exectime: 0.00010032
+          exectime: 1.0032e-06
         - identifier: encrypt-des-256
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 256
-          exectime: 0.00010064
+          exectime: 1.0064e-06
         - identifier: encrypt-des-256
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 512
-          exectime: 0.00010128
+          exectime: 1.0128e-06
         - identifier: encrypt-des-256
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 1024
-          exectime: 0.00010256000000000001
+          exectime: 1.0256e-06
         - identifier: encrypt-des-256
           param: ""
           CPUModel: Intel-i7-11850HE
@@ -8763,22 +8763,22 @@ times:
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 128
-          exectime: 7.716923076923077e-05
+          exectime: 7.716923076923077e-07
         - identifier: encrypt-des-256
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 256
-          exectime: 7.741538461538462e-05
+          exectime: 7.741538461538462e-07
         - identifier: encrypt-des-256
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 512
-          exectime: 7.79076923076923e-05
+          exectime: 7.79076923076923e-07
         - identifier: encrypt-des-256
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 1024
-          exectime: 7.88923076923077e-05
+          exectime: 7.88923076923077e-07
         - identifier: encrypt-des-256
           param: ""
           CPUModel: Intel-i7-1360P
@@ -9023,22 +9023,22 @@ times:
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 128
-          exectime: 0.00011146666666666666
+          exectime: 1.1146666666666667e-06
         - identifier: encrypt-des-256
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 256
-          exectime: 0.00011182222222222222
+          exectime: 1.1182222222222221e-06
         - identifier: encrypt-des-256
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 512
-          exectime: 0.00011253333333333334
+          exectime: 1.1253333333333335e-06
         - identifier: encrypt-des-256
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 1024
-          exectime: 0.00011395555555555555
+          exectime: 1.1395555555555555e-06
         - identifier: encrypt-des-256
           param: ""
           CPUModel: Intel-i7-14650HX
@@ -9144,22 +9144,22 @@ times:
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 128
-          exectime: 0.00010032
+          exectime: 1.0032e-06
         - identifier: encrypt-des-512
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 256
-          exectime: 0.00010064
+          exectime: 1.0064e-06
         - identifier: encrypt-des-512
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 512
-          exectime: 0.00010128
+          exectime: 1.0128e-06
         - identifier: encrypt-des-512
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 1024
-          exectime: 0.00010256000000000001
+          exectime: 1.0256e-06
         - identifier: encrypt-des-512
           param: ""
           CPUModel: Intel-i7-11850HE
@@ -9244,22 +9244,22 @@ times:
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 128
-          exectime: 7.716923076923077e-05
+          exectime: 7.716923076923077e-07
         - identifier: encrypt-des-512
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 256
-          exectime: 7.741538461538462e-05
+          exectime: 7.741538461538462e-07
         - identifier: encrypt-des-512
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 512
-          exectime: 7.79076923076923e-05
+          exectime: 7.79076923076923e-07
         - identifier: encrypt-des-512
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 1024
-          exectime: 7.88923076923077e-05
+          exectime: 7.88923076923077e-07
         - identifier: encrypt-des-512
           param: ""
           CPUModel: Intel-i7-1360P
@@ -9504,22 +9504,22 @@ times:
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 128
-          exectime: 0.00011146666666666666
+          exectime: 1.1146666666666667e-06
         - identifier: encrypt-des-512
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 256
-          exectime: 0.00011182222222222222
+          exectime: 1.1182222222222221e-06
         - identifier: encrypt-des-512
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 512
-          exectime: 0.00011253333333333334
+          exectime: 1.1253333333333335e-06
         - identifier: encrypt-des-512
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 1024
-          exectime: 0.00011395555555555555
+          exectime: 1.1395555555555555e-06
         - identifier: encrypt-des-512
           param: ""
           CPUModel: Intel-i7-14650HX
@@ -9625,22 +9625,22 @@ times:
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 128
-          exectime: 0.00010032
+          exectime: 1.0032e-06
         - identifier: encrypt-des-1024
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 256
-          exectime: 0.00010064
+          exectime: 1.0064e-06
         - identifier: encrypt-des-1024
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 512
-          exectime: 0.00010128
+          exectime: 1.0128e-06
         - identifier: encrypt-des-1024
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 1024
-          exectime: 0.00010256000000000001
+          exectime: 1.0256e-06
         - identifier: encrypt-des-1024
           param: ""
           CPUModel: Intel-i7-11850HE
@@ -9725,22 +9725,22 @@ times:
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 128
-          exectime: 7.716923076923077e-05
+          exectime: 7.716923076923077e-07
         - identifier: encrypt-des-1024
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 256
-          exectime: 7.741538461538462e-05
+          exectime: 7.741538461538462e-07
         - identifier: encrypt-des-1024
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 512
-          exectime: 7.79076923076923e-05
+          exectime: 7.79076923076923e-07
         - identifier: encrypt-des-1024
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 1024
-          exectime: 7.88923076923077e-05
+          exectime: 7.88923076923077e-07
         - identifier: encrypt-des-1024
           param: ""
           CPUModel: Intel-i7-1360P
@@ -9985,22 +9985,22 @@ times:
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 128
-          exectime: 0.00011146666666666666
+          exectime: 1.1146666666666667e-06
         - identifier: encrypt-des-1024
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 256
-          exectime: 0.00011182222222222222
+          exectime: 1.1182222222222221e-06
         - identifier: encrypt-des-1024
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 512
-          exectime: 0.00011253333333333334
+          exectime: 1.1253333333333335e-06
         - identifier: encrypt-des-1024
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 1024
-          exectime: 0.00011395555555555555
+          exectime: 1.1395555555555555e-06
         - identifier: encrypt-des-1024
           param: ""
           CPUModel: Intel-i7-14650HX
@@ -10106,22 +10106,22 @@ times:
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 128
-          exectime: 0.00025320000000000003
+          exectime: 2.5320000000000005e-06
         - identifier: encrypt-rc6-256
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 256
-          exectime: 0.0002564
+          exectime: 2.564e-06
         - identifier: encrypt-rc6-256
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 512
-          exectime: 0.0002628
+          exectime: 2.628e-06
         - identifier: encrypt-rc6-256
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 1024
-          exectime: 0.0002756
+          exectime: 2.756e-06
         - identifier: encrypt-rc6-256
           param: ""
           CPUModel: Intel-i7-11850HE
@@ -10206,22 +10206,22 @@ times:
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 128
-          exectime: 0.00019476923076923078
+          exectime: 1.9476923076923077e-06
         - identifier: encrypt-rc6-256
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 256
-          exectime: 0.00019723076923076923
+          exectime: 1.9723076923076924e-06
         - identifier: encrypt-rc6-256
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 512
-          exectime: 0.00020215384615384613
+          exectime: 2.021538461538461e-06
         - identifier: encrypt-rc6-256
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 1024
-          exectime: 0.00021199999999999998
+          exectime: 2.1199999999999996e-06
         - identifier: encrypt-rc6-256
           param: ""
           CPUModel: Intel-i7-1360P
@@ -10466,22 +10466,22 @@ times:
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 128
-          exectime: 0.00028133333333333336
+          exectime: 2.8133333333333336e-06
         - identifier: encrypt-rc6-256
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 256
-          exectime: 0.00028488888888888894
+          exectime: 2.8488888888888894e-06
         - identifier: encrypt-rc6-256
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 512
-          exectime: 0.000292
+          exectime: 2.92e-06
         - identifier: encrypt-rc6-256
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 1024
-          exectime: 0.0003062222222222222
+          exectime: 3.062222222222222e-06
         - identifier: encrypt-rc6-256
           param: ""
           CPUModel: Intel-i7-14650HX
@@ -10587,22 +10587,22 @@ times:
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 128
-          exectime: 0.00025320000000000003
+          exectime: 2.5320000000000005e-06
         - identifier: encrypt-rc6-512
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 256
-          exectime: 0.0002564
+          exectime: 2.564e-06
         - identifier: encrypt-rc6-512
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 512
-          exectime: 0.0002628
+          exectime: 2.628e-06
         - identifier: encrypt-rc6-512
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 1024
-          exectime: 0.0002756
+          exectime: 2.756e-06
         - identifier: encrypt-rc6-512
           param: ""
           CPUModel: Intel-i7-11850HE
@@ -10687,22 +10687,22 @@ times:
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 128
-          exectime: 0.00019476923076923078
+          exectime: 1.9476923076923077e-06
         - identifier: encrypt-rc6-512
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 256
-          exectime: 0.00019723076923076923
+          exectime: 1.9723076923076924e-06
         - identifier: encrypt-rc6-512
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 512
-          exectime: 0.00020215384615384613
+          exectime: 2.021538461538461e-06
         - identifier: encrypt-rc6-512
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 1024
-          exectime: 0.00021199999999999998
+          exectime: 2.1199999999999996e-06
         - identifier: encrypt-rc6-512
           param: ""
           CPUModel: Intel-i7-1360P
@@ -10947,22 +10947,22 @@ times:
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 128
-          exectime: 0.00028133333333333336
+          exectime: 2.8133333333333336e-06
         - identifier: encrypt-rc6-512
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 256
-          exectime: 0.00028488888888888894
+          exectime: 2.8488888888888894e-06
         - identifier: encrypt-rc6-512
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 512
-          exectime: 0.000292
+          exectime: 2.92e-06
         - identifier: encrypt-rc6-512
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 1024
-          exectime: 0.0003062222222222222
+          exectime: 3.062222222222222e-06
         - identifier: encrypt-rc6-512
           param: ""
           CPUModel: Intel-i7-14650HX
@@ -11068,22 +11068,22 @@ times:
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 128
-          exectime: 0.00025320000000000003
+          exectime: 2.5320000000000005e-06
         - identifier: encrypt-rc6-1024
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 256
-          exectime: 0.0002564
+          exectime: 2.564e-06
         - identifier: encrypt-rc6-1024
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 512
-          exectime: 0.0002628
+          exectime: 2.628e-06
         - identifier: encrypt-rc6-1024
           param: ""
           CPUModel: Intel-Xeon-w-1350P
           pcktlen: 1024
-          exectime: 0.0002756
+          exectime: 2.756e-06
         - identifier: encrypt-rc6-1024
           param: ""
           CPUModel: Intel-i7-11850HE
@@ -11168,22 +11168,22 @@ times:
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 128
-          exectime: 0.00019476923076923078
+          exectime: 1.9476923076923077e-06
         - identifier: encrypt-rc6-1024
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 256
-          exectime: 0.00019723076923076923
+          exectime: 1.9723076923076924e-06
         - identifier: encrypt-rc6-1024
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 512
-          exectime: 0.00020215384615384613
+          exectime: 2.021538461538461e-06
         - identifier: encrypt-rc6-1024
           param: ""
           CPUModel: Intel-Xeon-w-1390P
           pcktlen: 1024
-          exectime: 0.00021199999999999998
+          exectime: 2.1199999999999996e-06
         - identifier: encrypt-rc6-1024
           param: ""
           CPUModel: Intel-i7-1360P
@@ -11428,22 +11428,22 @@ times:
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 128
-          exectime: 0.00028133333333333336
+          exectime: 2.8133333333333336e-06
         - identifier: encrypt-rc6-1024
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 256
-          exectime: 0.00028488888888888894
+          exectime: 2.8488888888888894e-06
         - identifier: encrypt-rc6-1024
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 512
-          exectime: 0.000292
+          exectime: 2.92e-06
         - identifier: encrypt-rc6-1024
           param: ""
           CPUModel: Intel-Xeon-w-1370P
           pcktlen: 1024
-          exectime: 0.0003062222222222222
+          exectime: 3.062222222222222e-06
         - identifier: encrypt-rc6-1024
           param: ""
           CPUModel: Intel-i7-14650HX

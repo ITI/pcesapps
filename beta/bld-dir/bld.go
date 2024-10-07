@@ -331,7 +331,7 @@ func main() {
 	// The method code must be defined for the class of the destination function, and
 	// indicates particular methods to be invoked in the processing of this message
 	eudCmpPtn.AddEdge(decryptOutFunc.Label, processFunc.Label, "plaintext", "processOp", &epCPInit.Msgs)
-	eudCmpPtn.AddEdge(processFunc.Label, encryptRtnFunc.Label, "plaintext", "processOp", &epCPInit.Msgs)
+	eudCmpPtn.AddEdge(processFunc.Label, encryptRtnFunc.Label, "plaintext", "encryptOp", &epCPInit.Msgs)
 
 	// each of the CmpPtn's functions gets a cfg dictionary whose structure is defined
 	// by the function's class. Here we create and populate those structures, which
@@ -347,7 +347,7 @@ func main() {
 	// We will later check this validity as it depends also on the mapping of functions to processors
 	// that has not yet been specified.
 
-	decryptOutStr := createCryptoPcktCfg("decrypt", cryptoAlg, keyLength, "plaintext")
+	decryptOutStr := createCryptoPcktCfg("decrypt", cryptoAlg, keyLength, "plaintext", false)
 	epCPInit.AddCfg(eudCmpPtn, decryptOutFunc, decryptOutStr)
 
 	// the 'processFunc' function in an EUD CmpPtn models the computational delay of doing something
@@ -357,13 +357,13 @@ func main() {
 	tlb := map[string]string{"processOp":"finish"}
 	tcp := map[string]string{"processOp": encryptPerf.Name}
 
-	processStr := createProcessPcktCfg(rtd, tcd, tcp, tlb)
+	processStr := createProcessPcktCfg(rtd, tcd, tcp, tlb, false)
 
 	epCPInit.AddCfg(eudCmpPtn, processFunc, processStr)
 
 	// the 'encryptRtn' function in an EUD CmpPtn models the delay of encrypting
 	// a response to the message sent to the EUD
-	encryptRtnStr := createCryptoPcktCfg("encrypt", cryptoAlg, keyLength, "encryptext")
+	encryptRtnStr := createCryptoPcktCfg("encrypt", cryptoAlg, keyLength, "encryptext", false)
 	epCPInit.AddCfg(eudCmpPtn, encryptRtnFunc, encryptRtnStr)
 
 	// The overall model creates a CmpPtn for each EUD, named
@@ -396,9 +396,9 @@ func main() {
 		// an external edge from encryptOut to the EUD.  Note that a different method (AddExtEdge)
 		// is used to specify the cross-CmpPtn connections
 		cpyCP.AddExtEdge(cpyCP.Name, encryptPerf.Name, encryptRtnFunc.Label, decryptRtnFunc.Label,
-			"encryptext", "processOp", &epCPInit.Msgs, &epCPSrcInit.Msgs)
+			"encryptext", "decryptOp", &epCPInit.Msgs, &epCPSrcInit.Msgs)
 		encryptPerf.AddExtEdge(encryptPerf.Name, cpyCP.Name, encryptOutFunc.Label, decryptOutFunc.Label,
-			"encryptext", "processOp", &epCPSrcInit.Msgs, &epCPInit.Msgs)
+			"encryptext", "decryptOp", &epCPSrcInit.Msgs, &epCPInit.Msgs)
 
 		// save the EUD CmpPtn in the output dictionary
 		cpDict.AddCompPattern(cpyCP)
@@ -416,7 +416,7 @@ func main() {
 
 	// add edges to the packet source CmpPtn
 	encryptPerf.AddEdge(srcFunc.Label, srcFunc.Label, "initiate", "generateOp", &epCPSrcInit.Msgs)
-	encryptPerf.AddEdge(srcFunc.Label, encryptOutFunc.Label, "plaintext", "processOp", &epCPSrcInit.Msgs)
+	encryptPerf.AddEdge(srcFunc.Label, encryptOutFunc.Label, "plaintext", "encryptOp", &epCPSrcInit.Msgs)
 	encryptPerf.AddEdge(decryptRtnFunc.Label, srcFunc.Label, "finishtext", "completeOp", &epCPSrcInit.Msgs)
 	encryptPerf.AddEdge(srcFunc.Label, finishFunc.Label, "finishtext", "finishOp", &epCPSrcInit.Msgs)
 
@@ -425,7 +425,7 @@ func main() {
 	srcCfg := pces.ClassCreateCycleDstCfg()
 
 	// create the routing and timing code maps
-	rtd = map[string]string{"generateOp":"plaintext", "completeOp":"finishtext"}
+	rtd = map[string]string{"generateOp":"plaintext", "completeOp": "finishtext"}
 	tcd = map[string]string{"generateOp":"generateOp", "completeOp": "completeOp"}
 
 	// build out the cfg dictionary for the srcFunc
@@ -441,11 +441,11 @@ func main() {
 	epCPSrcInit.AddCfg(encryptPerf, srcFunc, serialSrcCfg)
 
 	// put in parameters for encryptOutFunc
-	encryptOutStr := createCryptoPcktCfg("encrypt", cryptoAlg, keyLength, "encryptext")
+	encryptOutStr := createCryptoPcktCfg("encrypt", cryptoAlg, keyLength, "encryptext", archType=="SSL")
 	epCPSrcInit.AddCfg(encryptPerf, encryptOutFunc, encryptOutStr)
 
 	// put in parameters for decryptRtnFunc
-	decryptRtnStr := createCryptoPcktCfg("decrypt", cryptoAlg, keyLength, "finishtext")
+	decryptRtnStr := createCryptoPcktCfg("decrypt", cryptoAlg, keyLength, "finishtext", archType=="SSL")
 	epCPSrcInit.AddCfg(encryptPerf, decryptRtnFunc, decryptRtnStr)
 
 	// make a minimalistic cfg for finish
@@ -745,7 +745,7 @@ func main() {
 
 }
 
-func createProcessPcktCfg(rt, tc, tcp, tlb map[string]string) string {
+func createProcessPcktCfg(rt, tc, tcp, tlb map[string]string, accl bool) string {
 	cfg := pces.ClassCreateProcessPcktCfg()
 
 	for key, value := range rt {
@@ -764,6 +764,8 @@ func createProcessPcktCfg(rt, tc, tcp, tlb map[string]string) string {
 		cfg.TgtLabel[key] = value
 	}	
 
+	cfg.Accl = accl
+
 	// serialize the class-dependent cfg structure
 	serialCfg, err0 := cfg.Serialize(useYAML)
 	if err0 != nil {
@@ -773,13 +775,13 @@ func createProcessPcktCfg(rt, tc, tcp, tlb map[string]string) string {
 }
 
 // def createCryptoPckt("decrypt", cryptoAlg, keyLength, false)
-func createCryptoPcktCfg(cryptoOp, cryptoAlg, keyLength, msgType string) string {
+func createCryptoPcktCfg(cryptoOp, cryptoAlg, keyLength, msgType string, accl bool) string {
 	cryptoVec := []string{cryptoOp, cryptoAlg, keyLength}
 	opCode := strings.Join(cryptoVec,"-")
-	rtd := map[string]string{"processOp": msgType }
-	tcd := map[string]string{"processOp":opCode}
+	rtd := map[string]string{"encryptOp": msgType, "decryptOp": msgType}
+	tcd := map[string]string{"encryptOp":opCode, "decryptOp": opCode}
 	empty := make(map[string]string)
-	return createProcessPcktCfg(rtd, tcd, empty, empty)
+	return createProcessPcktCfg(rtd, tcd, empty, empty, accl)
 }
 
 func createFinishCfg() string {

@@ -6,6 +6,7 @@ import (
 	"github.com/iti/cmdline"
 	"github.com/iti/pces"
 	"github.com/iti/mrnes"
+	"golang.org/x/exp/slices"
 	"bufio"
 	"path/filepath"
 	"strconv"
@@ -18,11 +19,26 @@ func cmdlineParams() *cmdline.CmdParser {
 	// command line parameters are all about file and directory locations.
 	cp := cmdline.NewCmdParser()
 	cp.AddFlag(cmdline.StringFlag, "db", true)		   // directory where 'database' of csv models reside
+	cp.AddFlag(cmdline.FloatFlag, "ssl", false)		   // directory where 'database' of csv models reside
 	cp.AddFlag(cmdline.StringFlag, "outputDir", false) // directory where 'database' of csv models reside
 	return cp
 }
 
+var action []string = []string{"encrypt", "decrypt"}
+var algs []string = []string{"3des","rc6","aes","des"}
+
+func cryptoOp(op string) bool {
+	pieces := strings.Split(op, "-")
+	if len(pieces) != 3 {
+		return false
+	}
+	if !slices.Contains(action,pieces[0]) || !slices.Contains(algs, pieces[1]) {
+		return false
+	}
+	return true
+}
 // main gives the entry point
+
 func main() {
 	// define the command line parameters
 	cp := cmdlineParams()
@@ -32,6 +48,13 @@ func main() {
 
 	// string for directory with source .csv files
 	dbDir := cp.GetVar("db").(string)
+
+	var transSSL bool = false
+	var sslScale float64 = 1.0
+	if cp.IsLoaded("ssl") {
+		transSSL = true
+		sslScale = cp.GetVar("ssl").(float64)
+	}
 
 	timingDir := filepath.Join(dbDir,"timing")
 	funcXDir := filepath.Join(timingDir,"funcExec")
@@ -54,6 +77,8 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+
+	var transOp bool = false
 
 	for _, fXFile := range funcXFiles {
 		// get the base file name
@@ -119,6 +144,7 @@ func main() {
 			// is this the first appearance of a new operation?		
 			if len(fields[0]) > 0 && opName != fields[0] {
 				opName = fields[0]
+				transOp = cryptoOp(opName)
 
 				// new ops require an update devName
 				if len(fields[1]) == 0 {
@@ -151,7 +177,12 @@ func main() {
 			// scale ex (microseconds) to seconds
 			ex = ex/1e+6			
 			// add timing to list
-			fel.AddTiming(opName, fields[3], devName, ps, ex)
+
+			if transOp && transSSL && strings.Contains(devName,"Xeon") {
+				fel.AddTiming(opName, fields[3], devName, ps, ex/sslScale)
+			} else {
+				fel.AddTiming(opName, fields[3], devName, ps, ex)
+			}
 		} 
 		// write the timing description out to file
 		// replace the .csv extention of csvFile to .yaml or .json

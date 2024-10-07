@@ -1,11 +1,11 @@
 module main
 
-go 1.21
+go 1.22.7
 
 require (
 	github.com/iti/cmdline v0.1.1
-	github.com/iti/mrnes v0.0.12
-	github.com/iti/pces v0.0.10
+	github.com/iti/mrnes v0.0.13
+	github.com/iti/pces v0.0.11
 	github.com/iti/rngstream v0.2.2
 )
 

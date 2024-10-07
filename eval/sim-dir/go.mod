@@ -6,17 +6,17 @@ replace github.com/iti/mrnes => ../../../mrnes
 
 replace github.com/iti/probe => ../probe
 
-go 1.21
+go 1.22.0
 
-toolchain go1.23.1
+toolchain go1.22.7
 
 require (
 	github.com/iti/cmdline v0.1.1
-	github.com/iti/mrnes v0.0.7
+	github.com/iti/mrnes v0.0.4
 	github.com/iti/pces v0.0.5
 	github.com/iti/probe v0.0.0-00010101000000-000000000000
 	github.com/iti/rngstream v0.2.2
-	golang.org/x/exp v0.0.0-20240823005443-9b4947da3948
+	golang.org/x/exp v0.0.0-20240909161429-701f63a606c0
 )
 
 require (

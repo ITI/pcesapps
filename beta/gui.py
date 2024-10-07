@@ -968,7 +968,7 @@ def executeExperiment():
 
     rangeKeyConv = {'EUDs':'euds', 'Architecture':'arch','PcktMu':'pcktMu',
         'CryptoAlg':'crypto', 'Key Lengths':'keylength', 'PcktLen': 'pcktLen', 'PcktBurst': 'pcktBurst', 
-        'PubNet Switch':'pubSwitch', 'PvtNet Switch':'pvtSwitch',
+        'PubNet Switch':'pubSwitch', 'PvtNet Switch':'pvtSwitch', 'SSL CPU': 'sslCPU',
         'PubNet Mbps':'pubNetBw', 'PvtNet Mbps':'pvtNetBw','Router':'rtr', 'None':'None'}
 
     invKeyConv = {}

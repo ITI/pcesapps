@@ -1,4 +1,4 @@
--switchports 16
+-switchports 64
 -srccores 8
 -sslcores 8
 -eudcores 2
