@@ -2,12 +2,14 @@ package main
 
 import (
 	"fmt"
+	"os"
+	"errors"
 	"github.com/iti/cmdline"
 	"github.com/iti/mrnes"
 	"github.com/iti/pces"
+	"github.com/iti/evt/evtm"
 	"github.com/iti/rngstream"
 	"golang.org/x/exp/slices"
-	"github.com/iti/probe"
 	"path/filepath"
 	"math/rand"
 )
@@ -21,27 +23,27 @@ func cmdlineParams() *cmdline.CmdParser {
 	// create an argument parser
 	cp := cmdline.NewCmdParser()
 	cp.AddFlag(cmdline.StringFlag, "inputLib", true) // directory where model parameters are read from
+	cp.AddFlag(cmdline.StringFlag, "outputLib", true) // directory where measurements and traces are stored
 	cp.AddFlag(cmdline.StringFlag, "cp", true)       //
 	cp.AddFlag(cmdline.StringFlag, "cpInit", true)   //
 	cp.AddFlag(cmdline.StringFlag, "funcExec", true) // name of input file holding descriptions of functional timings
 	cp.AddFlag(cmdline.StringFlag, "devExec", true)  // name of input file holding descriptions of device timings
-	cp.AddFlag(cmdline.StringFlag, "srdCfg", true)   // name of input file holding descriptions of functions that share configuration
 	cp.AddFlag(cmdline.StringFlag, "map", true)      // file with mapping of comp pattern functions to hosts
 	cp.AddFlag(cmdline.StringFlag, "exp", true)      // name of file used for run-time experiment parameters
 	cp.AddFlag(cmdline.StringFlag, "mdfy", false)    // name of file used to modify exp experiment parameters
 	cp.AddFlag(cmdline.StringFlag, "topo", false)    // name of output file used for topo templates
 	cp.AddFlag(cmdline.StringFlag, "trace", false)   // path to output file of trace records
-	cp.AddFlag(cmdline.IntFlag, "rngseed", false)       // RNG seed 
-	cp.AddFlag(cmdline.BoolFlag, "qnetsim", false)   // flag indicating that network sim ought to be 'quick'
+	cp.AddFlag(cmdline.IntFlag, "rngseed", false)    // RNG seed 
 	cp.AddFlag(cmdline.FloatFlag, "stop", true)      // run the simulation until this time (in seconds)
-	cp.AddFlag(cmdline.StringFlag, "probes", true)   // name of yaml file with definition of probes to perform
-	cp.AddFlag(cmdline.BoolFlag, "json", false)   // input/output files in YAML, or JSON
+	cp.AddFlag(cmdline.BoolFlag, "json", false)      // input/output files in YAML, or JSON
 	cp.AddFlag(cmdline.StringFlag, "msr", true)      // name of file where measurements will be written
+	cp.AddFlag(cmdline.BoolFlag, "container", false)  // name of file where measurements will be written
 	return cp
 }
 
 // main gives the entry point
 func main() {
+
 	// define the command line parameters
 	cp := cmdlineParams()
 
@@ -50,6 +52,36 @@ func main() {
 
 	// string for the input directory
 	inputDir := cp.GetVar("inputLib").(string)
+	outputDir := cp.GetVar("outputLib").(string)
+
+	container := false
+	if cp.IsLoaded("container") {
+		container = true
+	}
+
+	// if container is set change inputDir and outputDir
+	// to be /tmp/external/input and /tmp/external/output
+	if container {
+		// create /tmp/external if needed
+		inputDir = "/tmp/external/input"
+		outputDir = "/tmp/external/output"
+
+		if _, err := os.Stat("/tmp/external"); os.IsNotExist(err) {
+			err := os.Mkdir("/tmp/external", 0755)
+			if err != nil {
+				panic(errors.New("unable to create /tmp/external"))
+			}
+			os.Mkdir("/tmp/external/input", 0755)
+			os.Mkdir("/tmp/external/output", 0755)
+		}
+		if _, err := os.Stat("/tmp/external/output"); os.IsNotExist(err) {
+			err := os.Mkdir("/tmp/external", 0755)
+			if err != nil {
+				panic(errors.New("unable to create /tmp/external/output"))
+			}
+
+		}	
+	}
 
 	// make sure these directories exist
 	dirs := []string{inputDir}
@@ -60,8 +92,8 @@ func main() {
 
 	// check for access to input files
 	fullpathmap := make(map[string]string)
-	inFiles := []string{"cp", "cpInit", "funcExec", "devExec", "srdCfg", "exp", "mdfy", "topo", "map", "probes"}
-	optionalFiles := []string{"mdfy", "srdCfg"}
+	inFiles := []string{"cp", "cpInit", "funcExec", "devExec", "exp", "mdfy", "topo", "map"}
+	optionalFiles := []string{"mdfy"}
 
 	fullpath := []string{}
 	syn := make(map[string]string)
@@ -94,29 +126,37 @@ func main() {
 
 	// if we're saving traces check the path
 	var traceFile string
-	msrFile := cp.GetVar("msr").(string)
+	var msrFile string
+	var useTrace bool
 
-	useTrace := false
-	outputFiles := []string{msrFile}
+	outputFiles := make([]string, 0)
+
 	if cp.IsLoaded("trace") {
-		traceFile = cp.GetVar("trace").(string)
-		outputFiles = append(outputFiles, traceFile)
-		_, err := pces.CheckOutputFiles(outputFiles)
-		if err != nil {
-			panic(err)
+		if !container {
+			traceFile = cp.GetVar("trace").(string)
+			traceFile = filepath.Join(outputDir, traceFile)
+		} else {
+			baseFile := filepath.Base(traceFile)
+			traceFile = filepath.Join("/tmp/external/output", baseFile)
 		}
-		useTrace = true
+		outputFiles = append(outputFiles, traceFile)
+	} 
+	
+	if cp.IsLoaded("msr") {
+		if !container {
+			msrFile = cp.GetVar("msr").(string)
+			msrFile = filepath.Join(outputDir, msrFile)
+		} else {
+			baseFile := filepath.Base(msrFile)
+			msrFile = filepath.Join("/tmp/external/output", baseFile)
+		}
+		outputFiles = append(outputFiles, msrFile)
+	} 
+	
+	_, err = pces.CheckOutputFiles(outputFiles)
+	if err != nil {
+		panic(err)
 	}
-
-	// if -qnetsim is set we use the 'skip over network devices' version of network simulation
-	if cp.IsLoaded("qnetsim") {
-		syn["qksim"] = "true"
-	}
-
-	useJSON := false
-	if cp.IsLoaded("json") {
-		useJSON = true
-	}	
 
 	traceMgr := mrnes.CreateTraceManager("experiment", useTrace)
 
@@ -127,23 +167,33 @@ func main() {
 		rand.Seed(int64(seed))
 	}
 
+	evtMgr := evtm.New()
+
 	// build the experiment.  First the network stuff
 	// start the id counter at 1 (value passed is incremented before use)
 	mrnes.BuildExperimentNet(syn, true, 0, traceMgr)
 
-	// now the computation patterns, where initial events were scheduled
-	evtMgr, err := pces.BuildExperimentCP(syn, true, mrnes.NumIDs, traceMgr)
+	// now get the computation patterns and initialization structures
+	// cpd  *CompPatternDict
+	// cpid *CPInitDict
+	// fel  *FuncExecList
+	// cpmd *CompPatternMapDict
+	cpd, cpid, fel, cpmd := pces.GetExperimentCPDicts(syn)
+
+	err = pces.ContinueBuildExperimentCP(cpd, cpid, fel, cpmd, syn, mrnes.NumIDs, traceMgr, evtMgr)
 	if err != nil {
 		panic(err)
 	}
 
-	probe.BuildProbeExp(syn["probes"], !useJSON)
-	probe.StartProbeExp(evtMgr)
+	// call function expControl to find start functions and run them
+
+	expCntrl(evtMgr, nil, nil) 
 
 	termination := cp.GetVar("stop").(float64)
 	evtMgr.Run(termination)
 
-	probe.SaveProbeResults(msrFile, !useJSON)
+	// call function expComplete to complete the experiment, write out measurements
+	expComplete(evtMgr, nil, &msrFile) 
 
 	if useTrace {
 		traceMgr.WriteToFile(traceFile)
@@ -151,3 +201,4 @@ func main() {
 
 	fmt.Println("Done")
 }
+
