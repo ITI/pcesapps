@@ -1,7 +1,8 @@
 # Usage:
 #
-# docker build -t xxx .
-# docker run -it --rm -v /tmp/extern:/extern xxx
+# docker build -t pcesapps-dev:latest -t pcesapps:latest .
+# docker run -it --rm -v /tmp/extern:/extern ghcr.io/iti/pcesapps-dev
+# docker run -it --rm -v /tmp/extern:/extern ghcr.io/iti/pcesapps
 #
 FROM golang:1.23-bookworm
 
