@@ -1,8 +1,8 @@
 # Usage:
 #
 # docker build -t pcesapps-dev:latest -t pcesapps:latest .
-# docker run -it --rm -v /tmp/extern:/extern ghcr.io/iti/pcesapps-dev
-# docker run -it --rm -v /tmp/extern:/extern ghcr.io/iti/pcesapps
+# docker run -it --rm -v ~/pcesapps/extern:/tmp/extern ghcr.io/iti/pcesapps-dev
+# docker run -it --rm -v ~/pcesapps/extern:/tmp/extern ghcr.io/iti/pcesapps
 #
 FROM golang:1.23-bookworm
 
@@ -17,5 +17,5 @@ WORKDIR /pcesapps
 COPY . .
 RUN cd embedded/sim-dir && go mod tidy && go build -o /bin/sim sim.go exp.go
 
-# remember to use "-v /tmp/extern:/extern"
-WORKDIR /extern
+# remember to use "-v" to map in /tmp/extern
+WORKDIR /tmp/extern
