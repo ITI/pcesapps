@@ -1,0 +1,20 @@
+# Usage:
+#
+# docker build -t xxx .
+# docker run -it --rm -v /tmp/extern:/extern xxx
+#
+FROM golang:1.23-bookworm
+
+# Add whatever Debian packages you want here.
+RUN apt-get -y update &&  \ 
+    apt-get install --no-install-recommends -y \
+    vim-nox && \
+    rm -rf /var/lib/apt/lists/*
+
+# Build the pcesapps app
+WORKDIR /pcesapps
+COPY . .
+RUN cd embedded/sim-dir && go mod tidy && go build -o /bin/sim sim.go exp.go
+
+# remember to use "-v /tmp/extern:/extern"
+WORKDIR /extern
