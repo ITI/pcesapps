@@ -50,7 +50,7 @@ jobs:
         with:
           # list of Docker images to use as base name for tags
           images: |
-            ghcr.io/illinoisrobert/pcesapps
+            ghcr.io/iti/pcesapps
           # Various tags
           tags: |
             type=ref,event=branch
