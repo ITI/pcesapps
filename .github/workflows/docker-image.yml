@@ -1,11 +1,22 @@
-name: Docker Image CI
+# Ref: https://dev.to/cloudx/multi-arch-docker-images-the-easy-way-with-github-actions-4k54
+# Ref: https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions
+# Ref: https://github.com/marketplace/actions/docker-build-push, etc.
 
+name: "Docker Image CI"
+
+# Controls when the workflow will run
 on:
+  workflow_dispatch:
   push:
-    branches: [ "*" ]
-    tags: [ "v*" ]
-  pull_request:
-    branches: [ "main" ]
+    branches:
+      - '*'
+      - '*/*'
+    tags:
+      - 'v*.*.*'
+
+# Creating packages.
+permissions:
+  packages: write
 
 jobs:
 
@@ -14,29 +25,47 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: update image vars
-      run: |
-        if [ "$GITHUB_REF_TYPE" = "tag" ]
-        then
-          echo IMAGE_TYPE=""
-          echo IMAGE_TAG=$GITHUB_REF_NAME
-        else
-          echo IMAGE_TYPE=-dev
-          echo IMAGE_TAG=$(date -u +%s)
-        fi >> $GITHUB_ENV
-    - name: Login to GitHub Container Registry
-      uses: docker/login-action@v3
-      with:
-        registry: ghcr.io
-        username: ${{ github.actor }}
-        password: ${{ secrets.GITHUB_TOKEN }}
+      # Get the repository's code
+      - name: Checkout
+        uses: actions/checkout@v4
+      # https://github.com/docker/setup-qemu-action
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+      # https://github.com/docker/setup-buildx-action
+      - name: Set up Docker Buildx
+        id: buildx
+        uses: docker/setup-buildx-action@v3
+      - name: Login to GHCR
+        if: github.event_name != 'pull_request'
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
-    - uses: actions/checkout@v4
-    - name: Build the Docker image
-      # run: ./docker-build.sh $IMAGE_TYPE $IMAGE_TAG
-      run: |
-        TAG=ghcr.io/iti/pcesapps$IMAGE_TYPE:$IMAGE_TAG
-        TAG2=ghcr.io/iti/pcesapps$IMAGE_TYPE:latest
-        docker build --no-cache -t $TAG -t $TAG2 .
-        docker push $TAG
-        docker push $TAG2
+
+      - name: Docker meta
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          # list of Docker images to use as base name for tags
+          images: |
+            ghcr.io/illinoisrobert/pcesapps
+          # Various tags
+          tags: |
+            type=ref,event=branch
+            type=ref,event=tag
+            type=ref,event=pr
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
+            type=semver,pattern={{major}}
+            type=sha
+
+      - name: Build and push
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          platforms: linux/amd64,linux/aarch64
+          push: ${{ github.event_name != 'pull_request' }}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
