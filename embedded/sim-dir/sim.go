@@ -60,24 +60,24 @@ func main() {
 	}
 
 	// if container is set change inputDir and outputDir
-	// to be /tmp/external/input and /tmp/external/output
+	// to be /tmp/extern/input and /tmp/extern/output
 	if container {
-		// create /tmp/external if needed
-		inputDir = "/tmp/external/input"
-		outputDir = "/tmp/external/output"
+		// create /tmp/extern if needed
+		inputDir = "/tmp/extern/input"
+		outputDir = "/tmp/extern/output"
 
-		if _, err := os.Stat("/tmp/external"); os.IsNotExist(err) {
-			err := os.Mkdir("/tmp/external", 0755)
+		if _, err := os.Stat("/tmp/extern"); os.IsNotExist(err) {
+			err := os.Mkdir("/tmp/extern", 0755)
 			if err != nil {
-				panic(errors.New("unable to create /tmp/external"))
+				panic(errors.New("unable to create /tmp/extern"))
 			}
-			os.Mkdir("/tmp/external/input", 0755)
-			os.Mkdir("/tmp/external/output", 0755)
+			os.Mkdir("/tmp/extern/input", 0755)
+			os.Mkdir("/tmp/extern/output", 0755)
 		}
-		if _, err := os.Stat("/tmp/external/output"); os.IsNotExist(err) {
-			err := os.Mkdir("/tmp/external", 0755)
+		if _, err := os.Stat("/tmp/extern/output"); os.IsNotExist(err) {
+			err := os.Mkdir("/tmp/extern", 0755)
 			if err != nil {
-				panic(errors.New("unable to create /tmp/external/output"))
+				panic(errors.New("unable to create /tmp/extern/output"))
 			}
 
 		}	
@@ -137,7 +137,7 @@ func main() {
 			traceFile = filepath.Join(outputDir, traceFile)
 		} else {
 			baseFile := filepath.Base(traceFile)
-			traceFile = filepath.Join("/tmp/external/output", baseFile)
+			traceFile = filepath.Join("/tmp/extern/output", baseFile)
 		}
 		outputFiles = append(outputFiles, traceFile)
 	} 
@@ -148,7 +148,7 @@ func main() {
 			msrFile = filepath.Join(outputDir, msrFile)
 		} else {
 			baseFile := filepath.Base(msrFile)
-			msrFile = filepath.Join("/tmp/external/output", baseFile)
+			msrFile = filepath.Join("/tmp/extern/output", baseFile)
 		}
 		outputFiles = append(outputFiles, msrFile)
 	} 
