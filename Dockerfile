@@ -18,4 +18,4 @@ COPY . .
 RUN cd embedded/sim-dir && go mod tidy && go build -o /bin/sim sim.go exp.go
 
 # remember to use "-v" to map in /tmp/extern
-WORKDIR /pcesapps/embedded
+WORKDIR /tmp/extern/input

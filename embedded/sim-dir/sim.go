@@ -143,8 +143,8 @@ func main() {
 	} 
 	
 	if cp.IsLoaded("msr") {
+		msrFile = cp.GetVar("msr").(string)
 		if !container {
-			msrFile = cp.GetVar("msr").(string)
 			msrFile = filepath.Join(outputDir, msrFile)
 		} else {
 			baseFile := filepath.Base(msrFile)
