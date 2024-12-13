@@ -22,11 +22,12 @@ func expCntrl(evtMgr *evtm.EventManager, context any, data any) any {
 	return nil 
 }
 
-func expComplete(evtMgr *evtm.EventManager, context any, data any) any {
+func expCmplt(evtMgr *evtm.EventManager, context any, data any) any {
 	// go through all comp patterns looking for functions of the 'start' class,
 	// and schedule them for execution
-	msrFileName := *data.(*string)
-	pces.SaveMeasureResults(msrFileName, true)
+	msrFileName := *context.(*string)
+	exprmnt := *data.(*string)
+	pces.SaveMeasureResults(msrFileName, exprmnt, true)
 	return nil 
 }
 

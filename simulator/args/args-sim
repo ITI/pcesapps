@@ -1,5 +1,6 @@
--inputLib ../input
--outputLib ../output
+-exprmnt exp-4
+-inputLib ./input
+-outputLib ./output
 -cp cp.yaml
 -cpInit cpInit.yaml
 -funcExec funcExec.yaml
@@ -11,4 +12,5 @@
 -stop 100.0
 -msr msr.yaml
 -rngseed 234545
+-tunits msec
 #-container

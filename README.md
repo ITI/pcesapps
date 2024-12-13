@@ -1,1 +1,2 @@
-This repo holds applications (each in its own module 'main') that use repos related to the MrNesbits simulation project.  The idea is that one can clone this repo, descend into one of the application subdirectories, run programs that build the application's architecture and operating context, then build and run the application code.
+This repo holds the framework for executing experiments comprised of multiple runs of the pces simulator.  The heavy lifting is done in subdirectories simulator and simulator/sim-dir, with code that can be used to run multiple different pces applications.   Other subdirectories in this repo hold model input files.
+

@@ -15,7 +15,8 @@ RUN apt-get -y update &&  \
 # Build the pcesapps app
 WORKDIR /pcesapps
 COPY . .
-RUN cd embedded/sim-dir && go mod tidy && go build -o /bin/sim sim.go exp.go
+RUN cd simulator/sim-dir && go mod tidy && go build -o /bin/sim sim.go exp.go
 
 # remember to use "-v" to map in /tmp/extern
-WORKDIR /tmp/extern/input
+WORKDIR /pcesapps/simulator/sim-dir
+RUN sim -is /tmp/extern/input/args-sim
