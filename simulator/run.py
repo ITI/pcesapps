@@ -178,8 +178,8 @@ def main():
             outsideDir = os.path.join(paths[:len(paths)-1])
             mountCmd = '{}:{}'.format(outsideDir, externDir)
             #cTag = "ghcr.io/iti/pcesapps-dev" 
-            cTag = "pces/sim"
-            simExecArgs = ["docker","run","-it", "--rm" "-v", mountCmd,  cTag]
+            
+            simExecArgs = ["docker","run","-it", "--rm" "-v", mountCmd,  containerTag]
 
             process = subprocess.Popen(simExecArgs,
                 stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
