@@ -19,4 +19,4 @@ RUN cd simulator/sim-dir && go mod tidy && go build -o /bin/sim sim.go exp.go
 
 # remember to use "-v" to map in /tmp/extern
 WORKDIR /pcesapps/simulator/sim-dir
-RUN sim -is /tmp/extern/args/args-sim
+CMD sim -is /tmp/extern/args/args-sim
