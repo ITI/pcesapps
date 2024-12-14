@@ -1,5 +1,5 @@
 # Usage:
-#
+
 # docker build -t pcesapps-dev:latest -t pcesapps:latest .
 # docker run -it --rm -v ~/pcesapps/extern:/tmp/extern ghcr.io/iti/pcesapps-dev
 # docker run -it --rm -v ~/pcesapps/extern:/tmp/extern ghcr.io/iti/pcesapps
@@ -19,4 +19,4 @@ RUN cd simulator/sim-dir && go mod tidy && go build -o /bin/sim sim.go exp.go
 
 # remember to use "-v" to map in /tmp/extern
 WORKDIR /pcesapps/simulator/sim-dir
-RUN sim -is /tmp/extern/input/args-sim
+#RUN sim -is /tmp/extern/input/args-sim

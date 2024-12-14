@@ -1,0 +1,21 @@
+experiment set run at time 2024-12-14 07:20:35.382921
+- exprmnt: exp-1
+  measurements:
+  - latency: 1.0840000000007421 (msec)
+    measurename: end2end
+    waypoints: []
+- exprmnt: exp-2
+  measurements:
+  - latency: 24.84399999999914 (msec)
+    measurename: end2end
+    waypoints: []
+- exprmnt: exp-3
+  measurements:
+  - latency: 1.0790000000015425 (msec)
+    measurename: end2end
+    waypoints: []
+- exprmnt: exp-4
+  measurements:
+  - latency: 24.838999999999942 (msec)
+    measurename: end2end
+    waypoints: []

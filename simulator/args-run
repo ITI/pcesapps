@@ -1,5 +1,4 @@
 -template ./template
--args ./args
 -input ./input
 -output ./output
 -sim ./sim-dir

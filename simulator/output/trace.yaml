@@ -1,0 +1,671 @@
+inuse: true
+expname: exp-4
+namebyid:
+    1:
+        name: hub
+        type: switch
+    2:
+        name: hmiDev
+        type: endpt
+    3:
+        name: embeddedDev
+        type: endpt
+    4:
+        name: sslDev
+        type: endpt
+    5:
+        name: central
+        type: network
+    6:
+        name: intrfc@hmiDev-hub
+        type: interface
+    7:
+        name: intrfc@embeddedDev-hub
+        type: interface
+    8:
+        name: intrfc@sslDev-hub
+        type: interface
+    9:
+        name: intrfc@hub-hmiDev
+        type: interface
+    10:
+        name: intrfc@hub-sslDev
+        type: interface
+    11:
+        name: intrfc@hub-embeddedDev
+        type: interface
+    24:
+        name: HMI:generatePckt
+        type: application
+    25:
+        name: HMI:accelEncrypt
+        type: application
+    27:
+        name: HMI:accelDecrypt
+        type: application
+traces:
+    2:
+        - tracetime: "0"
+          tracetype: CP
+          tracestr: |
+            time: 0
+            ticks: 0
+            priority: 1
+            execid: 2
+            objid: 2
+            op: enter
+            cpm: |
+                execid: 2
+                nxtlabel: ""
+                msgtype: measure
+                msglen: 1500
+                pcktlen: 0
+                flowstate: ""
+        - tracetime: "10"
+          tracetype: CP
+          tracestr: |
+            time: 10
+            ticks: 10000000
+            priority: 3
+            execid: 2
+            objid: 2
+            op: exit
+            cpm: |
+                execid: 2
+                nxtlabel: ""
+                msgtype: measure
+                msglen: 1500
+                pcktlen: 0
+                flowstate: ""
+        - tracetime: "10.000032"
+          tracetype: CP
+          tracestr: |
+            time: 10.000032
+            ticks: 10000032
+            priority: 8
+            execid: 2
+            objid: 24
+            op: exit
+            cpm: |
+                execid: 2
+                nxtlabel: ""
+                msgtype: encrypt
+                msglen: 1500
+                pcktlen: 0
+                flowstate: ""
+        - tracetime: "10.000033"
+          tracetype: CP
+          tracestr: |
+            time: 10.000033
+            ticks: 10000033
+            priority: 12
+            execid: 2
+            objid: 25
+            op: exit
+            cpm: |
+                execid: 2
+                nxtlabel: ""
+                msgtype: compute
+                msglen: 1500
+                pcktlen: 0
+                flowstate: ""
+        - tracetime: "10.000033"
+          tracetype: interface
+          tracestr: |
+            time: 10.000033
+            objid: 6
+            execid: 2
+            op: arriveEgress
+            cq: egress_0 % 0
+        - tracetime: "10.001233"
+          tracetype: interface
+          tracestr: |
+            time: 10.001233
+            objid: 6
+            execid: 2
+            op: exitEgress
+            cq: egress_0 % 0
+        - tracetime: "10.001238"
+          tracetype: interface
+          tracestr: |
+            time: 10.001238
+            objid: 9
+            execid: 2
+            op: arriveSimpleDev
+            cq: ""
+        - tracetime: "10.002501"
+          tracetype: interface
+          tracestr: |
+            time: 10.002501
+            objid: 7
+            execid: 2
+            op: enterIngress
+            cq: ""
+        - tracetime: "10.002501"
+          tracetype: CP
+          tracestr: |
+            time: 10.002501
+            ticks: 10002501
+            priority: 18
+            execid: 2
+            objid: 3
+            op: enter
+            cpm: |
+                execid: 2
+                nxtlabel: ""
+                msgtype: auth
+                msglen: 1500
+                pcktlen: 0
+                flowstate: ""
+        - tracetime: "10.002501"
+          tracetype: interface
+          tracestr: |
+            time: 10.002501
+            objid: 7
+            execid: 2
+            op: arriveEgress
+            cq: egress_0 % 0
+        - tracetime: "10.003701"
+          tracetype: interface
+          tracestr: |
+            time: 10.003701
+            objid: 7
+            execid: 2
+            op: exitEgress
+            cq: egress_0 % 0
+        - tracetime: "10.003706"
+          tracetype: interface
+          tracestr: |
+            time: 10.003706
+            objid: 11
+            execid: 2
+            op: arriveSimpleDev
+            cq: ""
+        - tracetime: "10.004969"
+          tracetype: interface
+          tracestr: |
+            time: 10.004969
+            objid: 6
+            execid: 2
+            op: enterIngress
+            cq: egress_0 % 0
+        - tracetime: "10.004969"
+          tracetype: CP
+          tracestr: |
+            time: 10.004969
+            ticks: 10004969
+            priority: 25
+            execid: 2
+            objid: 2
+            op: enter
+            cpm: |
+                execid: 2
+                nxtlabel: ""
+                msgtype: auth
+                msglen: 1500
+                pcktlen: 0
+                flowstate: ""
+        - tracetime: "10.004973"
+          tracetype: interface
+          tracestr: |
+            time: 10.004973
+            objid: 6
+            execid: 2
+            op: arriveEgress
+            cq: egress_0 % 0
+        - tracetime: "10.006173"
+          tracetype: interface
+          tracestr: |
+            time: 10.006173
+            objid: 6
+            execid: 2
+            op: exitEgress
+            cq: egress_0 % 0
+        - tracetime: "10.006178"
+          tracetype: interface
+          tracestr: |
+            time: 10.006178
+            objid: 9
+            execid: 2
+            op: arriveSimpleDev
+            cq: ""
+        - tracetime: "10.007441"
+          tracetype: interface
+          tracestr: |
+            time: 10.007441
+            objid: 7
+            execid: 2
+            op: enterIngress
+            cq: egress_0 % 0
+        - tracetime: "10.007441"
+          tracetype: CP
+          tracestr: |
+            time: 10.007441
+            ticks: 10007441
+            priority: 32
+            execid: 2
+            objid: 3
+            op: enter
+            cpm: |
+                execid: 2
+                nxtlabel: ""
+                msgtype: return-auth
+                msglen: 1500
+                pcktlen: 0
+                flowstate: ""
+        - tracetime: "10.007441"
+          tracetype: CP
+          tracestr: |
+            time: 10.007441
+            ticks: 10007441
+            priority: 34
+            execid: 2
+            objid: 3
+            op: enter
+            cpm: |
+                execid: 2
+                nxtlabel: ""
+                msgtype: decrypt-AES-128-CBC
+                msglen: 1500
+                pcktlen: 0
+                flowstate: ""
+        - tracetime: "10.007441"
+          tracetype: interface
+          tracestr: |
+            time: 10.007441
+            objid: 7
+            execid: 2
+            op: arriveEgress
+            cq: egress_0 % 0
+        - tracetime: "10.008641"
+          tracetype: interface
+          tracestr: |
+            time: 10.008641
+            objid: 7
+            execid: 2
+            op: exitEgress
+            cq: egress_0 % 0
+        - tracetime: "10.008646"
+          tracetype: interface
+          tracestr: |
+            time: 10.008646
+            objid: 11
+            execid: 2
+            op: arriveSimpleDev
+            cq: ""
+        - tracetime: "10.009909"
+          tracetype: interface
+          tracestr: |
+            time: 10.009909
+            objid: 8
+            execid: 2
+            op: enterIngress
+            cq: ""
+        - tracetime: "10.009909"
+          tracetype: CP
+          tracestr: |
+            time: 10.009909
+            ticks: 10009909
+            priority: 41
+            execid: 2
+            objid: 4
+            op: enter
+            cpm: |
+                execid: 2
+                nxtlabel: ""
+                msgtype: decrypt-AES-128-CBC
+                msglen: 1500
+                pcktlen: 0
+                flowstate: ""
+        - tracetime: "10.009912"
+          tracetype: interface
+          tracestr: |
+            time: 10.009912
+            objid: 8
+            execid: 2
+            op: arriveEgress
+            cq: egress_0 % 0
+        - tracetime: "10.011112"
+          tracetype: interface
+          tracestr: |
+            time: 10.011112
+            objid: 8
+            execid: 2
+            op: exitEgress
+            cq: egress_0 % 0
+        - tracetime: "10.011117"
+          tracetype: interface
+          tracestr: |
+            time: 10.011117
+            objid: 10
+            execid: 2
+            op: arriveSimpleDev
+            cq: ""
+        - tracetime: "10.01238"
+          tracetype: interface
+          tracestr: |
+            time: 10.01238
+            objid: 7
+            execid: 2
+            op: enterIngress
+            cq: egress_0 % 0
+        - tracetime: "10.01238"
+          tracetype: CP
+          tracestr: |
+            time: 10.01238
+            ticks: 10012380
+            priority: 48
+            execid: 2
+            objid: 3
+            op: enter
+            cpm: |
+                execid: 2
+                nxtlabel: ""
+                msgtype: return-decrypt-AES-128-CBC
+                msglen: 1500
+                pcktlen: 0
+                flowstate: ""
+        - tracetime: "10.01248"
+          tracetype: CP
+          tracestr: |
+            time: 10.01248
+            ticks: 10012480
+            priority: 54
+            execid: 2
+            objid: 3
+            op: enter
+            cpm: |
+                execid: 2
+                nxtlabel: ""
+                msgtype: encrypt-AES-128-CBC
+                msglen: 1500
+                pcktlen: 0
+                flowstate: ""
+        - tracetime: "10.01248"
+          tracetype: interface
+          tracestr: |
+            time: 10.01248
+            objid: 7
+            execid: 2
+            op: arriveEgress
+            cq: egress_0 % 0
+        - tracetime: "10.01368"
+          tracetype: interface
+          tracestr: |
+            time: 10.01368
+            objid: 7
+            execid: 2
+            op: exitEgress
+            cq: egress_0 % 0
+        - tracetime: "10.013685"
+          tracetype: interface
+          tracestr: |
+            time: 10.013685
+            objid: 11
+            execid: 2
+            op: arriveSimpleDev
+            cq: ""
+        - tracetime: "10.014948"
+          tracetype: interface
+          tracestr: |
+            time: 10.014948
+            objid: 8
+            execid: 2
+            op: enterIngress
+            cq: egress_0 % 0
+        - tracetime: "10.014948"
+          tracetype: CP
+          tracestr: |
+            time: 10.014948
+            ticks: 10014948
+            priority: 61
+            execid: 2
+            objid: 4
+            op: enter
+            cpm: |
+                execid: 2
+                nxtlabel: ""
+                msgtype: encrypt-AES-128-CBC
+                msglen: 1500
+                pcktlen: 0
+                flowstate: ""
+        - tracetime: "10.014952"
+          tracetype: interface
+          tracestr: |
+            time: 10.014952
+            objid: 8
+            execid: 2
+            op: arriveEgress
+            cq: egress_0 % 0
+        - tracetime: "10.016152"
+          tracetype: interface
+          tracestr: |
+            time: 10.016152
+            objid: 8
+            execid: 2
+            op: exitEgress
+            cq: egress_0 % 0
+        - tracetime: "10.016157"
+          tracetype: interface
+          tracestr: |
+            time: 10.016157
+            objid: 10
+            execid: 2
+            op: arriveSimpleDev
+            cq: ""
+        - tracetime: "10.01742"
+          tracetype: interface
+          tracestr: |
+            time: 10.01742
+            objid: 7
+            execid: 2
+            op: enterIngress
+            cq: egress_0 % 0
+        - tracetime: "10.01742"
+          tracetype: CP
+          tracestr: |
+            time: 10.01742
+            ticks: 10017420
+            priority: 68
+            execid: 2
+            objid: 3
+            op: enter
+            cpm: |
+                execid: 2
+                nxtlabel: ""
+                msgtype: return-encrypt-AES-128-CBC
+                msglen: 1500
+                pcktlen: 0
+                flowstate: ""
+        - tracetime: "10.01742"
+          tracetype: interface
+          tracestr: |
+            time: 10.01742
+            objid: 7
+            execid: 2
+            op: arriveEgress
+            cq: egress_0 % 0
+        - tracetime: "10.01862"
+          tracetype: interface
+          tracestr: |
+            time: 10.01862
+            objid: 7
+            execid: 2
+            op: exitEgress
+            cq: egress_0 % 0
+        - tracetime: "10.018625"
+          tracetype: interface
+          tracestr: |
+            time: 10.018625
+            objid: 11
+            execid: 2
+            op: arriveSimpleDev
+            cq: ""
+        - tracetime: "10.019888"
+          tracetype: interface
+          tracestr: |
+            time: 10.019888
+            objid: 6
+            execid: 2
+            op: enterIngress
+            cq: egress_0 % 0
+        - tracetime: "10.019888"
+          tracetype: CP
+          tracestr: |
+            time: 10.019888
+            ticks: 10019888
+            priority: 75
+            execid: 2
+            objid: 2
+            op: enter
+            cpm: |
+                execid: 2
+                nxtlabel: ""
+                msgtype: auth
+                msglen: 1500
+                pcktlen: 0
+                flowstate: ""
+        - tracetime: "10.019888"
+          tracetype: interface
+          tracestr: |
+            time: 10.019888
+            objid: 6
+            execid: 2
+            op: arriveEgress
+            cq: egress_0 % 0
+        - tracetime: "10.021088"
+          tracetype: interface
+          tracestr: |
+            time: 10.021088
+            objid: 6
+            execid: 2
+            op: exitEgress
+            cq: egress_0 % 0
+        - tracetime: "10.021093"
+          tracetype: interface
+          tracestr: |
+            time: 10.021093
+            objid: 9
+            execid: 2
+            op: arriveSimpleDev
+            cq: ""
+        - tracetime: "10.022356"
+          tracetype: interface
+          tracestr: |
+            time: 10.022356
+            objid: 7
+            execid: 2
+            op: enterIngress
+            cq: egress_0 % 0
+        - tracetime: "10.022356"
+          tracetype: CP
+          tracestr: |
+            time: 10.022356
+            ticks: 10022356
+            priority: 82
+            execid: 2
+            objid: 3
+            op: enter
+            cpm: |
+                execid: 2
+                nxtlabel: ""
+                msgtype: auth
+                msglen: 1500
+                pcktlen: 0
+                flowstate: ""
+        - tracetime: "10.02236"
+          tracetype: interface
+          tracestr: |
+            time: 10.02236
+            objid: 7
+            execid: 2
+            op: arriveEgress
+            cq: egress_0 % 0
+        - tracetime: "10.02356"
+          tracetype: interface
+          tracestr: |
+            time: 10.02356
+            objid: 7
+            execid: 2
+            op: exitEgress
+            cq: egress_0 % 0
+        - tracetime: "10.023565"
+          tracetype: interface
+          tracestr: |
+            time: 10.023565
+            objid: 11
+            execid: 2
+            op: arriveSimpleDev
+            cq: ""
+        - tracetime: "10.024828"
+          tracetype: interface
+          tracestr: |
+            time: 10.024828
+            objid: 6
+            execid: 2
+            op: enterIngress
+            cq: egress_0 % 0
+        - tracetime: "10.024828"
+          tracetype: CP
+          tracestr: |
+            time: 10.024828
+            ticks: 10024828
+            priority: 89
+            execid: 2
+            objid: 2
+            op: enter
+            cpm: |
+                execid: 2
+                nxtlabel: ""
+                msgtype: return-auth
+                msglen: 1500
+                pcktlen: 0
+                flowstate: ""
+        - tracetime: "10.024829"
+          tracetype: CP
+          tracestr: |
+            time: 10.024829
+            ticks: 10024829
+            priority: 94
+            execid: 2
+            objid: 27
+            op: exit
+            cpm: |
+                execid: 2
+                nxtlabel: ""
+                msgtype: process
+                msglen: 1500
+                pcktlen: 0
+                flowstate: ""
+        - tracetime: "10.024839"
+          tracetype: CP
+          tracestr: |
+            time: 10.024839
+            ticks: 10024839
+            priority: 99
+            execid: 2
+            objid: 2
+            op: exit
+            cpm: |
+                execid: 2
+                nxtlabel: ""
+                msgtype: measure
+                msglen: 1500
+                pcktlen: 0
+                flowstate: ""
+        - tracetime: "10.024839"
+          tracetype: CP
+          tracestr: |
+            time: 10.024839
+            ticks: 10024839
+            priority: 101
+            execid: 2
+            objid: 2
+            op: exit
+            cpm: |
+                execid: 2
+                nxtlabel: ""
+                msgtype: finish
+                msglen: 1500
+                pcktlen: 0
+                flowstate: ""
