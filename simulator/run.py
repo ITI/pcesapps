@@ -186,6 +186,22 @@ def main():
           
         else: 
             simExec = os.path.join(simDir,"sim")
+            if not os.path.isfile(simExec):
+                cwd = os.getcwd()
+                os.chdir(os.path.join(cwd,'sim-dir'))
+                compileList = ["go","build","sim.go","exp.go"]
+                process = subprocess.Popen(compileList,
+                    stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+                stdout, stderr = process.communicate()
+
+                if process.returncode != 0:
+                    print("Error building ./sim")
+                    if len(stderr) > 0:
+                        print(stderr)
+                    exit(1)
+
+                os.chdir(cwd)
+
             process = subprocess.Popen([simExec, "-is", simArgs], 
                 stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
            
