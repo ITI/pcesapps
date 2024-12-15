@@ -5,6 +5,7 @@
 #
 import argparse
 import subprocess
+import time
 import shutil
 import datetime
 import yaml
@@ -89,6 +90,49 @@ def main():
     if errs > 0:
         exit(1)
 
+
+    # if we're using a container and it doesn't exist, build it
+    if containerTag is not None:
+        cmdList = ["docker", "image", "ls", containerTag]
+        process = subprocess.Popen(cmdList,
+            stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+        stdout, stderr = process.communicate()
+
+        if len(stdout) == 0: 
+            print('Build image for tag {}'.format(containerTag))
+
+            cmdList = ["docker", "build", "../"]
+            process = subprocess.Popen(cmdList,
+                stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+            stdout, stderr = process.communicate()
+
+            if process.returncode != 0:
+                print('Build image for tag {} failed'.format(containerTag))
+                exit(1)
+
+            print(stdout)
+            print('Build image for tag {} succeeded'.format(containerTag))
+   
+    else:
+
+        simExec = os.path.join(simDir,"sim")
+        if not os.path.isfile(simExec):
+            cwd = os.getcwd()
+            os.chdir(os.path.join(cwd,'sim-dir'))
+            compileList = ["go","build","sim.go","exp.go"]
+            print("building simulation executable")
+            process = subprocess.Popen(compileList,
+                stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+            stdout, stderr = process.communicate()
+
+            if process.returncode != 0:
+                print("Error building ./sim")
+                if len(stderr) > 0:
+                    print(stderr)
+                exit(1)
+
+            os.chdir(cwd)
+
     # get the dictionary describing the experiments
     experiment_input_file = os.path.join(templateDir, 'experiments.yaml')
     with open(experiment_input_file, 'r') as rf:
@@ -171,37 +215,27 @@ def main():
    
         simArgs = os.path.join(argsDir, "args-sim")
 
+        time.sleep(1.5)
+        print('running experiment {}'.format(exprmntName))
+
         # if containerTag is not None, run the container to execute the simulation
         if containerTag is not None:
             cwd = os.getcwd()
             paths = os.path.split(os.getcwd())
-            outsideDir = os.path.join(paths[:len(paths)-1])
-            mountCmd = '{}:{}'.format(outsideDir, externDir)
-            #cTag = "ghcr.io/iti/pcesapps-dev" 
+            outsideDir = paths[0]
+
+            for directory in paths[1:len(paths)]:
+                outsideDir = os.path.join(outsideDir, directory)
+
+            mountCmd = '{}:{}'.format(outsideDir, "/tmp/extern")
             
-            simExecArgs = ["docker","run","-it", "--rm" "-v", mountCmd,  containerTag]
+            simExecArgs = ["docker","run","-it", "--rm", "-v", mountCmd,  containerTag]
 
             process = subprocess.Popen(simExecArgs,
                 stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
           
         else: 
             simExec = os.path.join(simDir,"sim")
-            if not os.path.isfile(simExec):
-                cwd = os.getcwd()
-                os.chdir(os.path.join(cwd,'sim-dir'))
-                compileList = ["go","build","sim.go","exp.go"]
-                process = subprocess.Popen(compileList,
-                    stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
-                stdout, stderr = process.communicate()
-
-                if process.returncode != 0:
-                    print("Error building ./sim")
-                    if len(stderr) > 0:
-                        print(stderr)
-                    exit(1)
-
-                os.chdir(cwd)
-
             process = subprocess.Popen([simExec, "-is", simArgs], 
                 stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
            
@@ -209,18 +243,18 @@ def main():
 
         if process.returncode != 0:
             print("Error from simulation run")
-        else:
-            if len(stderr) > 0 :
-                print(stderr)
-    
-            # append the msr file in output to output/aggMsr
-            outputMsr = os.path.join(outputDir, 'msr.yaml')
 
-            with open(outputMsr, 'r') as fsrc:
-                nxtMsr = yaml.safe_load(fsrc)
-                allMsr.append(nxtMsr)
-        
-            os.remove(outputMsr)
+        if len(stderr) > 0 :
+            print(stderr)
+
+        # append the msr file in output to output/aggMsr
+        outputMsr = os.path.join(outputDir, 'msr.yaml')
+
+        with open(outputMsr, 'r') as fsrc:
+            nxtMsr = yaml.safe_load(fsrc)
+            allMsr.append(nxtMsr)
+    
+        os.remove(outputMsr)
 
     with open(aggOutFile, 'a') as fdst:
         yaml.dump(allMsr, fdst) 
