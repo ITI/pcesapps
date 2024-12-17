@@ -15,8 +15,6 @@ import pdb
 import os
 import glob
 
-sheetNames = ('cp', 'topo', 'execTime', 'netParams', 'mapping')
-
 def main():
     global workingDir, csvDir
 
@@ -84,7 +82,7 @@ def main():
         for fileName in fList:
             filePath = os.path.join(templateDir, fileName)
             if not os.path.isfile(filePath):
-                print('expected file {} does not exist'.format(filePath))
+                print('expected file {} does not exist in templates directory'.format(filePath))
                 errs += 1
             
     if errs > 0:
@@ -150,7 +148,7 @@ def main():
 
     aggOutFile = os.path.join(outputDir, 'results.yaml')
     with open(aggOutFile, 'w') as wf:
-        print('experiment set run at time {}'.format(datetime.datetime.now()), file=wf) 
+        print('pces evaluation run at time {}'.format(datetime.datetime.now()), file=wf) 
 
     allMsr = []
         
@@ -161,11 +159,43 @@ def main():
         with open(os.path.join(argsDir,'args-sim-template'), 'r') as tf, open(os.path.join(argsDir,'args-sim'), 'w') as wf:
             wf.write('-exprmnt {}\n'.format(exprmntName))
 
+            tagPairs = [('-inputDir', './input'), ('-outputDir', './output'), ('-cp', 'cp.yaml'), ('-cpInit', 'cpInit.yaml'),
+                    ('-funcExec', 'funcExec.yaml'), ('-devExec', 'devExec.yaml'), ('-exp', 'exp.yaml'),('-map', 'map.yaml'),
+                        ('-topo', 'topo.yaml'), ('-msr', 'msrFile')]
+            
             if containerTag is not None:
-                wf.write('-container\n')
+                tagPairs.append(('-container', ''))
+
+            for tag, value in tagPairs:
+                wf.write(tag+' '+value+'\n')
  
             for line in tf:
-                wf.write(line)
+                # hard wire the input file names
+                if line.startswith('#'):
+                    continue
+                pieces = line.split()
+                if pieces[0] == '-container':
+                    continue
+                if pieces[0] == '-cp':
+                    continue
+                if pieces[0] == '-cpInit':
+                    continue
+                elif pieces[0] == '-funcExec':
+                    continue
+                elif pieces[0] == '-devExec':
+                    continue
+                elif pieces[0] == '-map':
+                    continue 
+                elif pieces[0] == '-exp':
+                    continue
+                elif pieces[0] == '-topo':
+                    continue
+                elif pieces[0] == 'inputDir':
+                    continue
+                elif pieces[0] == 'outputDir':
+                    continue
+                else:      
+                    wf.write(line)
 
         sheetFlag = {}
         # get the files to be modified
@@ -178,7 +208,7 @@ def main():
             else:
                 sheets = sheetNames
 
-            for sheet in sheetNames:
+            for sheet in sheets:
                 sheetFlag[sheet] = True
 
         # copy the files to be modified

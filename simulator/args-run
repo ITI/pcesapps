@@ -2,5 +2,5 @@
 -input ./input
 -output ./output
 -sim ./sim-dir
--container pces/sim
--extern ./
+#-container pces/sim
+#-extern ./

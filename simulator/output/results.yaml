@@ -1,21 +1,25 @@
-experiment set run at time 2024-12-14 07:40:59.906740
+pces evaluation run at time 2024-12-16 04:52:05.546541
 - exprmnt: exp-1
   measurements:
-  - latency: 1.0840000000007421 (msec)
+  - index: 1
+    latency: 1.0840000000007421 (msec)
     measurename: end2end
     waypoints: []
 - exprmnt: exp-2
   measurements:
-  - latency: 24.84399999999914 (msec)
+  - index: 1
+    latency: 24.84399999999914 (msec)
     measurename: end2end
     waypoints: []
 - exprmnt: exp-3
   measurements:
-  - latency: 1.0790000000015425 (msec)
+  - index: 1
+    latency: 1.0790000000015425 (msec)
     measurename: end2end
     waypoints: []
 - exprmnt: exp-4
   measurements:
-  - latency: 24.838999999999942 (msec)
+  - index: 1
+    latency: 24.838999999999942 (msec)
     measurename: end2end
     waypoints: []

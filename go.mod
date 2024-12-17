@@ -5,7 +5,7 @@ go 1.22.7
 require (
 	github.com/iti/evt/evtm v0.1.4
 	github.com/iti/evt/vrtime v0.1.5
-	github.com/iti/pces v0.0.15
+	github.com/iti/pces v0.0.16
 )
 
 require (
