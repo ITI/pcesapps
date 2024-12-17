@@ -159,9 +159,9 @@ def main():
         with open(os.path.join(argsDir,'args-sim-template'), 'r') as tf, open(os.path.join(argsDir,'args-sim'), 'w') as wf:
             wf.write('-exprmnt {}\n'.format(exprmntName))
 
-            tagPairs = [('-inputDir', './input'), ('-outputDir', './output'), ('-cp', 'cp.yaml'), ('-cpInit', 'cpInit.yaml'),
+            tagPairs = [('-inputLib', './input'), ('-outputLib', './output'), ('-cp', 'cp.yaml'), ('-cpInit', 'cpInit.yaml'),
                     ('-funcExec', 'funcExec.yaml'), ('-devExec', 'devExec.yaml'), ('-exp', 'exp.yaml'),('-map', 'map.yaml'),
-                        ('-topo', 'topo.yaml'), ('-msr', 'msrFile')]
+                        ('-topo', 'topo.yaml'), ('-msr', 'msr.yaml')]
             
             if containerTag is not None:
                 tagPairs.append(('-container', ''))
@@ -190,9 +190,9 @@ def main():
                     continue
                 elif pieces[0] == '-topo':
                     continue
-                elif pieces[0] == 'inputDir':
+                elif pieces[0] == 'inputLib':
                     continue
-                elif pieces[0] == 'outputDir':
+                elif pieces[0] == 'outputLib':
                     continue
                 else:      
                     wf.write(line)
