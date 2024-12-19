@@ -34,13 +34,13 @@ namebyid:
     11:
         name: intrfc@hub-embeddedDev
         type: interface
-    24:
+    26:
         name: HMI:generatePckt
         type: application
-    25:
+    27:
         name: HMI:accelEncrypt
         type: application
-    27:
+    29:
         name: HMI:accelDecrypt
         type: application
 traces:
@@ -84,7 +84,7 @@ traces:
             ticks: 10000032
             priority: 8
             execid: 2
-            objid: 24
+            objid: 26
             op: exit
             cpm: |
                 execid: 2
@@ -100,7 +100,7 @@ traces:
             ticks: 10000033
             priority: 12
             execid: 2
-            objid: 25
+            objid: 27
             op: exit
             cpm: |
                 execid: 2
@@ -628,7 +628,7 @@ traces:
             ticks: 10024829
             priority: 94
             execid: 2
-            objid: 27
+            objid: 29
             op: exit
             cpm: |
                 execid: 2
