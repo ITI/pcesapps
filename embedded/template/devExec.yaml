@@ -1,4 +1,4 @@
-listname: exampleName
+listname: embedded
 times:
   switch:
   - devop: switch

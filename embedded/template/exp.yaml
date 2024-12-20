@@ -1,4 +1,4 @@
-expname: exampleName
+expname: embedded
 parameters:
 - attributes:
   - attrbname: name
@@ -23,22 +23,22 @@ parameters:
     attrbvalue: central
   param: trace
   paramObj: Network
-  value: 0
+  value: '0'
 - attributes:
   - attrbname: '*'
-    attrbvalue: 1
+    attrbvalue: '1'
   param: latency
   paramObj: Interface
   value: 5e-06
 - attributes:
   - attrbname: '*'
-    attrbvalue: 1
+    attrbvalue: '1'
   param: bandwidth
   paramObj: Interface
-  value: $bndwidth
+  value: $bndwdth
 - attributes:
   - attrbname: '*'
-    attrbvalue: 1
+    attrbvalue: '1'
   param: trace
   paramObj: Interface
-  value: 0
+  value: '0'
