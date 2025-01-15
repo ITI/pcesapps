@@ -1,0 +1,11 @@
+-csvDir /Users/nicol/Dropbox/github-repos/pcesapps-working/queueing/xlsx/csvDir
+-yamlDir /Users/nicol/Dropbox/github-repos/pcesapps-working/queueing/templates
+-descDir /Users/nicol/Dropbox/github-repos/pcesapps-working/queueing/xlsx/descDir
+-name embedded
+-csvIn cp-sheet.csv
+-cpuOpsDescIn cpuOps.json
+-tcDescOut tc.json
+-mc mc.json
+-funcsDescOut funcs.json
+-cmpptn cp.yaml
+-cpInit cpInit.yaml

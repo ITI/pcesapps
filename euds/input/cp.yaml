@@ -1,0 +1,173 @@
+patterns:
+  EUD-0:
+    cptype: simple
+    edges:
+    - dstcp: EUD-0
+      dstlabel: eudProcess
+      msgtype: process
+      srccp: EUD-0
+      srclabel: decryptPckt
+    - dstcp: EUD-0
+      dstlabel: encryptPckt
+      msgtype: encrypt
+      srccp: EUD-0
+      srclabel: eudProcess
+    extedges:
+    - dstcp: HMI
+      dstlabel: decryptPckt
+      msgtype: decrypt
+      srccp: EUD-0
+      srclabel: encryptPckt
+    funcs:
+    - class: processPckt
+      label: decryptPckt
+    - class: processPckt
+      label: eudProcess
+    - class: processPckt
+      label: encryptPckt
+    name: EUD-0
+    services: {}
+  EUD-1:
+    cptype: simple
+    edges:
+    - dstcp: EUD-1
+      dstlabel: eudProcess
+      msgtype: process
+      srccp: EUD-1
+      srclabel: decryptPckt
+    - dstcp: EUD-1
+      dstlabel: encryptPckt
+      msgtype: encrypt
+      srccp: EUD-1
+      srclabel: eudProcess
+    extedges:
+    - dstcp: HMI
+      dstlabel: decryptPckt
+      msgtype: decrypt
+      srccp: EUD-1
+      srclabel: encryptPckt
+    funcs:
+    - class: processPckt
+      label: decryptPckt
+    - class: processPckt
+      label: eudProcess
+    - class: processPckt
+      label: encryptPckt
+    name: EUD-1
+    services: {}
+  EUD-2:
+    cptype: simple
+    edges:
+    - dstcp: EUD-2
+      dstlabel: eudProcess
+      msgtype: process
+      srccp: EUD-2
+      srclabel: decryptPckt
+    - dstcp: EUD-2
+      dstlabel: encryptPckt
+      msgtype: encrypt
+      srccp: EUD-2
+      srclabel: eudProcess
+    extedges:
+    - dstcp: HMI
+      dstlabel: decryptPckt
+      msgtype: decrypt
+      srccp: EUD-2
+      srclabel: encryptPckt
+    funcs:
+    - class: processPckt
+      label: decryptPckt
+    - class: processPckt
+      label: eudProcess
+    - class: processPckt
+      label: encryptPckt
+    name: EUD-2
+    services: {}
+  EUD-3:
+    cptype: simple
+    edges:
+    - dstcp: EUD-3
+      dstlabel: eudProcess
+      msgtype: process
+      srccp: EUD-3
+      srclabel: decryptPckt
+    - dstcp: EUD-3
+      dstlabel: encryptPckt
+      msgtype: encrypt
+      srccp: EUD-3
+      srclabel: eudProcess
+    extedges:
+    - dstcp: HMI
+      dstlabel: decryptPckt
+      msgtype: decrypt
+      srccp: EUD-3
+      srclabel: encryptPckt
+    funcs:
+    - class: processPckt
+      label: decryptPckt
+    - class: processPckt
+      label: eudProcess
+    - class: processPckt
+      label: encryptPckt
+    name: EUD-3
+    services: {}
+  HMI:
+    cptype: simple
+    edges:
+    - dstcp: HMI
+      dstlabel: startMeasure
+      msgtype: euds_measure
+      srccp: HMI
+      srclabel: startThread
+    - dstcp: HMI
+      dstlabel: generatePckt
+      msgtype: generate
+      srccp: HMI
+      srclabel: startMeasure
+    - dstcp: HMI
+      dstlabel: encryptPckt
+      msgtype: encrypt
+      srccp: HMI
+      srclabel: generatePckt
+    - dstcp: HMI
+      dstlabel: directPckt
+      msgtype: direct
+      srccp: HMI
+      srclabel: encryptPckt
+    - dstcp: HMI
+      dstlabel: processRtn
+      msgtype: process
+      srccp: HMI
+      srclabel: decryptPckt
+    - dstcp: HMI
+      dstlabel: endMeasure
+      msgtype: euds_measure
+      srccp: HMI
+      srclabel: processRtn
+    - dstcp: HMI
+      dstlabel: endThread
+      msgtype: finish
+      srccp: HMI
+      srclabel: endMeasure
+    extedges: []
+    funcs:
+    - class: start
+      label: startThread
+    - class: measure
+      label: startMeasure
+    - class: processPckt
+      label: generatePckt
+    - class: processPckt
+      label: encryptPckt
+    - class: transfer
+      label: directPckt
+    - class: processPckt
+      label: decryptPckt
+    - class: processPckt
+      label: processRtn
+    - class: measure
+      label: endMeasure
+    - class: finish
+      label: endThread
+    name: HMI
+    services: {}

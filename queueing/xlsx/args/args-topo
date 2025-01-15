@@ -1,0 +1,7 @@
+-name embedded
+-name embed
+-csvIn topo-sheet.csv
+-topoOut topo.yaml
+-modelDescIn devModel.json
+-cpuDescOut cpuDesc.json
+-attrbDescOut attrb.json

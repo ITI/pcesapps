@@ -1,0 +1,9 @@
+-csvDir /Users/nicol/Dropbox/github-repos/pcesapps-working/queueing/xlsx/csvDir
+-yamlDir /Users/nicol/Dropbox/github-repos/pcesapps-working/queueing/templates
+-descDir /Users/nicol/Dropbox/github-repos/pcesapps-working/queueing/xlsx/descDir
+-name embedded
+-csvIn topo-sheet.csv
+-topoOut topo.yaml
+-modelDescIn devModel.json
+-cpuDescOut cpuDesc.json
+-attrbDescOut attrb.json

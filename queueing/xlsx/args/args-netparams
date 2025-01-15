@@ -1,0 +1,5 @@
+-name embedded
+-name embed
+-csvIn netParams-sheet.csv
+-exp exp.yaml
+-attrbDescIn attrb.json

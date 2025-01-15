@@ -1,0 +1,38 @@
+dictname: euds
+map:
+  EUD-0:
+    funcmap:
+      decryptPckt: eudDev-0,10
+      encryptPckt: eudDev-0,10
+      eudProcess: eudDev-0,10
+    patternname: EUD-0
+  EUD-1:
+    funcmap:
+      decryptPckt: eudDev-1,10
+      encryptPckt: eudDev-1,10
+      eudProcess: eudDev-1,10
+    patternname: EUD-1
+  EUD-2:
+    funcmap:
+      decryptPckt: eudDev-2,10
+      encryptPckt: eudDev-2,10
+      eudProcess: eudDev-2,10
+    patternname: EUD-2
+  EUD-3:
+    funcmap:
+      decryptPckt: eudDev-3,10
+      encryptPckt: eudDev-3,10
+      eudProcess: eudDev-3,10
+    patternname: EUD-3
+  HMI:
+    funcmap:
+      decryptPckt: sslSrvr,10
+      directPckt: sslSrvr,10
+      encryptPckt: sslSrvr,10
+      endMeasure: source,10
+      endThread: source,10
+      generatePckt: source,10
+      processRtn: source,10
+      startMeasure: source,10
+      startThread: source,10
+    patternname: HMI

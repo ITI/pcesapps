@@ -1,0 +1,86 @@
+expname: euds
+parameters:
+- attributes:
+  - attrbname: name
+    attrbvalue: pvtNet
+  param: latency
+  paramObj: Network
+  value: 5e-06
+- attributes:
+  - attrbname: name
+    attrbvalue: pvtNet
+  param: bandwidth
+  paramObj: Network
+  value: '1000'
+- attributes:
+  - attrbname: name
+    attrbvalue: pvtNet
+  param: capacity
+  paramObj: Network
+  value: '10000'
+- attributes:
+  - attrbname: name
+    attrbvalue: pvtNet
+  param: trace
+  paramObj: Network
+  value: '0'
+- attributes:
+  - attrbname: name
+    attrbvalue: pubNet
+  param: latency
+  paramObj: Network
+  value: 3e-05
+- attributes:
+  - attrbname: name
+    attrbvalue: pubNet
+  param: bandwidth
+  paramObj: Network
+  value: '10'
+- attributes:
+  - attrbname: name
+    attrbvalue: pubNet
+  param: capacity
+  paramObj: Network
+  value: '100'
+- attributes:
+  - attrbname: name
+    attrbvalue: pubNet
+  param: trace
+  paramObj: Network
+  value: '0'
+- attributes:
+  - attrbname: faces
+    attrbvalue: pvtNet
+  param: latency
+  paramObj: Interface
+  value: 5e-06
+- attributes:
+  - attrbname: faces
+    attrbvalue: pvtNet
+  param: bandwidth
+  paramObj: Interface
+  value: '10000'
+- attributes:
+  - attrbname: faces
+    attrbvalue: pvtNet
+  param: trace
+  paramObj: Interface
+  value: '0'
+- attributes:
+  - attrbname: faces
+    attrbvalue: pubNet
+  param: latency
+  paramObj: Interface
+  value: 2e-05
+- attributes:
+  - attrbname: faces
+    attrbvalue: pubNet
+  param: bandwidth
+  paramObj: Interface
+  value: '10000'
+- attributes:
+  - attrbname: faces
+    attrbvalue: pubNet
+  param: trace
+  paramObj: Interface
+  value: '0'

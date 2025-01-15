@@ -1,0 +1,3 @@
+-samples 10000
+-batch 50
+-skip 50 

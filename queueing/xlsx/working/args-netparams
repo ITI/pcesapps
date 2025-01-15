@@ -1,0 +1,7 @@
+-csvDir /Users/nicol/Dropbox/github-repos/pcesapps-working/queueing/xlsx/csvDir
+-yamlDir /Users/nicol/Dropbox/github-repos/pcesapps-working/queueing/templates
+-descDir /Users/nicol/Dropbox/github-repos/pcesapps-working/queueing/xlsx/descDir
+-name embedded
+-csvIn netParams-sheet.csv
+-exp exp.yaml
+-attrbDescIn attrb.json

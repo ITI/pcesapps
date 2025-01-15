@@ -1,0 +1,248 @@
+endpts:
+- accel: {}
+  cores: 1
+  groups: []
+  interfaces:
+  - cable: intrfc@pvtHub-source
+    carry: []
+    device: source
+    devtype: Endpt
+    faces: pvtNet
+    groups: []
+    mediatype: wired
+    name: intrfc@source-pvtHub
+    wireless: []
+  model: AMDEPYC953464-CoreProcessor
+  name: source
+- accel: {}
+  cores: 1
+  groups: []
+  interfaces:
+  - cable: intrfc@pvtRtr-sslSrvr
+    carry: []
+    device: sslSrvr
+    devtype: Endpt
+    faces: pvtNet
+    groups: []
+    mediatype: wired
+    name: intrfc@sslSrvr-pvtRtr
+    wireless: []
+  - cable: intrfc@pubRtr-sslSrvr
+    carry: []
+    device: sslSrvr
+    devtype: Endpt
+    faces: pvtNet
+    groups: []
+    mediatype: wired
+    name: intrfc@sslSrvr-pubRtr
+    wireless: []
+  model: AMDEPYC953464-CoreProcessor
+  name: sslSrvr
+- accel: {}
+  cores: 1
+  groups: []
+  interfaces:
+  - cable: intrfc@pubHub-eudDev-0
+    carry: []
+    device: eudDev-0
+    devtype: Endpt
+    faces: pubNet
+    groups: []
+    mediatype: wired
+    name: intrfc@eudDev-0-pubHub
+    wireless: []
+  model: AMDEPYC953464-CoreProcessor
+  name: eudDev-0
+- accel: {}
+  cores: 1
+  groups: []
+  interfaces:
+  - cable: intrfc@pubHub-eudDev-1
+    carry: []
+    device: eudDev-1
+    devtype: Endpt
+    faces: pubNet
+    groups: []
+    mediatype: wired
+    name: intrfc@eudDev-1-pubHub
+    wireless: []
+  model: AMDEPYC953464-CoreProcessor
+  name: eudDev-1
+- accel: {}
+  cores: 1
+  groups: []
+  interfaces:
+  - cable: intrfc@pubHub-eudDev-2
+    carry: []
+    device: eudDev-2
+    devtype: Endpt
+    faces: pubNet
+    groups: []
+    mediatype: wired
+    name: intrfc@eudDev-2-pubHub
+    wireless: []
+  model: AMDEPYC953464-CoreProcessor
+  name: eudDev-2
+- accel: {}
+  cores: 1
+  groups: []
+  interfaces:
+  - cable: intrfc@pubHub-eudDev-3
+    carry: []
+    device: eudDev-3
+    devtype: Endpt
+    faces: pubNet
+    groups: []
+    mediatype: wired
+    name: intrfc@eudDev-3-pubHub
+    wireless: []
+  model: AMDEPYC953464-CoreProcessor
+  name: eudDev-3
+name: euds
+networks:
+- endpts:
+  - source
+  - sslSrvr
+  groups: []
+  mediatype: wired
+  name: pvtNet
+  netscale: LAN
+  routers:
+  - pvtRtr
+  - pubRtr
+  switches:
+  - pvtHub
+- endpts:
+  - eudDev-0
+  - eudDev-1
+  - eudDev-2
+  - eudDev-3
+  groups: []
+  mediatype: wired
+  name: pubNet
+  netscale: LAN
+  routers:
+  - pubRtr
+  switches:
+  - pubHub
+routers:
+- groups: []
+  interfaces:
+  - cable: intrfc@pvtHub-pvtRtr
+    carry: []
+    device: pvtRtr
+    devtype: Router
+    faces: pvtNet
+    groups: []
+    mediatype: wired
+    name: intrfc@pvtRtr-pvtHub
+    wireless: []
+  - cable: intrfc@sslSrvr-pvtRtr
+    carry: []
+    device: pvtRtr
+    devtype: Router
+    faces: pvtNet
+    groups: []
+    mediatype: wired
+    name: intrfc@pvtRtr-sslSrvr
+    wireless: []
+  model: Cisco
+  name: pvtRtr
+  simple: 1
+- groups: []
+  interfaces:
+  - cable: intrfc@sslSrvr-pubRtr
+    carry: []
+    device: pubRtr
+    devtype: Router
+    faces: pvtNet
+    groups: []
+    mediatype: wired
+    name: intrfc@pubRtr-sslSrvr
+    wireless: []
+  - cable: intrfc@pubHub-pubRtr
+    carry: []
+    device: pubRtr
+    devtype: Router
+    faces: pubNet
+    groups: []
+    mediatype: wired
+    name: intrfc@pubRtr-pubHub
+    wireless: []
+  model: Cisco
+  name: pubRtr
+  simple: 1
+switches:
+- groups: []
+  interfaces:
+  - cable: intrfc@source-pvtHub
+    carry: []
+    device: pvtHub
+    devtype: Switch
+    faces: pvtNet
+    groups: []
+    mediatype: wired
+    name: intrfc@pvtHub-source
+    wireless: []
+  - cable: intrfc@pvtRtr-pvtHub
+    carry: []
+    device: pvtHub
+    devtype: Switch
+    faces: pvtNet
+    groups: []
+    mediatype: wired
+    name: intrfc@pvtHub-pvtRtr
+    wireless: []
+  model: NetgearGS324T
+  name: pvtHub
+  simple: 1
+- groups: []
+  interfaces:
+  - cable: intrfc@pubRtr-pubHub
+    carry: []
+    device: pubHub
+    devtype: Switch
+    faces: pubNet
+    groups: []
+    mediatype: wired
+    name: intrfc@pubHub-pubRtr
+    wireless: []
+  - cable: intrfc@eudDev-0-pubHub
+    carry: []
+    device: pubHub
+    devtype: Switch
+    faces: pubNet
+    groups: []
+    mediatype: wired
+    name: intrfc@pubHub-eudDev-0
+    wireless: []
+  - cable: intrfc@eudDev-1-pubHub
+    carry: []
+    device: pubHub
+    devtype: Switch
+    faces: pubNet
+    groups: []
+    mediatype: wired
+    name: intrfc@pubHub-eudDev-1
+    wireless: []
+  - cable: intrfc@eudDev-2-pubHub
+    carry: []
+    device: pubHub
+    devtype: Switch
+    faces: pubNet
+    groups: []
+    mediatype: wired
+    name: intrfc@pubHub-eudDev-2
+    wireless: []
+  - cable: intrfc@eudDev-3-pubHub
+    carry: []
+    device: pubHub
+    devtype: Switch
+    faces: pubNet
+    groups: []
+    mediatype: wired
+    name: intrfc@pubHub-eudDev-3
+    wireless: []
+  model: NetgearGS324T
+  name: pubHub
+  simple: 1

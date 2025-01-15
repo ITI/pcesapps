@@ -1,0 +1,1 @@
+[{"name": "hmiDev", "model": "AMDEPYC953464-CoreProcessor", "cores": 1, "accel": {"hmiAccel": "AEWIN0T008"}}, {"name": "embeddedDev", "model": "AMDEPYC953464-CoreProcessor", "cores": 1, "accel": {}}, {"name": "sslDev", "model": "AMDEPYC953464-CoreProcessor", "cores": 1, "accel": {}}]

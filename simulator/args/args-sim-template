@@ -1,4 +1,0 @@
--trace trace.yaml
--stop 100.0
--rngseed 234545
--tunits msec
