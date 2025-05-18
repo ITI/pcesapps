@@ -1,0 +1,15 @@
+-exprmnt exp-0
+-inputLib ./input
+-outputLib ./output
+-cp cp.yaml
+-cpInit cpInit.yaml
+-funcExec funcExec.yaml
+-devExec devExec.yaml
+-exp exp.yaml
+-map map.yaml
+-topo topo.yaml
+-csv results.csv
+-experiments experiments.yaml
+-rngseed 234545
+-tunits msec
+-stop 1000.0

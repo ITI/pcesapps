@@ -1,0 +1,6 @@
+-csvDir /Users/nicol/Dropbox/github-repos/pcesapps/embedded/xlsx/csvDir
+-yamlDir /Users/nicol/Dropbox/github-repos/pcesapps/embedded/templates
+-descDir /Users/nicol/Dropbox/github-repos/pcesapps/embedded/xlsx/descDir
+-name main
+-csvIn experiments-sheet.csv
+-experiments experiments.yaml

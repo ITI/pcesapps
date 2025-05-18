@@ -1,0 +1,26 @@
+listname: main
+times:
+  packet-generation:
+  - cpumodel: AMD EPYC 9534 64-Core Processor
+    exectime: 3.2294884e-05
+    identifier: packet-generation
+    param: ''
+    pcktlen: 1000
+  sjf1:
+  - cpumodel: AMD EPYC 9534 64-Core Processor
+    exectime: 0.01
+    identifier: sjf1
+    param: ''
+    pcktlen: 1000
+  sjf2:
+  - cpumodel: AMD EPYC 9534 64-Core Processor
+    exectime: 0.02
+    identifier: sjf2
+    param: ''
+    pcktlen: 1000
+  sjf3:
+  - cpumodel: AMD EPYC 9534 64-Core Processor
+    exectime: 0.05
+    identifier: sjf3
+    param: ''
+    pcktlen: 1000

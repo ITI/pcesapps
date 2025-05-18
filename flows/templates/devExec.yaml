@@ -1,0 +1,28 @@
+listname: main
+times:
+  route:
+  - bndwdth: 100.0
+    exectime: 2.5e-05
+    identifier: route
+    model: Cisco ASA 1
+    param: ''
+    pcktlen: 256
+  - bndwdth: 100.0
+    exectime: 2.5e-05
+    identifier: route
+    model: Cisco ASA 1
+    param: ''
+    pcktlen: 1500
+  switch:
+  - bndwdth: 100.0
+    exectime: 2.5e-05
+    identifier: switch
+    model: Netgear GS324T
+    param: ''
+    pcktlen: 256
+  - bndwdth: 100.0
+    exectime: 2.5e-05
+    identifier: switch
+    model: Netgear GS324T
+    param: ''
+    pcktlen: 1500

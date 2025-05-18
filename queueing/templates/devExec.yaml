@@ -1,31 +1,112 @@
-listname: embedded
+listname: main
 times:
+  route:
+  - bndwdth: 1000.0
+    exectime: 0.00051822
+    identifier: route
+    model: Cisco 4300
+    param: ''
+    pcktlen: 64
+  - bndwdth: 1000.0
+    exectime: 0.00068597
+    identifier: route
+    model: Cisco 4300
+    param: ''
+    pcktlen: 128
+  - bndwdth: 1000.0
+    exectime: 0.00078053
+    identifier: route
+    model: Cisco 4300
+    param: ''
+    pcktlen: 196
+  - bndwdth: 1000.0
+    exectime: 0.00081836
+    identifier: route
+    model: Cisco 4300
+    param: ''
+    pcktlen: 256
+  - bndwdth: 1000.0
+    exectime: 0.0008592999999999999
+    identifier: route
+    model: Cisco 4300
+    param: ''
+    pcktlen: 384
+  - bndwdth: 1000.0
+    exectime: 0.00089727
+    identifier: route
+    model: Cisco 4300
+    param: ''
+    pcktlen: 512
+  - bndwdth: 1000.0
+    exectime: 0.00092725
+    identifier: route
+    model: Cisco 4300
+    param: ''
+    pcktlen: 768
+  - bndwdth: 1000.0
+    exectime: 0.00095426
+    identifier: route
+    model: Cisco 4300
+    param: ''
+    pcktlen: 1000
+  - bndwdth: 1000.0
+    exectime: 0.00098199
+    identifier: route
+    model: Cisco 4300
+    param: ''
+    pcktlen: 1500
   switch:
-  - devop: switch
-    exectime: 2.5468708882538892e-05
-    model: Aruba3810m
-    perbyte: 2.0314564440981863e-08
-  - devop: switch
-    exectime: 2.6615850225217655e-05
-    model: NetgearGS324T
-    perbyte: 1.5806828571358056e-08
-  - devop: switch
-    exectime: 2.633975299412786e-05
-    model: NetgearGS724T
-    perbyte: 1.6032781107754593e-08
-  - devop: switch
-    exectime: 2.2973998649851932e-05
-    model: Aruba3810m
-    perbyte: 2.6475916111960042e-08
-  - devop: switch
-    exectime: 2.3006837790126468e-05
-    model: NetgearGJS524e
-    perbyte: 2.3799811941421118e-08
-  - devop: switch
-    exectime: 2.7641803043648572e-05
-    model: NetgearGS324T
-    perbyte: 2.0314564440981863e-08
-  - devop: switch
-    exectime: 2.8105751672196037e-05
-    model: NetgearGS724T
-    perbyte: 1.7621004694522426e-08
+  - bndwdth: 1000.0
+    exectime: 2.456e-05
+    identifier: switch
+    model: Aruba 3810
+    param: ''
+    pcktlen: 128
+  - bndwdth: 1000.0
+    exectime: 3.91e-05
+    identifier: switch
+    model: Aruba 3810
+    param: ''
+    pcktlen: 512
+  - bndwdth: 1000.0
+    exectime: 5.585e-05
+    identifier: switch
+    model: Aruba 3810
+    param: ''
+    pcktlen: 1500
+  - bndwdth: 1000.0
+    exectime: 2.796e-05
+    identifier: switch
+    model: Netgear GJS524E
+    param: ''
+    pcktlen: 128
+  - bndwdth: 1000.0
+    exectime: 2.9120000000000002e-05
+    identifier: switch
+    model: Netgear GJS524E
+    param: ''
+    pcktlen: 512
+  - bndwdth: 1000.0
+    exectime: 3.0211e-05
+    identifier: switch
+    model: Netgear GJS524E
+    param: ''
+    pcktlen: 1500
+  - bndwdth: 1000.0
+    exectime: 2.9809999999999997e-05
+    identifier: switch
+    model: Netgear GS324T
+    param: ''
+    pcktlen: 128
+  - bndwdth: 1000.0
+    exectime: 3.921e-05
+    identifier: switch
+    model: Netgear GS324T
+    param: ''
+    pcktlen: 512
+  - bndwdth: 1000.0
+    exectime: 5.022e-05
+    identifier: switch
+    model: Netgear GS324T
+    param: ''
+    pcktlen: 1500

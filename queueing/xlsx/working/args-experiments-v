@@ -1,6 +1,6 @@
--csvDir /Users/nicol/Dropbox/github-repos/pcesapps-working/queueing/xlsx/csvDir
--yamlDir /Users/nicol/Dropbox/github-repos/pcesapps-working/queueing/templates
--descDir /Users/nicol/Dropbox/github-repos/pcesapps-working/queueing/xlsx/descDir
--name embedded
+-csvDir /Users/nicol/Dropbox/github-repos/pcesapps/queueing/xlsx/csvDir
+-yamlDir /Users/nicol/Dropbox/github-repos/pcesapps/queueing/templates
+-descDir /Users/nicol/Dropbox/github-repos/pcesapps/queueing/xlsx/descDir
+-name main
 -csvIn experiments-sheet.csv
 -experiments experiments.yaml

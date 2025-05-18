@@ -1,0 +1,5 @@
+Experiment,MeasureName,$bndwdth,$crypto,Index,Sample(msec)
+exp-1,end2end,100,AES-256-CBC,1,6.01576
+exp-2,end2end,10,AES-256-CBC,1,59.6558
+exp-3,end2end,100,AES-128-CBC,1,6.01235
+exp-4,end2end,10,AES-128-CBC,1,59.6524

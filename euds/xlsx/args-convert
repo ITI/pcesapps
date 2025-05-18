@@ -1,0 +1,8 @@
+-working /Users/nicol/Dropbox/github-repos/pcesapps/euds/xlsx/working
+-name main
+-xlsx /Users/nicol/Dropbox/github-repos/pcesapps/euds/xlsx/input/euds.xlsx
+-csvDir /Users/nicol/Dropbox/github-repos/pcesapps/euds/xlsx/csvDir
+-yamlDir /Users/nicol/Dropbox/github-repos/pcesapps/euds/templates
+-templateDir /Users/nicol/Dropbox/github-repos/pcesapps/euds/xlsx/templateDir
+-descDir /Users/nicol/Dropbox/github-repos/pcesapps/euds/xlsx/descDir
+-argsDir /Users/nicol/Dropbox/github-repos/pcesapps/euds/xlsx/args

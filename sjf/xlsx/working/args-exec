@@ -1,0 +1,10 @@
+-csvDir /Users/nicol/Dropbox/github-repos/pcesapps/sjf/xlsx/csvDir
+-yamlDir /Users/nicol/Dropbox/github-repos/pcesapps/sjf/templates
+-descDir /Users/nicol/Dropbox/github-repos/pcesapps/sjf/xlsx/descDir
+-name main
+-validate
+-csvIn execTime-sheet.csv
+-cpuOpsDescOut cpuOps.json
+-modelDescOut devModel.json
+-funcExecOut funcExec.yaml
+-devExecOut devExec.yaml

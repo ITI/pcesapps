@@ -1,0 +1,1 @@
+{"workload1": ["startThread", "startMeasure", "generatePckt", "request", "endMeasure", "endThread"], "workload2": ["startThread", "startMeasure", "generatePckt", "request", "endMeasure", "endThread"], "workload3": ["startThread", "startMeasure", "generatePckt", "request", "endMeasure", "endThread"], "SJFServer": ["lookup"]}

@@ -1,0 +1,34 @@
+Unnamed: 0,Unnamed: 1,Unnamed: 2,Unnamed: 3
+,,,
+Mapping,,,
+### CmpPtnName,func label,endpoint,sched priority
+workload1,startThread,client1,10
+workload1,startMeasure,client1,10
+workload1,generatePckt,client1,10
+workload1,request,client1,10
+workload1,endMeasure,client1,10
+workload1,endThread,client1,10
+,,,
+workload2,startThread,client2,10
+workload2,startMeasure,client2,10
+workload2,generatePckt,client2,10
+workload2,request,client2,10
+workload2,endMeasure,client2,10
+workload2,endThread,client2,10
+,,,
+,,,
+workload3,startThread,client3,10
+workload3,startMeasure,client3,10
+workload3,generatePckt,client3,10
+workload3,request,client3,10
+workload3,endMeasure,client3,10
+workload3,endThread,client3,10
+,,,
+SJFServer,lookup,server,10
+,,,
+,,,
+### color key,,,
+### Category label,,,
+### singleton descriptor ,,,
+### list descriptor,,,
+### dict descriptor,,,

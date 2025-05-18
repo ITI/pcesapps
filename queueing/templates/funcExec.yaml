@@ -1,90 +1,1686 @@
-listname: embedded
+listname: main
 times:
   authenticate:
-  - cpumodel: AMDEPYC953464-CoreProcessor
-    exectime: 4.0e-06
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 2.5e-07
     identifier: authenticate
     param: ''
-    pcktlen: 1000
+    pcktlen: 64
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 2.5e-07
+    identifier: authenticate
+    param: ''
+    pcktlen: 1500
   decrypt-AES-128-CBC:
-  - cpumodel: AMDEPYC953464-CoreProcessor
-    exectime: 4.555900999999999e-06
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 4.13977998046264e-07
     identifier: decrypt-AES-128-CBC
     param: ''
-    pcktlen: 1500
-  - cpumodel: AMDEPYC953464-CoreProcessor
-    exectime: 3.097098e-06
+    pcktlen: 64
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 6.50250830070213e-07
+    identifier: decrypt-AES-128-CBC
+    param: ''
+    pcktlen: 128
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 9.01290714095659e-07
+    identifier: decrypt-AES-128-CBC
+    param: ''
+    pcktlen: 196
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 1.12279649411811e-06
+    identifier: decrypt-AES-128-CBC
+    param: ''
+    pcktlen: 256
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 1.5953421581659999e-06
+    identifier: decrypt-AES-128-CBC
+    param: ''
+    pcktlen: 384
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 2.0678878222138998e-06
+    identifier: decrypt-AES-128-CBC
+    param: ''
+    pcktlen: 512
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 3.0129791503097e-06
+    identifier: decrypt-AES-128-CBC
+    param: ''
+    pcktlen: 768
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 3.8694681663965096e-06
     identifier: decrypt-AES-128-CBC
     param: ''
     pcktlen: 1000
-  - cpumodel: AEWIN0T008
-    exectime: 9.111801999999999e-07
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 5.7153496665836105e-06
     identifier: decrypt-AES-128-CBC
     param: ''
     pcktlen: 1500
-  - cpumodel: AEWIN0T008
-    exectime: 6.194196e-07
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 9.59482417355164e-07
+    identifier: decrypt-AES-128-CBC
+    param: ''
+    pcktlen: 64
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 1.56764360062629e-06
+    identifier: decrypt-AES-128-CBC
+    param: ''
+    pcktlen: 128
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 2.2138148578518702e-06
+    identifier: decrypt-AES-128-CBC
+    param: ''
+    pcktlen: 196
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 2.78396596716855e-06
+    identifier: decrypt-AES-128-CBC
+    param: ''
+    pcktlen: 256
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 4.00028833371081e-06
+    identifier: decrypt-AES-128-CBC
+    param: ''
+    pcktlen: 384
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 5.21661070025307e-06
+    identifier: decrypt-AES-128-CBC
+    param: ''
+    pcktlen: 512
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 7.6492554333376e-06
+    identifier: decrypt-AES-128-CBC
+    param: ''
+    pcktlen: 768
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 9.85383972269544e-06
     identifier: decrypt-AES-128-CBC
     param: ''
     pcktlen: 1000
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 1.46050989670011e-05
+    identifier: decrypt-AES-128-CBC
+    param: ''
+    pcktlen: 1500
+  - cpumodel: AEWIN 0T008
+    exectime: 5.0e-07
+    identifier: decrypt-AES-128-CBC
+    param: ''
+    pcktlen: 1500
+  - cpumodel: AEWIN 0T008
+    exectime: 5.0e-07
+    identifier: decrypt-AES-128-CBC
+    param: ''
+    pcktlen: 1000
+  decrypt-AES-128-CTR:
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 3.22370179401077e-07
+    identifier: decrypt-AES-128-CTR
+    param: ''
+    pcktlen: 64
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 6.17347440427774e-07
+    identifier: decrypt-AES-128-CTR
+    param: ''
+    pcktlen: 128
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 9.307607802686389e-07
+    identifier: decrypt-AES-128-CTR
+    param: ''
+    pcktlen: 196
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 1.20730196248116e-06
+    identifier: decrypt-AES-128-CTR
+    param: ''
+    pcktlen: 256
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 1.79725648453455e-06
+    identifier: decrypt-AES-128-CTR
+    param: ''
+    pcktlen: 384
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 2.38721100658795e-06
+    identifier: decrypt-AES-128-CTR
+    param: ''
+    pcktlen: 512
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 3.56712005069473e-06
+    identifier: decrypt-AES-128-CTR
+    param: ''
+    pcktlen: 768
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 4.63641262191651e-06
+    identifier: decrypt-AES-128-CTR
+    param: ''
+    pcktlen: 1000
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 6.940922473687569e-06
+    identifier: decrypt-AES-128-CTR
+    param: ''
+    pcktlen: 1500
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 8.91329801376672e-07
+    identifier: decrypt-AES-128-CTR
+    param: ''
+    pcktlen: 64
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 1.5869522102630201e-06
+    identifier: decrypt-AES-128-CTR
+    param: ''
+    pcktlen: 128
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 2.32605101970477e-06
+    identifier: decrypt-AES-128-CTR
+    param: ''
+    pcktlen: 196
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 2.97819702803572e-06
+    identifier: decrypt-AES-128-CTR
+    param: ''
+    pcktlen: 256
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 4.36944184580842e-06
+    identifier: decrypt-AES-128-CTR
+    param: ''
+    pcktlen: 384
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 5.76068666358112e-06
+    identifier: decrypt-AES-128-CTR
+    param: ''
+    pcktlen: 512
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 8.54317629912653e-06
+    identifier: decrypt-AES-128-CTR
+    param: ''
+    pcktlen: 768
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 1.10648075313395e-05
+    identifier: decrypt-AES-128-CTR
+    param: ''
+    pcktlen: 1000
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 1.64993576007641e-05
+    identifier: decrypt-AES-128-CTR
+    param: ''
+    pcktlen: 1500
+  decrypt-AES-128-ECB:
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 3.89307549449035e-07
+    identifier: decrypt-AES-128-ECB
+    param: ''
+    pcktlen: 64
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 6.288446240041749e-07
+    identifier: decrypt-AES-128-ECB
+    param: ''
+    pcktlen: 128
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 8.83352765719012e-07
+    identifier: decrypt-AES-128-ECB
+    param: ''
+    pcktlen: 196
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 1.10791877311445e-06
+    identifier: decrypt-AES-128-ECB
+    param: ''
+    pcktlen: 256
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 1.58699292222473e-06
+    identifier: decrypt-AES-128-ECB
+    param: ''
+    pcktlen: 384
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 2.06606707133502e-06
+    identifier: decrypt-AES-128-ECB
+    param: ''
+    pcktlen: 512
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 3.02421536955558e-06
+    identifier: decrypt-AES-128-ECB
+    param: ''
+    pcktlen: 768
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 3.89253726481796e-06
+    identifier: decrypt-AES-128-ECB
+    param: ''
+    pcktlen: 1000
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 5.76392065978e-06
+    identifier: decrypt-AES-128-ECB
+    param: ''
+    pcktlen: 1500
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 1.04103408206875e-06
+    identifier: decrypt-AES-128-ECB
+    param: ''
+    pcktlen: 64
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 1.64444721267565e-06
+    identifier: decrypt-AES-128-ECB
+    param: ''
+    pcktlen: 128
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 2.28557366394548e-06
+    identifier: decrypt-AES-128-ECB
+    param: ''
+    pcktlen: 196
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 2.8512734738894497e-06
+    identifier: decrypt-AES-128-ECB
+    param: ''
+    pcktlen: 256
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 4.05809973510325e-06
+    identifier: decrypt-AES-128-ECB
+    param: ''
+    pcktlen: 384
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 5.26492599631704e-06
+    identifier: decrypt-AES-128-ECB
+    param: ''
+    pcktlen: 512
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 7.67857851874464e-06
+    identifier: decrypt-AES-128-ECB
+    param: ''
+    pcktlen: 768
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 9.86595111719465e-06
+    identifier: decrypt-AES-128-ECB
+    param: ''
+    pcktlen: 1000
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 1.4580116200061e-05
+    identifier: decrypt-AES-128-ECB
+    param: ''
+    pcktlen: 1500
+  decrypt-AES-128-GCM:
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 8.22909140799023e-07
+    identifier: decrypt-AES-128-GCM
+    param: ''
+    pcktlen: 64
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 8.40042066815035e-07
+    identifier: decrypt-AES-128-GCM
+    param: ''
+    pcktlen: 128
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 8.58245800707047e-07
+    identifier: decrypt-AES-128-GCM
+    param: ''
+    pcktlen: 196
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 8.743079188470591e-07
+    identifier: decrypt-AES-128-GCM
+    param: ''
+    pcktlen: 256
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 9.08573770879083e-07
+    identifier: decrypt-AES-128-GCM
+    param: ''
+    pcktlen: 384
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 9.42839622911107e-07
+    identifier: decrypt-AES-128-GCM
+    param: ''
+    pcktlen: 512
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 1.01137132697515e-06
+    identifier: decrypt-AES-128-GCM
+    param: ''
+    pcktlen: 768
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 1.0734781837831899e-06
+    identifier: decrypt-AES-128-GCM
+    param: ''
+    pcktlen: 1000
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 1.2073291682832902e-06
+    identifier: decrypt-AES-128-GCM
+    param: ''
+    pcktlen: 1500
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 1.79533273592058e-06
+    identifier: decrypt-AES-128-GCM
+    param: ''
+    pcktlen: 64
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 1.8243989798028499e-06
+    identifier: decrypt-AES-128-GCM
+    param: ''
+    pcktlen: 128
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 1.85528186392775e-06
+    identifier: decrypt-AES-128-GCM
+    param: ''
+    pcktlen: 196
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 1.88253146756738e-06
+    identifier: decrypt-AES-128-GCM
+    param: ''
+    pcktlen: 256
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 1.9406639553319002e-06
+    identifier: decrypt-AES-128-GCM
+    param: ''
+    pcktlen: 384
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 1.99879644309643e-06
+    identifier: decrypt-AES-128-GCM
+    param: ''
+    pcktlen: 512
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 2.11506141862549e-06
+    identifier: decrypt-AES-128-GCM
+    param: ''
+    pcktlen: 768
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 2.22042655269869e-06
+    identifier: decrypt-AES-128-GCM
+    param: ''
+    pcktlen: 1000
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 2.44750658302888e-06
+    identifier: decrypt-AES-128-GCM
+    param: ''
+    pcktlen: 1500
   decrypt-AES-256-CBC:
-  - cpumodel: AMDEPYC953464-CoreProcessor
-    exectime: 6.257925e-07
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 4.937739400683421e-07
+    identifier: decrypt-AES-256-CBC
+    param: ''
+    pcktlen: 64
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 8.10993124028795e-07
     identifier: decrypt-AES-256-CBC
     param: ''
     pcktlen: 128
-  - cpumodel: AEWIN0T008
-    exectime: 1.251585e-07
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 1.14803850698677e-06
+    identifier: decrypt-AES-256-CBC
+    param: ''
+    pcktlen: 196
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 1.4454314919497e-06
+    identifier: decrypt-AES-256-CBC
+    param: ''
+    pcktlen: 256
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 2.0798698598706e-06
+    identifier: decrypt-AES-256-CBC
+    param: ''
+    pcktlen: 384
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 2.7143082277915102e-06
+    identifier: decrypt-AES-256-CBC
+    param: ''
+    pcktlen: 512
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 3.98318496363332e-06
+    identifier: decrypt-AES-256-CBC
+    param: ''
+    pcktlen: 768
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 5.133104505489959e-06
+    identifier: decrypt-AES-256-CBC
+    param: ''
+    pcktlen: 1000
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 7.6113793801809904e-06
+    identifier: decrypt-AES-256-CBC
+    param: ''
+    pcktlen: 1500
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 1.1473094368236001e-06
+    identifier: decrypt-AES-256-CBC
+    param: ''
+    pcktlen: 64
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 1.95795919211415e-06
     identifier: decrypt-AES-256-CBC
     param: ''
     pcktlen: 128
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 2.81927455711036e-06
+    identifier: decrypt-AES-256-CBC
+    param: ''
+    pcktlen: 196
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 3.57925870269525e-06
+    identifier: decrypt-AES-256-CBC
+    param: ''
+    pcktlen: 256
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 5.20055821327634e-06
+    identifier: decrypt-AES-256-CBC
+    param: ''
+    pcktlen: 384
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 6.82185772385744e-06
+    identifier: decrypt-AES-256-CBC
+    param: ''
+    pcktlen: 512
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 1.00644567450196e-05
+    identifier: decrypt-AES-256-CBC
+    param: ''
+    pcktlen: 768
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 1.30030621079478e-05
+    identifier: decrypt-AES-256-CBC
+    param: ''
+    pcktlen: 1000
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 1.9336263321155302e-05
+    identifier: decrypt-AES-256-CBC
+    param: ''
+    pcktlen: 1500
+  - cpumodel: AEWIN 0T008
+    exectime: 5.0e-07
+    identifier: decrypt-AES-256-CBC
+    param: ''
+    pcktlen: 128
+  decrypt-AES-256-CTR:
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 4.1872351734039796e-07
+    identifier: decrypt-AES-256-CTR
+    param: ''
+    pcktlen: 64
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 7.980058060955801e-07
+    identifier: decrypt-AES-256-CTR
+    param: ''
+    pcktlen: 128
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 1.20099323789796e-06
+    identifier: decrypt-AES-256-CTR
+    param: ''
+    pcktlen: 196
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 1.55657038360594e-06
+    identifier: decrypt-AES-256-CTR
+    param: ''
+    pcktlen: 256
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 2.3151349611163e-06
+    identifier: decrypt-AES-256-CTR
+    param: ''
+    pcktlen: 384
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 3.07369953862667e-06
+    identifier: decrypt-AES-256-CTR
+    param: ''
+    pcktlen: 512
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 4.5908286936474e-06
+    identifier: decrypt-AES-256-CTR
+    param: ''
+    pcktlen: 768
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 5.96572699038493e-06
+    identifier: decrypt-AES-256-CTR
+    param: ''
+    pcktlen: 1000
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 8.92886987128479e-06
+    identifier: decrypt-AES-256-CTR
+    param: ''
+    pcktlen: 1500
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 1.09240089021063e-06
+    identifier: decrypt-AES-256-CTR
+    param: ''
+    pcktlen: 64
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 2.0015637180080497e-06
+    identifier: decrypt-AES-256-CTR
+    param: ''
+    pcktlen: 128
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 2.96754922254281e-06
+    identifier: decrypt-AES-256-CTR
+    param: ''
+    pcktlen: 196
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 3.81988937360289e-06
+    identifier: decrypt-AES-256-CTR
+    param: ''
+    pcktlen: 256
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 5.63821502919772e-06
+    identifier: decrypt-AES-256-CTR
+    param: ''
+    pcktlen: 384
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 7.45654068479256e-06
+    identifier: decrypt-AES-256-CTR
+    param: ''
+    pcktlen: 512
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 1.1093191995982201e-05
+    identifier: decrypt-AES-256-CTR
+    param: ''
+    pcktlen: 768
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 1.43889072467478e-05
+    identifier: decrypt-AES-256-CTR
+    param: ''
+    pcktlen: 1000
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 2.14917418389152e-05
+    identifier: decrypt-AES-256-CTR
+    param: ''
+    pcktlen: 1500
+  decrypt-AES-256-ECB:
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 4.58876970808182e-07
+    identifier: decrypt-AES-256-ECB
+    param: ''
+    pcktlen: 64
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 7.82175515424081e-07
+    identifier: decrypt-AES-256-ECB
+    param: ''
+    pcktlen: 128
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 1.12568021907847e-06
+    identifier: decrypt-AES-256-ECB
+    param: ''
+    pcktlen: 196
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 1.42877260465588e-06
+    identifier: decrypt-AES-256-ECB
+    param: ''
+    pcktlen: 256
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 2.07536969388768e-06
+    identifier: decrypt-AES-256-ECB
+    param: ''
+    pcktlen: 384
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 2.72196678311947e-06
+    identifier: decrypt-AES-256-ECB
+    param: ''
+    pcktlen: 512
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 4.01516096158307e-06
+    identifier: decrypt-AES-256-ECB
+    param: ''
+    pcktlen: 768
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 5.187118185815711e-06
+    identifier: decrypt-AES-256-ECB
+    param: ''
+    pcktlen: 1000
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 7.712888065627431e-06
+    identifier: decrypt-AES-256-ECB
+    param: ''
+    pcktlen: 1500
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 1.16853392943307e-06
+    identifier: decrypt-AES-256-ECB
+    param: ''
+    pcktlen: 64
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 1.98763706191099e-06
+    identifier: decrypt-AES-256-ECB
+    param: ''
+    pcktlen: 128
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 2.8579341401687797e-06
+    identifier: decrypt-AES-256-ECB
+    param: ''
+    pcktlen: 196
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 3.62584332686683e-06
+    identifier: decrypt-AES-256-ECB
+    param: ''
+    pcktlen: 256
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 5.26404959182266e-06
+    identifier: decrypt-AES-256-ECB
+    param: ''
+    pcktlen: 384
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 6.9022558567785e-06
+    identifier: decrypt-AES-256-ECB
+    param: ''
+    pcktlen: 512
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 1.01786683866901e-05
+    identifier: decrypt-AES-256-ECB
+    param: ''
+    pcktlen: 768
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 1.3147917241922601e-05
+    identifier: decrypt-AES-256-ECB
+    param: ''
+    pcktlen: 1000
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 1.95471604644063e-05
+    identifier: decrypt-AES-256-ECB
+    param: ''
+    pcktlen: 1500
+  decrypt-AES-256-GCM:
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 8.21607168115885e-07
+    identifier: decrypt-AES-256-GCM
+    param: ''
+    pcktlen: 64
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 8.40864218958335e-07
+    identifier: decrypt-AES-256-GCM
+    param: ''
+    pcktlen: 128
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 8.613248354784389e-07
+    identifier: decrypt-AES-256-GCM
+    param: ''
+    pcktlen: 196
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 8.79378320643236e-07
+    identifier: decrypt-AES-256-GCM
+    param: ''
+    pcktlen: 256
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 9.178924223281369e-07
+    identifier: decrypt-AES-256-GCM
+    param: ''
+    pcktlen: 384
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 9.56406524013038e-07
+    identifier: decrypt-AES-256-GCM
+    param: ''
+    pcktlen: 512
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 1.0334347273828299e-06
+    identifier: decrypt-AES-256-GCM
+    param: ''
+    pcktlen: 768
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 1.10324153668672e-06
+    identifier: decrypt-AES-256-GCM
+    param: ''
+    pcktlen: 1000
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 1.2536872463933598e-06
+    identifier: decrypt-AES-256-GCM
+    param: ''
+    pcktlen: 1500
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 1.8457154280199699e-06
+    identifier: decrypt-AES-256-GCM
+    param: ''
+    pcktlen: 64
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 1.88350085180553e-06
+    identifier: decrypt-AES-256-GCM
+    param: ''
+    pcktlen: 128
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 1.92364786457769e-06
+    identifier: decrypt-AES-256-GCM
+    param: ''
+    pcktlen: 196
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 1.95907169937665e-06
+    identifier: decrypt-AES-256-GCM
+    param: ''
+    pcktlen: 256
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 2.03464254694777e-06
+    identifier: decrypt-AES-256-GCM
+    param: ''
+    pcktlen: 384
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 2.1102133945189002e-06
+    identifier: decrypt-AES-256-GCM
+    param: ''
+    pcktlen: 512
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 2.26135508966114e-06
+    identifier: decrypt-AES-256-GCM
+    param: ''
+    pcktlen: 768
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 2.3983272508838098e-06
+    identifier: decrypt-AES-256-GCM
+    param: ''
+    pcktlen: 1000
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 2.69352587420851e-06
+    identifier: decrypt-AES-256-GCM
+    param: ''
+    pcktlen: 1500
+  decrypt-RSA-2048-na:
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 0.000929516529987759
+    identifier: decrypt-RSA-2048-na
+    param: ''
+    pcktlen: 64
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 0.000930228500611995
+    identifier: decrypt-RSA-2048-na
+    param: ''
+    pcktlen: 128
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 0.0009309849694002449
+    identifier: decrypt-RSA-2048-na
+    param: ''
+    pcktlen: 196
+  decrypt-RSA-3072-na:
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 0.00228733032003084
+    identifier: decrypt-RSA-3072-na
+    param: ''
+    pcktlen: 64
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 0.00228814000578369
+    identifier: decrypt-RSA-3072-na
+    param: ''
+    pcktlen: 128
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 0.00228900029689608
+    identifier: decrypt-RSA-3072-na
+    param: ''
+    pcktlen: 196
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 0.00228975937728937
+    identifier: decrypt-RSA-3072-na
+    param: ''
+    pcktlen: 256
   encrypt-AES-128-CBC:
-  - cpumodel: AMDEPYC953464-CoreProcessor
-    exectime: 5.471041e-06
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 6.03814781878698e-07
     identifier: encrypt-AES-128-CBC
     param: ''
-    pcktlen: 1500
-  - cpumodel: AMDEPYC953464-CoreProcessor
-    exectime: 3.792754e-06
+    pcktlen: 64
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 8.74656429713734e-07
+    identifier: encrypt-AES-128-CBC
+    param: ''
+    pcktlen: 128
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 1.16242568053845e-06
+    identifier: encrypt-AES-128-CBC
+    param: ''
+    pcktlen: 196
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 1.4163397253837998e-06
+    identifier: encrypt-AES-128-CBC
+    param: ''
+    pcktlen: 256
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 1.95802302105387e-06
+    identifier: encrypt-AES-128-CBC
+    param: ''
+    pcktlen: 384
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 2.49970631672394e-06
+    identifier: encrypt-AES-128-CBC
+    param: ''
+    pcktlen: 512
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 3.5830729080640798e-06
+    identifier: encrypt-AES-128-CBC
+    param: ''
+    pcktlen: 768
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 4.56487388146609e-06
     identifier: encrypt-AES-128-CBC
     param: ''
     pcktlen: 1000
-  - cpumodel: AEWIN0T008
-    exectime: 1.0942082000000001e-06
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 6.6808242551773e-06
     identifier: encrypt-AES-128-CBC
     param: ''
     pcktlen: 1500
-  - cpumodel: AEWIN0T008
-    exectime: 7.585508e-07
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 1.4906573378369e-06
+    identifier: encrypt-AES-128-CBC
+    param: ''
+    pcktlen: 64
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 2.15007637692148e-06
+    identifier: encrypt-AES-128-CBC
+    param: ''
+    pcktlen: 128
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 2.8507091059488497e-06
+    identifier: encrypt-AES-128-CBC
+    param: ''
+    pcktlen: 196
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 3.46891445509064e-06
+    identifier: encrypt-AES-128-CBC
+    param: ''
+    pcktlen: 256
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 4.7877525332598e-06
+    identifier: encrypt-AES-128-CBC
+    param: ''
+    pcktlen: 384
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 6.1065906114289595e-06
+    identifier: encrypt-AES-128-CBC
+    param: ''
+    pcktlen: 512
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 8.744266767767281e-06
+    identifier: encrypt-AES-128-CBC
+    param: ''
+    pcktlen: 768
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 1.1134660784448799e-05
     identifier: encrypt-AES-128-CBC
     param: ''
     pcktlen: 1000
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 1.62863720272971e-05
+    identifier: encrypt-AES-128-CBC
+    param: ''
+    pcktlen: 1500
+  - cpumodel: AEWIN 0T008
+    exectime: 5.0e-07
+    identifier: encrypt-AES-128-CBC
+    param: ''
+    pcktlen: 1500
+  - cpumodel: AEWIN 0T008
+    exectime: 5.0e-07
+    identifier: encrypt-AES-128-CBC
+    param: ''
+    pcktlen: 1000
+  encrypt-AES-128-CTR:
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 7.68218798320021e-07
+    identifier: encrypt-AES-128-CTR
+    param: ''
+    pcktlen: 64
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 1.06144031537287e-06
+    identifier: encrypt-AES-128-CTR
+    param: ''
+    pcktlen: 128
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 1.37298817724152e-06
+    identifier: encrypt-AES-128-CTR
+    param: ''
+    pcktlen: 196
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 1.64788334947857e-06
+    identifier: encrypt-AES-128-CTR
+    param: ''
+    pcktlen: 256
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 2.23432638358427e-06
+    identifier: encrypt-AES-128-CTR
+    param: ''
+    pcktlen: 384
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 2.82076941768998e-06
+    identifier: encrypt-AES-128-CTR
+    param: ''
+    pcktlen: 512
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 3.99365548590138e-06
+    identifier: encrypt-AES-128-CTR
+    param: ''
+    pcktlen: 768
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 5.05658348521797e-06
+    identifier: encrypt-AES-128-CTR
+    param: ''
+    pcktlen: 1000
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 7.34737658719337e-06
+    identifier: encrypt-AES-128-CTR
+    param: ''
+    pcktlen: 1500
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 2.34557287614845e-06
+    identifier: encrypt-AES-128-CTR
+    param: ''
+    pcktlen: 64
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 3.0445497247634102e-06
+    identifier: encrypt-AES-128-CTR
+    param: ''
+    pcktlen: 128
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 3.7872126264168e-06
+    identifier: encrypt-AES-128-CTR
+    param: ''
+    pcktlen: 196
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 4.44250342199332e-06
+    identifier: encrypt-AES-128-CTR
+    param: ''
+    pcktlen: 256
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 5.84045711922323e-06
+    identifier: encrypt-AES-128-CTR
+    param: ''
+    pcktlen: 384
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 7.23841081645314e-06
+    identifier: encrypt-AES-128-CTR
+    param: ''
+    pcktlen: 512
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 1.00343182109129e-05
+    identifier: encrypt-AES-128-CTR
+    param: ''
+    pcktlen: 768
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 1.25681092871421e-05
+    identifier: encrypt-AES-128-CTR
+    param: ''
+    pcktlen: 1000
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 1.80288659169465e-05
+    identifier: encrypt-AES-128-CTR
+    param: ''
+    pcktlen: 1500
+  encrypt-AES-128-ECB:
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 5.07184066852455e-07
+    identifier: encrypt-AES-128-ECB
+    param: ''
+    pcktlen: 64
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 7.5727850009749e-07
+    identifier: encrypt-AES-128-ECB
+    param: ''
+    pcktlen: 128
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 1.02300383542033e-06
+    identifier: encrypt-AES-128-ECB
+    param: ''
+    pcktlen: 196
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 1.25746736658755e-06
+    identifier: encrypt-AES-128-ECB
+    param: ''
+    pcktlen: 256
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 1.75765623307762e-06
+    identifier: encrypt-AES-128-ECB
+    param: ''
+    pcktlen: 384
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 2.2578450995676904e-06
+    identifier: encrypt-AES-128-ECB
+    param: ''
+    pcktlen: 512
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 3.2582228325478302e-06
+    identifier: encrypt-AES-128-ECB
+    param: ''
+    pcktlen: 768
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 4.16481515306108e-06
+    identifier: encrypt-AES-128-ECB
+    param: ''
+    pcktlen: 1000
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 6.11867791278791e-06
+    identifier: encrypt-AES-128-ECB
+    param: ''
+    pcktlen: 1500
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 1.21709107918344e-06
+    identifier: encrypt-AES-128-ECB
+    param: ''
+    pcktlen: 64
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 1.84387641434184e-06
+    identifier: encrypt-AES-128-ECB
+    param: ''
+    pcktlen: 128
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 2.50983583294764e-06
+    identifier: encrypt-AES-128-ECB
+    param: ''
+    pcktlen: 196
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 3.0974470846586303e-06
+    identifier: encrypt-AES-128-ECB
+    param: ''
+    pcktlen: 256
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 4.351017754975431e-06
+    identifier: encrypt-AES-128-ECB
+    param: ''
+    pcktlen: 384
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 5.60458842529222e-06
+    identifier: encrypt-AES-128-ECB
+    param: ''
+    pcktlen: 512
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 8.11172976592581e-06
+    identifier: encrypt-AES-128-ECB
+    param: ''
+    pcktlen: 768
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 1.03838266058749e-05
+    identifier: encrypt-AES-128-ECB
+    param: ''
+    pcktlen: 1000
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 1.52805870367999e-05
+    identifier: encrypt-AES-128-ECB
+    param: ''
+    pcktlen: 1500
+  encrypt-AES-128-GCM:
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 2.95384090982678e-06
+    identifier: encrypt-AES-128-GCM
+    param: ''
+    pcktlen: 64
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 2.9810412548030997e-06
+    identifier: encrypt-AES-128-GCM
+    param: ''
+    pcktlen: 128
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 3.00994162134043e-06
+    identifier: encrypt-AES-128-GCM
+    param: ''
+    pcktlen: 196
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 3.0354419447557303e-06
+    identifier: encrypt-AES-128-GCM
+    param: ''
+    pcktlen: 256
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 3.08984263470836e-06
+    identifier: encrypt-AES-128-GCM
+    param: ''
+    pcktlen: 384
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 3.1442433246610003e-06
+    identifier: encrypt-AES-128-GCM
+    param: ''
+    pcktlen: 512
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 3.25304470456626e-06
+    identifier: encrypt-AES-128-GCM
+    param: ''
+    pcktlen: 768
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 3.35164595510541e-06
+    identifier: encrypt-AES-128-GCM
+    param: ''
+    pcktlen: 1000
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 3.56414865023289e-06
+    identifier: encrypt-AES-128-GCM
+    param: ''
+    pcktlen: 1500
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 1.0445602241282501e-05
+    identifier: encrypt-AES-128-GCM
+    param: ''
+    pcktlen: 64
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 1.04924767944539e-05
+    identifier: encrypt-AES-128-GCM
+    param: ''
+    pcktlen: 128
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 1.05422810071984e-05
+    identifier: encrypt-AES-128-GCM
+    param: ''
+    pcktlen: 196
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 1.05862259007966e-05
+    identifier: encrypt-AES-128-GCM
+    param: ''
+    pcktlen: 256
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 1.0679975007139401e-05
+    identifier: encrypt-AES-128-GCM
+    param: ''
+    pcktlen: 384
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 1.07737241134821e-05
+    identifier: encrypt-AES-128-GCM
+    param: ''
+    pcktlen: 512
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 1.09612223261676e-05
+    identifier: encrypt-AES-128-GCM
+    param: ''
+    pcktlen: 768
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 1.1131142581413799e-05
+    identifier: encrypt-AES-128-GCM
+    param: ''
+    pcktlen: 1000
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 1.1497350028065201e-05
+    identifier: encrypt-AES-128-GCM
+    param: ''
+    pcktlen: 1500
   encrypt-AES-256-CBC:
-  - cpumodel: AMDEPYC953464-CoreProcessor
-    exectime: 8.734855e-07
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 6.6410547370432e-07
+    identifier: encrypt-AES-256-CBC
+    param: ''
+    pcktlen: 64
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 1.02249521641375e-06
     identifier: encrypt-AES-256-CBC
     param: ''
     pcktlen: 128
-  - cpumodel: AEWIN0T008
-    exectime: 1.7469709999999998e-07
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 1.40328431804252e-06
+    identifier: encrypt-AES-256-CBC
+    param: ''
+    pcktlen: 196
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 1.73927470183261e-06
+    identifier: encrypt-AES-256-CBC
+    param: ''
+    pcktlen: 256
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 2.4560541872514697e-06
+    identifier: encrypt-AES-256-CBC
+    param: ''
+    pcktlen: 384
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 3.1728336726703297e-06
+    identifier: encrypt-AES-256-CBC
+    param: ''
+    pcktlen: 512
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 4.60639264350806e-06
+    identifier: encrypt-AES-256-CBC
+    param: ''
+    pcktlen: 768
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 5.90555546082974e-06
+    identifier: encrypt-AES-256-CBC
+    param: ''
+    pcktlen: 1000
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 8.705475325747169e-06
+    identifier: encrypt-AES-256-CBC
+    param: ''
+    pcktlen: 1500
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 1.66343345577012e-06
+    identifier: encrypt-AES-256-CBC
+    param: ''
+    pcktlen: 64
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 2.5396391101832602e-06
     identifier: encrypt-AES-256-CBC
     param: ''
     pcktlen: 128
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 3.4706076179972198e-06
+    identifier: encrypt-AES-256-CBC
+    param: ''
+    pcktlen: 196
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 4.29205041900954e-06
+    identifier: encrypt-AES-256-CBC
+    param: ''
+    pcktlen: 256
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 6.04446172783582e-06
+    identifier: encrypt-AES-256-CBC
+    param: ''
+    pcktlen: 384
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 7.7968730366621e-06
+    identifier: encrypt-AES-256-CBC
+    param: ''
+    pcktlen: 512
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 1.13016956543146e-05
+    identifier: encrypt-AES-256-CBC
+    param: ''
+    pcktlen: 768
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 1.44779411515622e-05
+    identifier: encrypt-AES-256-CBC
+    param: ''
+    pcktlen: 1000
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 2.13232978266649e-05
+    identifier: encrypt-AES-256-CBC
+    param: ''
+    pcktlen: 1500
+  - cpumodel: AEWIN 0T008
+    exectime: 5.0e-07
+    identifier: encrypt-AES-256-CBC
+    param: ''
+    pcktlen: 128
+  encrypt-AES-256-CTR:
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 8.40427125377894e-07
+    identifier: encrypt-AES-256-CTR
+    param: ''
+    pcktlen: 64
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 1.22155737674423e-06
+    identifier: encrypt-AES-256-CTR
+    param: ''
+    pcktlen: 128
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 1.62650826882096e-06
+    identifier: encrypt-AES-256-CTR
+    param: ''
+    pcktlen: 196
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 1.9838178794769e-06
+    identifier: encrypt-AES-256-CTR
+    param: ''
+    pcktlen: 256
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 2.74607838220957e-06
+    identifier: encrypt-AES-256-CTR
+    param: ''
+    pcktlen: 384
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 3.5083388849422403e-06
+    identifier: encrypt-AES-256-CTR
+    param: ''
+    pcktlen: 512
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 5.03285989040758e-06
+    identifier: encrypt-AES-256-CTR
+    param: ''
+    pcktlen: 768
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 6.41445705161055e-06
+    identifier: encrypt-AES-256-CTR
+    param: ''
+    pcktlen: 1000
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 9.39203714041005e-06
+    identifier: encrypt-AES-256-CTR
+    param: ''
+    pcktlen: 1500
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 2.50058243803484e-06
+    identifier: encrypt-AES-256-CTR
+    param: ''
+    pcktlen: 64
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 3.41407594363312e-06
+    identifier: encrypt-AES-256-CTR
+    param: ''
+    pcktlen: 128
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 4.38466279333129e-06
+    identifier: encrypt-AES-256-CTR
+    param: ''
+    pcktlen: 196
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 5.2410629548296795e-06
+    identifier: encrypt-AES-256-CTR
+    param: ''
+    pcktlen: 256
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 7.0680499660262505e-06
+    identifier: encrypt-AES-256-CTR
+    param: ''
+    pcktlen: 384
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 8.89503697722281e-06
+    identifier: encrypt-AES-256-CTR
+    param: ''
+    pcktlen: 512
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 1.25490109996159e-05
+    identifier: encrypt-AES-256-CTR
+    param: ''
+    pcktlen: 768
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 1.58604249574097e-05
+    identifier: encrypt-AES-256-CTR
+    param: ''
+    pcktlen: 1000
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 2.29970929698963e-05
+    identifier: encrypt-AES-256-CTR
+    param: ''
+    pcktlen: 1500
+  encrypt-AES-256-ECB:
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 5.767310346276169e-07
+    identifier: encrypt-AES-256-ECB
+    param: ''
+    pcktlen: 64
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 9.129872718805691e-07
+    identifier: encrypt-AES-256-ECB
+    param: ''
+    pcktlen: 128
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 1.27025952396183e-06
+    identifier: encrypt-AES-256-ECB
+    param: ''
+    pcktlen: 196
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 1.58549974638647e-06
+    identifier: encrypt-AES-256-ECB
+    param: ''
+    pcktlen: 256
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 2.25801222089237e-06
+    identifier: encrypt-AES-256-ECB
+    param: ''
+    pcktlen: 384
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 2.93052469539828e-06
+    identifier: encrypt-AES-256-ECB
+    param: ''
+    pcktlen: 512
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 4.27554964441008e-06
+    identifier: encrypt-AES-256-ECB
+    param: ''
+    pcktlen: 768
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 5.494478504452031e-06
+    identifier: encrypt-AES-256-ECB
+    param: ''
+    pcktlen: 1000
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 8.12148035799072e-06
+    identifier: encrypt-AES-256-ECB
+    param: ''
+    pcktlen: 1500
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 1.31075793951688e-06
+    identifier: encrypt-AES-256-ECB
+    param: ''
+    pcktlen: 64
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 2.16056026154861e-06
+    identifier: encrypt-AES-256-ECB
+    param: ''
+    pcktlen: 128
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 3.0634752287073203e-06
+    identifier: encrypt-AES-256-ECB
+    param: ''
+    pcktlen: 196
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 3.86016490561206e-06
+    identifier: encrypt-AES-256-ECB
+    param: ''
+    pcktlen: 256
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 5.559769549675521e-06
+    identifier: encrypt-AES-256-ECB
+    param: ''
+    pcktlen: 384
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 7.25937419373898e-06
+    identifier: encrypt-AES-256-ECB
+    param: ''
+    pcktlen: 512
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 1.06585834818658e-05
+    identifier: encrypt-AES-256-ECB
+    param: ''
+    pcktlen: 768
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 1.3739116899230901e-05
+    identifier: encrypt-AES-256-ECB
+    param: ''
+    pcktlen: 1000
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 2.0378197540103697e-05
+    identifier: encrypt-AES-256-ECB
+    param: ''
+    pcktlen: 1500
+  encrypt-AES-256-GCM:
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 2.9337240917882e-06
+    identifier: encrypt-AES-256-GCM
+    param: ''
+    pcktlen: 64
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 2.9618114138888602e-06
+    identifier: encrypt-AES-256-GCM
+    param: ''
+    pcktlen: 128
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 2.99165419362081e-06
+    identifier: encrypt-AES-256-GCM
+    param: ''
+    pcktlen: 196
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 3.01798605809018e-06
+    identifier: encrypt-AES-256-GCM
+    param: ''
+    pcktlen: 256
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 3.0741607022915e-06
+    identifier: encrypt-AES-256-GCM
+    param: ''
+    pcktlen: 384
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 3.13033534649282e-06
+    identifier: encrypt-AES-256-GCM
+    param: ''
+    pcktlen: 512
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 3.2426846348954598e-06
+    identifier: encrypt-AES-256-GCM
+    param: ''
+    pcktlen: 768
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 3.34450117751036e-06
+    identifier: encrypt-AES-256-GCM
+    param: ''
+    pcktlen: 1000
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 3.56393338142177e-06
+    identifier: encrypt-AES-256-GCM
+    param: ''
+    pcktlen: 1500
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 1.0303911392529701e-05
+    identifier: encrypt-AES-256-GCM
+    param: ''
+    pcktlen: 64
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 1.0358275059330901e-05
+    identifier: encrypt-AES-256-GCM
+    param: ''
+    pcktlen: 128
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 1.04160364553072e-05
+    identifier: encrypt-AES-256-GCM
+    param: ''
+    pcktlen: 196
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 1.04670023929334e-05
+    identifier: encrypt-AES-256-GCM
+    param: ''
+    pcktlen: 256
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 1.05757297265359e-05
+    identifier: encrypt-AES-256-GCM
+    param: ''
+    pcktlen: 384
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 1.0684457060138399e-05
+    identifier: encrypt-AES-256-GCM
+    param: ''
+    pcktlen: 512
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 1.09019117273434e-05
+    identifier: encrypt-AES-256-GCM
+    param: ''
+    pcktlen: 768
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 1.1098980019497899e-05
+    identifier: encrypt-AES-256-GCM
+    param: ''
+    pcktlen: 1000
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 1.15236961663827e-05
+    identifier: encrypt-AES-256-GCM
+    param: ''
+    pcktlen: 1500
+  encrypt-RSA-2048-na:
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 3.8664449204406305e-05
+    identifier: encrypt-RSA-2048-na
+    param: ''
+    pcktlen: 64
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 3.87025397796817e-05
+    identifier: encrypt-RSA-2048-na
+    param: ''
+    pcktlen: 128
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 3.87430110159118e-05
+    identifier: encrypt-RSA-2048-na
+    param: ''
+    pcktlen: 196
+  encrypt-RSA-3072-na:
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 5.84142760748023e-05
+    identifier: encrypt-RSA-3072-na
+    param: ''
+    pcktlen: 64
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 5.8381764025448196e-05
+    identifier: encrypt-RSA-3072-na
+    param: ''
+    pcktlen: 128
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 5.83472199730094e-05
+    identifier: encrypt-RSA-3072-na
+    param: ''
+    pcktlen: 196
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 5.8316739926739896e-05
+    identifier: encrypt-RSA-3072-na
+    param: ''
+    pcktlen: 256
   packet-generation:
-  - cpumodel: AMDEPYC953464-CoreProcessor
-    exectime: 3.2294884e-05
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 5.61325798366305e-07
+    identifier: packet-generation
+    param: ''
+    pcktlen: 64
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 6.4388794490246e-07
+    identifier: packet-generation
+    param: ''
+    pcktlen: 128
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 7.31610225597124e-07
+    identifier: packet-generation
+    param: ''
+    pcktlen: 196
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 8.0901223797477e-07
+    identifier: packet-generation
+    param: ''
+    pcktlen: 256
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 9.7413653104708e-07
+    identifier: packet-generation
+    param: ''
+    pcktlen: 384
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 1.13926082411939e-06
+    identifier: packet-generation
+    param: ''
+    pcktlen: 512
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 1.4695094102640101e-06
+    identifier: packet-generation
+    param: ''
+    pcktlen: 768
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 1.76879719145757e-06
     identifier: packet-generation
     param: ''
     pcktlen: 1000
-  packet-process:
-  - cpumodel: AMDEPYC953464-CoreProcessor
-    exectime: 0.001
-    identifier: packet-process
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 2.4138139612712803e-06
+    identifier: packet-generation
+    param: ''
+    pcktlen: 1500
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 1.18166157369567e-05
+    identifier: packet-generation
+    param: ''
+    pcktlen: 64
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 1.2002103870217001e-05
+    identifier: packet-generation
+    param: ''
+    pcktlen: 128
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 1.2199185011806e-05
+    identifier: packet-generation
+    param: ''
+    pcktlen: 196
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 1.23730801367374e-05
+    identifier: packet-generation
+    param: ''
+    pcktlen: 256
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 1.27440564032579e-05
+    identifier: packet-generation
+    param: ''
+    pcktlen: 384
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 1.31150326697784e-05
+    identifier: packet-generation
+    param: ''
+    pcktlen: 512
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 1.38569852028194e-05
+    identifier: packet-generation
+    param: ''
+    pcktlen: 768
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 1.45293796858878e-05
+    identifier: packet-generation
     param: ''
     pcktlen: 1000
+  - cpumodel: Intel(R) Core(TM) i7-8650U CPU
+    exectime: 1.59785057269834e-05
+    identifier: packet-generation
+    param: ''
+    pcktlen: 1500
+  packet-process:
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 1.0e-05
+    identifier: packet-process
+    param: ''
+    pcktlen: 64
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 1.0e-05
+    identifier: packet-process
+    param: ''
+    pcktlen: 1500
   packet-return:
-  - cpumodel: AMDEPYC953464-CoreProcessor
+  - cpumodel: AMD EPYC 7763 64-Core Processor
     exectime: 1.0e-05
     identifier: packet-return
     param: ''
-    pcktlen: 1000
+    pcktlen: 64
+  - cpumodel: AMD EPYC 7763 64-Core Processor
+    exectime: 1.0e-05
+    identifier: packet-return
+    param: ''
+    pcktlen: 1500

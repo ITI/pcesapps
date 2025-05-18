@@ -1,4 +1,4 @@
--name embedded
+-name main
 -csvIn execTime-sheet.csv
 -cpuOpsDescOut cpuOps.json
 -modelDescOut devModel.json

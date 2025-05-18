@@ -1,0 +1,4 @@
+- $lambda1,cp: '25'
+  $lambda2,cp: '12.5'
+  $lambda3,cp: '5'
+  name: exp-0

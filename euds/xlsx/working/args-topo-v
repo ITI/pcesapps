@@ -1,0 +1,9 @@
+-csvDir /Users/nicol/Dropbox/github-repos/pcesapps/euds/xlsx/csvDir
+-yamlDir /Users/nicol/Dropbox/github-repos/pcesapps/euds/templates
+-descDir /Users/nicol/Dropbox/github-repos/pcesapps/euds/xlsx/descDir
+-name main
+-csvIn topo-sheet.csv
+-topoOut topo.yaml
+-modelDescIn devModel.json
+-cpuDescOut cpuDesc.json
+-attrbDescOut attrb.json

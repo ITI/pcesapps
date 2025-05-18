@@ -12,7 +12,7 @@ endpts:
     mediatype: wired
     name: intrfc@source-pvtHub
     wireless: []
-  model: AMDEPYC953464-CoreProcessor
+  model: AMD EPYC 7763 64-Core Processor
   name: source
 - accel: {}
   cores: 1
@@ -36,7 +36,7 @@ endpts:
     mediatype: wired
     name: intrfc@sslSrvr-pubRtr
     wireless: []
-  model: AMDEPYC953464-CoreProcessor
+  model: AMD EPYC 7763 64-Core Processor
   name: sslSrvr
 - accel: {}
   cores: 1
@@ -51,7 +51,7 @@ endpts:
     mediatype: wired
     name: intrfc@eudDev-0-pubHub
     wireless: []
-  model: AMDEPYC953464-CoreProcessor
+  model: Intel(R) Core(TM) i7-8650U CPU
   name: eudDev-0
 - accel: {}
   cores: 1
@@ -66,7 +66,7 @@ endpts:
     mediatype: wired
     name: intrfc@eudDev-1-pubHub
     wireless: []
-  model: AMDEPYC953464-CoreProcessor
+  model: Intel(R) Core(TM) i7-8650U CPU
   name: eudDev-1
 - accel: {}
   cores: 1
@@ -81,7 +81,7 @@ endpts:
     mediatype: wired
     name: intrfc@eudDev-2-pubHub
     wireless: []
-  model: AMDEPYC953464-CoreProcessor
+  model: Intel(R) Core(TM) i7-8650U CPU
   name: eudDev-2
 - accel: {}
   cores: 1
@@ -96,9 +96,10 @@ endpts:
     mediatype: wired
     name: intrfc@eudDev-3-pubHub
     wireless: []
-  model: AMDEPYC953464-CoreProcessor
+  model: Intel(R) Core(TM) i7-8650U CPU
   name: eudDev-3
-name: euds
+flows: []
+name: main
 networks:
 - endpts:
   - source
@@ -146,9 +147,8 @@ routers:
     mediatype: wired
     name: intrfc@pvtRtr-sslSrvr
     wireless: []
-  model: Cisco
+  model: Cisco 4300
   name: pvtRtr
-  simple: 1
 - groups: []
   interfaces:
   - cable: intrfc@sslSrvr-pubRtr
@@ -169,9 +169,8 @@ routers:
     mediatype: wired
     name: intrfc@pubRtr-pubHub
     wireless: []
-  model: Cisco
+  model: Cisco 4300
   name: pubRtr
-  simple: 1
 switches:
 - groups: []
   interfaces:
@@ -193,9 +192,8 @@ switches:
     mediatype: wired
     name: intrfc@pvtHub-pvtRtr
     wireless: []
-  model: NetgearGS324T
+  model: Netgear GS324T
   name: pvtHub
-  simple: 1
 - groups: []
   interfaces:
   - cable: intrfc@pubRtr-pubHub
@@ -243,6 +241,5 @@ switches:
     mediatype: wired
     name: intrfc@pubHub-eudDev-3
     wireless: []
-  model: NetgearGS324T
+  model: Netgear GJS524E
   name: pubHub
-  simple: 1

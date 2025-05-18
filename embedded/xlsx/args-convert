@@ -1,0 +1,8 @@
+-working /Users/nicol/Dropbox/github-repos/pcesapps/embedded/xlsx/working
+-name main
+-xlsx /Users/nicol/Dropbox/github-repos/pcesapps/embedded/xlsx/input/embedded.xlsx
+-csvDir /Users/nicol/Dropbox/github-repos/pcesapps/embedded/xlsx/csvDir
+-yamlDir /Users/nicol/Dropbox/github-repos/pcesapps/embedded/templates
+-templateDir /Users/nicol/Dropbox/github-repos/pcesapps/embedded/xlsx/templateDir
+-descDir /Users/nicol/Dropbox/github-repos/pcesapps/embedded/xlsx/descDir
+-argsDir /Users/nicol/Dropbox/github-repos/pcesapps/embedded/xlsx/args

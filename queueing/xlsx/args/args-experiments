@@ -1,3 +1,3 @@
--name embedded
+-name main
 -csvIn experiments-sheet.csv
 -experiments experiments.yaml

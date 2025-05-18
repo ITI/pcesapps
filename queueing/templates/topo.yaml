@@ -1,6 +1,6 @@
 endpts:
 - accel:
-    hmiAccel: AEWIN0T008
+    hmiAccel: AEWIN 0T008
   cores: 1
   groups: []
   interfaces:
@@ -13,7 +13,7 @@ endpts:
     mediatype: wired
     name: intrfc@hmiDev-hub
     wireless: []
-  model: AMDEPYC953464-CoreProcessor
+  model: AMD EPYC 7763 64-Core Processor
   name: hmiDev
 - accel: {}
   cores: 1
@@ -28,7 +28,7 @@ endpts:
     mediatype: wired
     name: intrfc@embeddedDev-hub
     wireless: []
-  model: AMDEPYC953464-CoreProcessor
+  model: AMD EPYC 7763 64-Core Processor
   name: embeddedDev
 - accel: {}
   cores: 1
@@ -43,9 +43,10 @@ endpts:
     mediatype: wired
     name: intrfc@sslDev-hub
     wireless: []
-  model: AMDEPYC953464-CoreProcessor
+  model: AMD EPYC 7763 64-Core Processor
   name: sslDev
-name: embedded
+flows: []
+name: main
 networks:
 - endpts:
   - hmiDev
@@ -89,6 +90,5 @@ switches:
     mediatype: wired
     name: intrfc@hub-embeddedDev
     wireless: []
-  model: NetgearGS324T
+  model: Aruba 3810
   name: hub
-  simple: 1

@@ -1,5 +1,5 @@
-#-xpenv xlsxPCES
--xlsx embedded-model.xlsx
+-xpenv xlsxPCES
+-xlsx embedded.xlsx
 -name embedded
 -simexec
 #-container pces/embedded

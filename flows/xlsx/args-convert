@@ -1,0 +1,8 @@
+-working /Users/nicol/Dropbox/github-repos/pcesapps/flows/xlsx/working
+-name main
+-xlsx /Users/nicol/Dropbox/github-repos/pcesapps/flows/xlsx/input/flows.xlsx
+-csvDir /Users/nicol/Dropbox/github-repos/pcesapps/flows/xlsx/csvDir
+-yamlDir /Users/nicol/Dropbox/github-repos/pcesapps/flows/templates
+-templateDir /Users/nicol/Dropbox/github-repos/pcesapps/flows/xlsx/templateDir
+-descDir /Users/nicol/Dropbox/github-repos/pcesapps/flows/xlsx/descDir
+-argsDir /Users/nicol/Dropbox/github-repos/pcesapps/flows/xlsx/args

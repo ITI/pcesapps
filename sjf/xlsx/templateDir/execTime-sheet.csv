@@ -1,0 +1,40 @@
+Unnamed: 0,Unnamed: 1,Unnamed: 2,Unnamed: 3,Unnamed: 4
+CPU Entries,,,,
+### model,operation,pcktlen,exec time,
+AMD EPYC 9534 64-Core Processor,packet-generation,1000,32.294883999999996,
+AMD EPYC 9534 64-Core Processor,sjf1,1000,10000,
+AMD EPYC 9534 64-Core Processor,sjf2,1000,20000,
+AMD EPYC 9534 64-Core Processor,sjf3,1000,50000,
+,,,,
+Router Entries,,,,
+### model,operation,pcktlen,exec time,bandwidth
+Cisco 4300 ,route,64,518.22,1000
+Cisco 4300 ,route,128,685.97,1000
+Cisco 4300 ,route,196,780.53,1000
+Cisco 4300 ,route,256,818.36,1000
+Cisco 4300 ,route,384,859.3,1000
+Cisco 4300 ,route,512,897.27,1000
+Cisco 4300 ,route,768,927.25,1000
+Cisco 4300 ,route,1000,954.26,1000
+Cisco 4300 ,route,1500,981.99,1000
+,,,,
+Switch Entries,,,,
+### model,operation,pcktlen,exec time,bandwidth
+Aruba 3810,switch,128,24.56,1000
+Aruba 3810,switch,512,39.1,1000
+Aruba 3810,switch,1500,55.85,1000
+,,,,
+Netgear GJS524E,switch,128,27.96,1000
+Netgear GJS524E,switch,512,29.12,1000
+Netgear GJS524E,switch,1500,30.211,1000
+,,,,
+Netgear GS324T,switch,128,29.81,1000
+Netgear GS324T,switch,512,39.21,1000
+Netgear GS324T,switch,1500,50.22,1000
+,,,,
+,,,,
+### color key,,,,
+### Category label,,,,
+### singleton descriptor ,,,,
+### list descriptor,,,,
+### dict descriptor,,,,

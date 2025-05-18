@@ -1,0 +1,17 @@
+Experiment,MeasureName,$Lambda,$mode,$msrLambda,Samples,Mean(msec),CI
+exp-0,loop,10,inelastic-flow,625,614,1.4137,0.00304642
+exp-1,loop,10,pckt,625,614,1.412,0.0029947
+exp-2,loop,20,inelastic-flow,625,614,1.42229,0.00383627
+exp-3,loop,20,pckt,625,614,1.42256,0.00381351
+exp-4,loop,30,inelastic-flow,625,614,1.42959,0.0041674
+exp-5,loop,30,pckt,625,614,1.4348,0.00462077
+exp-6,loop,40,inelastic-flow,625,614,1.43832,0.0044422
+exp-7,loop,40,pckt,625,614,1.44366,0.00504054
+exp-8,loop,50,inelastic-flow,625,614,1.45356,0.00489572
+exp-9,loop,50,pckt,625,614,1.45343,0.00517884
+exp-10,loop,60,inelastic-flow,625,614,1.46021,0.00527398
+exp-11,loop,60,pckt,625,614,1.46412,0.0056142
+exp-12,loop,70,inelastic-flow,625,614,1.47155,0.00546598
+exp-13,loop,70,pckt,625,614,1.48405,0.00657422
+exp-14,loop,80,inelastic-flow,625,614,1.48744,0.00586995
+exp-15,loop,80,pckt,625,614,1.50738,0.00747023

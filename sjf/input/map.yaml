@@ -1,0 +1,33 @@
+dictname: main
+map:
+  SJFServer:
+    funcmap:
+      lookup: server,10
+    patternname: SJFServer
+  workload1:
+    funcmap:
+      endMeasure: client1,10
+      endThread: client1,10
+      generatePckt: client1,10
+      request: client1,10
+      startMeasure: client1,10
+      startThread: client1,10
+    patternname: workload1
+  workload2:
+    funcmap:
+      endMeasure: client2,10
+      endThread: client2,10
+      generatePckt: client2,10
+      request: client2,10
+      startMeasure: client2,10
+      startThread: client2,10
+    patternname: workload2
+  workload3:
+    funcmap:
+      endMeasure: client3,10
+      endThread: client3,10
+      generatePckt: client3,10
+      request: client3,10
+      startMeasure: client3,10
+      startThread: client3,10
+    patternname: workload3

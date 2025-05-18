@@ -1,0 +1,157 @@
+patterns:
+  SJFServer:
+    cptype: sibyl
+    edges: []
+    extedges: []
+    funcs:
+    - class: srvRsp
+      label: lookup
+    name: SJFServer
+    services: {}
+  workload1:
+    cptype: workload
+    edges:
+    - dstcp: workload1
+      dstlabel: startMeasure
+      msgtype: measure
+      srccp: workload1
+      srclabel: startThread
+    - dstcp: workload1
+      dstlabel: generatePckt
+      msgtype: generate
+      srccp: workload1
+      srclabel: startMeasure
+    - dstcp: workload1
+      dstlabel: request
+      msgtype: request
+      srccp: workload1
+      srclabel: generatePckt
+    - dstcp: workload1
+      dstlabel: endMeasure
+      msgtype: measure
+      srccp: workload1
+      srclabel: request
+    - dstcp: workload1
+      dstlabel: endThread
+      msgtype: finish
+      srccp: workload1
+      srclabel: endMeasure
+    - dstcp: workload1
+      dstlabel: startThread
+      msgtype: repeat
+      srccp: workload1
+      srclabel: endThread
+    extedges: []
+    funcs:
+    - class: start
+      label: startThread
+    - class: measure
+      label: startMeasure
+    - class: processPckt
+      label: generatePckt
+    - class: srvReq
+      label: request
+    - class: measure
+      label: endMeasure
+    - class: finish
+      label: endThread
+    name: workload1
+    services: {}
+  workload2:
+    cptype: workload
+    edges:
+    - dstcp: workload2
+      dstlabel: startMeasure
+      msgtype: measure
+      srccp: workload2
+      srclabel: startThread
+    - dstcp: workload2
+      dstlabel: generatePckt
+      msgtype: generate
+      srccp: workload2
+      srclabel: startMeasure
+    - dstcp: workload2
+      dstlabel: request
+      msgtype: request
+      srccp: workload2
+      srclabel: generatePckt
+    - dstcp: workload2
+      dstlabel: endMeasure
+      msgtype: measure
+      srccp: workload2
+      srclabel: request
+    - dstcp: workload2
+      dstlabel: endThread
+      msgtype: finish
+      srccp: workload2
+      srclabel: endMeasure
+    - dstcp: workload2
+      dstlabel: startThread
+      msgtype: repeat
+      srccp: workload2
+      srclabel: endThread
+    extedges: []
+    funcs:
+    - class: start
+      label: startThread
+    - class: measure
+      label: startMeasure
+    - class: processPckt
+      label: generatePckt
+    - class: srvReq
+      label: request
+    - class: measure
+      label: endMeasure
+    - class: finish
+      label: endThread
+    name: workload2
+    services: {}
+  workload3:
+    cptype: workload
+    edges:
+    - dstcp: workload3
+      dstlabel: startMeasure
+      msgtype: measure
+      srccp: workload3
+      srclabel: startThread
+    - dstcp: workload3
+      dstlabel: generatePckt
+      msgtype: generate
+      srccp: workload3
+      srclabel: startMeasure
+    - dstcp: workload3
+      dstlabel: request
+      msgtype: request
+      srccp: workload3
+      srclabel: generatePckt
+    - dstcp: workload3
+      dstlabel: endMeasure
+      msgtype: measure
+      srccp: workload3
+      srclabel: request
+    - dstcp: workload3
+      dstlabel: endThread
+      msgtype: finish
+      srccp: workload3
+      srclabel: endMeasure
+    - dstcp: workload3
+      dstlabel: startThread
+      msgtype: repeat
+      srccp: workload3
+      srclabel: endThread
+    extedges: []
+    funcs:
+    - class: start
+      label: startThread
+    - class: measure
+      label: startMeasure
+    - class: processPckt
+      label: generatePckt
+    - class: srvReq
+      label: request
+    - class: measure
+      label: endMeasure
+    - class: finish
+      label: endThread
+    name: workload3
+    services: {}

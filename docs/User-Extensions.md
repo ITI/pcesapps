@@ -444,7 +444,7 @@ In this example there are three clients requesting service from a single server.
 
 This example is laid out on a system model that has two networks (**pvtNet** and **pubNet**), a router (**rtr**) that spans both, and two switches (**pvtHub** and **pubHub**), one per network, see Figure 17.  **pvtNet** has three client processors, each carrying a CmpPtn whose name includes 'workload'.   **pubNet**  has just one processor, carrying a CmpPtn  called 'sibyl'.   
 
-<img src="./images/sibylnet.png" alt="sibylnet" style="zoom:50%;" />
+<img src="./images/sibyl-net.png" alt="sibylnet" style="zoom:60%;" />
 
 ​			*Figure 17: Network for example illustrating user extension through user-defined response functions*
 
@@ -590,7 +590,7 @@ Line 10 keeps track of the number of times this finish function has been called,
 
 Lines 18 through 24 extract information used to initiate further measurements.   The *FinishState* struct that *fns* points to has a field named *Bespoke*, whose type is *any*.   We can use that location to hold a pointer to a struct that contains information needed by this method.  So line 18 checks whether that has been done yet (we equally well could have tested for *fns.Calls == 1*), and if not creates a *repeatStruct* (defined on lines 1 through 4) to hold the rate for an exponentially distributed length of time to wait before initiating another measurement, and the total number of measurements to initiate.    Those two pieces of data are coded in a string, stored in the function's *Cfg* configuration struct with the name 'Data', and are separated in that string by a ';'.   This is just a device enabling us to encapsulate both pieces of data in one string, and can be observed in the xlsxPCES experiment sheet for this example (recalling that the data column of Figure 21 contains symbol $samples)								
 
-​						<img src="./images/xlsx-experiment.png" alt="xlsx-experiment" style="zoom:40%;" />  
+​						<img src="./images/xlsx-experiment.png" alt="xlsx-experiment" style="zoom:50%;" />  
 
 ​							*Figure 24: Example of user-defined response method*
 

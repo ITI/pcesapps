@@ -2,10 +2,10 @@
 
 This document describes how one executes a set of **pces** simulation runs that together comprise an 'evaluation'.  This document is a companion to others that together provide a picture of what **pces** comprises.
 
-- [PCES Overview.pdf](#https://github.com/ITI/pces/blob/main/docs/PCES-Overview.pdf) describes the model used to describe workflows in **pces**, and the functions used to demark measurement points.  A set of **pces** experiments computes and reports estimated performance metrics (like latency and throughput) observed between measurement points.
-- [ API.pdf](#https://github.com/ITI/pces/blob/main/docs/API.pdf) documents the formatting requirements of input files read by the **pces** simulation.
-- [mrnes.pdf](https://github.com/ITI/mrnes/blob/main/docs/mrnes.pdf) describes the **mrnes** repository, which is imported by **pces** and provides the modeling support for describing the network and computing devices upon which the **pces** applicatin workflows executed.
-- [xlsxPCES.pdf](#https://github.com/ITI/pcesbld/blob/main/docs/xlsxPCES-v1.pdf) describes a tool for building **pces/mrnes** models.   This tool creates files that are directly used by the scripts we describe here.
+- [PCES-Introduction.pdf](#https://github.com/ITI/pces/blob/main/docs/PCES-Introduction.pdf)  and [PCES-Internals.pdf](#https://github.com/ITI/pces/blob/main/docs/PCES-Introduction.pdf) describe the model used to describe workflows in **pces**, and the functions used to demark measurement points.  A set of **pces** experiments computes and reports estimated performance metrics (like latency and throughput) observed between measurement points.
+- [ PCES-API.pdf](#https://github.com/ITI/pces/blob/main/docs/API.pdf)  and [MRNES-API.pdf](https://github.com/ITI/mrnes/blob/main/docs/MRNES-API.pdf) document the formatting requirements of input files read by the **pces** simulation.
+- [MRNES-Introduction.pdf](https://github.com/ITI/mrnes/blob/main/docs/MRNES-Introduction.pdf) and [MRNES-Internals.pdf](https://github.com/ITI/mrnes/blob/main/docs/MRNES-Internals.pdf)  describes the **mrnes** repository, which is imported by **pces** and provides the modeling support for describing the network and computing devices upon which the **pces** applicatin workflows executed.
+- [xlsxPCES.pdf](#https://github.com/ITI/pcesbld/blob/main/docs/xlsxPCES-v1.pdf) describes a tool for building **pces/mrnes** models.   This tool creates files that are directly used by the scripts we describe here. The repository https://github.com/iti/pcesapps contains a number of examples of applications that can be built and run using xlsxPCES.   See also [PCES-Apps.pdf](#https://github.com/iti/PCES-Apps.pdf) .
 
 #### *github.com/iti/pcesapps*
 
@@ -15,11 +15,11 @@ The tools for running *pces* reside in subdirectory *pcesapps/simulator*.   The 
 
 - *sim-dir*, a subdirectory with .go code front-end for performing a simulation run
 - *input*, a subdirectory where the simulator looks for its input files
-- *template*, a subdirectory where the templated (i.e. symbol-bearing) versions of the simulation experiment are placed.   See [Building a PCES Model]() for details on using symbols to identify the variables in a set of simulation experiments.
+- *template*, a subdirectory where the templated (i.e. symbol-bearing) versions of the simulation experiment are placed. 
 - *output*, a subdirectory where the output from a simulation run is placed
 - *run.py*, a script that for each experiment creates the input files for the specified run, executes the run, and gathers the results of the run. At the end of the runs it forms an output file *output/results.yaml* that contains the measured and reported results of each run.
 
-*run.py* expects the following input files, the formats for each having been described in companion documents [API.md](#https://github.com/ITI/pces/blob/main/docs/API.md) found in the 'docs' folder for repository *github.com/iti/pces* , and [mrnes.pdf](#https://github.com/ITI/mrnes/blob/main/docs/mrnes.pdf), found in the 'docs' folder for repository *github.com/iti/mrnes*.  The expected input functions are 
+*run.py* expects the following input files, the formats for each having been described in companion API documents:
 
 - *cp.yaml*, a description of the computational patterns, the functions they organize, and the functions' input/output relationships.
 - *cpInit.yaml*,  description of the configuration parameters for each of the model's computational functions.
@@ -38,7 +38,7 @@ The tools for running *pces* reside in subdirectory *pcesapps/simulator*.   The 
 
 The first step in performing an evaluation using **pces** is to develop a model.  **pces** notions of functions and computational patterns are used to lay out chains of function evaluations which in aggregate capture the most significant (meaning here 'time-costly') operations that must be represented, and those operations whose performance is of particular interest as their configuration parameters are changed.   
 
-A TBD companion document will lay out principles and identify low-level details to consider when developing a **pces** evaluation of a system,  here we just point to xlsxPCES as a viable option to express and validate the correctness of a model to be simulated.   Ultimately though, what *run.py* needs is for *simulator/input* to have correctly formated versions of the eight input files identified earlier, whatever the source.   
+A TBD companion document will eventually lay out principles and identify low-level details to consider when developing a **pces** evaluation of a system,  here we just point to xlsxPCES as a viable option to express and validate the correctness of a model to be simulated.   Ultimately though, what *run.py* needs is for *simulator/input* to have correctly formated versions of the eight input files identified earlier, whatever the source.   
 
 ###### On executing a simulation run
 
@@ -173,9 +173,3 @@ The output makes reference to experiments 'exp-1' through 'exp-4' that are descr
  **pces** allows for multiple measurements within a single simulation run, between the same two measurement points and/or between multiple pairs of measurement points.   A given pair of points will share the same 'measurename' attribute as this is a measurement point identifier;  each initiation of a measurement using the same beginning measurement point increases the 'index' attribute.
 
 As described in 'xlsxPCES.md', the **pces** user has the flexibility of selecting the parameters to be varied each run and the values given the experimental parameters.  The user's knowledge of that setup is required then to take the measurements *run.py* causes to be reported and organize them in tables, interpret them, graph them,  whatever the end result the user has in mind for these results.   The results file is written out in yaml format, which supports a script-based approach to analyzing them.
-
-
-
-#### Example Models
-
-The intention is to use the *pcesapps* repository to hold descriptions of sample example models.  With the first release we have one, the running example from xlsxPCES.md,  commited to *pcesapps/embedded* .  This directory has subdirectory *template* in which one finds the eight yaml input files for that example (including symbols), and subdirectory *xlsx* in which one finds the *embedded-model-exp.xlsx* that, when processed by the  xlsxPCES tool, creates the files found here in *template*.

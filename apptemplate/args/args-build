@@ -1,0 +1,5 @@
+#-xpenv xlsxPCES
+-xlsx apptemplate-model.xlsx
+-name apptemplate
+-simexec
+#-container pces/apptemplate

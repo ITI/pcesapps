@@ -1,0 +1,8 @@
+-templates ./templates
+-input ./input
+-output ./output
+-sim ./sim-dir
+-name sjf
+#-user
+#-container pces/sjf
+#-extern ./

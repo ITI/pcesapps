@@ -1,9 +1,9 @@
-dictname: embedded
+dictname: main
 initlist:
   Crypto:
     cfg:
       cryptoProcess: '{"timingcode": {}, "directprefix": ["encrypt", "decrypt"], "trace":
-        "0", "msg2mc": {}, "groups": []}'
+        0, "msg2mc": {}, "groups": []}'
     cptype: Crypto
     msgs: []
     name: Crypto
@@ -11,16 +11,15 @@ initlist:
   Embedded:
     cfg:
       embeddedProcess: '{"timingcode": {"process": "packet-process"}, "accelname":
-        "", "trace": "0", "msg2mc": {}, "msg2msg": {}, "group": []}'
-      reqDecrypt: '{"bypass": "0", "trace": "0", "srvCP": "Crypto", "srvLabel": "cryptoProcess",
-        "srvOp": "decrypt-AES-256-CBC", "rspOp": "", "msg2mc": {"*": "default"}, "msg2msg":
+        "", "trace": 0, "msg2mc": {}, "msg2msg": {}, "groups": []}'
+      reqDecrypt: '{"trace": 0, "srvCP": "Crypto", "srvLabel": "cryptoProcess", "srvOp":
+        "decrypt-AES-256-CBC", "rspOp": "", "msg2mc": {"default": "Crypto"}, "msg2msg":
         {}, "groups": []}'
-      reqEncrypt: '{"bypass": "0", "trace": "0", "srvCP": "Crypto", "srvLabel": "cryptoProcess",
-        "srvOp": "encrypt-AES-256-CBC", "rspOp": "", "msg2mc": {"*": "default"}, "msg2msg":
+      reqEncrypt: '{"trace": 0, "srvCP": "Crypto", "srvLabel": "cryptoProcess", "srvOp":
+        "encrypt-AES-256-CBC", "rspOp": "", "msg2mc": {"default": "Crypto"}, "msg2msg":
         {}, "groups": []}'
-      validateSrc: '{"bypass": "1", "trace": "0", "srvCP": "", "srvLabel":
-        "", "srvOp": "auth", "rspOp": "", "msg2mc": {"*": "default"}, "msg2msg": {},
-        "groups": []}'
+      validateSrc: '{"trace": 0, "srvCP": "", "srvLabel": "", "srvOp": "auth", "rspOp":
+        "", "msg2mc": {"default": ""}, "msg2msg": {}, "groups": []}'
     cptype: Embedded
     msgs:
     - ispckt: true
@@ -36,32 +35,31 @@ initlist:
   EmbeddedAuth:
     cfg:
       authenticate: '{"timingcode": {"auth": "authenticate"}, "directprefix": [],
-        "trace": "0", "msg2mc": {"*": "default"}, "groups": []}'
+        "trace": 0, "msg2mc": {"*": "default"}, "groups": []}'
     cptype: EmbeddedAuth
     msgs: []
     name: EmbeddedAuth
     useyaml: true
   HMI:
     cfg:
-      accelDecrypt: '{"timingcode": {"decrypt": "decrypt-AES-256-CBC"}, "accelname": "hmiAccel",
-        "trace": "1", "msg2mc": {}, "msg2msg": {}, "group": []}'
-      accelEncrypt: '{"timingcode": {"encrypt": "encrypt-AES-256-CBC"}, "accelname": "hmiAccel",
-        "trace": "1", "msg2mc": {}, "msg2msg": {}, "group": []}'
-      endMeasure: '{"msrname": "end2end", "msrop": "end", "trace": "0", "msg2mc":
-        {}, "groups": []}'
-      endThread: '{"trace": "0", "msg2mc": {"finish": "default"}, "data": "", "groups":
-        []}'
-      generatePckt: '{"timingcode": {"generate": "packet-generation"}, "accelname":
-        "", "trace": "1", "msg2mc": {}, "msg2msg": {}, "group": []}'
-      processRtn: '{"timingcode": {"process": "packet-return"}, "accelname": "", "trace":
-        "0", "msg2mc": {}, "msg2msg": {}, "group": []}'
-      startMeasure: '{"msrname": "end2end", "msrop": "start", "trace": "0", "msg2mc":
-        {}, "groups": []}'
-      startThread: '{"pcktlen": "1000", "msglen": "1500", "msgtype": "measure", "starttime":
-        "10", "data": "900", "groups": [], "trace": "0"}'
-      validateSrc: '{"bypass": "1", "trace": "0", "srvCP": "", "srvLabel":
-        "", "srvOp": "auth", "rspOp": "", "msg2mc": {"*": "default"}, "msg2msg": {},
+      accelDecrypt: '{"timingcode": {"decrypt": "decrypt-AES-256-CBC"}, "accelname":
+        "hmiAccel", "trace": 1, "msg2mc": {}, "msg2msg": {}, "groups": []}'
+      accelEncrypt: '{"timingcode": {"encrypt": "encrypt-AES-256-CBC"}, "accelname":
+        "hmiAccel", "trace": 1, "msg2mc": {}, "msg2msg": {}, "groups": []}'
+      endMeasure: '{"msrname": "end2end", "msrop": "end", "trace": 0, "msg2mc": {},
         "groups": []}'
+      endThread: '{"trace": 0, "msg2mc": {"finish": "default"}, "data": "", "groups":
+        ["repeat"]}'
+      generatePckt: '{"timingcode": {"generate": "packet-generation"}, "accelname":
+        "", "trace": 1, "msg2mc": {}, "msg2msg": {}, "groups": []}'
+      processRtn: '{"timingcode": {"process": "packet-return"}, "accelname": "", "trace":
+        0, "msg2mc": {}, "msg2msg": {}, "groups": []}'
+      startMeasure: '{"msrname": "end2end", "msrop": "start", "trace": 0, "msg2mc":
+        {}, "groups": []}'
+      startThread: '{"pcktlen": 1000, "msglen": 1500, "msgtype": "measure", "starttime":
+        0.0, "data": "100", "groups": [], "trace": 0}'
+      validateSrc: '{"trace": 0, "srvCP": "", "srvLabel": "", "srvOp": "auth", "rspOp":
+        "", "msg2mc": {"default": ""}, "msg2msg": {}, "groups": []}'
     cptype: HMI
     msgs:
     - ispckt: true
@@ -83,7 +81,7 @@ initlist:
   HMIAuth:
     cfg:
       authenticate: '{"timingcode": {"auth": "authenticate"}, "directprefix": [],
-        "trace": "0", "msg2mc": {"*": "default"}, "groups": []}'
+        "trace": 0, "msg2mc": {"*": "default"}, "groups": []}'
     cptype: HMIAuth
     msgs: []
     name: HMIAuth

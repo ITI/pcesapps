@@ -11,11 +11,11 @@ Router,,,,,,,,,,
 ### name,csv groups,model,*,model,trace,,,,,
 ,,,,,,,,,,
 Endpoint,,,,,,,,,,
-### name,csv groups,model,*,model,trace,,,,,
+### name,csv groups,model,*,model,interruptdelay (musec),trace,,,,
 ,,,,,,,,,,
 Interface,,,,,,,,,,
 ### name,csv groups,devtype,devname,media,faces ,*,latency (musec),bandwidth (Mbps),MTU,trace
-,,,,,,True,5,$bndwdth,,False
+,,,,,,True,5,float($bndwdth),,False
 ,,,,,,,,,,
 ### color key,,,,,,,,,,
 ### Category label,,,,,,,,,,

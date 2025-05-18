@@ -1,0 +1,35 @@
+Unnamed: 0,Unnamed: 1,Unnamed: 2,Unnamed: 3
+,,,
+Mapping,,,
+### CmpPtnName,func label,endpoint,sched priority
+HMI,startThread,source,10
+HMI,startMeasure,source,10
+HMI,generatePckt,source,10
+HMI,encryptPckt,sslSrvr,10
+HMI,directPckt,sslSrvr,10
+HMI,decryptPckt,sslSrvr,10
+HMI,processRtn,source,10
+HMI,endMeasure,source,10
+HMI,endThread,source,10
+,,,
+EUD-0,decryptPckt,eudDev-0,10
+EUD-0,eudProcess,eudDev-0,10
+EUD-0,encryptPckt,eudDev-0,10
+,,,
+EUD-1,decryptPckt,eudDev-1,10
+EUD-1,eudProcess,eudDev-1,10
+EUD-1,encryptPckt,eudDev-1,10
+,,,
+EUD-2,decryptPckt,eudDev-2,10
+EUD-2,eudProcess,eudDev-2,10
+EUD-2,encryptPckt,eudDev-2,10
+,,,
+EUD-3,decryptPckt,eudDev-3,10
+EUD-3,eudProcess,eudDev-3,10
+EUD-3,encryptPckt,eudDev-3,10
+,,,
+### color key,,,
+### Category label,,,
+### singleton descriptor ,,,
+### list descriptor,,,
+### dict descriptor,,,

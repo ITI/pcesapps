@@ -1,0 +1,92 @@
+dictname: main
+initlist:
+  SJFServer:
+    cfg:
+      lookup: '{"timingcode": {"request1": "sjf1", "request2": "sjf2", "request3":
+        "sjf3"}, "directprefix": [], "trace": 0, "msg2mc": {"request1": "sjf", "request2":
+        "sjf", "request3": "sjf"}, "groups": ["SJF"]}'
+    cptype: SJFServer
+    msgs: []
+    name: SJFServer
+    useyaml: true
+  workload1:
+    cfg:
+      endMeasure: '{"msrname": "response1", "msrop": "end", "trace": 0, "msg2mc":
+        {}, "groups": ["EndMsr"]}'
+      endThread: '{"trace": 0, "msg2mc": {}, "data": "", "groups": []}'
+      generatePckt: '{"timingcode": {"generate": "packet-generation"}, "accelname":
+        "", "trace": 1, "msg2mc": {}, "msg2msg": {}, "groups": []}'
+      request: '{"trace": 0, "srvCP": "SJFServer", "srvLabel": "lookup", "srvOp":
+        "request1", "rspOp": "", "msg2mc": {}, "msg2msg": {}, "groups": []}'
+      startMeasure: '{"msrname": "response1", "msrop": "start", "trace": 0, "msg2mc":
+        {}, "groups": []}'
+      startThread: '{"pcktlen": 1000, "msglen": 1500, "msgtype": "measure", "starttime":
+        0.0, "data": "25", "groups": [], "trace": 0}'
+    cptype: workload1
+    msgs:
+    - ispckt: true
+      msgtype: measure
+    - ispckt: true
+      msgtype: generate
+    - ispckt: true
+      msgtype: request
+    - ispckt: true
+      msgtype: finish
+    - ispckt: true
+      msgtype: repeat
+    name: workload1
+    useyaml: true
+  workload2:
+    cfg:
+      endMeasure: '{"msrname": "response2", "msrop": "end", "trace": 0, "msg2mc":
+        {}, "groups": ["EndMsr"]}'
+      endThread: '{"trace": 0, "msg2mc": {}, "data": "", "groups": []}'
+      generatePckt: '{"timingcode": {"generate": "packet-generation"}, "accelname":
+        "", "trace": 1, "msg2mc": {}, "msg2msg": {}, "groups": []}'
+      request: '{"trace": 0, "srvCP": "SJFServer", "srvLabel": "lookup", "srvOp":
+        "request2", "rspOp": "", "msg2mc": {}, "msg2msg": {}, "groups": []}'
+      startMeasure: '{"msrname": "response2", "msrop": "start", "trace": 0, "msg2mc":
+        {}, "groups": []}'
+      startThread: '{"pcktlen": 1000, "msglen": 1500, "msgtype": "measure", "starttime":
+        0.0, "data": "12.5", "groups": [], "trace": 0}'
+    cptype: workload2
+    msgs:
+    - ispckt: true
+      msgtype: measure
+    - ispckt: true
+      msgtype: generate
+    - ispckt: true
+      msgtype: request
+    - ispckt: true
+      msgtype: finish
+    - ispckt: true
+      msgtype: repeat
+    name: workload2
+    useyaml: true
+  workload3:
+    cfg:
+      endMeasure: '{"msrname": "response3", "msrop": "end", "trace": 0, "msg2mc":
+        {}, "groups": ["EndMsr"]}'
+      endThread: '{"trace": 0, "msg2mc": {}, "data": "", "groups": []}'
+      generatePckt: '{"timingcode": {"generate": "packet-generation"}, "accelname":
+        "", "trace": 1, "msg2mc": {}, "msg2msg": {}, "groups": []}'
+      request: '{"trace": 0, "srvCP": "SJFServer", "srvLabel": "lookup", "srvOp":
+        "request3", "rspOp": "", "msg2mc": {}, "msg2msg": {}, "groups": []}'
+      startMeasure: '{"msrname": "response3", "msrop": "start", "trace": 0, "msg2mc":
+        {}, "groups": []}'
+      startThread: '{"pcktlen": 1000, "msglen": 1500, "msgtype": "measure", "starttime":
+        0.0, "data": "5", "groups": [], "trace": 0}'
+    cptype: workload3
+    msgs:
+    - ispckt: true
+      msgtype: measure
+    - ispckt: true
+      msgtype: generate
+    - ispckt: true
+      msgtype: request
+    - ispckt: true
+      msgtype: finish
+    - ispckt: true
+      msgtype: repeat
+    name: workload3
+    useyaml: true

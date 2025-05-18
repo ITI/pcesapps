@@ -1,0 +1,11 @@
+-csvDir /Users/nicol/Dropbox/github-repos/pcesapps/embedded/xlsx/csvDir
+-yamlDir /Users/nicol/Dropbox/github-repos/pcesapps/embedded/templates
+-descDir /Users/nicol/Dropbox/github-repos/pcesapps/embedded/xlsx/descDir
+-name main
+-validate
+-csvIn mapping-sheet.csv
+-funcsDesc funcs.json
+-cpuDesc cpuDesc.json
+-cpuOpsDesc cpuOps.json
+-tcDesc tc.json
+-map map.yaml

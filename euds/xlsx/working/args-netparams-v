@@ -1,0 +1,7 @@
+-csvDir /Users/nicol/Dropbox/github-repos/pcesapps/euds/xlsx/csvDir
+-yamlDir /Users/nicol/Dropbox/github-repos/pcesapps/euds/templates
+-descDir /Users/nicol/Dropbox/github-repos/pcesapps/euds/xlsx/descDir
+-name main
+-csvIn netParams-sheet.csv
+-exp exp.yaml
+-attrbDescIn attrb.json

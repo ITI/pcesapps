@@ -1,32 +1,32 @@
-- $crypto,cp: AES-256-CBC
-  $lambda,cp: '1000'
+- $crypto,cp: AES-128-CBC
+  $lambda,cp: '10000'
   $pcktlen,cp: '128'
   name: exp-1
-- $crypto,cp: AES-256-CBC
-  $lambda,cp: '1000'
+- $crypto,cp: AES-128-CBC
+  $lambda,cp: '10000'
   $pcktlen,cp: '256'
   name: exp-2
 - $crypto,cp: AES-128-CBC
-  $lambda,cp: '1000'
-  $pcktlen,cp: '128'
+  $lambda,cp: '10000'
+  $pcktlen,cp: '512'
   name: exp-3
 - $crypto,cp: AES-128-CBC
-  $lambda,cp: '1000'
-  $pcktlen,cp: '256'
+  $lambda,cp: '10000'
+  $pcktlen,cp: '1024'
   name: exp-4
 - $crypto,cp: AES-256-CBC
-  $lambda,cp: '1000'
-  $pcktlen,cp: '512'
+  $lambda,cp: '10000'
+  $pcktlen,cp: '128'
   name: exp-5
 - $crypto,cp: AES-256-CBC
-  $lambda,cp: '1000'
-  $pcktlen,cp: '1024'
+  $lambda,cp: '10000'
+  $pcktlen,cp: '256'
   name: exp-6
-- $crypto,cp: AES-128-CBC
-  $lambda,cp: '1000'
+- $crypto,cp: AES-256-CBC
+  $lambda,cp: '10000'
   $pcktlen,cp: '512'
   name: exp-7
-- $crypto,cp: AES-128-CBC
-  $lambda,cp: '1000'
+- $crypto,cp: AES-256-CBC
+  $lambda,cp: '10000'
   $pcktlen,cp: '1024'
   name: exp-8

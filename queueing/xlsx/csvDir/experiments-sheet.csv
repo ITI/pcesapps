@@ -1,12 +1,11 @@
-Unnamed: 0,Unnamed: 1,Unnamed: 2,Unnamed: 3,Unnamed: 4
-Experiments,,,,
-name,"$crypto,cp","$bndwdth,netParams","$zerotrust,cp","$lambda,cp"
-exp-1,AES-256-CBC,100,True,100
-exp-2,AES-256-CBC,100,True,200
-exp-3,AES-256-CBC,100,True,300
-exp-4,AES-256-CBC,100,True,400
-exp-5,AES-256-CBC,100,True,500
-exp-6,AES-256-CBC,100,True,600
-exp-7,AES-256-CBC,100,True,700
-exp-8,AES-256-CBC,100,True,800
-exp-9,AES-256-CBC,100,True,900
+Unnamed: 0,Unnamed: 1,Unnamed: 2,Unnamed: 3
+Experiments,,,
+name,"$crypto,cp","$bndwdth,netParams","$lambda,cp"
+exp-1,AES-256-CBC,100,50
+exp-2,AES-256-CBC,10,50
+exp-3,AES-128-CBC,100,50
+exp-4,AES-128-CBC,10,50
+exp-5,AES-256-CBC,100,100
+exp-6,AES-256-CBC,10,100
+exp-7,AES-128-CBC,100,100
+exp-8,AES-128-CBC,10,100

@@ -1,0 +1,4 @@
+Experiment,MeasureName,$lambda1,$lambda2,$lambda3,Samples,Mean(msec),StdDev
+exp-0,response1,25,12.5,5,24976,16.942,4.48715
+exp-0,response3,25,12.5,5,5063,162.242,106.184
+exp-0,response2,25,12.5,5,12604,40.3048,20.1745

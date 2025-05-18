@@ -1,6 +1,6 @@
 -xpenv xlsxPCES
--xlsx embedded-model.xlsx
--name embedded
+-xlsx queueing.xlsx
+-name queueing
 -simexec
 #-container pces/embedded
         

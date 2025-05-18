@@ -1,0 +1,8 @@
+-working /Users/nicol/Dropbox/github-repos/pcesapps/queueing/xlsx/working
+-name main
+-xlsx /Users/nicol/Dropbox/github-repos/pcesapps/queueing/xlsx/input/queueing.xlsx
+-csvDir /Users/nicol/Dropbox/github-repos/pcesapps/queueing/xlsx/csvDir
+-yamlDir /Users/nicol/Dropbox/github-repos/pcesapps/queueing/templates
+-templateDir /Users/nicol/Dropbox/github-repos/pcesapps/queueing/xlsx/templateDir
+-descDir /Users/nicol/Dropbox/github-repos/pcesapps/queueing/xlsx/descDir
+-argsDir /Users/nicol/Dropbox/github-repos/pcesapps/queueing/xlsx/args

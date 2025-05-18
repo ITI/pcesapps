@@ -1,13 +1,13 @@
-dictname: euds
+dictname: main
 initlist:
   EUD-0:
     cfg:
-      decryptPckt: '{"timingcode": {"decrypt": "decrypt-$crypto"}, "accelname": "",
-        "trace": "0", "msg2mc": {}, "msg2msg": {}, "group": []}'
-      encryptPckt: '{"timingcode": {"encrypt": "encrypt-$crypto"}, "accelname": "",
-        "trace": "0", "msg2mc": {}, "msg2msg": {}, "group": []}'
-      eudProcess: '{"timingcode": {"process": "packet-process-0"}, "accelname": "",
-        "trace": "0", "msg2mc": {}, "msg2msg": {}, "group": []}'
+      decryptPckt: '{"timingcode": {"decrypt": "decrypt-str($crypto)"}, "accelname":
+        "", "trace": 0, "msg2mc": {}, "msg2msg": {}, "groups": []}'
+      encryptPckt: '{"timingcode": {"encrypt": "encrypt-str($crypto)"}, "accelname":
+        "", "trace": 0, "msg2mc": {}, "msg2msg": {}, "groups": []}'
+      eudProcess: '{"timingcode": {"process": "packet-process"}, "accelname": "",
+        "trace": 0, "msg2mc": {}, "msg2msg": {}, "groups": []}'
     cptype: EUD-0
     msgs:
     - ispckt: true
@@ -20,12 +20,12 @@ initlist:
     useyaml: true
   EUD-1:
     cfg:
-      decryptPckt: '{"timingcode": {"decrypt": "decrypt-$crypto"}, "accelname": "",
-        "trace": "0", "msg2mc": {}, "msg2msg": {}, "group": []}'
-      encryptPckt: '{"timingcode": {"encrypt": "encrypt-$crypto"}, "accelname": "",
-        "trace": "0", "msg2mc": {}, "msg2msg": {}, "group": []}'
-      eudProcess: '{"timingcode": {"process": "packet-process-1"}, "accelname": "",
-        "trace": "0", "msg2mc": {}, "msg2msg": {}, "group": []}'
+      decryptPckt: '{"timingcode": {"decrypt": "decrypt-str($crypto)"}, "accelname":
+        "", "trace": 0, "msg2mc": {}, "msg2msg": {}, "groups": []}'
+      encryptPckt: '{"timingcode": {"encrypt": "encrypt-str($crypto)"}, "accelname":
+        "", "trace": 0, "msg2mc": {}, "msg2msg": {}, "groups": []}'
+      eudProcess: '{"timingcode": {"process": "packet-process"}, "accelname": "",
+        "trace": 0, "msg2mc": {}, "msg2msg": {}, "groups": []}'
     cptype: EUD-1
     msgs:
     - ispckt: true
@@ -38,12 +38,12 @@ initlist:
     useyaml: true
   EUD-2:
     cfg:
-      decryptPckt: '{"timingcode": {"decrypt": "decrypt-$crypto"}, "accelname": "",
-        "trace": "0", "msg2mc": {}, "msg2msg": {}, "group": []}'
-      encryptPckt: '{"timingcode": {"encrypt": "encrypt-$crypto"}, "accelname": "",
-        "trace": "0", "msg2mc": {}, "msg2msg": {}, "group": []}'
-      eudProcess: '{"timingcode": {"process": "packet-process-2"}, "accelname": "",
-        "trace": "0", "msg2mc": {}, "msg2msg": {}, "group": []}'
+      decryptPckt: '{"timingcode": {"decrypt": "decrypt-str($crypto)"}, "accelname":
+        "", "trace": 0, "msg2mc": {}, "msg2msg": {}, "groups": []}'
+      encryptPckt: '{"timingcode": {"encrypt": "encrypt-str($crypto)"}, "accelname":
+        "", "trace": 0, "msg2mc": {}, "msg2msg": {}, "groups": []}'
+      eudProcess: '{"timingcode": {"process": "packet-process"}, "accelname": "",
+        "trace": 0, "msg2mc": {}, "msg2msg": {}, "groups": []}'
     cptype: EUD-2
     msgs:
     - ispckt: true
@@ -56,12 +56,12 @@ initlist:
     useyaml: true
   EUD-3:
     cfg:
-      decryptPckt: '{"timingcode": {"decrypt": "decrypt-$crypto"}, "accelname": "",
-        "trace": "0", "msg2mc": {}, "msg2msg": {}, "group": []}'
-      encryptPckt: '{"timingcode": {"encrypt": "encrypt-$crypto"}, "accelname": "",
-        "trace": "0", "msg2mc": {}, "msg2msg": {}, "group": []}'
-      eudProcess: '{"timingcode": {"process": "packet-process-3"}, "accelname": "",
-        "trace": "0", "msg2mc": {}, "msg2msg": {}, "group": []}'
+      decryptPckt: '{"timingcode": {"decrypt": "decrypt-str($crypto)"}, "accelname":
+        "", "trace": 0, "msg2mc": {}, "msg2msg": {}, "groups": []}'
+      encryptPckt: '{"timingcode": {"encrypt": "encrypt-str($crypto)"}, "accelname":
+        "", "trace": 0, "msg2mc": {}, "msg2msg": {}, "groups": []}'
+      eudProcess: '{"timingcode": {"process": "packet-process"}, "accelname": "",
+        "trace": 0, "msg2mc": {}, "msg2msg": {}, "groups": []}'
     cptype: EUD-3
     msgs:
     - ispckt: true
@@ -74,24 +74,24 @@ initlist:
     useyaml: true
   HMI:
     cfg:
-      decryptPckt: '{"timingcode": {"decrypt": "decrypt-$crypto"}, "accelname": "",
-        "trace": "0", "msg2mc": {}, "msg2msg": {}, "group": []}'
-      directPckt: '{"carried": "1", "xcp": "", "xlabel": "", "xmsgtype": "", "trace":
-        "0", "msg2mc": {}, "groups": []}'
-      encryptPckt: '{"timingcode": {"encrypt": "encrypt-$crypto"}, "accelname": "",
-        "trace": "0", "msg2mc": {}, "msg2msg": {}, "group": []}'
-      endMeasure: '{"msrname": "end2end", "msrop": "end", "trace": "0", "msg2mc":
-        {}, "groups": []}'
-      endThread: '{"trace": "0", "msg2mc": {"finish": "default"}, "data": "", "groups":
+      decryptPckt: '{"timingcode": {"decrypt": "decrypt-str($crypto)"}, "accelname":
+        "", "trace": 0, "msg2mc": {}, "msg2msg": {}, "groups": []}'
+      directPckt: '{"carried": 1, "xcp": "", "xlabel": "", "xmsgtype": "", "trace":
+        0, "msg2mc": {}, "groups": []}'
+      encryptPckt: '{"timingcode": {"encrypt": "encrypt-str($crypto)"}, "accelname":
+        "", "trace": 0, "msg2mc": {}, "msg2msg": {}, "groups": []}'
+      endMeasure: '{"msrname": "end2end", "msrop": "end", "trace": 0, "msg2mc": {},
+        "groups": []}'
+      endThread: '{"trace": 0, "msg2mc": {"finish": "default"}, "data": "", "groups":
         []}'
       generatePckt: '{"timingcode": {"generate": "packet-generation"}, "accelname":
-        "", "trace": "0", "msg2mc": {}, "msg2msg": {}, "group": []}'
+        "", "trace": 0, "msg2mc": {}, "msg2msg": {}, "groups": []}'
       processRtn: '{"timingcode": {"process": "packet-return"}, "accelname": "", "trace":
-        "0", "msg2mc": {}, "msg2msg": {}, "group": []}'
-      startMeasure: '{"msrname": "end2end", "msrop": "start", "trace": "0", "msg2mc":
+        0, "msg2mc": {}, "msg2msg": {}, "groups": []}'
+      startMeasure: '{"msrname": "end2end", "msrop": "start", "trace": 0, "msg2mc":
         {}, "groups": []}'
-      startThread: '{"pcktlen": "$pcktlen", "msglen": "1500", "msgtype": "measure",
-        "starttime": "10", "data": "$lambda", "groups": [], "trace": "0"}'
+      startThread: '{"pcktlen": "int($pcktlen)", "msglen": 1500, "msgtype": "measure",
+        "starttime": 10.0, "data": "str($lambda)", "groups": [], "trace": 0}'
     cptype: HMI
     msgs:
     - ispckt: true

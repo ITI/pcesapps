@@ -1,4 +1,4 @@
--name embedded
+-name main
 -csvIn cp-sheet.csv
 -cpuOpsDescIn cpuOps.json
 -tcDescOut tc.json

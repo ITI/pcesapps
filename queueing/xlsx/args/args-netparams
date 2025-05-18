@@ -1,4 +1,4 @@
--name embedded
+-name main
 -name embed
 -csvIn netParams-sheet.csv
 -exp exp.yaml

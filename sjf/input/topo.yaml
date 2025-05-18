@@ -1,0 +1,172 @@
+endpts:
+- accel: {}
+  cores: 1
+  groups: []
+  interfaces:
+  - cable: intrfc@pvtHub-client1
+    carry: []
+    device: client1
+    devtype: Endpt
+    faces: pvtNet
+    groups: []
+    mediatype: wired
+    name: intrfc@client1-pvtHub
+    wireless: []
+  model: AMD EPYC 9534 64-Core Processor
+  name: client1
+- accel: {}
+  cores: 1
+  groups: []
+  interfaces:
+  - cable: intrfc@pvtHub-client2
+    carry: []
+    device: client2
+    devtype: Endpt
+    faces: pvtNet
+    groups: []
+    mediatype: wired
+    name: intrfc@client2-pvtHub
+    wireless: []
+  model: AMD EPYC 9534 64-Core Processor
+  name: client2
+- accel: {}
+  cores: 1
+  groups: []
+  interfaces:
+  - cable: intrfc@pvtHub-client3
+    carry: []
+    device: client3
+    devtype: Endpt
+    faces: pvtNet
+    groups: []
+    mediatype: wired
+    name: intrfc@client3-pvtHub
+    wireless: []
+  model: AMD EPYC 9534 64-Core Processor
+  name: client3
+- accel: {}
+  cores: 1
+  groups: []
+  interfaces:
+  - cable: intrfc@pubHub-server
+    carry: []
+    device: server
+    devtype: Endpt
+    faces: pubNet
+    groups: []
+    mediatype: wired
+    name: intrfc@server-pubHub
+    wireless: []
+  model: AMD EPYC 9534 64-Core Processor
+  name: server
+flows: []
+name: main
+networks:
+- endpts:
+  - client1
+  - client2
+  - client3
+  groups: []
+  mediatype: wired
+  name: pvtNet
+  netscale: LAN
+  routers:
+  - rtr
+  switches:
+  - pvtHub
+- endpts:
+  - server
+  groups: []
+  mediatype: wired
+  name: pubNet
+  netscale: LAN
+  routers:
+  - rtr
+  switches:
+  - pubHub
+routers:
+- groups: []
+  interfaces:
+  - cable: intrfc@pvtHub-rtr
+    carry: []
+    device: rtr
+    devtype: Router
+    faces: pvtNet
+    groups: []
+    mediatype: wired
+    name: intrfc@rtr-pvtHub
+    wireless: []
+  - cable: intrfc@pubHub-rtr
+    carry: []
+    device: rtr
+    devtype: Router
+    faces: pubNet
+    groups: []
+    mediatype: wired
+    name: intrfc@rtr-pubHub
+    wireless: []
+  model: Cisco 4300
+  name: rtr
+switches:
+- groups: []
+  interfaces:
+  - cable: intrfc@client1-pvtHub
+    carry: []
+    device: pvtHub
+    devtype: Switch
+    faces: pvtNet
+    groups: []
+    mediatype: wired
+    name: intrfc@pvtHub-client1
+    wireless: []
+  - cable: intrfc@client2-pvtHub
+    carry: []
+    device: pvtHub
+    devtype: Switch
+    faces: pvtNet
+    groups: []
+    mediatype: wired
+    name: intrfc@pvtHub-client2
+    wireless: []
+  - cable: intrfc@client3-pvtHub
+    carry: []
+    device: pvtHub
+    devtype: Switch
+    faces: pvtNet
+    groups: []
+    mediatype: wired
+    name: intrfc@pvtHub-client3
+    wireless: []
+  - cable: intrfc@rtr-pvtHub
+    carry: []
+    device: pvtHub
+    devtype: Switch
+    faces: pvtNet
+    groups: []
+    mediatype: wired
+    name: intrfc@pvtHub-rtr
+    wireless: []
+  model: Netgear GS324T
+  name: pvtHub
+- groups: []
+  interfaces:
+  - cable: intrfc@rtr-pubHub
+    carry: []
+    device: pubHub
+    devtype: Switch
+    faces: pubNet
+    groups: []
+    mediatype: wired
+    name: intrfc@pubHub-rtr
+    wireless: []
+  - cable: intrfc@server-pubHub
+    carry: []
+    device: pubHub
+    devtype: Switch
+    faces: pubNet
+    groups: []
+    mediatype: wired
+    name: intrfc@pubHub-server
+    wireless: []
+  model: Netgear GS324T
+  name: pubHub

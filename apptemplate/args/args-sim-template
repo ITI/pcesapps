@@ -1,0 +1,6 @@
+#-verbose 
+#-json
+-trace trace.yaml
+-rngseed 234545
+-tunits msec
+#-stop 10000.0

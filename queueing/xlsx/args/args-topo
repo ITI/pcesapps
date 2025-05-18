@@ -1,4 +1,4 @@
--name embedded
+-name main
 -name embed
 -csvIn topo-sheet.csv
 -topoOut topo.yaml
