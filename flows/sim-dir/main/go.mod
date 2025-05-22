@@ -4,7 +4,7 @@ go 1.23.4
 
 require (
 	github.com/iti/evt v0.1.6
-	github.com/iti/mrnes v0.0.25
+	github.com/iti/mrnes v0.0.29
 	github.com/iti/pces v0.0.26
 )
 

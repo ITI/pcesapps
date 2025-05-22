@@ -16,6 +16,10 @@ Switch Entries,,,,
 ### model,operation,pcktlen,exec time,bandwidth
 Netgear GS324T,switch,256,25,100
 Netgear GS324T,switch,1500,25,100
+Netgear GS324T,outboundClient,256,25,100
+Netgear GS324T,outboundClient,1500,25,100
+Netgear GS324T,checkSrc,256,100,100
+Netgear GS324T,checkSrc,1500,100,100
 ,,,,
 ### color key,,,,
 ### Category label,,,,

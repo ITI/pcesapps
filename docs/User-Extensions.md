@@ -1,16 +1,18 @@
-### User Extensions to pces
+### User Extensions to pces/mrnes
 
 ##### Overview
 
 The **pces/mrnes** repositories at *github.com/iti* can be used to construct complex models that can be expressed in xlsxPCES and then run without the user needing to write a line of code in Go (the native language of the simulator). However, it is sometimes the case that a modeler requires modeling constructs and methods that are not built into the repository, and should not be uploaded into a public repository. Anticipating this, we designed the architecture of **pces** to support straightforward integration of modeling extensions that do not require those extensions to be integrated into the public github code base.   This has particular application in contexts where the modeler wishes to study systems whose representation in **pces** needs to be protected, for intellectual property and/or security reasons.
 
-This document shows how to extend **pces** in three ways.   Their separation from the github repository are all based on the requirement that the code whose execution starts the simulation be in a 'module' called 'main' whose component files can come from anywhere.  Some of the separation techniques are made possible also by Go's architecture which lets modules import modules from a number of different places, including the user's own file directory.  
+This document shows how to extend **pces** in three ways, and **mrnes** in one way.   Their separation from the github repository are all based on the requirement that the code whose execution starts the simulation be in a 'module' called 'main' whose component files can come from anywhere.  Some of the separation techniques are made possible also by Go's architecture which lets modules import modules from a number of different places, including the user's own file directory.  
 
 The first technique is to customize the set-up and tear-down methods called at the beginning and end of a simulation run.   Example models posted to github.com/iti/pcesapps have instances of these functions to serve as templates.  The example we discuss in this document changes the default set-up function to schedule at start-up the initiation of multiple execution threads, treated as a Poisson arrival process, for the purpose of observing the impact that inherent queueing has on the end-to-end round-trip times.   The default set-up in *github.com/iti/pcesapps/embedded* schedules only one round-trip per traffic source, so the extension illustrates both the integration of random sampling, and a different strategy for launching execution threads.   This first type of extension requires some addition of Go code whose execution is already built into the **pces** process, and no other modifications.
 
 The second technique we demonstrate shows how a user can extend the set of command line arguments beyond the 'built-in' ones baked into *github.com/iti/pces/sim.go*, to include additional ones required by the modeler.  Like the first technique, this requires writing some Go code, but there is no needed to modify the state of the simulator defined by and initialized by code in *github.com/iti/pces* or  *github.com/iti/mrnes*. 
 
 The third technique leverages the **pces** design that the "response method" called to handle the arrival of a message to a function is the result of a table lookup, whose index is completely determined by the message type of the message.   The modeler can create their own response methods, giving them complete control over what happens in response, how long the response takes,  and the messages that result from the response.  It is straightforward to register the user-written response method within the **pces** core so that the method is called when the appropriate message type is observed.   The example we use to illustrate this technique creates a version of the server function (in the *srvRsp* class) where the service is provided to multiple clients, with the 'shortest-job-first-preemptive-resume' queueing discipline, which is not already offered by **pces**.
+
+The fourth technique enables a modeler to include the effects of bespoke computations that might be associated with switching or routing a message.  In this it resembles the third method, in that it is designed to allow a modeler to specify code provided by the modeler to be call when simulating a switch or routing event.
 
 ##### 1. Extension by customized set-up / tear-down subroutine
 
@@ -620,3 +622,176 @@ The last step, on line 33, is to schedule an execution of the event-handler *pce
 
 The user-defined response method *finishRepeat*() is a bit more complex, because unlike *finishRepeat()*, the timing of the final release from service of an arriving request is not known at the instant of the request.   At the time of an arrival, if the arriving job goes immediately into service we know when it will leave service provided that no job arrives that preempts it, schedule that event, but also retain a tag the event scheduler returns.   If an arriving job preempts the one in service, we use the tag to cancel the scheduled completion event and then schedule a new 'job completes service' event.   When a job does actually leave service, *finishRepeat()* copies the code the default logic for *srvRsp* functions uses to return the message to its sender (which involves copying particular fields of the message into its destination fields, refer to the code in *github.iti/pcesapps/userresponse/exp.go* for details).
 
+##### 4. Extension by user developed models of switch and routing costs
+
+Ordinarily when a message passes through a switch or a router, a delay cost of its passage between ingress and egress interfaces is looked up from a table, a cost that depends on the model of the device and the length of the message.   Just as computation functions have labels that identify them in similar tables, so may switching and routing actions.   The default action for a switch is, imaginatively called, 'switch', and the default action for a router in 'route'.
+
+However, we have encountered contexts where technology we wish to model assumes that switches and/or routers have additional functions, e.g., computing a hash and extending message's frame by the addition of the hash, or adding some kind of other meta-data to the message, or *checking* that a received message has certain tags or can be seen to have passed certain tests.    Given the broad generality of the kinds of applications one might envision, we have approached the problem of supporting it by providing a somewhat general framework in which these specialized functions might be embedded.
+
+We want to provide a modeler with the ability to both execute some bespoke code as part of a switch or route operation, and to ascribe a cost to that operation that may be different from the default model.   We approach this by allowing a modeler to define different label to identify the operation, an 'operation code' and use that code in two tables.  The operation code indexes a dictionary which yields a function to apply to model the message's passage through the device, and the same code may index a different dictionary which gives simulation delays to apply when simulating that passage.
+
+Every switch and router has its own function dictionary.  These is a field
+
+```
+ DevExecOpTbl map[string]OpMethod
+```
+
+in the 'switchState' and 'routerState' structure definitions.  Here OpMethod is the function signature
+
+```
+type OpMethod func(TopoDev, string, *NetworkMsg) float64
+```
+
+where 'TopoDev' names a Go interface to network devices (that include switches and routers) and from which one can acquire the device's name, method, and other common attributes.   The string argument is the operation code described immediately above, and the third argument is a pointer to the message being switched or routed.  Functions with this signature are able to read and write all fields of the passed message.
+
+The 'DevExecOpTbl' of a switch or router is first initialized when the topo.yaml input file is read in.   The structs describing a switch and router include a dictionary 'OpDict map[string]string' where the index is a device name and the value is an operation code.   The device name identifies the most recent device a message left.   Exposing this dependence allows us to differentiate between messages that are on different paths but pass through the common router.   Initialization code stores the full OpDict table at the device, but also initializes the device's 'DevExecOpTbl' table by creating a dictionary entry indexed by the operation code, but with a value of 'nil'.     Later, when user-written per-simulation code is run, that code can explicitly overwrite the nil pointer with a call
+
+```
+func (swtch *switchDev) AddDevExecOp(op string, opFunc OpMethod) {
+    swtch.SwitchState.DevExecOpTbl[op] = opFunc
+}   
+```
+
+for switches, and
+
+```
+func (router *routerDev) AddDevExecOp(op string, opFunc OpMethod) {
+    router.RouterState.DevExecOpTbl[op] = opFunc
+}   
+```
+
+for routers.  The 'opFunc' argument is the name of a function provided by the modeler.
+
+Now we consider the logic behind selecting one of these functions.
+
+A NetworkMsg carries a dictionary MetaData
+
+```
+    MetaData       map[string]any
+```
+
+The index into MetaData can be anything, but the logic of choosing a method to model switching or routing includes the possibility that index string being an operation code.   The MetaData dictionary, the 'OpDict' dictionary and 'DevExecOpTbl' dictionary of the device all play a role in determining what to do to model a device operation.    
+
+To account for the passage of time for performing the op, in all cases the call to DevDelay is made:
+
+```
+    // get the delay through the device
+    delay := device.DevDelay(&nmbody) 
+```
+
+Here 'nmbody' is a variable of type NetworkMsg.  Note that DevDelay is a method associated with an instance of a TopoDev, which may be either switch or router.
+
+```
+1674 func (swtch *switchDev) DevDelay(msg *NetworkMsg) float64 {
+1675     // if the switch doesn't do anything non-default just do the default switch
+1676     if len(swtch.SwitchState.DevExecOpTbl) == 0 {
+1677         return DelayThruDevice(swtch.SwitchModel, DefaultSwitchOp, msg.MsgLen)
+1678     }
+1679 
+1680     // look for a match in the keys of the message metadata dictionary and
+1681     // keys in the switch DevExecOpTbl.  On a match, call the function in the table
+1682     // and pass to it the meta data
+1683     for metaKey := range msg.MetaData {
+1684         opFunc, present := swtch.SwitchState.DevExecOpTbl[metaKey]
+1685         if present {
+1686 
+1687             // see if the function is actually the empty one, meaning its not there
+1688             if opFunc == nil {
+1689                 panic(fmt.Errorf("in switch %s dev op %s lacking user-provided instantiation", 
+1690                     swtch.SwitchName, metaKey))
+1691             }
+1692             return opFunc(swtch, metaKey, msg)
+1693         }
+1694     }
+1695 
+1696     // didn't find a match, so see if there is a default operation listed for traffic
+1697     // from the previous device
+1698     msgSrcName := prevDeviceName(msg)
+1699     defaultOp, present := swtch.SwitchState.DefaultOp[msgSrcName]
+1700     if present {
+1701         opFunc := swtch.SwitchState.DevExecOpTbl[defaultOp]
+1702         if opFunc == nil {
+1703             panic(fmt.Errorf("in switch %s dev op %s lacking user-provided instantiation", 
+1704                 swtch.SwitchName, defaultOp))
+1705         }
+1706         return opFunc(swtch, defaultOp, msg)
+1707     }
+1708     // no user-defined default listed, so use system default
+1709     return DelayThruDevice(swtch.SwitchModel, DefaultSwitchOp, msg.MsgLen)
+1710 }
+```
+
+First we check (line 1676) whether the device has any bespoke passage code at all.   If not we call the function that takes the operation code (here the default operation code for switching), the device model, and the message length, and returns the passage delay.   If there are bespoke operations specified, lines 1683-1694 look for any match between the keys into the messages MetaData dictionary, and the device's DevExecOpTbl dictionary.  Remembering that in the case of the DevExecOpTbl the key is an operation code, we see that if there is a match then in line 1684 we use the matching key (an operation code) to look up the function the device wishes to use to model the passage, given that operation code. However, If that function pointer is nil it means that the user specified the operation code in the device's OpDict dictionary at initialization, but did not follow through to set the function through a call to AddDevExecOp, which is an error condition.   If the function pointer is not nil, then at line 1692 we call the function, passing to it the identity of the device, the operation code, and a pointer to the message.
+
+Control passes through to line 1698 when DevExecOpTbl is non-empty, and there is no match with keys in the msg's MetaData dictionary.   For example, the MetaData dictionary may be empty.   In this case we transition to logic that looks for specification of a user-defined default operation.  Here we allow the default operation to depend on the name of the last device the message passed through before the current one,  giving us the option to tailor the default action depending on the direction of travel the message is taking through the device.  So in line 1698 we call a function to get the name of the previous device, and in line 1699 look to see if the user configured the device to have a bespoke default for messages coming from the previous device.   The expectation is that if the user configured the device to have a default operation code then the user should have ensured that a method was associated with that code, and so failure to do so produces a termination at line 1703.   If on the other hand a function is found to be associated with the default operation code, it is called on line 1706.  
+
+Finally, it may happen that DevExecOpTbl is non-empty, but there is no bespoke default operation code specified for messages coming from the previous device.   This just means that whatever is in the DevExecOpTbl dictionary is meant for messages coming from different previous devices, and so the proper thing to do is to just call the stock function DelayThruDevice, just as if DevExecOpTbl was empty.
+
+The calling of a declared default operation code on recent of a message with no MetaData is a key component of the design, for we need a way to allow a user to have their code introduce MetaData to a message that does not have any.   We approached the design with the objective of making its components self-contained,  and not dependent on any specific constructs in **pces**. So then, given that NetworkMsg's are initially introduced when **pces** requires information to be transmitted across a network, and owing to this separation **pces** does not itself introduce MetaData, it needs to be introduced within the context of messages traversing **mrnes** devices.    So the **mrnes** modeler can configure a switch or router to look up and execute a bespoke handler that depends (through its OpDict dictionary) on topology---the device visited most recently before the current one. 
+
+These points are illustrated by an example.
+
+###### Example
+
+Consider the topology associated with the Flows application,  displayed (again) below.
+
+<img src="./images/flow-meta.png" alt="flow-meta" style="zoom:50%;" />
+
+The application layer generates traffic from the client to the server (and back, but the return trip is not illustrated).  It also may model flows or generate discrete messages traveling from WE_src to WE_dst.
+
+We will customize the networking associated with this traffic by introducing a bespoke switching function for the transfer of messages in hubWest coming from client---a function that will mark the message's MetaData with a tag "client", and messages coming from WE_src  with a tag "WE_src".  We will also introduce a bespoke function for the transfer of messages coming into hubEast from 'rtr'.   This latter function looks for message MetaData that is *either* "client" or "WE_src", and reports an error otherwise.
+
+To start, we embed in the xlsxPCES  model specification that ties traffic from client, WE_src, and rtr to default operation codes.
+
+![opdict-xlsx](/Users/nicol/Dropbox/github-repos/pcesapps/docs/images/opdict-xlsx.png)
+
+Here we see that traffic from client is bound to operation code 'outputClient', traffic from WE_src is bound to 'outboundWE', and traffic from rtr is bound to 'checkSrc'.     Now the user has to provide code that binds these operation codes to methods that are called as part of switching.   In the Flows application we have already user-provided methods in flows/sim-dir/main/exp.go that are called as part of startup.  To routine 'extendSetup()' (which is called by routine 'ExpCntrl', which is called as a part of simulation setup) we add
+
+```
+    // include functions for bespoke switch delays
+    hubWest := mrnes.SwitchDevByName["hubWest"]
+    hubWest.AddDevExecOp("outboundClient", outboundClientFunc)
+    hubWest.AddDevExecOp("outboundWE", outboundWEFunc)
+
+    hubEast := mrnes.SwitchDevByName["hubEast"]
+    hubEast.AddDevExecOp("checkSrc", checkSrcFunc)
+```
+
+ which reference bespoke functions 'outboundClientFunct', 'outboundWEFunc', and 'checkSrcFunc'.   These are defined elsewhere in exp.go as
+
+```
+// tag the MetaData in msg with 'client'
+func outboundClientFunc(dev mrnes.TopoDev, metaKey string, msg *mrnes.NetworkMsg) float64 {
+    msg.MetaData["source"] = true
+    return mrnes.DelayThruDevice(dev.DevModel(), mrnes.DefaultSwitchOp, msg.MsgLen)
+}
+
+// tag the MetaData in msg with 'WE_src'
+func outboundWEFunc(dev mrnes.TopoDev, metaKey string, msg *mrnes.NetworkMsg) float64 {
+    msg.MetaData["WE_src"] = true
+    return mrnes.DelayThruDevice(dev.DevModel(), mrnes.DefaultSwitchOp, msg.MsgLen)
+}
+
+func checkSrcFunc(dev mrnes.TopoDev, metaKey string, msg *mrnes.NetworkMsg) float64 {
+    // complain if the msg does not have 'source' meta data
+    _, presents := msg.MetaData["source"]
+    _, presentf := msg.MetaData["WE_src"]
+
+    if !presents && !presentf {
+        fmt.Printf("unexpected message seen at %s\n", dev.DevName())
+    }
+
+    if presents {
+        delete(msg.MetaData,"source")
+    }
+
+    if presentf {
+        delete(msg.MetaData,"WE_src")
+    }
+    return mrnes.DelayThruDevice(dev.DevModel(), mrnes.DefaultSwitchOp, msg.MsgLen)
+}
+```
+
+Here we see that the functions called for hubWest are simply tagging the message's MetaData, and calling the normal function to compute (and return) the passage delay.   Any other means of computing a passage delay might have been introduced, the key thing is that all of these bespoke functions return a real number, in units of seconds, that is taken to be the time lapse between when the message leaves the ingress interface and joins a queue at the egress interface.
+
+'checkSrcFunc' is different.   It's job is just to look at the message's MetaData and see whether there is evidence that the message came from expected sources.   If not a warning is raised.   Finally, as there is no further need for these two pieces of MetaData after the check, those tags are erased.   This is not rigorously necessary for this example, but is included just to make the point that in more complex examples it might be desirable.   MetaData exists only at the **mrnes** level, the MetaData on a NetworkMsg is not copied to the application layer message in **pces** that takes the baton on arrival.

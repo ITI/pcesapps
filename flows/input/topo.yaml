@@ -93,16 +93,16 @@ flows:
 - dstdev: WE_dst
   framesize: 1000
   groups: []
-  mode: pckt
+  mode: inelastic-flow
   name: flowWE
-  reqrate: 80.0
+  reqrate: 10.0
   srcdev: WE_src
 - dstdev: EW_dst
   framesize: 1000
   groups: []
-  mode: pckt
+  mode: inelastic-flow
   name: flowEW
-  reqrate: 80.0
+  reqrate: 10.0
   srcdev: EW_src
 name: main
 networks:
@@ -153,6 +153,7 @@ routers:
     wireless: []
   model: Cisco ASA 1
   name: rtr
+  opdict: {}
 switches:
 - groups: []
   interfaces:
@@ -194,6 +195,8 @@ switches:
     wireless: []
   model: Netgear GS324T
   name: hubWest
+  opdict:
+    client: outboundClient
 - groups: []
   interfaces:
   - cable: intrfc@rtr-hubEast
@@ -234,3 +237,5 @@ switches:
     wireless: []
   model: Netgear GS324T
   name: hubEast
+  opdict:
+    rtr: checkSrc

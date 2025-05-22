@@ -19,6 +19,40 @@ func interArrival(lambda float64) float64 {
 
 var SaveLambda map[int]float64
 
+// tag the MetaData in msg with 'client'
+func outboundClientFunc(dev mrnes.TopoDev, metaKey string, msg *mrnes.NetworkMsg) float64 {
+	msg.MetaData["source"] = true
+	return mrnes.DelayThruDevice(dev.DevModel(), mrnes.DefaultSwitchOp, msg.MsgLen)
+}
+
+// tag the MetaData in msg with 'WE_src'
+func outboundWEFunc(dev mrnes.TopoDev, metaKey string, msg *mrnes.NetworkMsg) float64 {
+	msg.MetaData["WE_src"] = true
+	return mrnes.DelayThruDevice(dev.DevModel(), mrnes.DefaultSwitchOp, msg.MsgLen)
+}
+
+func checkSrcFunc(dev mrnes.TopoDev, metaKey string, msg *mrnes.NetworkMsg) float64 {
+	// complain if the msg does not have 'source' meta data
+	_, presents := msg.MetaData["source"]
+	_, presentf := msg.MetaData["WE_src"]
+
+	if !presents && !presentf {
+		fmt.Printf("unexpected message seen at %s\n", dev.DevName())	
+	}
+
+	if presents {
+		delete(msg.MetaData,"source")
+	}
+
+	if presentf {
+		delete(msg.MetaData,"WE_src")
+	}
+	return mrnes.DelayThruDevice(dev.DevModel(), mrnes.DefaultSwitchOp, msg.MsgLen)
+}
+
+
+
+
 // user extension of core methods for srvRsp and finish function classes
 func extendSetup() {
     // visit every CmpPtn
@@ -34,7 +68,15 @@ func extendSetup() {
 				}
 			}
 		}
-	}   
+	}
+
+	// include functions for bespoke switch delays
+	hubWest := mrnes.SwitchDevByName["hubWest"]
+	hubWest.AddDevExecOp("outboundClient", outboundClientFunc)
+	hubWest.AddDevExecOp("outboundWE", outboundWEFunc)
+
+	hubEast := mrnes.SwitchDevByName["hubEast"]
+	hubEast.AddDevExecOp("checkSrc", checkSrcFunc)
 }
 
 // CPClassify returns the CmpPtn name of execution thread source
