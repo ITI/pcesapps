@@ -104,15 +104,20 @@ def main():
     sheet2Files = {}
     sheet2Files['cp'] = ['cp.yaml', 'cpInit.yaml']
     sheet2Files['topo'] = ['topo.yaml']
-    sheet2Files['execTime'] = ['funcExec.yaml', 'devExec.yaml']
-    sheet2Files['mapping'] = ['map.yaml']
+    sheet2Files['exectime'] = ['funcExec.yaml', 'devExec.yaml']
+    sheet2Files['mapping'] = ['mapping.yaml']
     sheet2Files['netParams'] = ['exp.yaml']
     sheet2Files['experiments'] = ['experiments.yaml']
+    sheet2Files['ipmap'] = ['ipmap.yaml']
+
     sheetNames = sorted(list(sheet2Files.keys()))
 
-
-    for _, fList in sheet2Files.items():
+    for sheet, fList in sheet2Files.items():
+        # skip sheets not required
+        if sheet in ('ipmap'):
+            continue
         for fileName in fList:
+            # skip files that do not have to be present
             filePath = os.path.join(templateDir, fileName)
             if not os.path.isfile(filePath):
                 print('expected file {} does not exist in templates directory'.format(filePath))
@@ -149,7 +154,7 @@ def main():
             wf.write('-exprmnt {}\n'.format(exprmntName))
 
             tagPairs = [('-inputLib', inputDir), ('-outputLib', outputDir), ('-cp', 'cp.yaml'), ('-cpInit', 'cpInit.yaml'),
-                    ('-funcExec', 'funcExec.yaml'), ('-devExec', 'devExec.yaml'), ('-exp', 'exp.yaml'),('-map', 'map.yaml'),
+                    ('-funcExec', 'funcExec.yaml'), ('-devExec', 'devExec.yaml'), ('-exp', 'exp.yaml'),('-mapping', 'mapping.yaml'),
                         ('-topo', 'topo.yaml'), ('-csv', 'results.csv'),  ('-experiments', 'experiments.yaml')]
             
             if containerTag is not None:
@@ -173,7 +178,7 @@ def main():
                     continue
                 elif pieces[0] == '-devExec':
                     continue
-                elif pieces[0] == '-map':
+                elif pieces[0] == '-mapping':
                     continue 
                 elif pieces[0] == '-exp':
                     continue

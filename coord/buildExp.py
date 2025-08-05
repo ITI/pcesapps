@@ -43,10 +43,20 @@ def buildxlsxArgs(name, xpenv, xlsxDir):
         if not os.path.isdir(dirName):
             # make one
             os.mkdir(dirName)
+        elif directory != 'args' :
+            # ensure that working, descDir, csvDir, and templateDir are empty
+            for filename in os.listdir(dirName):
+                filepath = os.path.join(dirName, filename)
+                if os.path.isfile(filepath):
+                    try:
+                        os.remove(filepath)
+                    except OSError as e:
+                        print(f"Error removing {filepath}: {e}")
+
 
     # create base argument files for convert scripts
     argsDir = os.path.join(xlsxDir, 'args')
-    sheets = ('cp', 'exec', 'experiments', 'map', 'netparams', 'topo')
+    sheets = ('cp', 'exectime', 'experiments', 'mapping', 'netparams', 'topo', 'ipmap')
 
     for sheet in sheets:
         with open(os.path.join(argsDir, 'args-{}'.format(sheet)),'w') as wf:
@@ -59,7 +69,7 @@ def buildxlsxArgs(name, xpenv, xlsxDir):
                 print('-funcsDescOut funcs.json', file=wf)
                 print('-cmpptn cp.yaml', file=wf)
                 print('-cpInit cpInit.yaml', file=wf)
-            elif sheet=='exec':
+            elif sheet=='exectime':
                 print('-name {}'.format(name), file=wf)
                 print('-csvIn execTime-sheet.csv', file=wf)
                 print('-cpuOpsDescOut cpuOps.json', file=wf)
@@ -70,14 +80,14 @@ def buildxlsxArgs(name, xpenv, xlsxDir):
                 print('-name {}'.format(name), file=wf)
                 print('-csvIn experiments-sheet.csv', file=wf)
                 print('-experiments experiments.yaml', file=wf)
-            elif sheet=='map':
+            elif sheet=='mapping':
                 print('-name {}'.format(name), file=wf)
                 print('-csvIn mapping-sheet.csv', file=wf)
                 print('-funcsDesc funcs.json', file=wf)
                 print('-cpuDesc cpuDesc.json', file=wf)
                 print('-cpuOpsDesc cpuOps.json', file=wf)
                 print('-tcDesc tc.json', file=wf)
-                print('-map map.yaml', file=wf)
+                print('-mapping mapping.yaml', file=wf)
             elif sheet=='netparams':
                 print('-name {}'.format(name), file=wf)
                 print('-name embed', file=wf)
@@ -92,7 +102,12 @@ def buildxlsxArgs(name, xpenv, xlsxDir):
                 print('-modelDescIn devModel.json', file=wf)
                 print('-cpuDescOut cpuDesc.json', file=wf)
                 print('-attrbDescOut attrb.json', file=wf)
-
+            elif sheet=='ipmap':
+                print('-name {}'.format(name), file=wf)
+                print('-csvIn ipmap-sheet.csv', file=wf)
+                print('-ip ipmap.yaml', file=wf)  
+                print('-attrbDescIn attrb.json', file=wf)
+                print('-feedDescOut feedDesc.json', file=wf)
 
 def main():
 
@@ -351,8 +366,8 @@ def main():
             exit(1)
      
         # now ensure that all the conversion scripts we need in convert are present
-        # these are convert-cp.py, convert-exec.py, convert-experiments.py, convert-map.py, convert-netparams.py, convert-topo.py
-        sheets = ('cp', 'exec', 'experiments', 'map', 'netparams', 'topo')
+        # these are convert-cp.py, convert-exectime.py, convert-experiments.py, convert-mapping.py, convert-netparams.py, convert-topo.py
+        sheets = ('cp', 'exectime', 'experiments', 'mapping', 'netparams', 'topo', 'ipmap')
         scripts = []
         for sheet in sheets:
             scripts.append( os.path.join(convertDir, 'convert-{}.py'.format(sheet) ))
@@ -390,7 +405,8 @@ def main():
         stdout, stderr = process.communicate()
 
         if process.returncode != 0:
-            print("Error running xlsxPCES")
+            print('Error running xlsxPCES {}, {}'.format(process.returncode, stdout))
+
             if len(stderr) > 0:
                 print(stderr)
             exit(1)

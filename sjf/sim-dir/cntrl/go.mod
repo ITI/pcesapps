@@ -8,9 +8,9 @@ replace local/cntrl => ../cntrl
 
 require (
 	github.com/iti/cmdline v0.1.2
-	github.com/iti/evt v0.1.6
-	github.com/iti/mrnes v0.0.25
-	github.com/iti/pces v0.0.26
+	github.com/iti/evt v0.1.7
+	github.com/iti/mrnes v0.1.1
+	github.com/iti/pces v0.1.1
 	local/sjf v0.0.0-00010101000000-000000000000
 )
 
