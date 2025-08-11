@@ -1,6 +1,6 @@
 ### **pces** application repository
 
-(latest update May 17, 2025)
+(latest update August 10, 2025)
 
 #### Overview
 
@@ -11,6 +11,7 @@ The repository *github.com/iti/pcesapps* provides examples of **pces** applicati
 - "End User Devices (EUDs)" illustrates how a user can integrate custom code to direct messages to randomly selected destinations, each of which has a different processing overhead, and measure the average end-to-end latency depending on the end user device chosen.
 - "SJF" constructs a completely different system from the first three, and is constructed to show how other ways that user-written pieces of the system model can be integrated into a **pces** model.  As with the EUDs application,  this capability is highlighted in anticipation of users needing to keep models and code separate from public repositories such as github.
 - "Flows" introduces the concept of traffic flows, as a vehicle to represent heavy traffic loads efficiently.
+- "AS" shows how to include PCAP packets into the simulator, and how to add function costs for bespoke function costs on devices like routers and switches. 
 
 Before getting into the details of each model we first describe the layout of the *pcesapps* repository, and the scripts it provides to build models, and to execute them.
 
@@ -1019,5 +1020,57 @@ The egress interface from hubWest to rtr will be presented with asynchronous tra
 
 <img src="./images/flows-results.csv.png" alt="flows-results.csv" style="zoom:60%;" />
 
-Illustrate the performance gain of the bit-rate model we also include in the last column the number of discrete events that were executed by the simulator to establish the reported results.  Here we see that the number of events executed by the bit-rate model remains relatively constant as \$Lambda grows, but (of course) the event count for the packet model grows in proportation to \$Lambda, and in all cases is significantly larger than the event count for the bit-rate model, ranging from x2.5 at \$Lambda==10 to x12.5 at \$Lambda==80.
+Illustrate the performance gain of the bit-rate model we also include in the last column the number of discrete events that were executed by the simulator to establish the reported results.  Here we see that the number of events executed by the bit-rate model remains relatively constant as \$Lambda grows, but (of course) the event count for the packet model grows in proportation to \$Lambda$, and in all cases is significantly larger than the event count for the bit-rate model, ranging from x2.5 at \$Lambda==10 to x12.5 at \$Lambda==80.
+
+#### AS Topo Application
+
+The AS topo application is included to highlight two features of **pces/mrnes** we've not yet highlighted.   Figure 21 below illustrates the network topology, and the computational pattern that is mapped to it.
+
+<img src="./images/as-topo.png" alt="simple-flows-diagram" style="zoom:80%;" />
+
+***Figure 21: AS Topo application***
+
+In this model PCAP packets are introduced into the model.   The configuration we outline below specifies that a file of PCAP packets be read, and introduced at interfaces have have IP addresses corresponding to the source IP addresses of the packets.  In this particular model all of the packets have the same source IP address and they all have the same destination IP address.  The configuration specifies that the source IP is bound to PC_C's interface and the destination IP is bound to PC_A's interface.  Packets from this feed are introduced into the model at PC_C, at simulation times derived from the times on the PCAP packets themselves, and the transition across the network to PC_A is simulated like any other packet in the simulation would be. Upon receipt of a PCAP packet at the PC_A interface the computational function 'Start' triggers an execution of the CmpPtn 'LongestFlow'. 
+
+The topology includes five routers.  Router rtr69 is highlighted to point out that it includes additional hardware that selectively performs some computation on a packet.  The CmpPtn 'LongestFlow' looks like others we have already seen, but with the addition of two new functions, one labeled 'mark', the other labeled 'unmark.'   Both functions are of the 'metadata' class.  'mark' includes a metadata variable named 'compute' (with value 'hash') that is attached to the message traversing the CmpPtn message and is included with the **mrnes** message traveling from the source PC_A to destination PC_B across the network.   As that message passes through rtr69, the router recognizes the meta data variable as one it is programmed to react to, and delays passage of the packet to account for the additional processing being modeled.  Leaving rtr69  the message continues to carry the same metadata, but on reaching PC_B and executing function 'unmark' that metadata variable is removed.  This means that when the message passes through 'analyzePckt' and returns to PC_A, on passing through rtr69 again no additional processing is modeled.
+
+This model also includes specification of a background flow originating in PC_D and directed through the network to PC_B2.  This flow may impact packets sent from PC_A to PC_B, but only at the egress interface of rtr14.  Thereafter packets that the flow represents would be interleaved through queueing with packets from PC_A at rtr14.
+
+Let us now examine pieces of the xlsx description that relate to the newly introduced functionality.   The 'topo' sheet is standard, it describes the devices and their interconnections, and the flow just as we have done in other examples.
+
+We do not require that IP addresses contained within the simulation model match exactly to IP addresses found on the PCAP packets that are introduced. So instead, assuming that some external analysis of the PCAP source identifies all the IP headers that might possibly be carried into the simulator, we use the 'ipmap' sheet to describe the mapping from the external IP addresses to what they correspond to in the simulation model.  The 'ipmap' sheet from this example is given below.
+
+![as-topo-ipmap](./images/as-topo-ipmap.png)
+
+The Device block associates expected external IP addresses with the interface and its IP address that represent it.   We identify the interface by specifying the device that hosts it, and the network it faces.   A result of processing this information as the model is built is that that interface is found in the model (it is an error if that interface doesn't exist) and the given internal IP address is assigned to it.
+
+The Network block associates external and internal CIDR blocks associated with a network in the model.    Such mappings are not needed in this example.
+
+The Feed block describes how PCAP packets can be introduced into the model.  This example has only one feed, in general there may be multiple feeds.   The 'active' column enables one to toggle a feed on or off between experiments.   The 'src type' indicates whether the PCAP packets are delivered by reading a file, reading them from a socket declared as a Unix-file, or through a network socket.  The 'src spec' column gives the PCAP file name for the first source type, the (absolute) Unix file name for the second source type (a file that is accessible both to the process that writes packets to file and the simulator that reads them), and gives the port number on the simulator's host in the case of the third source type.
+
+The 'time', 'dilation factor' and 'first arrival' columns describe how to translate times contained in an arriving PCAP packet into virtual simulation times.    It is, (well, actually, will be shortly) possible to run the simulator in real-time, meaning that the simulation clock advance is directly tied to wallclock time advance, and the virtual time given to an arriving PCAP packet is the virtual time of the simulator at the wallclock instant of arrival.   One selects the code 'clock' in the 'time' column for this option.  Otherwise the 'packet' option is expected, which means that time-stamps associated with the PCAP packet are transformed into virtual times.
+
+PCAP packet times are (after a tiny bit of preprocessing before delivery to the simulator) in units of microseconds in the Unix epoch, time zero being midnight of Jan 1, 1970. The value in the 'first arrival' column specifies the virtual time to be given to the first packet that arrives in the feed.   The time stamps of a subsequent arrival is obtained by computing how long after the first packet it arrives, scaling that by multiplying this difference by the dilation factor given in the 'dilation' column, and adding that to the virtual arrival time of the first packet.  Thus the virtual time of a packet is a linear transformation of the time of its measurement.
+
+The 'cp' sheet references two new function classes 'feed', and 'metadata' declared in the Patterns block of that sheet.
+
+![as-topo-cp-patterns](./images/as-topo-cp-patterns.png)
+
+The 'start' function has class 'feed', designed to start execution on receipt of a packet introduced by a PCAP source.   The 'mark' and 'unmark' functions have class 'metadata', and serve to modify a meta data dictionary that can be applied to a CmpPtn message, and be visible at the **mrnes** layer as a network packet supporting communication between CmpPtn functions is carried.
+
+Details about what these functions are configured to do are specified in the function's initialization blocks.
+
+![as-topo-cp-init](.//images/as-topo-cp-init.png)
+
+We initialize the 'start' function with specification of the PCAP feed that it accepts.  Here we specify requirements on the IP header of PCAP packets to be delivered to this function.  Both an IP address and port number are given in the string of the form "IP:port".   The IP number is one that should appear in the 'internal IP' column of the 'ipmap' sheet.  For both IP and port number we allow a wildcard specification "*", with one exception, the IP address given for the destination IP cannot be a wildcard.   For a PCAP sourced packet to be delivered to the function, the IP header of that packet must match the specifications in this table whenever the specification is not a wildcard.   For the configuration shown that means that every PCAP packet whose destination IP maps to the simulation's IP address of 10.0.1.2.   Together with the information from the 'ipmap', this means that every PCAP packet that is introduced whose native destination IP address is 192.68.66.34 will be accepted at device PC_A and delivered to LongestFlow's 'start' function.
+
+Another feature of **mrnes/pces** modeling is illustrated in this example.   We were motivated by a use case where certain packets receive specialized processing in routers, which adds latency, and may also lower throughput.   We need to have a way of specifying which packets are to receive this processing,  and which devices provide it.   We do this by associating with each CmpPtn and each network message a dictionary that maps strings to strings.   We call this meta data.  We need a way of introducing meta data to selected packets, and a way of recognizing the packets and including the added processing cost.  The 'metadata' function class is included to enable a modeler to add or delete meta data on CmpPtn messages that pass through it.  The initialization for this function includes a list of strings (in the 'remove' column), and a mapping from meta data key values (in the 'meta data name' column) to values (in the corresponding 'meta data value' column).   Entering a function of the metadata class, the message's meta data dictionary is stripped of entries whose name value appears in the 'remove' list, and then adds the names and corresponding values specified in the add dictionary.    When a CmpPtn message is carried through the network that dictionary is visable to network devices.
+
+The meta data name 'compute' is one that **mrnes/pces** recognizes without further user specification.
+
+We specify the devices that provide additional computation and the cost of that computation in the 'execTime' sheet.
+
+![as-topo-execTime](./images/as-topo-execTime.png)
+
+The addition to examples we've seen before is the 'Function' block.   These specify the meta data names on packets passing through a device that trigger added delay costs.   Just as operation and function costs depend on the device model and packet length, so too do the additional function costs.  In this example only rtr69 is intended to apply those functions, and so we give it a model type that is unique, here, 'Cisco ASR extended'.  In any case it makes sense to assume that devices with this additional capability are different and have a different model specification.
 

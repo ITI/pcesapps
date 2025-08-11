@@ -1,4 +1,4 @@
--exprmnt exp-15
+-exprmnt exp-1
 -inputLib ./input
 -outputLib ./output
 -cp cp.yaml
@@ -14,4 +14,3 @@
 -trace trace.yaml
 -rngseed 123456
 -tunits msec
--stop 10.0

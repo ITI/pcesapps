@@ -1,0 +1,7 @@
+-templates ./templates
+-input ./input
+-output ./output
+-sim ./sim-dir
+-name as
+#-container pces/apptemplate
+#-extern ./

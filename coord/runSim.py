@@ -155,8 +155,9 @@ def main():
 
             tagPairs = [('-inputLib', inputDir), ('-outputLib', outputDir), ('-cp', 'cp.yaml'), ('-cpInit', 'cpInit.yaml'),
                     ('-funcExec', 'funcExec.yaml'), ('-devExec', 'devExec.yaml'), ('-exp', 'exp.yaml'),('-mapping', 'mapping.yaml'),
-                        ('-topo', 'topo.yaml'), ('-csv', 'results.csv'),  ('-experiments', 'experiments.yaml')]
-            
+                        ('-topo', 'topo.yaml'), ('-csv', 'results.csv'),  ('-experiments', 'experiments.yaml'), ('-ipmap', 'ipmap.yaml')]
+           
+ 
             if containerTag is not None:
                 tagPairs.append(('-container', ''))
 
@@ -187,6 +188,8 @@ def main():
                 elif pieces[0] == 'inputLib':
                     continue
                 elif pieces[0] == 'outputLib':
+                    continue
+                elif pieces[0] == 'ipmap':
                     continue
                 else:      
                     wf.write(line)

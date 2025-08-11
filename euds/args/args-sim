@@ -6,7 +6,7 @@
 -funcExec funcExec.yaml
 -devExec devExec.yaml
 -exp exp.yaml
--map map.yaml
+-mapping mapping.yaml
 -topo topo.yaml
 -csv results.csv
 -experiments experiments.yaml
