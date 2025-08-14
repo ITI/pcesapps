@@ -94,6 +94,7 @@ def buildxlsxArgs(name, xpenv, xlsxDir):
                 print('-csvIn netParams-sheet.csv', file=wf)
                 print('-exp exp.yaml', file=wf)
                 print('-attrbDescIn attrb.json', file=wf)
+                print('-devExecDescIn devExec.json', file=wf)
             elif sheet=='topo':
                 print('-name {}'.format(name), file=wf)
                 print('-name embed', file=wf)
